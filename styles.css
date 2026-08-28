@@ -1,11 +1,13 @@
-/* Memberikan warna latar belakang abu-abu yang lebih gelap di mode terang (Light Mode) */
-[data-bs-theme="light"] body {
-  background-color: #d1d5db;
+/* Mengubah variabel dasar Quarto agar seluruh latar belakang halaman menjadi abu-abu */
+[data-bs-theme="light"] body, 
+[data-bs-theme="light"] .quarto-container {
+  background-color: #d1d5db !important;
 }
 
-/* Membuat area konten utama (tengah) menjadi kotak putih seperti kertas (Card) */
-[data-bs-theme="light"] main {
-  background-color: #ffffff;
+/* Memaksa area konten utama (tengah) menjadi kotak putih seperti kertas (Card) */
+[data-bs-theme="light"] main,
+[data-bs-theme="light"] #quarto-document-content {
+  background-color: #ffffff !important;
   padding: 2.5rem !important;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0,0,0,0.08);
@@ -13,10 +15,12 @@
   margin-bottom: 3rem;
 }
 
-/* Memastikan sidebar juga menyatu dengan background gelap */
+/* Memastikan sidebar kanan dan kiri transparan agar tembus ke background abu-abu */
 [data-bs-theme="light"] #quarto-sidebar,
-[data-bs-theme="light"] #quarto-margin-sidebar {
-  background-color: #d1d5db;
+[data-bs-theme="light"] .sidebar,
+[data-bs-theme="light"] #quarto-margin-sidebar,
+[data-bs-theme="light"] .margin-sidebar {
+  background-color: transparent !important;
 }
 
 /* Di mode gelap (Dark Mode), biarkan bawaan tema Darkly bekerja agar tidak bentrok */

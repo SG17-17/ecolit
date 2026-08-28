@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bc403c6731a1075277054e27d7ab184b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-06dd7cc1fbb91f9f913ac2e1aa786444.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark-c3efc056cb81073ed25de927b4c5627d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-bc403c6731a1075277054e27d7ab184b.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-06dd7cc1fbb91f9f913ac2e1aa786444.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -403,57 +403,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_eid, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.7-2 ended normally after 22 iterations
+<pre><code>lavaan 0.7-2 ended normally after 21 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
   Number of model parameters                        31
 
-  Number of observations                           245
+  Number of observations                           250
 
 Model Test User Model:
                                                       
-  Test statistic                               262.380
+  Test statistic                               259.726
   Degrees of freedom                                74
   P-value (Chi-square)                           0.000
 
 Model Test Baseline Model:
 
-  Test statistic                              1848.956
+  Test statistic                              1895.033
   Degrees of freedom                                91
   P-value                                        0.000
 
 User Model versus Baseline Model:
 
-  Comparative Fit Index (CFI)                    0.893
-  Tucker-Lewis Index (TLI)                       0.868
+  Comparative Fit Index (CFI)                    0.897
+  Tucker-Lewis Index (TLI)                       0.873
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)              -4755.937
-  Loglikelihood unrestricted model (H1)      -4624.747
+  Loglikelihood user model (H0)              -4847.569
+  Loglikelihood unrestricted model (H1)      -4717.706
                                                       
-  Akaike (AIC)                                9573.874
-  Bayesian (BIC)                              9682.413
-  Sample-size adjusted Bayesian (SABIC)       9584.146
+  Akaike (AIC)                                9757.138
+  Bayesian (BIC)                              9866.304
+  Sample-size adjusted Bayesian (SABIC)       9768.031
 
 Root Mean Square Error of Approximation:
 
-  RMSEA                                          0.102
-  90 Percent confidence interval - lower         0.089
-  90 Percent confidence interval - upper         0.115
+  RMSEA                                          0.100
+  90 Percent confidence interval - lower         0.087
+  90 Percent confidence interval - upper         0.114
   P-value H_0: RMSEA &lt;= 0.050                    0.000
-  P-value H_0: RMSEA &gt;= 0.080                    0.996
+  P-value H_0: RMSEA &gt;= 0.080                    0.994
 
 Standardized Root Mean Square Residual:
 
-  SRMR                                           0.065
+  SRMR                                           0.064
 
 Goodness of Fit Index:
 
-  Goodness of Fit Index (GFI)                    0.892
-  90 Percent confidence interval - lower         0.867
-  90 Percent confidence interval - upper         0.915
+  Goodness of Fit Index (GFI)                    0.896
+  90 Percent confidence interval - lower         0.871
+  90 Percent confidence interval - upper         0.918
 
 Parameter Estimates:
 
@@ -464,46 +464,46 @@ Parameter Estimates:
 Latent Variables:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
   EID =~                                                                
-    EID_1             0.882    0.081   10.833    0.000    0.882    0.640
-    EID_2             0.884    0.077   11.514    0.000    0.884    0.670
-    EID_3             0.748    0.065   11.501    0.000    0.748    0.670
-    EID_4             0.934    0.071   13.236    0.000    0.934    0.743
-    EID_5             0.595    0.092    6.444    0.000    0.595    0.410
-    EID_6             0.684    0.068   10.036    0.000    0.684    0.603
-    EID_7             0.672    0.064   10.463    0.000    0.672    0.623
-    EID_8             0.751    0.071   10.541    0.000    0.751    0.626
-    EID_9             1.022    0.084   12.119    0.000    1.022    0.697
-    EID_10            0.792    0.071   11.229    0.000    0.792    0.658
-    EID_11            0.798    0.062   12.838    0.000    0.798    0.729
-    EID_12            0.686    0.066   10.411    0.000    0.686    0.620
-    EID_13            0.983    0.067   14.762    0.000    0.983    0.802
-    EID_14            0.895    0.062   14.449    0.000    0.895    0.790
+    EID_1             0.889    0.080   11.063    0.000    0.889    0.645
+    EID_2             0.887    0.076   11.699    0.000    0.887    0.673
+    EID_3             0.761    0.064   11.818    0.000    0.761    0.679
+    EID_4             0.921    0.070   13.148    0.000    0.921    0.734
+    EID_5             0.570    0.092    6.215    0.000    0.570    0.393
+    EID_6             0.696    0.067   10.316    0.000    0.696    0.611
+    EID_7             0.688    0.064   10.813    0.000    0.688    0.634
+    EID_8             0.753    0.070   10.741    0.000    0.753    0.630
+    EID_9             1.025    0.084   12.262    0.000    1.025    0.697
+    EID_10            0.800    0.070   11.476    0.000    0.800    0.663
+    EID_11            0.806    0.062   13.104    0.000    0.806    0.734
+    EID_12            0.699    0.065   10.723    0.000    0.699    0.630
+    EID_13            0.970    0.066   14.760    0.000    0.970    0.796
+    EID_14            0.900    0.061   14.682    0.000    0.900    0.793
 
 Covariances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
  .EID_7 ~~                                                              
-   .EID_12            0.286    0.054    5.291    0.000    0.286    0.390
+   .EID_12            0.282    0.053    5.328    0.000    0.282    0.390
  .EID_3 ~~                                                              
-   .EID_6             0.211    0.054    3.920    0.000    0.211    0.282
+   .EID_6             0.206    0.053    3.897    0.000    0.206    0.278
  .EID_11 ~~                                                             
-   .EID_13            0.171    0.044    3.880    0.000    0.171    0.312
+   .EID_13            0.168    0.043    3.860    0.000    0.168    0.305
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-   .EID_1             1.124    0.108   10.381    0.000    1.124    0.591
-   .EID_2             0.958    0.093   10.257    0.000    0.958    0.551
-   .EID_3             0.686    0.067   10.237    0.000    0.686    0.551
-   .EID_4             0.708    0.072    9.841    0.000    0.708    0.448
-   .EID_5             1.750    0.161   10.868    0.000    1.750    0.832
-   .EID_6             0.821    0.078   10.475    0.000    0.821    0.637
-   .EID_7             0.713    0.068   10.424    0.000    0.713    0.612
-   .EID_8             0.877    0.084   10.429    0.000    0.877    0.608
-   .EID_9             1.106    0.109   10.130    0.000    1.106    0.514
-   .EID_10            0.823    0.080   10.312    0.000    0.823    0.567
-   .EID_11            0.561    0.057    9.813    0.000    0.561    0.468
-   .EID_12            0.754    0.072   10.432    0.000    0.754    0.615
-   .EID_13            0.536    0.058    9.194    0.000    0.536    0.357
-   .EID_14            0.484    0.051    9.416    0.000    0.484    0.377
+   .EID_1             1.110    0.106   10.474    0.000    1.110    0.584
+   .EID_2             0.949    0.092   10.357    0.000    0.949    0.547
+   .EID_3             0.678    0.066   10.308    0.000    0.678    0.539
+   .EID_4             0.726    0.072   10.017    0.000    0.726    0.461
+   .EID_5             1.778    0.162   11.000    0.000    1.778    0.846
+   .EID_6             0.813    0.077   10.559    0.000    0.813    0.627
+   .EID_7             0.705    0.067   10.496    0.000    0.705    0.598
+   .EID_8             0.862    0.082   10.527    0.000    0.862    0.603
+   .EID_9             1.110    0.108   10.238    0.000    1.110    0.514
+   .EID_10            0.814    0.078   10.400    0.000    0.814    0.560
+   .EID_11            0.555    0.056    9.894    0.000    0.555    0.461
+   .EID_12            0.742    0.071   10.510    0.000    0.742    0.603
+   .EID_13            0.543    0.058    9.370    0.000    0.543    0.366
+   .EID_14            0.480    0.051    9.494    0.000    0.480    0.372
     EID               1.000                               1.000    1.000</code></pre>
 </div>
 <details class="code-fold">
@@ -538,9 +538,9 @@ Table&nbsp;2.1: Reliabilitas Skala EID
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">EID</td>
-<td style="text-align: right;">0.916</td>
-<td style="text-align: right;">0.902</td>
-<td style="text-align: right;">0.441</td>
+<td style="text-align: right;">0.917</td>
+<td style="text-align: right;">0.903</td>
+<td style="text-align: right;">0.443</td>
 </tr>
 </tbody>
 </table>

@@ -22,7 +22,7 @@ book:
 
 format:
   html:
-    page-layout: full
+    css: styles.css
     fontsize: 11pt
     theme:
       light: cosmo

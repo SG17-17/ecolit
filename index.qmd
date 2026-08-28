@@ -12,6 +12,40 @@ library(semTools)
 library(googlesheets4)
 library(knitr)
 library(dplyr)
+library(psych)
+
+# Helper function: Tabel Demografi
+print_demo_table <- function(variabel, labels) {
+    freq <- table(variabel, useNA = "ifany")
+    pct  <- prop.table(freq) * 100
+    display <- sapply(names(freq), function(x) {
+        if (is.na(x)) return("Missing")
+        if (x %in% names(labels)) return(labels[[x]])
+        return(x)
+    })
+    data.frame(
+        Kategori   = unname(display),
+        Frekuensi  = as.numeric(freq),
+        Persentase = paste0(round(pct, 2), "%"),
+        check.names = FALSE
+    )
+}
+
+# Helper function: Tabel Reliabilitas
+print_rel_table <- function(fit) {
+  if (is.null(fit)) return(cat("Tidak dapat menghitung reliabilitas karena model CFA tidak konvergen.\n"))
+  a <- compRelSEM(fit, tau.eq = TRUE)
+  o <- compRelSEM(fit, tau.eq = FALSE)
+  ave <- AVE(fit)
+  res <- data.frame(
+      Faktor = names(a),
+      Alpha  = round(as.numeric(a), 3),
+      Omega  = round(as.numeric(o[names(a)]), 3),
+      AVE    = round(as.numeric(ave[names(a)]), 3),
+      check.names = FALSE
+  )
+  return(knitr::kable(res))
+}
 
 # Buat folder output
 folder_output <- "Output_Main/"
@@ -62,24 +96,7 @@ Dataset berisi **`r nrow(df)`** observasi dan siap digunakan untuk analisis lanj
 
 ## Statistik Deskriptif Demografi Responden {#sec-demografi}
 
-```{r}
-#| label: demografi-helper
-print_demo_table <- function(variabel, labels) {
-    freq <- table(variabel, useNA = "ifany")
-    pct  <- prop.table(freq) * 100
-    display <- sapply(names(freq), function(x) {
-        if (is.na(x)) return("Missing")
-        if (x %in% names(labels)) return(labels[[x]])
-        return(x)
-    })
-    data.frame(
-        Kategori   = unname(display),
-        Frekuensi  = as.numeric(freq),
-        Persentase = paste0(round(pct, 2), "%"),
-        check.names = FALSE
-    )
-}
-```
+
 
 **Total Sampel (N):** `r nrow(df)`
 
@@ -126,7 +143,6 @@ kable(print_demo_table(df$Hunian, c("1" = "Rumah Orang Tua", "2" = "Kos/Kontraka
 ```{r}
 #| label: tbl-item-stats
 #| tbl-cap: "Statistik Deskriptif Level Item"
-library(psych)
 item_cols <- names(df)[grep("^(EID|ESI|PSMLS|PEB|PWB)", names(df))]
 item_desc <- describe(df[, item_cols], type = 2)
 
@@ -174,18 +190,7 @@ summary(fit_eid, fit.measures = TRUE, standardized = TRUE)
 ```{r}
 #| label: tbl-rel-eid
 #| tbl-cap: "Reliabilitas Skala EID"
-.alpha_eid <- compRelSEM(fit_eid, tau.eq = TRUE)
-.omega_eid <- compRelSEM(fit_eid, tau.eq = FALSE)
-.ave_eid   <- AVE(fit_eid)
-
-rel_eid <- data.frame(
-    Faktor = names(.alpha_eid),
-    Alpha  = round(as.numeric(.alpha_eid), 3),
-    Omega  = round(as.numeric(.omega_eid[names(.alpha_eid)]), 3),
-    AVE    = round(as.numeric(.ave_eid[names(.alpha_eid)]), 3),
-    check.names = FALSE
-)
-kable(rel_eid)
+print_rel_table(fit_eid)
 ```
 
 ## CFA Environmental Self-Identity (ESI) {#sec-cfa-esi}
@@ -206,18 +211,7 @@ summary(fit_esi, fit.measures = TRUE, standardized = TRUE)
 ```{r}
 #| label: tbl-rel-esi
 #| tbl-cap: "Reliabilitas Skala ESI"
-.alpha_esi <- compRelSEM(fit_esi, tau.eq = TRUE)
-.omega_esi <- compRelSEM(fit_esi, tau.eq = FALSE)
-.ave_esi   <- AVE(fit_esi)
-
-rel_esi <- data.frame(
-    Faktor = names(.alpha_esi),
-    Alpha  = round(as.numeric(.alpha_esi), 3),
-    Omega  = round(as.numeric(.omega_esi[names(.alpha_esi)]), 3),
-    AVE    = round(as.numeric(.ave_esi[names(.alpha_esi)]), 3),
-    check.names = FALSE
-)
-kable(rel_esi)
+print_rel_table(fit_esi)
 ```
 
 ## CFA Pro-Social Meaning in Life (PSMLS) {#sec-cfa-psmls}
@@ -241,18 +235,7 @@ summary(fit_psmls, fit.measures = TRUE, standardized = TRUE)
 ```{r}
 #| label: tbl-rel-psmls
 #| tbl-cap: "Reliabilitas Skala PSMLS (Dimensi)"
-.alpha_psmls <- compRelSEM(fit_psmls, tau.eq = TRUE)
-.omega_psmls <- compRelSEM(fit_psmls, tau.eq = FALSE)
-.ave_psmls   <- AVE(fit_psmls)
-
-rel_psmls <- data.frame(
-    Faktor = names(.alpha_psmls),
-    Alpha  = round(as.numeric(.alpha_psmls), 3),
-    Omega  = round(as.numeric(.omega_psmls[names(.alpha_psmls)]), 3),
-    AVE    = round(as.numeric(.ave_psmls[names(.alpha_psmls)]), 3),
-    check.names = FALSE
-)
-kable(rel_psmls)
+print_rel_table(fit_psmls)
 ```
 
 ## CFA Pro-Environmental Behavior (PEB) {#sec-cfa-peb}
@@ -279,18 +262,7 @@ summary(fit_peb, fit.measures = TRUE, standardized = TRUE)
 ```{r}
 #| label: tbl-rel-peb
 #| tbl-cap: "Reliabilitas Skala PEB (Dimensi)"
-.alpha_peb <- compRelSEM(fit_peb, tau.eq = TRUE)
-.omega_peb <- compRelSEM(fit_peb, tau.eq = FALSE)
-.ave_peb   <- AVE(fit_peb)
-
-rel_peb <- data.frame(
-    Faktor = names(.alpha_peb),
-    Alpha  = round(as.numeric(.alpha_peb), 3),
-    Omega  = round(as.numeric(.omega_peb[names(.alpha_peb)]), 3),
-    AVE    = round(as.numeric(.ave_peb[names(.alpha_peb)]), 3),
-    check.names = FALSE
-)
-kable(rel_peb)
+print_rel_table(fit_peb)
 ```
 
 ## CFA Psychological Well-Being (PWB) {#sec-cfa-pwb}
@@ -324,22 +296,7 @@ if(!is.null(fit_pwb)){
 ```{r}
 #| label: tbl-rel-pwb
 #| tbl-cap: "Reliabilitas Skala PWB (Dimensi)"
-if(!is.null(fit_pwb)){
-  .alpha_pwb <- compRelSEM(fit_pwb, tau.eq = TRUE)
-  .omega_pwb <- compRelSEM(fit_pwb, tau.eq = FALSE)
-  .ave_pwb   <- AVE(fit_pwb)
-
-  rel_pwb <- data.frame(
-      Faktor = names(.alpha_pwb),
-      Alpha  = round(as.numeric(.alpha_pwb), 3),
-      Omega  = round(as.numeric(.omega_pwb[names(.alpha_pwb)]), 3),
-      AVE    = round(as.numeric(.ave_pwb[names(.alpha_pwb)]), 3),
-      check.names = FALSE
-  )
-  kable(rel_pwb)
-} else {
-  cat("Tidak dapat menghitung reliabilitas karena model CFA tidak konvergen.\n")
-}
+print_rel_table(fit_pwb)
 ```
 
 

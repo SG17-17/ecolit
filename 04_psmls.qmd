@@ -1,5 +1,5 @@
 ---
-title: "Pro-Social Meaning in Life (PSMLS)"
+title: "Perceived Social Media Literacy (PSML)"
 ---
 
 Model multidimensional 4-faktor yang saling berkorelasi (First-Order). *Murni teoritis.*
@@ -26,7 +26,7 @@ summary(fit_psmls, fit.measures = TRUE, standardized = TRUE)
 saveRDS(fit_psmls, "data/fit_psmls.rds")
 ```
 
-## Reliabilitas PSMLS
+## Reliabilitas PSML
 
 ```{r}
 #| label: tbl-rel-psmls

@@ -28,7 +28,7 @@ model_pwb <- "
 fit_pwb <- tryCatch(cfa(model_pwb, data = df, std.lv = TRUE), error = function(e) NULL)
 
 if(!is.null(fit_pwb)){
-  summary(fit_pwb, fit.measures = TRUE, standardized = TRUE)
+  print(summary(fit_pwb, fit.measures = TRUE, standardized = TRUE))
   saveRDS(fit_pwb, "data/fit_pwb.rds")
 } else {
   cat("Model gagal dikalkulasi (Not Converged).\n")

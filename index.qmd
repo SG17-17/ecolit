@@ -280,88 +280,24 @@ print_rel_table(fit_pwb)
 ```
 
 
+# Summary {#sec-summary}
+
+Berikut adalah ringkasan dari seluruh hasil analisis reliabilitas (Alpha, Omega, dan AVE) untuk semua variabel ukur.
 
 ```{r}
-#| label: export-txt
-#| include: false
+#| label: tbl-summary
+#| tbl-cap: "Tabel Ringkasan Reliabilitas Keseluruhan"
+df_summary <- rbind(
+  if(!is.null(fit_eid)) get_rel_df(fit_eid) else NULL,
+  if(!is.null(fit_esi)) get_rel_df(fit_esi) else NULL,
+  if(!is.null(fit_psmls)) get_rel_df(fit_psmls) else NULL,
+  if(!is.null(fit_peb)) get_rel_df(fit_peb) else NULL,
+  if(!is.null(fit_pwb)) get_rel_df(fit_pwb) else NULL
+)
 
-# Membuat file TXT tunggal berisi semua output CFA
-folder_output <- "Output_Main/"
-dir.create(folder_output, showWarnings = FALSE, recursive = TRUE)
-file_txt <- paste0(folder_output, "Hasil_Analisis_CFA.txt")
-
-sink(file_txt)
-cat("=================================================================\n")
-cat("          LAPORAN ANALISIS DATA: DESKRIPTIF DAN CFA\n")
-cat(paste("                   Dicetak pada:", Sys.time(), "\n"))
-cat("=================================================================\n\n")
-
-cat("=================================================================\n")
-cat("STATISTIK DESKRIPTIF DEMOGRAFI\n")
-cat("=================================================================\n\n")
-
-cat("1. Jenis Kelamin\n")
-print(print_demo_table(df$Gender, c("1" = "Laki-laki", "2" = "Perempuan")), row.names = FALSE)
-
-cat("\n2. Usia\n")
-cat(sprintf("Mean = %.2f, SD = %.2f, Min = %d, Max = %d\n", mean(df$Usia, na.rm=TRUE), sd(df$Usia, na.rm=TRUE), min(df$Usia, na.rm=TRUE), max(df$Usia, na.rm=TRUE)))
-
-cat("\n3. Semester\n")
-print(print_demo_table(df$Semester, c("1" = "Semester 1", "2" = "Semester 2", "3" = "Semester 3", "4" = "Semester 4", "5" = "Semester 5", "6" = "Semester 6", "7" = "Semester 7", "8" = "Semester 8", "Lebih dari semester 8" = "> Semester 8")), row.names = FALSE)
-
-cat("\n4. Area Tempat Tinggal\n")
-print(print_demo_table(df$Area, c("1" = "Urban (Kota)", "2" = "Suburban (Pinggiran)", "3" = "Rural (Pedesaan)")), row.names = FALSE)
-
-cat("\n5. Tipe Hunian\n")
-print(print_demo_table(df$Hunian, c("1" = "Rumah Orang Tua", "2" = "Kos/Kontrakan", "3" = "Asrama", "4" = "Lainnya")), row.names = FALSE)
-
-
-cat("\n=================================================================\n")
-cat("          HASIL ANALISIS CONFIRMATORY FACTOR ANALYSIS (CFA)\n")
-cat("=================================================================\n\n")
-
-cat("\n=================================================================\n")
-cat("1. ENVIRONMENTAL IDENTITY (EID)\n")
-cat("=================================================================\n")
-print(summary(fit_eid, fit.measures = TRUE, standardized = TRUE))
-cat("\n--- Reliabilitas ---\n")
-print(get_rel_df(fit_eid), row.names = FALSE)
-
-cat("\n=================================================================\n")
-cat("2. ENVIRONMENTAL SELF-IDENTITY (ESI)\n")
-cat("=================================================================\n")
-print(summary(fit_esi, fit.measures = TRUE, standardized = TRUE))
-cat("\n--- Reliabilitas ---\n")
-print(get_rel_df(fit_esi), row.names = FALSE)
-
-cat("\n=================================================================\n")
-cat("3. PRO-SOCIAL MEANING IN LIFE (PSMLS)\n")
-cat("=================================================================\n")
-print(summary(fit_psmls, fit.measures = TRUE, standardized = TRUE))
-cat("\n--- Reliabilitas ---\n")
-print(get_rel_df(fit_psmls), row.names = FALSE)
-
-cat("\n=================================================================\n")
-cat("4. PRO-ENVIRONMENTAL BEHAVIOR (PEB)\n")
-cat("=================================================================\n")
-print(summary(fit_peb, fit.measures = TRUE, standardized = TRUE))
-cat("\n--- Reliabilitas ---\n")
-print(get_rel_df(fit_peb), row.names = FALSE)
-
-cat("\n=================================================================\n")
-cat("5. PSYCHOLOGICAL WELL-BEING (PWB)\n")
-cat("=================================================================\n")
-if(!is.null(fit_pwb)){
-  print(summary(fit_pwb, fit.measures = TRUE, standardized = TRUE))
-  cat("\n--- Reliabilitas ---\n")
-  print(get_rel_df(fit_pwb), row.names = FALSE)
+if (!is.null(df_summary) && nrow(df_summary) > 0) {
+  knitr::kable(df_summary)
 } else {
-  cat("Model PWB Not Converged.\n")
-}
-sink()
-
-# Buka file TXT otomatis (Hanya jika dijalankan lokal di Mac)
-if (interactive() && Sys.info()["sysname"] == "Darwin") {
-  system(paste("open", file_txt))
+  cat("Belum ada data reliabilitas yang dapat diringkas.\n")
 }
 ```

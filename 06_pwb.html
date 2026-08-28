@@ -334,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_psmls.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pro-Social Meaning in Life (PSMLS)</span></a>
+  <a href="./04_psmls.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Perceived Social Media Literacy (PSML)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -407,19 +407,209 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>fit_pwb <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">cfa</span>(model_pwb, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fit_pwb)){</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(fit_pwb, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">summary</span>(fit_pwb, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(fit_pwb, <span class="st">"data/fit_pwb.rds"</span>)</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Model gagal dikalkulasi (Not Converged).</span><span class="sc">\n</span><span class="st">"</span>)</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.7-2 ended normally after 48 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                       102
+
+  Number of observations                           242
+
+Model Test User Model:
+                                                      
+  Test statistic                              2882.386
+  Degrees of freedom                               801
+  P-value (Chi-square)                           0.000
+
+Model Test Baseline Model:
+
+  Test statistic                              5259.827
+  Degrees of freedom                               861
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.527
+  Tucker-Lewis Index (TLI)                       0.491
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)             -14507.215
+  Loglikelihood unrestricted model (H1)     -13066.022
+                                                      
+  Akaike (AIC)                               29218.430
+  Bayesian (BIC)                             29574.302
+  Sample-size adjusted Bayesian (SABIC)      29250.980
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.104
+  90 Percent confidence interval - lower         0.100
+  90 Percent confidence interval - upper         0.108
+  P-value H_0: RMSEA &lt;= 0.050                    0.000
+  P-value H_0: RMSEA &gt;= 0.080                    1.000
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.142
+
+Goodness of Fit Index:
+
+  Goodness of Fit Index (GFI)                    0.544
+  90 Percent confidence interval - lower         0.531
+  90 Percent confidence interval - upper         0.557
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  Autonomy =~                                                           
+    PWB_1             0.243    0.061    3.987    0.000    0.243    0.253
+    PWB_7             0.032    0.067    0.483    0.629    0.032    0.031
+    PWB_13_R          0.804    0.071   11.315    0.000    0.804    0.663
+    PWB_19_R          0.845    0.079   10.725    0.000    0.845    0.634
+    PWB_25            0.314    0.074    4.251    0.000    0.314    0.270
+    PWB_31_R          0.852    0.078   10.876    0.000    0.852    0.641
+    PWB_37            0.304    0.059    5.186    0.000    0.304    0.319
+  Mastery =~                                                            
+    PWB_2             0.152    0.064    2.395    0.017    0.152    0.151
+    PWB_8             0.154    0.061    2.511    0.012    0.154    0.158
+    PWB_14_R         -0.187    0.069   -2.695    0.007   -0.187   -0.170
+    PWB_20            0.202    0.052    3.863    0.000    0.202    0.244
+    PWB_26_R         -0.133    0.054   -2.457    0.014   -0.133   -0.153
+    PWB_32_R          0.850    0.090    9.484    0.000    0.850    0.610
+    PWB_38           -0.624    0.073   -8.571    0.000   -0.624   -0.550
+  Growth =~                                                             
+    PWB_3_R           0.550    0.080    6.911    0.000    0.550    0.430
+    PWB_9            -0.549    0.074   -7.410    0.000   -0.549   -0.459
+    PWB_15_R          0.589    0.087    6.731    0.000    0.589    0.420
+    PWB_21           -0.719    0.085   -8.482    0.000   -0.719   -0.521
+    PWB_27_R          0.753    0.079    9.501    0.000    0.753    0.577
+    PWB_33            0.321    0.068    4.723    0.000    0.321    0.299
+    PWB_39_R         -0.323    0.062   -5.209    0.000   -0.323   -0.328
+  Relations =~                                                          
+    PWB_4             0.528    0.072    7.343    0.000    0.528    0.448
+    PWB_10_R         -0.758    0.076  -10.019    0.000   -0.758   -0.596
+    PWB_16_R          0.279    0.055    5.059    0.000    0.279    0.313
+    PWB_22           -0.096    0.058   -1.650    0.099   -0.096   -0.101
+    PWB_28           -0.215    0.051   -4.200    0.000   -0.215   -0.261
+    PWB_34_R          0.379    0.063    6.020    0.000    0.379    0.365
+    PWB_40            0.871    0.078   11.229    0.000    0.871    0.659
+  Purpose =~                                                            
+    PWB_5_R           0.331    0.055    6.050    0.000    0.331    0.384
+    PWB_11           -0.239    0.051   -4.660    0.000   -0.239   -0.300
+    PWB_17_R         -0.962    0.079  -12.123    0.000   -0.962   -0.695
+    PWB_23_R         -0.851    0.085   -9.996    0.000   -0.851   -0.597
+    PWB_29            0.449    0.088    5.107    0.000    0.449    0.327
+    PWB_35            1.140    0.078   14.572    0.000    1.140    0.795
+    PWB_41_R         -0.920    0.075  -12.186    0.000   -0.920   -0.698
+  Acceptance =~                                                         
+    PWB_6             0.438    0.072    6.074    0.000    0.438    0.360
+    PWB_12            0.578    0.073    7.912    0.000    0.578    0.475
+    PWB_18_R          0.359    0.060    5.941    0.000    0.359    0.352
+    PWB_24            0.820    0.088    9.300    0.000    0.820    0.560
+    PWB_30_R          0.345    0.068    5.106    0.000    0.345    0.299
+    PWB_36_R          0.154    0.063    2.439    0.015    0.154    0.138
+    PWB_42           -0.230    0.065   -3.554    0.000   -0.230   -0.207
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+ .PWB_34_R ~~                                                           
+   .PWB_30_R          0.687    0.081    8.484    0.000    0.687    0.644
+ .PWB_26_R ~~                                                           
+   .PWB_22           -0.481    0.061   -7.913    0.000   -0.481   -0.591
+ .PWB_37 ~~                                                             
+   .PWB_36_R         -0.550    0.073   -7.496    0.000   -0.550   -0.553
+  Autonomy ~~                                                           
+    Mastery           1.035    0.063   16.414    0.000    1.035    1.035
+    Growth            1.076    0.043   25.073    0.000    1.076    1.076
+    Relations        -1.053    0.042  -25.306    0.000   -1.053   -1.053
+    Purpose          -1.033    0.029  -35.507    0.000   -1.033   -1.033
+    Acceptance       -1.192    0.054  -22.190    0.000   -1.192   -1.192
+  Mastery ~~                                                            
+    Growth            1.046    0.069   15.197    0.000    1.046    1.046
+    Relations        -1.121    0.065  -17.315    0.000   -1.121   -1.121
+    Purpose          -1.089    0.054  -20.073    0.000   -1.089   -1.089
+    Acceptance       -1.073    0.079  -13.540    0.000   -1.073   -1.073
+  Growth ~~                                                             
+    Relations        -1.123    0.046  -24.367    0.000   -1.123   -1.123
+    Purpose          -0.977    0.039  -25.002    0.000   -0.977   -0.977
+    Acceptance       -1.184    0.060  -19.585    0.000   -1.184   -1.184
+  Relations ~~                                                          
+    Purpose           1.068    0.032   33.076    0.000    1.068    1.068
+    Acceptance        1.112    0.055   20.387    0.000    1.112    1.112
+  Purpose ~~                                                            
+    Acceptance        1.119    0.047   24.058    0.000    1.119    1.119
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .PWB_1             0.858    0.078   10.992    0.000    0.858    0.936
+   .PWB_7             1.084    0.099   11.000    0.000    1.084    0.999
+   .PWB_13_R          0.825    0.080   10.295    0.000    0.825    0.560
+   .PWB_19_R          1.062    0.102   10.467    0.000    1.062    0.598
+   .PWB_25            1.258    0.114   10.990    0.000    1.258    0.927
+   .PWB_31_R          1.039    0.100   10.427    0.000    1.039    0.589
+   .PWB_37            0.813    0.074   10.980    0.000    0.813    0.898
+   .PWB_2             0.992    0.090   11.007    0.000    0.992    0.977
+   .PWB_8             0.917    0.083   11.007    0.000    0.917    0.975
+   .PWB_14_R          1.174    0.107   11.007    0.000    1.174    0.971
+   .PWB_20            0.641    0.058   11.001    0.000    0.641    0.940
+   .PWB_26_R          0.740    0.067   11.007    0.000    0.740    0.977
+   .PWB_32_R          1.219    0.129    9.454    0.000    1.219    0.628
+   .PWB_38            0.896    0.089   10.101    0.000    0.896    0.697
+   .PWB_3_R           1.330    0.122   10.906    0.000    1.330    0.815
+   .PWB_9             1.124    0.103   10.868    0.000    1.124    0.789
+   .PWB_15_R          1.620    0.148   10.918    0.000    1.620    0.824
+   .PWB_21            1.390    0.129   10.741    0.000    1.390    0.729
+   .PWB_27_R          1.135    0.108   10.538    0.000    1.135    0.667
+   .PWB_33            1.053    0.096   10.986    0.000    1.053    0.911
+   .PWB_39_R          0.864    0.079   10.977    0.000    0.864    0.892
+   .PWB_4             1.114    0.101   11.002    0.000    1.114    0.800
+   .PWB_10_R          1.041    0.097   10.684    0.000    1.041    0.644
+   .PWB_16_R          0.718    0.065   11.035    0.000    0.718    0.902
+   .PWB_22            0.894    0.081   11.006    0.000    0.894    0.990
+   .PWB_28            0.634    0.057   11.029    0.000    0.634    0.932
+   .PWB_34_R          0.935    0.085   11.035    0.000    0.935    0.867
+   .PWB_40            0.987    0.096   10.310    0.000    0.987    0.566
+   .PWB_5_R           0.635    0.058   10.899    0.000    0.635    0.853
+   .PWB_11            0.579    0.053   10.944    0.000    0.579    0.910
+   .PWB_17_R          0.989    0.096   10.316    0.000    0.989    0.517
+   .PWB_23_R          1.310    0.123   10.637    0.000    1.310    0.644
+   .PWB_29            1.680    0.154   10.931    0.000    1.680    0.893
+   .PWB_35            0.756    0.080    9.492    0.000    0.756    0.368
+   .PWB_41_R          0.890    0.086   10.303    0.000    0.890    0.513
+   .PWB_6             1.286    0.115   11.164    0.000    1.286    0.870
+   .PWB_12            1.148    0.104   11.068    0.000    1.148    0.775
+   .PWB_18_R          0.914    0.082   11.163    0.000    0.914    0.876
+   .PWB_24            1.470    0.137   10.747    0.000    1.470    0.686
+   .PWB_30_R          1.217    0.109   11.151    0.000    1.217    0.911
+   .PWB_36_R          1.220    0.111   11.039    0.000    1.220    0.981
+   .PWB_42            1.179    0.106   11.082    0.000    1.179    0.957
+    Autonomy          1.000                               1.000    1.000
+    Mastery           1.000                               1.000    1.000
+    Growth            1.000                               1.000    1.000
+    Relations         1.000                               1.000    1.000
+    Purpose           1.000                               1.000    1.000
+    Acceptance        1.000                               1.000    1.000</code></pre>
+</div>
 </div>
 <section id="reliabilitas-pwb" class="level2">
 <h2 class="anchored" data-anchor-id="reliabilitas-pwb">Reliabilitas PWB</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_pwb)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_pwb)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-rel-pwb" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -964,50 +1154,50 @@ Table&nbsp;6.1: Reliabilitas Skala PWB (Dimensi)
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Psychological Well-Being (PWB)"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Model multidimensional 6-faktor (First-Order). *Dioptimasi dengan 3 MI.*</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup-cfa-pwb</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/helpers.R"</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/cleaned_data.rds"</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cfa-pwb</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>model_pwb <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="st">  Autonomy =~ PWB_1 + PWB_7 + PWB_13_R + PWB_19_R + PWB_25 + PWB_31_R + PWB_37</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="st">  Mastery =~ PWB_2 + PWB_8 + PWB_14_R + PWB_20 + PWB_26_R + PWB_32_R + PWB_38</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="st">  Growth =~ PWB_3_R + PWB_9 + PWB_15_R + PWB_21 + PWB_27_R + PWB_33 + PWB_39_R</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="st">  Relations =~ PWB_4 + PWB_10_R + PWB_16_R + PWB_22 + PWB_28 + PWB_34_R + PWB_40</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="st">  Purpose =~ PWB_5_R + PWB_11 + PWB_17_R + PWB_23_R + PWB_29 + PWB_35 + PWB_41_R</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="st">  Acceptance =~ PWB_6 + PWB_12 + PWB_18_R + PWB_24 + PWB_30_R + PWB_36_R + PWB_42</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="st">  PWB_34_R ~~ PWB_30_R </span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="st">  PWB_26_R ~~ PWB_22 </span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="st">  PWB_37 ~~ PWB_36_R </span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>fit_pwb <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">cfa</span>(model_pwb, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fit_pwb)){</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(fit_pwb, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(fit_pwb, <span class="st">"data/fit_pwb.rds"</span>)</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Model gagal dikalkulasi (Not Converged).</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reliabilitas PWB</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-pwb</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala PWB (Dimensi)"</span></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_pwb)</span>
-<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Psychological Well-Being (PWB)"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>Model multidimensional 6-faktor (First-Order). *Dioptimasi dengan 3 MI.*</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup-cfa-pwb</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/helpers.R"</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/cleaned_data.rds"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cfa-pwb</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>model_pwb <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="st">  Autonomy =~ PWB_1 + PWB_7 + PWB_13_R + PWB_19_R + PWB_25 + PWB_31_R + PWB_37</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="st">  Mastery =~ PWB_2 + PWB_8 + PWB_14_R + PWB_20 + PWB_26_R + PWB_32_R + PWB_38</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="st">  Growth =~ PWB_3_R + PWB_9 + PWB_15_R + PWB_21 + PWB_27_R + PWB_33 + PWB_39_R</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="st">  Relations =~ PWB_4 + PWB_10_R + PWB_16_R + PWB_22 + PWB_28 + PWB_34_R + PWB_40</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="st">  Purpose =~ PWB_5_R + PWB_11 + PWB_17_R + PWB_23_R + PWB_29 + PWB_35 + PWB_41_R</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="st">  Acceptance =~ PWB_6 + PWB_12 + PWB_18_R + PWB_24 + PWB_30_R + PWB_36_R + PWB_42</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="st">  PWB_34_R ~~ PWB_30_R </span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="st">  PWB_26_R ~~ PWB_22 </span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="st">  PWB_37 ~~ PWB_36_R </span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>fit_pwb <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">cfa</span>(model_pwb, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fit_pwb)){</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">summary</span>(fit_pwb, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">saveRDS</span>(fit_pwb, <span class="st">"data/fit_pwb.rds"</span>)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Model gagal dikalkulasi (Not Converged).</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reliabilitas PWB</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-pwb</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala PWB (Dimensi)"</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_pwb)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

@@ -72,11 +72,11 @@
   {
     "objectID": "04_psmls.html",
     "href": "04_psmls.html",
-    "title": "Pro-Social Meaning in Life (PSMLS)",
+    "title": "Perceived Social Media Literacy (PSML)",
     "section": "",
-    "text": "Reliabilitas PSMLS\nModel multidimensional 4-faktor yang saling berkorelasi (First-Order). Murni teoritis.\nLihat kode\nprint_rel_table(fit_psmls)\n\n\n\n\nTable 4.1: Reliabilitas Skala PSMLS (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nTechComp\n0.893\n0.897\n0.632\n\n\nSocialRel\n0.746\n0.733\n0.493\n\n\nPrivacy\n0.682\n0.691\n0.423\n\n\nInfoAware\n0.884\n0.888\n0.724",
+    "text": "Reliabilitas PSML\nModel multidimensional 4-faktor yang saling berkorelasi (First-Order). Murni teoritis.\nLihat kode\nprint_rel_table(fit_psmls)\n\n\n\n\nTable 4.1: Reliabilitas Skala PSMLS (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nTechComp\n0.893\n0.897\n0.632\n\n\nSocialRel\n0.746\n0.733\n0.493\n\n\nPrivacy\n0.682\n0.691\n0.423\n\n\nInfoAware\n0.884\n0.888\n0.724",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Pro-Social Meaning in Life (PSMLS)</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Perceived Social Media Literacy (PSML)</span>"
     ]
   },
   {

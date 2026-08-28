@@ -6,8 +6,11 @@ project:
 book:
   title: "Analisis Data — Pengujian Alat Ukur (CFA)"
   subtitle: "Validitas dan Reliabilitas Konstruk"
-  author: "Peneliti"
+  author: "Muhammad Niam Makhali"
   date: today
+  page-footer:
+    left: "© 2026 Muhammad Niam Makhali"
+    right: "Environmental Psychology Research"
   chapters:
     - index.qmd
     - 02_eid.qmd

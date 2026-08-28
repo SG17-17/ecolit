@@ -22,7 +22,6 @@ book:
 
 format:
   html:
-    mainfont: "Open Sans"
     fontsize: "0.9em"
     grid:
       body-width: 1400px

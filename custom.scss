@@ -3,8 +3,8 @@
 $body-bg: #d9e2d5;
 
 /*-- scss:rules --*/
-// Paksa hanya area membaca (tengah) yang berwarna putih seperti kertas
-main, #quarto-document-content {
+// Paksa hanya area membaca (tengah) yang berwarna putih seperti kertas (hanya di mode terang)
+.quarto-light main, .quarto-light #quarto-document-content {
   background-color: #ffffff !important;
   padding: 2.5rem !important;
   border-radius: 12px;
@@ -13,7 +13,7 @@ main, #quarto-document-content {
   margin-bottom: 3rem;
 }
 
-// Pastikan sidebar kanan dan kiri benar-benar transparan (agar tembus warna matcha)
-#quarto-sidebar, .sidebar, #quarto-margin-sidebar, .margin-sidebar {
+// Pastikan sidebar kanan dan kiri benar-benar transparan (agar tembus warna matcha, hanya di mode terang)
+.quarto-light #quarto-sidebar, .quarto-light .sidebar, .quarto-light #quarto-margin-sidebar, .quarto-light .margin-sidebar {
   background-color: transparent !important;
 }

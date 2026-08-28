@@ -1,0 +1,453 @@
+---
+title: "Analisis Data — Pengujian Alat Ukur (CFA)"
+subtitle: "Validitas dan Reliabilitas Konstruk"
+author: "Peneliti"
+date: "`r Sys.Date()`"
+date-format: long
+lang: id
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Daftar Isi"
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    code-summary: "Lihat kode"
+    embed-resources: true
+    theme: cosmo
+    fig-dpi: 300
+    df-print: kable
+execute:
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(lavaan)
+library(semPlot)
+library(semTools)
+library(googlesheets4)
+library(knitr)
+library(dplyr)
+
+# Buat folder output
+folder_output <- "Output_Main/"
+dir.create(folder_output, showWarnings = FALSE, recursive = TRUE)
+```
+
+::: {.callout-note}
+## Catatan Penting
+File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliabilitas alat ukur yang terintegrasi secara *real-time* dengan basis data primer.
+:::
+
+# Persiapan Data {#sec-persiapan}
+
+## Import Dataset
+
+```{r}
+#| label: import-data
+# Menonaktifkan autentikasi Google
+gs4_deauth() 
+
+# Tautan dokumen sumber data
+link_spreadsheet <- "https://docs.google.com/spreadsheets/d/1u7L4GSSsuVDv9j7ccgWvccwr7A5Ks0szkiY-RTHVsA8/edit?usp=sharing"
+
+# Membaca data penelitian
+df <- read_sheet(link_spreadsheet, sheet = "DATA FINAL")
+
+# Penyesuaian list columns dan tipe data
+df[] <- lapply(df, function(x) {
+  if (is.list(x)) {
+    x <- unlist(lapply(x, function(v) if(is.null(v)) NA else as.character(v)))
+  }
+  return(x)
+})
+df <- as.data.frame(df, check.names = FALSE)
+
+# Mapping nama variabel demografi agar mudah dianalisis (Menggunakan pencarian kata kunci agar anti-error)
+df$Gender <- df[[ grep("Jenis Kelamin", names(df), ignore.case=TRUE)[1] ]]
+df$Usia <- df[[ grep("Usia", names(df), ignore.case=TRUE)[1] ]]
+df$Semester <- as.numeric(as.character(df[[ grep("Semester", names(df), ignore.case=TRUE)[1] ]]))
+df$Provinsi <- df[[ grep("Daerah tempat tinggal", names(df), ignore.case=TRUE)[1] ]]
+df$Area <- df[[ grep("menggambarkan area", names(df), ignore.case=TRUE)[1] ]]
+df$Hunian <- df[[ grep("tempat tinggal utama", names(df), ignore.case=TRUE)[1] ]]
+```
+
+Dataset berisi **`r nrow(df)`** observasi dan siap digunakan untuk analisis lanjutan.
+
+# Analisis Deskriptif {#sec-deskriptif}
+
+## Statistik Deskriptif Demografi Responden {#sec-demografi}
+
+```{r}
+#| label: demografi-helper
+print_demo_table <- function(variabel, labels) {
+    freq <- table(variabel, useNA = "ifany")
+    pct  <- prop.table(freq) * 100
+    display <- sapply(names(freq), function(x) {
+        if (is.na(x)) return("Missing")
+        if (x %in% names(labels)) return(labels[[x]])
+        return(x)
+    })
+    data.frame(
+        Kategori   = unname(display),
+        Frekuensi  = as.numeric(freq),
+        Persentase = paste0(round(pct, 2), "%"),
+        check.names = FALSE
+    )
+}
+```
+
+**Total Sampel (N):** `r nrow(df)`
+
+### Jenis Kelamin
+```{r}
+#| label: tbl-gender
+#| tbl-cap: "Distribusi Jenis Kelamin"
+kable(print_demo_table(df$Gender, c("1" = "Laki-laki", "2" = "Perempuan")))
+```
+
+### Usia
+```{r}
+#| label: demografi-usia
+usia_m   <- round(mean(df$Usia, na.rm = TRUE), 2)
+usia_sd  <- round(sd(df$Usia, na.rm = TRUE), 2)
+usia_min <- min(df$Usia, na.rm = TRUE)
+usia_max <- max(df$Usia, na.rm = TRUE)
+```
+*M* = `r usia_m` tahun, *SD* = `r usia_sd`, Min = `r usia_min`, Max = `r usia_max`.
+
+### Semester
+```{r}
+#| label: tbl-semester
+#| tbl-cap: "Distribusi Semester"
+kable(print_demo_table(df$Semester, c("1" = "Semester 1-2", "2" = "Semester 3-4", "3" = "Semester 5-6", "4" = "Semester 7 atau lebih", "5" = "Lulus")))
+```
+
+### Area Tempat Tinggal
+```{r}
+#| label: tbl-area
+#| tbl-cap: "Distribusi Area Tempat Tinggal"
+kable(print_demo_table(df$Area, c("1" = "Urban (Kota)", "2" = "Suburban (Pinggiran)", "3" = "Rural (Pedesaan)")))
+```
+
+### Tipe Hunian
+```{r}
+#| label: tbl-hunian
+#| tbl-cap: "Distribusi Tipe Hunian"
+kable(print_demo_table(df$Hunian, c("1" = "Rumah Orang Tua", "2" = "Kos/Kontrakan", "3" = "Asrama", "4" = "Lainnya")))
+```
+
+## Statistik Deskriptif Level Item {#sec-item-deskriptif}
+
+```{r}
+#| label: tbl-item-stats
+#| tbl-cap: "Statistik Deskriptif Level Item"
+library(psych)
+item_cols <- names(df)[grep("^(EID|ESI|PSMLS|PEB|PWB)", names(df))]
+item_desc <- describe(df[, item_cols], type = 2)
+
+item_stats <- data.frame(
+    Item     = item_cols,
+    N        = item_desc$n,
+    Mean     = round(item_desc$mean, 2),
+    SD       = round(item_desc$sd, 2),
+    Min      = item_desc$min,
+    Max      = item_desc$max,
+    Skewness = round(item_desc$skew, 2),
+    Kurtosis = round(item_desc$kurtosis, 2),
+    check.names = FALSE
+)
+kable(item_stats)
+```
+
+::: {.callout-tip}
+## Catatan Normalitas
+Berdasarkan West et al. (1995), data dianggap melanggar normalitas univariat jika nilai *Skewness* > |2.0| atau *Kurtosis* > |7.0|.
+:::
+
+# Model Pengukuran Final {#sec-cfa}
+
+Analisis validitas konstruk menggunakan kerangka *Confirmatory Factor Analysis* (CFA) murni (satu lapis). 
+
+## CFA Environmental Identity (EID) {#sec-cfa-eid}
+
+Model pengukuran unidimensional untuk EID (14 aitem). *Dioptimasi dengan toleransi 3 Modification Indices terbesar.*
+
+```{r}
+#| label: cfa-eid
+model_eid <- "
+  EID =~ EID_1 + EID_2 + EID_3 + EID_4 + EID_5 + EID_6 + EID_7 + EID_8 + EID_9 + EID_10 + EID_11 + EID_12 + EID_13 + EID_14 
+  EID_7 ~~ EID_12 
+  EID_3 ~~ EID_6 
+  EID_11 ~~ EID_13 
+"
+fit_eid <- cfa(model_eid, data = df, std.lv = TRUE)
+summary(fit_eid, fit.measures = TRUE, standardized = TRUE)
+```
+
+### Reliabilitas EID
+
+```{r}
+#| label: tbl-rel-eid
+#| tbl-cap: "Reliabilitas Skala EID"
+.alpha_eid <- compRelSEM(fit_eid, tau.eq = TRUE)
+.omega_eid <- compRelSEM(fit_eid, tau.eq = FALSE)
+.ave_eid   <- AVE(fit_eid)
+
+rel_eid <- data.frame(
+    Faktor = names(.alpha_eid),
+    Alpha  = round(as.numeric(.alpha_eid), 3),
+    Omega  = round(as.numeric(.omega_eid[names(.alpha_eid)]), 3),
+    AVE    = round(as.numeric(.ave_eid[names(.alpha_eid)]), 3),
+    check.names = FALSE
+)
+kable(rel_eid)
+```
+
+## CFA Environmental Self-Identity (ESI) {#sec-cfa-esi}
+
+Model pengukuran unidimensional untuk ESI (6 aitem). *Murni teoritis.*
+
+```{r}
+#| label: cfa-esi
+model_esi <- "
+  ESI =~ ESI_1 + ESI_2 + ESI_3 + ESI_4 + ESI_5 + ESI_6 
+"
+fit_esi <- cfa(model_esi, data = df, std.lv = TRUE)
+summary(fit_esi, fit.measures = TRUE, standardized = TRUE)
+```
+
+### Reliabilitas ESI
+
+```{r}
+#| label: tbl-rel-esi
+#| tbl-cap: "Reliabilitas Skala ESI"
+.alpha_esi <- compRelSEM(fit_esi, tau.eq = TRUE)
+.omega_esi <- compRelSEM(fit_esi, tau.eq = FALSE)
+.ave_esi   <- AVE(fit_esi)
+
+rel_esi <- data.frame(
+    Faktor = names(.alpha_esi),
+    Alpha  = round(as.numeric(.alpha_esi), 3),
+    Omega  = round(as.numeric(.omega_esi[names(.alpha_esi)]), 3),
+    AVE    = round(as.numeric(.ave_esi[names(.alpha_esi)]), 3),
+    check.names = FALSE
+)
+kable(rel_esi)
+```
+
+## CFA Pro-Social Meaning in Life (PSMLS) {#sec-cfa-psmls}
+
+Model multidimensional 4-faktor yang saling berkorelasi (First-Order). *Murni teoritis.*
+
+```{r}
+#| label: cfa-psmls
+model_psmls <- "
+  TechComp =~ PSMLS_1 + PSMLS_2 + PSMLS_3 + PSMLS_4 + PSMLS_5
+  SocialRel =~ PSMLS_6 + PSMLS_7 + PSMLS_8
+  Privacy =~ PSMLS_9 + PSMLS_10 + PSMLS_11
+  InfoAware =~ PSMLS_12 + PSMLS_13 + PSMLS_14
+"
+fit_psmls <- cfa(model_psmls, data = df, std.lv = TRUE)
+summary(fit_psmls, fit.measures = TRUE, standardized = TRUE)
+```
+
+### Reliabilitas PSMLS
+
+```{r}
+#| label: tbl-rel-psmls
+#| tbl-cap: "Reliabilitas Skala PSMLS (Dimensi)"
+.alpha_psmls <- compRelSEM(fit_psmls, tau.eq = TRUE)
+.omega_psmls <- compRelSEM(fit_psmls, tau.eq = FALSE)
+.ave_psmls   <- AVE(fit_psmls)
+
+rel_psmls <- data.frame(
+    Faktor = names(.alpha_psmls),
+    Alpha  = round(as.numeric(.alpha_psmls), 3),
+    Omega  = round(as.numeric(.omega_psmls[names(.alpha_psmls)]), 3),
+    AVE    = round(as.numeric(.ave_psmls[names(.alpha_psmls)]), 3),
+    check.names = FALSE
+)
+kable(rel_psmls)
+```
+
+## CFA Pro-Environmental Behavior (PEB) {#sec-cfa-peb}
+
+Model multidimensional 4-faktor (First-Order). *Dioptimasi dengan 3 MI.*
+
+```{r}
+#| label: cfa-peb
+model_peb <- "
+  ConsLife =~ PEB_1 + PEB_2 + PEB_3 + PEB_4 + PEB_5
+  SocEnv =~ PEB_6 + PEB_7 + PEB_8 + PEB_9 + PEB_10
+  EnvCit =~ PEB_11 + PEB_12 + PEB_13 + PEB_14 + PEB_15
+  LandStew =~ PEB_16 + PEB_17
+  PEB_7 ~~ PEB_8 
+  PEB_9 ~~ PEB_10 
+  PEB_2 ~~ PEB_3 
+"
+fit_peb <- cfa(model_peb, data = df, std.lv = TRUE)
+summary(fit_peb, fit.measures = TRUE, standardized = TRUE)
+```
+
+### Reliabilitas PEB
+
+```{r}
+#| label: tbl-rel-peb
+#| tbl-cap: "Reliabilitas Skala PEB (Dimensi)"
+.alpha_peb <- compRelSEM(fit_peb, tau.eq = TRUE)
+.omega_peb <- compRelSEM(fit_peb, tau.eq = FALSE)
+.ave_peb   <- AVE(fit_peb)
+
+rel_peb <- data.frame(
+    Faktor = names(.alpha_peb),
+    Alpha  = round(as.numeric(.alpha_peb), 3),
+    Omega  = round(as.numeric(.omega_peb[names(.alpha_peb)]), 3),
+    AVE    = round(as.numeric(.ave_peb[names(.alpha_peb)]), 3),
+    check.names = FALSE
+)
+kable(rel_peb)
+```
+
+## CFA Psychological Well-Being (PWB) {#sec-cfa-pwb}
+
+Model multidimensional 6-faktor (First-Order). *Dioptimasi dengan 3 MI.*
+
+```{r}
+#| label: cfa-pwb
+model_pwb <- "
+  Autonomy =~ PWB_1 + PWB_7 + PWB_13_R + PWB_19_R + PWB_25 + PWB_31_R + PWB_37
+  Mastery =~ PWB_2 + PWB_8 + PWB_14_R + PWB_20 + PWB_26_R + PWB_32_R + PWB_38
+  Growth =~ PWB_3_R + PWB_9 + PWB_15_R + PWB_21 + PWB_27_R + PWB_33 + PWB_39_R
+  Relations =~ PWB_4 + PWB_10_R + PWB_16_R + PWB_22 + PWB_28 + PWB_34_R + PWB_40
+  Purpose =~ PWB_5_R + PWB_11 + PWB_17_R + PWB_23_R + PWB_29 + PWB_35 + PWB_41_R
+  Acceptance =~ PWB_6 + PWB_12 + PWB_18_R + PWB_24 + PWB_30_R + PWB_36_R + PWB_42
+  PWB_34_R ~~ PWB_30_R 
+  PWB_26_R ~~ PWB_22 
+  PWB_37 ~~ PWB_36_R 
+"
+fit_pwb <- tryCatch(cfa(model_pwb, data = df, std.lv = TRUE), error = function(e) NULL)
+
+if(!is.null(fit_pwb)){
+  summary(fit_pwb, fit.measures = TRUE, standardized = TRUE)
+} else {
+  cat("Model gagal dikalkulasi (Not Converged).\n")
+}
+```
+
+### Reliabilitas PWB
+
+```{r}
+#| label: tbl-rel-pwb
+#| tbl-cap: "Reliabilitas Skala PWB (Dimensi)"
+if(!is.null(fit_pwb)){
+  .alpha_pwb <- compRelSEM(fit_pwb, tau.eq = TRUE)
+  .omega_pwb <- compRelSEM(fit_pwb, tau.eq = FALSE)
+  .ave_pwb   <- AVE(fit_pwb)
+
+  rel_pwb <- data.frame(
+      Faktor = names(.alpha_pwb),
+      Alpha  = round(as.numeric(.alpha_pwb), 3),
+      Omega  = round(as.numeric(.omega_pwb[names(.alpha_pwb)]), 3),
+      AVE    = round(as.numeric(.ave_pwb[names(.alpha_pwb)]), 3),
+      check.names = FALSE
+  )
+  kable(rel_pwb)
+} else {
+  cat("Tidak dapat menghitung reliabilitas karena model CFA tidak konvergen.\n")
+}
+```
+
+
+
+```{r}
+#| label: export-txt
+#| include: false
+
+# Membuat file TXT tunggal berisi semua output CFA
+folder_output <- "Output_Main/"
+dir.create(folder_output, showWarnings = FALSE, recursive = TRUE)
+file_txt <- paste0(folder_output, "Hasil_Analisis_CFA.txt")
+
+sink(file_txt)
+cat("=================================================================\n")
+cat("          LAPORAN ANALISIS DATA: DESKRIPTIF DAN CFA\n")
+cat(paste("                   Dicetak pada:", Sys.time(), "\n"))
+cat("=================================================================\n\n")
+
+cat("=================================================================\n")
+cat("STATISTIK DESKRIPTIF DEMOGRAFI\n")
+cat("=================================================================\n\n")
+
+cat("1. Jenis Kelamin\n")
+print(print_demo_table(df$Gender, c("1" = "Laki-laki", "2" = "Perempuan")), row.names = FALSE)
+
+cat("\n2. Usia\n")
+cat(sprintf("Mean = %.2f, SD = %.2f, Min = %d, Max = %d\n", mean(df$Usia, na.rm=TRUE), sd(df$Usia, na.rm=TRUE), min(df$Usia, na.rm=TRUE), max(df$Usia, na.rm=TRUE)))
+
+cat("\n3. Semester\n")
+print(print_demo_table(df$Semester, c("1" = "Semester 1-2", "2" = "Semester 3-4", "3" = "Semester 5-6", "4" = "Semester 7 atau lebih", "5" = "Lulus")), row.names = FALSE)
+
+cat("\n4. Area Tempat Tinggal\n")
+print(print_demo_table(df$Area, c("1" = "Urban (Kota)", "2" = "Suburban (Pinggiran)", "3" = "Rural (Pedesaan)")), row.names = FALSE)
+
+cat("\n5. Tipe Hunian\n")
+print(print_demo_table(df$Hunian, c("1" = "Rumah Orang Tua", "2" = "Kos/Kontrakan", "3" = "Asrama", "4" = "Lainnya")), row.names = FALSE)
+
+cat("\n=================================================================\n")
+cat("STATISTIK DESKRIPTIF LEVEL ITEM (NORMALITAS)\n")
+cat("=================================================================\n\n")
+print(item_stats, row.names = FALSE)
+
+cat("\n=================================================================\n")
+cat("          HASIL ANALISIS CONFIRMATORY FACTOR ANALYSIS (CFA)\n")
+cat("=================================================================\n\n")
+
+cat("\n=================================================================\n")
+cat("1. ENVIRONMENTAL IDENTITY (EID)\n")
+cat("=================================================================\n")
+print(summary(fit_eid, fit.measures = TRUE, standardized = TRUE))
+cat("\n--- Reliabilitas ---\n")
+print(rel_eid)
+
+cat("\n=================================================================\n")
+cat("2. ENVIRONMENTAL SELF-IDENTITY (ESI)\n")
+cat("=================================================================\n")
+print(summary(fit_esi, fit.measures = TRUE, standardized = TRUE))
+cat("\n--- Reliabilitas ---\n")
+print(rel_esi)
+
+cat("\n=================================================================\n")
+cat("3. PRO-SOCIAL MEANING IN LIFE (PSMLS)\n")
+cat("=================================================================\n")
+print(summary(fit_psmls, fit.measures = TRUE, standardized = TRUE))
+cat("\n--- Reliabilitas ---\n")
+print(rel_psmls)
+
+cat("\n=================================================================\n")
+cat("4. PRO-ENVIRONMENTAL BEHAVIOR (PEB)\n")
+cat("=================================================================\n")
+print(summary(fit_peb, fit.measures = TRUE, standardized = TRUE))
+cat("\n--- Reliabilitas ---\n")
+print(rel_peb)
+
+cat("\n=================================================================\n")
+cat("5. PSYCHOLOGICAL WELL-BEING (PWB)\n")
+cat("=================================================================\n")
+if(!is.null(fit_pwb)){
+  print(summary(fit_pwb, fit.measures = TRUE, standardized = TRUE))
+  cat("\n--- Reliabilitas ---\n")
+  print(rel_pwb)
+} else {
+  cat("Model PWB Not Converged.\n")
+}
+sink()
+
+# Buka file TXT otomatis
+system(paste("open", file_txt))
+```

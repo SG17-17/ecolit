@@ -1,0 +1,1476 @@
+---
+title: "Analisis Data Tesis — Script Utama"
+subtitle: |
+  Peran Keterlibatan Mahasiswa dalam Organisasi Lingkungan sebagai Moderator
+  dalam Pengaruh Skeptisisme Perubahan Iklim terhadap Perilaku Pro-Lingkungan
+author: "Muhammad Niam Makhali"
+institute: "Magister Sains Psikologi, Fakultas Psikologi, Universitas Padjadjaran"
+date: 2026-01-30
+date-format: long
+lang: id
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    toc-title: "Daftar Isi"
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    code-summary: "Lihat kode"
+    embed-resources: true
+    theme: cosmo
+    fig-dpi: 300
+    df-print: kable
+execute:
+  warning: false
+  message: false
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+library(readxl)
+library(lavaan)
+library(semPlot)
+library(semTools)
+library(ggplot2)
+library(ggpubr)
+library(dplyr)
+library(interactions)
+library(jtools)
+library(car)
+library(nortest)
+library(sandwich)
+library(lmtest)
+library(writexl)
+library(psych)
+library(corrplot)
+library(moments)
+library(ggcorrplot)
+library(RColorBrewer)
+library(emmeans)
+library(rempsyc)
+library(officer)
+library(flextable)
+library(purrr)
+library(broom)
+library(papaja)
+library(knitr)
+
+folder_output <- "Output_Main/"
+dir.create(folder_output, showWarnings = FALSE, recursive = TRUE)
+```
+
+::: {.callout-note}
+## Catatan Penting
+File ini adalah **script utama tesis**, hanya berisi analisis yang dilaporkan langsung di draft final Bab 3 dan Bab 4.
+Analisis arsip/lampiran tersimpan di file terpisah: `Supplementary_Analysis.R`.
+:::
+
+# Persiapan Data {#sec-persiapan}
+
+## Import Dataset
+
+```{r}
+#| label: import-data
+data <- read_excel("QC.xlsx")
+```
+
+Dataset `QC.xlsx` berisi **`r nrow(data)`** observasi dan **`r ncol(data)`** variabel setelah proses quality control.
+
+# Analisis Deskriptif {#sec-deskriptif}
+
+## Statistik Deskriptif Demografi Responden {#sec-demografi}
+
+```{r}
+#| label: demografi-helper
+# Fungsi helper tabel frekuensi demografi
+print_demo_table <- function(variabel, labels, judul) {
+    freq <- table(variabel, useNA = "ifany")
+    pct  <- prop.table(freq) * 100
+    display <- sapply(names(freq), function(x) if (is.na(x)) "Missing" else labels[x])
+    data.frame(
+        Kategori   = display,
+        Frekuensi  = as.numeric(freq),
+        Persentase = paste0(round(pct, 2), "%"),
+        check.names = FALSE
+    )
+}
+```
+
+```{r}
+#| label: demografi-n
+n_total <- nrow(data)
+```
+
+**Total Sampel (N):** `r n_total`
+
+### Jenis Kelamin
+
+```{r}
+#| label: tbl-gender
+#| tbl-cap: "Distribusi Jenis Kelamin"
+kable(print_demo_table(data$Gender, c("1" = "Laki-laki", "2" = "Perempuan"), "Gender"))
+```
+
+### Usia
+
+```{r}
+#| label: demografi-usia
+usia_m   <- apa_num(mean(data$Usia, na.rm = TRUE), digits = 2, gt1 = TRUE)
+usia_sd  <- apa_num(sd(data$Usia, na.rm = TRUE), digits = 2, gt1 = TRUE)
+usia_min <- min(data$Usia, na.rm = TRUE)
+usia_max <- max(data$Usia, na.rm = TRUE)
+```
+
+*M* = `r usia_m` tahun, *SD* = `r usia_sd`, Min = `r usia_min`, Max = `r usia_max`.
+
+### Semester
+
+```{r}
+#| label: tbl-semester
+#| tbl-cap: "Distribusi Semester (5 Kategori)"
+kable(print_demo_table(
+    data$Semester,
+    c("1" = "Semester 1-2", "2" = "Semester 2-3", "3" = "Semester 3-4",
+      "4" = "Semester 5-6", "5" = "Semester 7 atau Lebih"),
+    "Semester"
+))
+```
+
+```{r}
+#| label: tbl-semester-recode
+#| tbl-cap: "Distribusi Semester (Recoded — 3 Kategori)"
+data$Semester_Recode <- ifelse(data$Semester == 1, "Semester Awal (1-2)",
+    ifelse(data$Semester %in% c(2, 3), "Semester Menengah (3-4)",
+        "Semester Lanjut (>=5)"
+    )
+)
+sem_recode_freq <- table(data$Semester_Recode, useNA = "ifany")
+sem_recode_pct  <- prop.table(sem_recode_freq) * 100
+kable(data.frame(
+    Kategori   = names(sem_recode_freq),
+    Frekuensi  = as.numeric(sem_recode_freq),
+    Persentase = paste0(round(sem_recode_pct, 2), "%"),
+    check.names = FALSE
+))
+```
+
+### Area Tempat Tinggal
+
+```{r}
+#| label: tbl-area
+#| tbl-cap: "Distribusi Area Tempat Tinggal"
+kable(print_demo_table(data$Area, c("1" = "Urban", "2" = "Suburban", "3" = "Rural"), "Area"))
+```
+
+### Tipe Hunian
+
+```{r}
+#| label: tbl-hunian
+#| tbl-cap: "Distribusi Tipe Hunian"
+kable(print_demo_table(
+    data$Hunian,
+    c("1" = "Kos/Kontrakan", "2" = "Rumah Orang Tua/Wali", "3" = "Asrama", "4" = "Lainnya"),
+    "Hunian"
+))
+```
+
+### Pengetahuan Lingkungan
+
+```{r}
+#| label: tbl-knowl
+#| tbl-cap: "Distribusi Pengetahuan tentang Lingkungan"
+kable(print_demo_table(data$Knowl, c("0" = "Tidak", "1" = "Ya"), "Knowl"))
+```
+
+### Lama Bergabung dengan Organisasi Lingkungan
+
+```{r}
+#| label: tbl-bergabung
+#| tbl-cap: "Distribusi Lama Bergabung"
+kable(print_demo_table(
+    data$Bergabung,
+    c("1" = "1-2 Tahun", "2" = "2-3 Tahun", "3" = "Lebih dari 3 Tahun"),
+    "Bergabung"
+))
+```
+
+### Provinsi
+
+```{r}
+#| label: tbl-provinsi
+#| tbl-cap: "Distribusi Provinsi"
+kable(print_demo_table(
+    data$Provinsi,
+    c("1" = "Jawa Barat", "2" = "Jawa Tengah", "3" = "Jawa Timur",
+      "4" = "Banten", "5" = "DIY", "6" = "DKI Jakarta"),
+    "Provinsi"
+))
+```
+
+### Status Anggota
+
+```{r}
+#| label: tbl-anggota
+#| tbl-cap: "Distribusi Status Anggota"
+kable(print_demo_table(data$Anggota, c("1" = "Pengurus", "2" = "Anggota Biasa"), "Anggota"))
+```
+
+
+## Statistik Deskriptif Level Item {#sec-item-deskriptif}
+
+Digunakan untuk data screening dan pengecekan normalitas univariat.
+
+```{r}
+#| label: tbl-item-stats
+#| tbl-cap: "Statistik Deskriptif Level Item (Indikator)"
+item_cols <- names(data)[grep("^P\\d+$|^C\\d+$|^O\\d*$", names(data))]
+
+item_desc <- describe(data[, item_cols], type = 2)
+
+item_stats <- data.frame(
+    Item     = item_cols,
+    N        = item_desc$n,
+    Mean     = round(item_desc$mean, 2),
+    SD       = round(item_desc$sd, 2),
+    Min      = item_desc$min,
+    Max      = item_desc$max,
+    Skewness = round(item_desc$skew, 2),
+    Kurtosis = round(item_desc$kurtosis, 2),
+    check.names = FALSE
+)
+
+item_stats_apa <- transform(item_stats,
+    Mean     = apa_num(Mean, digits = 2, gt1 = TRUE),
+    SD       = apa_num(SD, digits = 2, gt1 = TRUE),
+    Skewness = apa_num(Skewness, digits = 2, gt1 = TRUE),
+    Kurtosis = apa_num(Kurtosis, digits = 2, gt1 = TRUE)
+)
+kable(item_stats_apa)
+```
+
+::: {.callout-tip}
+## Catatan
+- Skewness & Kurtosis: Type 2 (`psych::describe`), konsisten dengan JASP/SPSS.
+- Kurtosis = Excess Kurtosis (distribusi normal = 0).
+- Threshold (West et al., 1995): Skewness > |2.0|, Kurtosis > |7.0|.
+- Jika ada pelanggaran: gunakan estimator Robust (MLR/Sandwich).
+:::
+
+
+# Model Pengukuran Final (Bab 3) {#sec-cfa}
+
+CFA: PEB (Bifaktor), OL (Second-Order), CCS (Bifaktor).
+
+## CFA PEB — Model Bifaktor {#sec-cfa-peb}
+
+Model bifaktor: satu faktor **umum** (PEB) menjelaskan semua item, ditambah satu faktor **spesifik** (Factor2) untuk item PEB Privat. Faktor umum dan spesifik bersifat ortogonal (tidak berkorelasi).
+
+> Referensi: Brown, T. A. (2015). *Confirmatory Factor Analysis for Applied Research* (2nd ed.).
+
+```{r}
+#| label: cfa-peb
+model_peb <- "
+PEB     =~ P3 + P4 + P7 + P8 + P10 + P11 + P12 + P13 + P14 + P15 + P16 + P17 + P18 + P19
+Factor2 =~ P3 + P4 + P7 + P8 + P10
+P18 ~~ P19
+"
+fit_peb <- cfa(model_peb,
+    data = data, estimator = "mlr",
+    orthogonal = TRUE, std.lv = TRUE
+)
+summary(fit_peb, fit.measures = TRUE, standardized = TRUE)
+```
+
+### Reliabilitas PEB
+
+```{r}
+#| label: tbl-rel-peb
+#| tbl-cap: "Reliabilitas PEB (Bifaktor)"
+.alpha_peb <- compRelSEM(fit_peb, return.total = TRUE, tau.eq = TRUE)
+.omega_peb <- compRelSEM(fit_peb, return.total = TRUE, tau.eq = FALSE)
+.ave_peb   <- AVE(fit_peb)
+
+rel_peb <- data.frame(
+    Faktor = names(.alpha_peb),
+    Alpha  = round(as.numeric(.alpha_peb), 3),
+    Omega  = round(as.numeric(.omega_peb[names(.alpha_peb)]), 3),
+    AVE    = round(as.numeric(.ave_peb[names(.alpha_peb)]), 3),
+    check.names = FALSE
+)
+kable(rel_peb, col.names = c("Faktor", "\u03b1 (Alpha)", "\u03c9 (Omega)", "AVE"))
+```
+
+Alpha = Cronbach (tau-equivalent); Omega = McDonald; AVE target > .50.
+
+
+## CFA OL — Model Second-Order {#sec-cfa-ol}
+
+Model second-order: faktor orde pertama (Behavior, Afektif, Kognitif) diukur oleh indikatornya masing-masing, dan faktor orde kedua (OL) menjelaskan korelasi di antara ketiga faktor orde pertama tersebut.
+
+```{r}
+#| label: cfa-ol
+model_ol <- "
+Behavior =~ O1 + O2 + O3 + O4 + O5
+Afektif  =~ O6 + O7 + O8 + O9 + O10
+Kognitif =~ O11 + O12 + O13 + O14 + O15
+OL       =~ Behavior + Afektif + Kognitif
+"
+fit_ol <- cfa(model_ol,
+    data = data, estimator = "mlr",
+    orthogonal = FALSE, std.lv = TRUE
+)
+summary(fit_ol, fit.measures = TRUE, standardized = TRUE)
+```
+
+### Reliabilitas OL
+
+```{r}
+#| label: tbl-rel-ol
+#| tbl-cap: "Reliabilitas OL (Second-Order)"
+.alpha_ol <- compRelSEM(fit_ol, return.total = TRUE, tau.eq = TRUE)
+.omega_ol <- compRelSEM(fit_ol, return.total = TRUE, tau.eq = FALSE)
+.ave_ol   <- AVE(fit_ol)
+
+rel_ol <- data.frame(
+    Faktor = names(.alpha_ol),
+    Alpha  = round(as.numeric(.alpha_ol), 3),
+    Omega  = round(as.numeric(.omega_ol[names(.alpha_ol)]), 3),
+    AVE    = round(as.numeric(.ave_ol[names(.alpha_ol)]), 3),
+    check.names = FALSE
+)
+kable(rel_ol, col.names = c("Faktor", "\u03b1 (Alpha)", "\u03c9 (Omega)", "AVE"))
+```
+
+
+## CFA CCS — Model Bifaktor {#sec-cfa-ccs}
+
+Model bifaktor CCS: satu general factor (GCCS) untuk semua item, dan satu specific factor (SCCS) yang menangkap subdimensi tertentu dari skeptisisme perubahan iklim.
+
+```{r}
+#| label: cfa-ccs
+model_ccs <- "
+GCCS =~ C2 + C3 + C4 + C5 + C6 + C7 + C8 + C9 + C10 + C11 + C12
+SCCS =~ C3 + C7 + C6 + C12
+"
+fit_ccs <- cfa(model_ccs,
+    data = data, estimator = "mlr",
+    orthogonal = TRUE, std.lv = TRUE
+)
+summary(fit_ccs, fit.measures = TRUE, standardized = TRUE)
+```
+
+### Reliabilitas CCS
+
+```{r}
+#| label: tbl-rel-ccs
+#| tbl-cap: "Reliabilitas CCS (Bifaktor)"
+.alpha_ccs <- compRelSEM(fit_ccs, return.total = TRUE, tau.eq = TRUE)
+.omega_ccs <- compRelSEM(fit_ccs, return.total = TRUE, tau.eq = FALSE)
+.ave_ccs   <- AVE(fit_ccs)
+
+rel_ccs <- data.frame(
+    Faktor = names(.alpha_ccs),
+    Alpha  = round(as.numeric(.alpha_ccs), 3),
+    Omega  = round(as.numeric(.omega_ccs[names(.alpha_ccs)]), 3),
+    AVE    = round(as.numeric(.ave_ccs[names(.alpha_ccs)]), 3),
+    check.names = FALSE
+)
+kable(rel_ccs, col.names = c("Faktor", "\u03b1 (Alpha)", "\u03c9 (Omega)", "AVE"))
+```
+
+
+# Pemrosesan Factor Score {#sec-fscore}
+
+## Ekstraksi Factor Score
+
+```{r}
+#| label: extract-fscores
+Fscores_peb <- lavPredict(fit_peb, type = "lv")
+Fscores_ol  <- lavPredict(fit_ol, type = "lv")
+Fscores_ccs <- lavPredict(fit_ccs, type = "lv")
+
+data_Fscores <- data.frame(
+    PEB = Fscores_peb[, "PEB"],
+    OL  = Fscores_ol[, "OL"],
+    CCS = Fscores_ccs[, "GCCS"]
+)
+
+write_xlsx(data_Fscores, paste0(folder_output, "Factor_Scores_Utama.xlsx"))
+```
+
+Factor scores diestimasi dari model CFA final masing-masing konstruk via `lavPredict()`.
+Skor bersifat standardized (*M* = 0, *SD* ≈ 1).
+
+- **PEB**: general factor dari model bifaktor
+- **OL**: second-order factor
+- **CCS**: general factor (GCCS) dari model bifaktor
+
+
+## Statistik Deskriptif Factor Scores {#sec-desc-fscores}
+
+```{r}
+#| label: tbl-var-stats
+#| tbl-cap: "Statistik Deskriptif Level Variabel (Factor Scores)"
+var_desc <- describe(data_Fscores, type = 2)
+var_stats <- data.frame(
+    Variabel = rownames(var_desc),
+    N        = var_desc$n,
+    Mean     = round(var_desc$mean, 2),
+    SD       = round(var_desc$sd, 2),
+    Min      = round(var_desc$min, 2),
+    Max      = round(var_desc$max, 2),
+    Skewness = round(var_desc$skew, 2),
+    Kurtosis = round(var_desc$kurtosis, 2),
+    check.names = FALSE
+)
+
+var_stats_apa <- transform(var_stats,
+    Mean     = apa_num(Mean, digits = 2, gt1 = TRUE),
+    SD       = apa_num(SD, digits = 2, gt1 = TRUE),
+    Min      = apa_num(Min, digits = 2, gt1 = TRUE),
+    Max      = apa_num(Max, digits = 2, gt1 = TRUE),
+    Skewness = apa_num(Skewness, digits = 2, gt1 = TRUE),
+    Kurtosis = apa_num(Kurtosis, digits = 2, gt1 = TRUE)
+)
+kable(var_stats_apa)
+```
+
+
+## Matriks Korelasi Pearson {#sec-korelasi}
+
+```{r}
+#| label: tbl-cormat
+#| tbl-cap: "Matriks Korelasi Pearson (*r*) dengan Notasi Bintang APA 7"
+cor_matrix   <- cor(data_Fscores, use = "complete.obs")
+corr_pvalues <- corr.test(data_Fscores, use = "complete.obs")
+
+add_significance <- function(cor_val, p_val) {
+    r_fmt <- apa_num(cor_val, digits = 2, gt1 = FALSE)
+    if (is.na(p_val)) return(r_fmt)
+    stars <- if (p_val < 0.001) "***" else if (p_val < 0.01) "**" else if (p_val < 0.05) "*" else ""
+    paste0(r_fmt, stars)
+}
+
+cor_pval_matrix <- corr_pvalues$p
+cor_sig_matrix  <- matrix(
+    mapply(add_significance, as.vector(cor_matrix), as.vector(cor_pval_matrix)),
+    nrow = nrow(cor_matrix), ncol = ncol(cor_matrix),
+    dimnames = list(rownames(cor_matrix), colnames(cor_matrix))
+)
+
+kable(as.data.frame(cor_sig_matrix))
+```
+
+\*\*\* *p* < .001 | \*\* *p* < .01 | \* *p* < .05.
+Kekuatan (Cohen, 1992): |*r*| < .30 = Kecil | .30–.49 = Sedang | ≥ .50 = Besar.
+
+
+# Uji Hipotesis Utama (Bab 4) {#sec-hipotesis}
+
+Model: **PEB ~ CCS × OL**
+
+- H1: CCS → PEB (efek utama)
+- H2: CCS × OL → PEB (interaksi moderasi)
+
+## Model Regresi OLS {#sec-ols}
+
+Spesifikasi: PEB = *b*₀ + *b*₁·CCS + *b*₂·OL + *b*₃·(CCS × OL) + *e*
+
+```{r}
+#| label: reg-ols
+model_reg_peb <- lm(PEB ~ CCS * OL, data = data_Fscores)
+summary(model_reg_peb)
+```
+
+
+## Hasil Regresi dengan Koreksi HC3 {#sec-hc3}
+
+HC3 (Hayes & Cai, 2007): koreksi standard error yang robust terhadap heteroskedastisitas.
+**Ini adalah hasil utama yang dilaporkan dalam naskah tesis.**
+
+```{r}
+#| label: reg-hc3
+coeftest(model_reg_peb, vcov = vcovHC(model_reg_peb, type = "HC3"))
+```
+
+
+## Uji Asumsi Klasik {#sec-asumsi}
+
+```{r}
+#| label: asumsi-normalitas
+# Shapiro-Wilk
+shapiro_peb <- shapiro.test(residuals(model_reg_peb))
+shapiro_peb
+```
+
+```{r}
+#| label: asumsi-ad
+# Anderson-Darling
+ad_peb <- ad.test(residuals(model_reg_peb))
+ad_peb
+```
+
+```{r}
+#| label: asumsi-bp
+# Breusch-Pagan (ncvTest)
+ncvTest(model_reg_peb)
+```
+
+::: {.callout-note}
+## Interpretasi
+- Shapiro-Wilk & Anderson-Darling: *p* > 0.05 → normalitas terpenuhi.
+- Breusch-Pagan: *p* > 0.05 → homoskedastisitas terpenuhi.
+- Jika ada pelanggaran: HC3 (@sec-hc3) sudah mengatasinya.
+:::
+
+
+# Analisis Eksplorasi (Bab 4) {#sec-eksplorasi}
+
+**Three-Way Interaction: CCS × OL × Status Anggota**
+
+::: {.callout-important}
+Analisis ini bersifat **EKSPLORATORI** (bukan konfirmatori).
+:::
+
+## Persiapan Data Lengkap {#sec-data-full}
+
+```{r}
+#| label: data-full
+data_full <- data.frame(
+    PEB       = Fscores_peb[, "PEB"],
+    OL        = Fscores_ol[, "OL"],
+    CCS       = Fscores_ccs[, "GCCS"],
+    Gender    = factor(data$Gender),
+    Semester  = factor(data$Semester),
+    Area      = factor(data$Area),
+    Hunian    = factor(data$Hunian),
+    Bergabung = factor(data$Bergabung),
+    Anggota   = factor(ifelse(data$Anggota == 2, 1, 0),
+                       levels = c(0, 1), labels = c("Pengurus", "Anggota Biasa")),
+    Usia      = data$Usia
+)
+```
+
+Data lengkap: **`r nrow(data_full)`** baris × **`r ncol(data_full)`** kolom.
+
+
+## Perbandingan Moderator (3-Way Interaction) {#sec-moderator-compare}
+
+```{r}
+#| label: moderator-models
+mod_base      <- lm(PEB ~ CCS * OL, data = data_full)
+mod_anggota   <- lm(PEB ~ CCS * OL * Anggota, data = data_full)
+mod_gender    <- lm(PEB ~ CCS * OL * Gender, data = data_full)
+mod_bergabung <- lm(PEB ~ CCS * OL * Bergabung, data = data_full)
+mod_hunian    <- lm(PEB ~ CCS * OL * Hunian, data = data_full)
+mod_usia      <- lm(PEB ~ CCS * OL * Usia, data = data_full)
+mod_area      <- lm(PEB ~ CCS * OL * Area, data = data_full)
+
+models <- list(
+  Anggota   = mod_anggota,
+  Gender    = mod_gender,
+  Bergabung = mod_bergabung,
+  Hunian    = mod_hunian,
+  Usia      = mod_usia,
+  Area      = mod_area
+)
+```
+
+```{r}
+#| label: tbl-3way-compare
+#| tbl-cap: "Koefisien 3-Way Interaction CCS:OL per Moderator (SE robust HC3)"
+rows <- list()
+for (nm in names(models)) {
+  m  <- models[[nm]]
+  ct <- coeftest(m, vcov = vcovHC(m, type = "HC3"))
+  terms_3way <- grep("CCS:OL:", rownames(ct), value = TRUE)
+  for (tr in terms_3way) {
+    b  <- ct[tr, "Estimate"]
+    se <- ct[tr, "Std. Error"]
+    tv <- ct[tr, "t value"]
+    pv <- ct[tr, "Pr(>|t|)"]
+    if (is.na(pv) || is.nan(pv)) {
+      p_fmt <- "NaN"; sig <- ""
+    } else {
+      p_fmt <- if (pv < 0.001) "<.001" else formatC(pv, format = "f", digits = 3)
+      sig   <- if (pv < 0.001) "***" else if (pv < 0.01) "**" else if (pv < 0.05) "*" else ""
+    }
+    rows[[length(rows) + 1]] <- data.frame(
+      Term = tr, b = round(b, 4), `SE(HC3)` = round(se, 4),
+      t = round(tv, 3), p = paste0(p_fmt, sig),
+      AIC = round(AIC(m), 1), BIC = round(BIC(m), 1), N = nobs(m),
+      check.names = FALSE
+    )
+  }
+}
+kable(bind_rows(rows))
+```
+
+\*\*\* *p* < .001 | \*\* *p* < .01 | \* *p* < .05.
+
+
+## Perbandingan Model: Baseline vs. + Status Anggota {#sec-baseline-cov}
+
+```{r}
+#| label: compare-baseline
+mod_base <- lm(PEB ~ CCS * OL, data = data_full)
+mod_cov  <- lm(PEB ~ CCS * OL + Anggota, data = data_full)
+
+export_summs(
+    mod_base, mod_cov,
+    model.names = c("Baseline", "+ Status Anggota"),
+    robust      = "HC3",
+    stars       = c(`***` = 0.001, `**` = 0.01, `*` = 0.05),
+    statistics  = c(N = "nobs", R2 = "r.squared", "Adj. R2" = "adj.r.squared", AIC = "AIC")
+)
+```
+
+### ANOVA
+
+```{r}
+#| label: anova-compare
+anova(mod_base, mod_cov)
+```
+
+### Wald Test (HC3)
+
+```{r}
+#| label: wald-compare
+waldtest(mod_base, mod_cov, vcov = vcovHC(mod_cov, type = "HC3"))
+```
+
+
+## Three-Way Interaction: CCS × OL × Anggota {#sec-3way}
+
+Apakah pola moderasi OL pada hubungan CCS → PEB **berbeda** antara Pengurus dan Anggota Biasa?
+
+```{r}
+#| label: 3way-ols
+mod_3way_anggota <- mod_anggota
+summary(mod_3way_anggota)
+```
+
+```{r}
+#| label: 3way-hc3
+coeftest(mod_3way_anggota, vcov = vcovHC(mod_3way_anggota, type = "HC3"))
+```
+
+
+## Simple Slopes dan Marginal Trends {#sec-simple-slopes}
+
+### Simple Slopes
+
+```{r}
+#| label: sim-slopes
+sim_slopes(mod_3way_anggota, pred = CCS, modx = OL, mod2 = Anggota,
+           johnson_neyman = FALSE, robust = "HC3")
+```
+
+### Marginal Trends (emtrends)
+
+```{r}
+#| label: emtrends
+emtrends(mod_3way_anggota, pairwise ~ Anggota,
+    var = "CCS", at = list(OL = c(-1, 0, 1)),
+    vcov. = vcovHC(mod_3way_anggota, type = "HC3")
+)
+```
+
+### Subgroup Analysis — Pengurus
+
+```{r}
+#| label: subgroup-pengurus
+mod_pengurus <- lm(PEB ~ CCS * OL, data = data_full[data_full$Anggota == "Pengurus", ])
+coeftest(mod_pengurus, vcov = vcovHC(mod_pengurus, type = "HC3"))
+```
+
+### Subgroup Analysis — Anggota Biasa
+
+```{r}
+#| label: subgroup-biasa
+mod_biasa <- lm(PEB ~ CCS * OL, data = data_full[data_full$Anggota == "Anggota Biasa", ])
+coeftest(mod_biasa, vcov = vcovHC(mod_biasa, type = "HC3"))
+```
+
+
+# Visualisasi Final {#sec-visualisasi}
+
+## Plot Deskriptif Item {#sec-plot-item}
+
+```{r}
+#| label: fig-item-means
+#| fig-cap: "Item-Level Descriptive Statistics"
+#| fig-width: 12
+#| fig-height: 9.3
+item_plot_df <- item_stats |>
+  mutate(
+    prefix   = gsub("[0-9]", "", Item),
+    Midpoint = ifelse(prefix == "C", 4, 3),
+    MaxSkala = ifelse(prefix == "C", 7, 5),
+    Skala    = case_when(
+      prefix == "C" ~ "CCS",
+      prefix == "O" ~ "OL",
+      prefix == "P" ~ "PEB"
+    ),
+    item_num = as.integer(gsub("[A-Za-z]", "", Item))
+  ) |>
+  arrange(prefix, Mean) |>
+  mutate(
+    Skala   = factor(Skala, levels = c("CCS", "OL", "PEB")),
+    Item    = factor(Item, levels = unique(Item)),
+    label_x = Mean + SD + 0.08
+  )
+
+zone_df <- item_plot_df |> distinct(Skala, Midpoint, MaxSkala)
+
+ref_items <- item_plot_df |>
+  group_by(Skala) |> slice(1) |> ungroup() |> select(Skala, Item)
+
+limits_df <- bind_rows(
+  zone_df |> select(Skala) |> mutate(x_lim = 1),
+  zone_df |> transmute(Skala, x_lim = MaxSkala)
+) |> left_join(ref_items, by = "Skala")
+
+range_annot <- item_plot_df |>
+  summarise(lo = min(Mean), hi = max(Mean),
+            Midpoint = first(Midpoint), MaxSkala = first(MaxSkala), .by = Skala) |>
+  mutate(
+    skala_label = case_when(Skala == "CCS" ~ "Skala 1\u20137", TRUE ~ "Skala 1\u20135"),
+    x_center    = (1 + MaxSkala) / 2,
+    label       = sprintf("%s, Mean: %.2f\u2013%.2f", skala_label, lo, hi)
+  )
+
+ggplot(item_plot_df, aes(x = Mean, y = Item)) +
+  geom_rect(data = zone_df,
+            aes(xmin = 1, xmax = Midpoint, ymin = -Inf, ymax = Inf),
+            inherit.aes = FALSE, fill = "#FFF0EE") +
+  geom_rect(data = zone_df,
+            aes(xmin = Midpoint, xmax = MaxSkala, ymin = -Inf, ymax = Inf),
+            inherit.aes = FALSE, fill = "#EDF4FC") +
+  geom_blank(data = limits_df, aes(x = x_lim, y = Item), inherit.aes = FALSE) +
+  geom_vline(data = zone_df, aes(xintercept = Midpoint),
+             linetype = "longdash", color = "grey40", linewidth = 0.5) +
+  geom_errorbarh(aes(xmin = Mean - SD, xmax = Mean + SD),
+                 height = 0.25, linewidth = 0.3, color = "grey55") +
+  geom_point(aes(fill = Mean < Midpoint), shape = 21, size = 2.3,
+             color = "grey30", stroke = 0.3) +
+  scale_fill_manual(
+    values = c("TRUE" = "#E74C3C", "FALSE" = "#2980B9"),
+    labels = c("TRUE" = "Di bawah midpoint", "FALSE" = "Di atas midpoint"),
+    name = "Mean"
+  ) +
+  geom_text(aes(x = label_x, label = apa_num(Mean, digits = 2, gt1 = TRUE)),
+            hjust = 0, vjust = 0.4, size = 2.2, color = "grey15", fontface = "bold") +
+  geom_text(data = range_annot,
+            aes(x = x_center, y = -Inf, label = label),
+            inherit.aes = FALSE, vjust = 3.8, hjust = 0.5,
+            size = 2.8, color = "grey30", fontface = "bold") +
+  coord_cartesian(clip = "off") +
+  facet_wrap(~ Skala, scales = "free", ncol = 3) +
+  scale_x_continuous(
+    breaks = function(lims) seq(ceiling(lims[1]), floor(lims[2])),
+    expand = expansion(mult = c(0.02, 0.12))
+  ) +
+  labs(
+    title   = "Item-Level Descriptive Statistics",
+    x       = NULL, y = NULL,
+    caption = paste0(
+      "N = ", nrow(data), ".  ",
+      "Zona merah muda = di bawah midpoint (rendah); ",
+      "zona biru muda = di atas midpoint (tinggi).\n",
+      "Garis putus-putus = titik tengah skala (midpoint). ",
+      "Garis horizontal = \u00b11 SD."
+    )
+  ) +
+  theme_bw(base_size = 10) +
+  theme(
+    plot.title         = element_text(face = "bold", size = 13, hjust = 0.5),
+    plot.caption       = element_text(size = 7.5, color = "grey45", hjust = 0,
+                                      margin = margin(t = 8), lineheight = 1.2),
+    plot.margin        = margin(10, 12, 35, 10),
+    axis.text.y        = element_text(size = 9, face = "bold"),
+    axis.text.x        = element_text(size = 9, face = "bold"),
+    strip.text         = element_text(face = "bold", size = 12),
+    strip.background   = element_rect(fill = "grey93", color = "grey70"),
+    panel.grid.major.y = element_blank(),
+    panel.grid.major.x = element_line(color = "grey92", linewidth = 0.25),
+    panel.grid.minor   = element_blank(),
+    panel.spacing      = unit(1.0, "lines"),
+    legend.position    = "bottom",
+    legend.direction   = "horizontal",
+    legend.title       = element_text(face = "bold", size = 9),
+    legend.text        = element_text(size = 9),
+    legend.key.size    = unit(0.5, "cm"),
+    legend.margin      = margin(t = 5, b = 0),
+    legend.box.margin  = margin(t = 0)
+  )
+```
+
+
+## Path Diagram CFA {#sec-plot-cfa}
+
+### CFA PEB (Bifaktor)
+
+```{r}
+#| label: fig-cfa-peb
+#| fig-cap: "CFA Model PEB (Bifactor)"
+#| fig-width: 10
+#| fig-height: 6.7
+semPaths(fit_peb,
+    title = FALSE, whatLabels = "std.all", edge.label.cex = 0.6,
+    color = "white", edge.color = "black", sizeMan = 3.5, sizeLat = 8,
+    layout = "tree2", rotation = 2, bifactor = "PEB",
+    style = "lisrel", curve = 2.5, asize = 2, residuals = FALSE,
+    mar = c(3, 5, 3, 5)
+)
+title("CFA Model PEB (Bifactor)", cex.main = 1.0, font.main = 2, adj = 0)
+
+fit_idx <- fitMeasures(fit_peb, c("chisq.scaled", "cfi.robust", "tli.robust", "rmsea.robust", "srmr"))
+leg_text <- c(
+    "Fit Indices:",
+    sprintf("Chi-Square: %.2f", fit_idx["chisq.scaled"]),
+    sprintf("CFI       : %.3f", fit_idx["cfi.robust"]),
+    sprintf("TLI       : %.3f", fit_idx["tli.robust"]),
+    sprintf("RMSEA     : %.3f", fit_idx["rmsea.robust"]),
+    sprintf("SRMR      : %.3f", fit_idx["srmr"])
+)
+op <- par(family = "mono")
+legend("bottomright", inset = c(0.1, 0.15), legend = leg_text,
+       bty = "n", cex = 0.8, text.font = 1)
+par(op)
+```
+
+### CFA OL (Second-Order)
+
+```{r}
+#| label: fig-cfa-ol
+#| fig-cap: "CFA Model OL (Second-Order)"
+#| fig-width: 10
+#| fig-height: 6.7
+semPaths(fit_ol,
+    title = FALSE, whatLabels = "std.all", edge.label.cex = 0.6,
+    color = "white", edge.color = "black", sizeMan = 3.5, sizeLat = 8,
+    layout = "tree2", rotation = 2, style = "lisrel",
+    curve = 2.5, asize = 2, residuals = FALSE, mar = c(3, 5, 3, 5)
+)
+title("CFA Model OL (Second-Order)", cex.main = 1.0, font.main = 2, adj = 0)
+
+fit_idx <- fitMeasures(fit_ol, c("chisq.scaled", "cfi.robust", "tli.robust", "rmsea.robust", "srmr"))
+leg_text <- c(
+    "Fit Indices:",
+    sprintf("Chi-Square: %.2f", fit_idx["chisq.scaled"]),
+    sprintf("CFI       : %.3f", fit_idx["cfi.robust"]),
+    sprintf("TLI       : %.3f", fit_idx["tli.robust"]),
+    sprintf("RMSEA     : %.3f", fit_idx["rmsea.robust"]),
+    sprintf("SRMR      : %.3f", fit_idx["srmr"])
+)
+op <- par(family = "mono")
+legend("bottomleft", inset = c(0.1, 0.15), legend = leg_text,
+       bty = "n", cex = 0.8, text.font = 1)
+par(op)
+```
+
+### CFA CCS (Bifaktor)
+
+```{r}
+#| label: fig-cfa-ccs
+#| fig-cap: "CFA Model CCS (Bifactor)"
+#| fig-width: 10
+#| fig-height: 6.7
+semPaths(fit_ccs,
+    title = FALSE, whatLabels = "std.all", edge.label.cex = 0.6,
+    color = "white", edge.color = "black", sizeMan = 3.5, sizeLat = 8,
+    layout = "tree2", rotation = 2, bifactor = "GCCS",
+    style = "lisrel", curve = 2.5, asize = 2, residuals = FALSE,
+    mar = c(3, 5, 3, 5)
+)
+title("CFA Model CCS (Bifactor)", cex.main = 1.0, font.main = 2, adj = 0)
+
+fit_idx <- fitMeasures(fit_ccs, c("chisq.scaled", "cfi.robust", "tli.robust", "rmsea.robust", "srmr"))
+leg_text <- c(
+    "Fit Indices:",
+    sprintf("Chi-Square: %.2f", fit_idx["chisq.scaled"]),
+    sprintf("CFI       : %.3f", fit_idx["cfi.robust"]),
+    sprintf("TLI       : %.3f", fit_idx["tli.robust"]),
+    sprintf("RMSEA     : %.3f", fit_idx["rmsea.robust"]),
+    sprintf("SRMR      : %.3f", fit_idx["srmr"])
+)
+op <- par(family = "mono", xpd = NA)
+legend("bottomright", inset = c(0.1, 0.1), legend = leg_text,
+       bty = "n", cex = 0.8, text.font = 1)
+par(op)
+```
+
+
+## Matriks Korelasi {#sec-plot-corr}
+
+```{r}
+#| label: fig-corr
+#| fig-cap: "Pearson Correlation Matrix"
+#| fig-width: 6
+#| fig-height: 5.5
+cor_vars       <- c("PEB", "OL", "CCS")
+cor_data_utama <- data_Fscores[, cor_vars]
+cor_res        <- psych::corr.test(cor_data_utama, use = "complete.obs")
+cor_r          <- round(cor_res$r, 2)
+cor_p          <- cor_res$p
+
+add_significance <- function(cor_val, p_val) {
+  stars <- ifelse(p_val < .001, "***", ifelse(p_val < .01, "**",
+                  ifelse(p_val < .05, "*", "")))
+  paste0(apa_num(cor_val, digits = 2, gt1 = FALSE), stars)
+}
+
+cor_sig_matrix <- matrix(
+  mapply(add_significance, as.vector(cor_r), as.vector(cor_p)),
+  nrow = length(cor_vars), ncol = length(cor_vars),
+  dimnames = list(cor_vars, cor_vars)
+)
+
+cor_long <- expand.grid(
+  row = factor(cor_vars, levels = rev(cor_vars)),
+  col = factor(cor_vars, levels = cor_vars),
+  stringsAsFactors = FALSE
+)
+cor_long$r     <- mapply(function(r, c) cor_r[as.character(r), as.character(c)],
+                         cor_long$row, cor_long$col)
+cor_long$sig   <- mapply(function(r, c) cor_sig_matrix[as.character(r), as.character(c)],
+                         cor_long$row, cor_long$col)
+cor_long$row_i <- match(as.character(cor_long$row), cor_vars)
+cor_long$col_i <- match(as.character(cor_long$col), cor_vars)
+cor_long$panel <- ifelse(cor_long$row_i == cor_long$col_i, "diag",
+                  ifelse(cor_long$row_i < cor_long$col_i, "upper", "lower"))
+
+cor_tile <- cor_long[cor_long$panel == "upper", ]
+cor_diag <- cor_long[cor_long$panel == "diag", ]
+
+ggplot(cor_long, aes(x = col, y = row)) +
+  geom_tile(fill = "white", color = "grey80", linewidth = 0.5) +
+  geom_tile(data = cor_tile, aes(fill = r), color = "white", linewidth = 0.5) +
+  geom_text(data = cor_tile, aes(label = sig),
+            size = 5, fontface = "bold", color = "white") +
+  geom_text(data = cor_diag, aes(label = as.character(col)),
+            size = 5.5, fontface = "bold", color = "grey20") +
+  scale_fill_gradient2(
+    low = "#2166AC", mid = "white", high = "#B2182B",
+    midpoint = 0, limits = c(-1, 1), name = "Pearson r",
+    guide = guide_colorbar(barwidth = 1.2, barheight = 8,
+                            title.position = "top", title.hjust = 0.5)
+  ) +
+  scale_x_discrete(position = "top") +
+  labs(
+    title    = "Pearson Correlation Matrix",
+    subtitle = paste0("Variabel utama: PEB, OL, CCS (standardized factor scores; N = ",
+                      nrow(cor_data_utama), ")"),
+    caption  = "*** p < .001   ** p < .01   * p < .05 (two-tailed, adjusted for multiple comparisons)"
+  ) +
+  theme_bw(base_size = 12) +
+  theme(
+    plot.title    = element_text(face = "bold", size = 13, hjust = 0.5),
+    plot.subtitle = element_text(size = 9.5, hjust = 0.5, color = "grey35", margin = margin(b = 8)),
+    plot.caption  = element_text(size = 8, color = "grey50", hjust = 0, margin = margin(t = 8)),
+    axis.text.x   = element_text(size = 11, face = "bold"),
+    axis.text.y   = element_text(size = 11, face = "bold"),
+    axis.title    = element_blank(),
+    axis.ticks    = element_blank(),
+    panel.border  = element_rect(color = "grey70"),
+    panel.grid    = element_blank(),
+    legend.title  = element_text(face = "bold", size = 9),
+    legend.text   = element_text(size = 8.5),
+    plot.margin   = margin(15, 15, 10, 15)
+  )
+```
+
+
+## Plot Interaksi 3-Arah {#sec-plot-interact}
+
+```{r}
+#| label: fig-interact
+#| fig-cap: "Three-Way Interaction: CCS × OL × Status Keanggotaan"
+#| fig-width: 12
+#| fig-height: 6.5
+ccs_seq   <- seq(min(data_full$CCS, na.rm = TRUE),
+                 max(data_full$CCS, na.rm = TRUE), length.out = 200)
+ol_mean   <- mean(data_full$OL, na.rm = TRUE)
+ol_sd     <- sd(data_full$OL, na.rm = TRUE)
+ol_vals   <- c(ol_mean - ol_sd, ol_mean, ol_mean + ol_sd)
+ol_labels <- c("\u22121 SD", "Mean", "+1 SD")
+
+pred_grid <- expand.grid(
+  CCS = ccs_seq, OL = ol_vals, Anggota = levels(data_full$Anggota)
+)
+pred_grid$OL_label <- factor(ol_labels[match(pred_grid$OL, ol_vals)], levels = ol_labels)
+pred_grid$Anggota  <- factor(pred_grid$Anggota, levels = levels(data_full$Anggota))
+
+preds         <- predict(mod_3way_anggota, newdata = pred_grid, se.fit = TRUE)
+pred_grid$fit <- preds$fit
+pred_grid$se  <- preds$se.fit
+pred_grid$ci_lo <- pred_grid$fit - 1.96 * pred_grid$se
+pred_grid$ci_hi <- pred_grid$fit + 1.96 * pred_grid$se
+
+n_per_panel <- data_full |>
+  summarise(n = n(), .by = Anggota) |>
+  mutate(
+    Anggota = factor(Anggota, levels = levels(data_full$Anggota)),
+    label   = paste0("italic(n) == ", n)
+  )
+
+ol_colors    <- c("\u22121 SD" = "#2166AC", "Mean" = "#4DAC26", "+1 SD" = "#D6604D")
+ol_linetypes <- c("\u22121 SD" = "solid", "Mean" = "dashed", "+1 SD" = "dotdash")
+
+ggplot(pred_grid, aes(x = CCS, y = fit, color = OL_label,
+                      linetype = OL_label, fill = OL_label)) +
+  geom_point(data = data_full, aes(x = CCS, y = PEB),
+             inherit.aes = FALSE, color = "grey60", alpha = 0.22, size = 0.9) +
+  geom_ribbon(aes(ymin = ci_lo, ymax = ci_hi), alpha = 0.14, color = NA) +
+  geom_line(linewidth = 1.0) +
+  geom_label(data = n_per_panel,
+             aes(x = -Inf, y = Inf, label = label),
+             inherit.aes = FALSE, parse = TRUE,
+             hjust = -0.08, vjust = 1.3, size = 3.0,
+             color = "grey30", fill = "white",
+             label.size = 0.25, label.padding = unit(0.18, "lines")) +
+  facet_wrap(~ Anggota) +
+  scale_color_manual(values = ol_colors, name = "Keterlibatan Org. Lingkungan (OL)") +
+  scale_fill_manual(values = ol_colors, name = "Keterlibatan Org. Lingkungan (OL)") +
+  scale_linetype_manual(values = ol_linetypes, name = "Keterlibatan Org. Lingkungan (OL)") +
+  labs(
+    title    = "Three-Way Interaction: Skeptisisme Perubahan Iklim \u00d7 Keterlibatan Organisasi \u00d7 Status Keanggotaan",
+    subtitle = "Perilaku Pro-Lingkungan (PEB) sebagai kriteria; prediktor CCS dan moderator OL & Anggota",
+    x = "Skeptisisme Perubahan Iklim (CCS)",
+    y = "Perilaku Pro-Lingkungan (PEB)",
+    caption  = paste0(
+      "Garis = nilai prediksi model regresi PEB ~ CCS \u00d7 OL \u00d7 Anggota.\n",
+      "OL dikategorikan pada \u22121 SD, Mean, dan +1 SD; titik abu-abu = data observasi (N = ",
+      nrow(data_full), ")."
+    )
+  ) +
+  theme_bw(base_size = 11) +
+  theme(
+    plot.title       = element_text(face = "bold", size = 11.5, hjust = 0.5),
+    plot.subtitle    = element_text(size = 9.0, hjust = 0.5, color = "grey35", margin = margin(b = 8)),
+    plot.caption     = element_text(size = 7.8, color = "grey50", hjust = 0, margin = margin(t = 8)),
+    axis.title       = element_text(face = "bold", size = 9.5),
+    axis.text        = element_text(size = 8.5),
+    strip.text       = element_text(face = "bold", size = 11),
+    strip.background = element_rect(fill = "grey93", color = "grey70"),
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(color = "grey92"),
+    legend.position  = "bottom",
+    legend.title     = element_text(face = "bold", size = 9),
+    legend.text      = element_text(size = 9),
+    legend.key.width = unit(1.8, "cm")
+  )
+```
+
+
+## Diagnostic Plots {#sec-plot-diag}
+
+```{r}
+#| label: fig-diagnostics
+#| fig-cap: "Regression Diagnostic Plots — Model PEB"
+#| fig-width: 12
+#| fig-height: 9
+diag_df <- data.frame(
+  obs             = seq_len(nobs(model_reg_peb)),
+  fitted          = fitted(model_reg_peb),
+  residuals       = residuals(model_reg_peb),
+  stdres          = rstandard(model_reg_peb),
+  leverage        = hatvalues(model_reg_peb),
+  cooksd          = cooks.distance(model_reg_peb),
+  sqrt_abs_stdres = sqrt(abs(rstandard(model_reg_peb)))
+)
+
+n_label     <- 3
+cook_thresh <- 4 / nrow(diag_df)
+flag_ids    <- unique(c(
+  order(diag_df$cooksd, decreasing = TRUE)[1:n_label],
+  order(diag_df$leverage, decreasing = TRUE)[1:n_label],
+  order(abs(diag_df$stdres), decreasing = TRUE)[1:n_label]
+))
+diag_df$pt_label    <- ifelse(diag_df$obs %in% flag_ids, as.character(diag_df$obs), "")
+diag_df$influential <- diag_df$cooksd > cook_thresh
+
+qq_df <- diag_df[order(diag_df$stdres), ]
+qq_df$theoretical <- qnorm(ppoints(nrow(qq_df)))
+qq_extreme <- c(1:n_label, (nrow(qq_df) - n_label + 1):nrow(qq_df))
+qq_df$qq_label <- ifelse(seq_len(nrow(qq_df)) %in% qq_extreme,
+                          as.character(qq_df$obs), "")
+
+sci_theme <- theme_bw(base_size = 11) +
+  theme(
+    plot.title    = element_text(face = "bold", size = 11, hjust = 0.5),
+    plot.subtitle = element_text(size = 9, hjust = 0.5, color = "grey40", margin = margin(b = 6)),
+    plot.caption  = element_text(size = 7.5, color = "grey50", hjust = 0, margin = margin(t = 6)),
+    axis.title    = element_text(face = "bold", size = 9.5),
+    axis.text     = element_text(size = 8.5),
+    panel.grid.minor = element_blank(),
+    panel.grid.major = element_line(color = "grey92"),
+    legend.position  = "none"
+  )
+
+col_pt  <- "#3A7EBA"
+col_ref <- "#C0392B"
+col_hi  <- "#E67E22"
+
+p1 <- ggplot(diag_df, aes(x = fitted, y = residuals)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "grey40", linewidth = 0.6) +
+  geom_point(aes(color = influential), alpha = 0.65, size = 1.8) +
+  geom_smooth(method = "loess", formula = y ~ x, se = TRUE,
+              color = col_ref, fill = col_ref, alpha = 0.12, linewidth = 0.9) +
+  geom_text(aes(label = pt_label), size = 2.7, color = col_hi, vjust = -0.7, fontface = "bold") +
+  scale_color_manual(values = c("FALSE" = col_pt, "TRUE" = col_hi)) +
+  labs(title = "Residuals vs. Fitted", subtitle = "Linearity & Homoscedasticity",
+       x = "Fitted Values", y = "Residuals",
+       caption = "LOESS curve (red) should be approximately horizontal at zero") +
+  sci_theme
+
+p2 <- ggplot(qq_df, aes(x = theoretical, y = stdres)) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = col_ref, linewidth = 0.8) +
+  geom_point(color = col_pt, alpha = 0.65, size = 1.8) +
+  geom_text(aes(label = qq_label), size = 2.7, color = col_hi, vjust = -0.7, fontface = "bold") +
+  labs(title = "Normal Q-Q Plot", subtitle = "Normality of Residuals",
+       x = "Theoretical Quantiles", y = "Standardized Residuals",
+       caption = "Points along diagonal - residuals are normally distributed") +
+  sci_theme
+
+p3 <- ggplot(diag_df, aes(x = fitted, y = sqrt_abs_stdres)) +
+  geom_point(aes(color = influential), alpha = 0.65, size = 1.8) +
+  geom_smooth(method = "loess", formula = y ~ x, se = TRUE,
+              color = col_ref, fill = col_ref, alpha = 0.12, linewidth = 0.9) +
+  geom_text(aes(label = pt_label), size = 2.7, color = col_hi, vjust = -0.7, fontface = "bold") +
+  scale_color_manual(values = c("FALSE" = col_pt, "TRUE" = col_hi)) +
+  labs(title = "Scale-Location", subtitle = "Homoscedasticity of Residuals",
+       x = "Fitted Values", y = expression(sqrt("|Standardized Residuals|")),
+       caption = "Horizontal LOESS curve - constant variance (homoscedasticity)") +
+  sci_theme
+
+p4 <- ggplot(diag_df, aes(x = leverage, y = stdres)) +
+  geom_hline(yintercept = c(-2, 0, 2),
+             linetype = c("dashed", "solid", "dashed"),
+             color = c("grey55", col_ref, "grey55"),
+             linewidth = c(0.55, 0.8, 0.55)) +
+  geom_point(aes(size = cooksd, color = influential), alpha = 0.70) +
+  geom_text(aes(label = pt_label), size = 2.7, color = col_hi, vjust = -0.8, fontface = "bold") +
+  scale_color_manual(values = c("FALSE" = col_pt, "TRUE" = col_hi)) +
+  scale_size_continuous(range = c(1.0, 5.5)) +
+  labs(title = "Residuals vs. Leverage", subtitle = "Influential Observations",
+       x = "Leverage (Hat Values)", y = "Standardized Residuals",
+       caption = paste0("Point size \u221d Cook\u2019s D; orange = Cook\u2019s D > ",
+                        round(cook_thresh, 3), " (4/n threshold)")) +
+  sci_theme
+
+ggarrange(p1, p2, p3, p4, ncol = 2, nrow = 2) |>
+  annotate_figure(top = text_grob(
+    "Regression Diagnostic Plots \u2014 Model Perilaku Pro-Lingkungan (PEB)",
+    face = "bold", size = 13
+  ))
+```
+
+
+# Kategorisasi Score & Distribusi {#sec-kategorisasi}
+
+```{r}
+#| label: kategorisasi
+categorize_score <- function(scores, labels = c("Rendah", "Sedang", "Tinggi")) {
+  m  <- mean(scores, na.rm = TRUE)
+  s  <- sd(scores, na.rm = TRUE)
+  lo <- m - 0.5 * s
+  hi <- m + 0.5 * s
+  ifelse(scores < lo, labels[1], ifelse(scores > hi, labels[3], labels[2]))
+}
+
+data_full$PEB_cat <- categorize_score(data_full$PEB)
+data_full$CCS_cat <- categorize_score(data_full$CCS)
+data_full$OL_cat  <- categorize_score(data_full$OL)
+```
+
+## Panduan Kategori per Subgroup
+
+```{r}
+#| label: tbl-score-guide
+#| tbl-cap: "Panduan Kategori Score per Subgroup"
+score_guide <- data.frame(
+  Variabel = rep(c("PEB", "CCS", "OL"), 2),
+  Subgroup = rep(c("Pengurus", "Anggota Biasa"), each = 3),
+  Mean = c(
+    round(mean(data_full[data_full$Anggota == "Pengurus", "PEB"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Pengurus", "CCS"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Pengurus", "OL"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Anggota Biasa", "PEB"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Anggota Biasa", "CCS"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Anggota Biasa", "OL"], na.rm = TRUE), 3)
+  ),
+  SD = c(
+    round(sd(data_full[data_full$Anggota == "Pengurus", "PEB"], na.rm = TRUE), 3),
+    round(sd(data_full[data_full$Anggota == "Pengurus", "CCS"], na.rm = TRUE), 3),
+    round(sd(data_full[data_full$Anggota == "Pengurus", "OL"], na.rm = TRUE), 3),
+    round(sd(data_full[data_full$Anggota == "Anggota Biasa", "PEB"], na.rm = TRUE), 3),
+    round(sd(data_full[data_full$Anggota == "Anggota Biasa", "CCS"], na.rm = TRUE), 3),
+    round(sd(data_full[data_full$Anggota == "Anggota Biasa", "OL"], na.rm = TRUE), 3)
+  ),
+  Low_Cutoff = c(
+    round(mean(data_full[data_full$Anggota == "Pengurus", "PEB"], na.rm = TRUE) - 0.5 * sd(data_full[data_full$Anggota == "Pengurus", "PEB"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Pengurus", "CCS"], na.rm = TRUE) - 0.5 * sd(data_full[data_full$Anggota == "Pengurus", "CCS"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Pengurus", "OL"], na.rm = TRUE) - 0.5 * sd(data_full[data_full$Anggota == "Pengurus", "OL"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Anggota Biasa", "PEB"], na.rm = TRUE) - 0.5 * sd(data_full[data_full$Anggota == "Anggota Biasa", "PEB"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Anggota Biasa", "CCS"], na.rm = TRUE) - 0.5 * sd(data_full[data_full$Anggota == "Anggota Biasa", "CCS"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Anggota Biasa", "OL"], na.rm = TRUE) - 0.5 * sd(data_full[data_full$Anggota == "Anggota Biasa", "OL"], na.rm = TRUE), 3)
+  ),
+  High_Cutoff = c(
+    round(mean(data_full[data_full$Anggota == "Pengurus", "PEB"], na.rm = TRUE) + 0.5 * sd(data_full[data_full$Anggota == "Pengurus", "PEB"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Pengurus", "CCS"], na.rm = TRUE) + 0.5 * sd(data_full[data_full$Anggota == "Pengurus", "CCS"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Pengurus", "OL"], na.rm = TRUE) + 0.5 * sd(data_full[data_full$Anggota == "Pengurus", "OL"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Anggota Biasa", "PEB"], na.rm = TRUE) + 0.5 * sd(data_full[data_full$Anggota == "Anggota Biasa", "PEB"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Anggota Biasa", "CCS"], na.rm = TRUE) + 0.5 * sd(data_full[data_full$Anggota == "Anggota Biasa", "CCS"], na.rm = TRUE), 3),
+    round(mean(data_full[data_full$Anggota == "Anggota Biasa", "OL"], na.rm = TRUE) + 0.5 * sd(data_full[data_full$Anggota == "Anggota Biasa", "OL"], na.rm = TRUE), 3)
+  )
+)
+kable(score_guide)
+```
+
+**Panduan Interpretasi:**
+
+- Score < Low_Cutoff: **Rendah** (segmen bawah ~25%)
+- Score di antara cutoff: **Sedang** (segmen tengah ~50%)
+- Score > High_Cutoff: **Tinggi** (segmen atas ~25%)
+
+
+## Frekuensi Kategori per Variabel
+
+```{r}
+#| label: tbl-freq-kat
+#| tbl-cap: "Frekuensi Kategori per Variabel"
+freq_list <- list(
+  data.frame(Variabel = "PEB", Kategori = names(table(data_full$PEB_cat)),
+             Frekuensi = as.numeric(table(data_full$PEB_cat)),
+             Persentase = paste0(round(prop.table(table(data_full$PEB_cat)) * 100, 2), "%"),
+             check.names = FALSE),
+  data.frame(Variabel = "CCS", Kategori = names(table(data_full$CCS_cat)),
+             Frekuensi = as.numeric(table(data_full$CCS_cat)),
+             Persentase = paste0(round(prop.table(table(data_full$CCS_cat)) * 100, 2), "%"),
+             check.names = FALSE),
+  data.frame(Variabel = "OL", Kategori = names(table(data_full$OL_cat)),
+             Frekuensi = as.numeric(table(data_full$OL_cat)),
+             Persentase = paste0(round(prop.table(table(data_full$OL_cat)) * 100, 2), "%"),
+             check.names = FALSE)
+)
+kable(bind_rows(freq_list))
+```
+
+
+## Distribusi Scores (Histogram + Density) {#sec-plot-dist}
+
+```{r}
+#| label: fig-dist-overall
+#| fig-cap: "Distribusi Histogram dan Density (Keseluruhan)"
+#| fig-width: 10.7
+#| fig-height: 8
+peb_low <- mean(data_full$PEB, na.rm = TRUE) - 0.5 * sd(data_full$PEB, na.rm = TRUE)
+peb_hi  <- mean(data_full$PEB, na.rm = TRUE) + 0.5 * sd(data_full$PEB, na.rm = TRUE)
+ccs_low <- mean(data_full$CCS, na.rm = TRUE) - 0.5 * sd(data_full$CCS, na.rm = TRUE)
+ccs_hi  <- mean(data_full$CCS, na.rm = TRUE) + 0.5 * sd(data_full$CCS, na.rm = TRUE)
+ol_low  <- mean(data_full$OL, na.rm = TRUE) - 0.5 * sd(data_full$OL, na.rm = TRUE)
+ol_hi   <- mean(data_full$OL, na.rm = TRUE) + 0.5 * sd(data_full$OL, na.rm = TRUE)
+
+peb_n <- table(data_full$PEB_cat)
+ccs_n <- table(data_full$CCS_cat)
+ol_n  <- table(data_full$OL_cat)
+
+breaks_peb <- hist(data_full$PEB, plot = FALSE, breaks = 20)
+colors_peb <- cut(breaks_peb$mids, breaks = c(-Inf, peb_low, peb_hi, Inf),
+                  labels = c("lightsteelblue", "steelblue", "darkslategray"))
+breaks_ccs <- hist(data_full$CCS, plot = FALSE, breaks = 20)
+colors_ccs <- cut(breaks_ccs$mids, breaks = c(-Inf, ccs_low, ccs_hi, Inf),
+                  labels = c("lightsalmon", "coral", "darkred"))
+breaks_ol  <- hist(data_full$OL, plot = FALSE, breaks = 20)
+colors_ol  <- cut(breaks_ol$mids, breaks = c(-Inf, ol_low, ol_hi, Inf),
+                  labels = c("palegreen", "lightgreen", "darkgreen"))
+
+par(mfrow = c(2, 3), mar = c(7, 4, 4, 2) + 0.5)
+
+hist(data_full$PEB, main = "Distribusi PEB", xlab = "Skor",
+     col = as.character(colors_peb), border = "white", xlim = c(-4, 3), ylim = c(0, 150), breaks = 20)
+op <- par(family = "mono")
+legend("bottom", inset = c(0, -0.42),
+       legend = c(sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Rendah", peb_n["Rendah"], min(data_full$PEB, na.rm=TRUE), peb_low),
+                  sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Sedang", peb_n["Sedang"], peb_low, peb_hi),
+                  sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Tinggi", peb_n["Tinggi"], peb_hi, max(data_full$PEB, na.rm=TRUE))),
+       fill = c("lightsteelblue", "steelblue", "darkslategray"), cex = 0.85, bty = "n", xpd = TRUE)
+par(op)
+
+hist(data_full$CCS, main = "Distribusi CCS", xlab = "Skor",
+     col = as.character(colors_ccs), border = "white", xlim = c(-4, 3), ylim = c(0, 150), breaks = 20)
+op <- par(family = "mono")
+legend("bottom", inset = c(0, -0.42),
+       legend = c(sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Rendah", ccs_n["Rendah"], min(data_full$CCS, na.rm=TRUE), ccs_low),
+                  sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Sedang", ccs_n["Sedang"], ccs_low, ccs_hi),
+                  sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Tinggi", ccs_n["Tinggi"], ccs_hi, max(data_full$CCS, na.rm=TRUE))),
+       fill = c("lightsalmon", "coral", "darkred"), cex = 0.85, bty = "n", xpd = TRUE)
+par(op)
+
+hist(data_full$OL, main = "Distribusi OL", xlab = "Skor",
+     col = as.character(colors_ol), border = "white", xlim = c(-4, 3), ylim = c(0, 150), breaks = 20)
+op <- par(family = "mono")
+legend("bottom", inset = c(0, -0.42),
+       legend = c(sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Rendah", ol_n["Rendah"], min(data_full$OL, na.rm=TRUE), ol_low),
+                  sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Sedang", ol_n["Sedang"], ol_low, ol_hi),
+                  sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Tinggi", ol_n["Tinggi"], ol_hi, max(data_full$OL, na.rm=TRUE))),
+       fill = c("palegreen", "lightgreen", "darkgreen"), cex = 0.85, bty = "n", xpd = TRUE)
+par(op)
+
+plot(density(data_full$PEB, na.rm = TRUE), main = "Density PEB", xlab = "Skor",
+     xlim = c(-4, 3), ylim = c(0, 1.2), lwd = 2, col = "steelblue")
+abline(v = peb_low, col = "steelblue", lty = 2, lwd = 1.2)
+abline(v = peb_hi, col = "darkslategray", lty = 2, lwd = 1.2)
+
+plot(density(data_full$CCS, na.rm = TRUE), main = "Density CCS", xlab = "Skor",
+     xlim = c(-4, 3), ylim = c(0, 1.2), lwd = 2, col = "coral")
+abline(v = ccs_low, col = "coral", lty = 2, lwd = 1.2)
+abline(v = ccs_hi, col = "darkred", lty = 2, lwd = 1.2)
+
+plot(density(data_full$OL, na.rm = TRUE), main = "Density OL", xlab = "Skor",
+     xlim = c(-4, 3), ylim = c(0, 1.2), lwd = 2, col = "lightgreen")
+abline(v = ol_low, col = "lightgreen", lty = 2, lwd = 1.2)
+abline(v = ol_hi, col = "darkgreen", lty = 2, lwd = 1.2)
+
+par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1)
+```
+
+
+## Density per Subgroup {#sec-plot-density-sub}
+
+```{r}
+#| label: fig-density-subgroup
+#| fig-cap: "Density per Variabel per Subgroup (Pengurus vs. Anggota Biasa)"
+#| fig-width: 10.7
+#| fig-height: 7
+d_peng  <- data_full[data_full$Anggota == "Pengurus", ]
+d_biasa <- data_full[data_full$Anggota == "Anggota Biasa", ]
+
+peb_low_p <- mean(d_peng$PEB, na.rm=TRUE) - 0.5*sd(d_peng$PEB, na.rm=TRUE)
+peb_hi_p  <- mean(d_peng$PEB, na.rm=TRUE) + 0.5*sd(d_peng$PEB, na.rm=TRUE)
+ccs_low_p <- mean(d_peng$CCS, na.rm=TRUE) - 0.5*sd(d_peng$CCS, na.rm=TRUE)
+ccs_hi_p  <- mean(d_peng$CCS, na.rm=TRUE) + 0.5*sd(d_peng$CCS, na.rm=TRUE)
+ol_low_p  <- mean(d_peng$OL, na.rm=TRUE) - 0.5*sd(d_peng$OL, na.rm=TRUE)
+ol_hi_p   <- mean(d_peng$OL, na.rm=TRUE) + 0.5*sd(d_peng$OL, na.rm=TRUE)
+
+peb_low_b <- mean(d_biasa$PEB, na.rm=TRUE) - 0.5*sd(d_biasa$PEB, na.rm=TRUE)
+peb_hi_b  <- mean(d_biasa$PEB, na.rm=TRUE) + 0.5*sd(d_biasa$PEB, na.rm=TRUE)
+ccs_low_b <- mean(d_biasa$CCS, na.rm=TRUE) - 0.5*sd(d_biasa$CCS, na.rm=TRUE)
+ccs_hi_b  <- mean(d_biasa$CCS, na.rm=TRUE) + 0.5*sd(d_biasa$CCS, na.rm=TRUE)
+ol_low_b  <- mean(d_biasa$OL, na.rm=TRUE) - 0.5*sd(d_biasa$OL, na.rm=TRUE)
+ol_hi_b   <- mean(d_biasa$OL, na.rm=TRUE) + 0.5*sd(d_biasa$OL, na.rm=TRUE)
+
+par(mfrow = c(1, 3), mar = c(15, 4, 4, 2) + 0.5)
+
+plot(density(d_peng$PEB, na.rm = TRUE),
+     main = "Density PEB: Pengurus vs Anggota Biasa", xlab = "Skor",
+     xlim = c(-4, 3), ylim = c(0, 1.2), lwd = 2, col = "steelblue")
+lines(density(d_biasa$PEB, na.rm = TRUE), col = "darkslategray", lwd = 2, lty = 2)
+abline(v = c(peb_low_p, peb_hi_p), col = "steelblue", lty = 3, lwd = 1.5)
+abline(v = c(peb_low_b, peb_hi_b), col = "darkslategray", lty = 3, lwd = 1.5)
+legend("bottom", inset = c(0, -0.32),
+       legend = c(sprintf("Pengurus (n=%d)", nrow(d_peng)),
+                  sprintf("Anggota Biasa (n=%d)", nrow(d_biasa)),
+                  sprintf("Cutoff P: [%.2f, %.2f]", peb_low_p, peb_hi_p),
+                  sprintf("Cutoff AB: [%.2f, %.2f]", peb_low_b, peb_hi_b)),
+       col = c("steelblue", "darkslategray", "steelblue", "darkslategray"),
+       lty = c(1, 2, 3, 3), lwd = c(2, 2, 1.5, 1.5),
+       cex = 0.80, bty = "n", xpd = TRUE)
+
+plot(density(d_peng$CCS, na.rm = TRUE),
+     main = "Density CCS: Pengurus vs Anggota Biasa", xlab = "Skor",
+     xlim = c(-4, 3), ylim = c(0, 1.2), lwd = 2, col = "coral")
+lines(density(d_biasa$CCS, na.rm = TRUE), col = "darkred", lwd = 2, lty = 2)
+abline(v = c(ccs_low_p, ccs_hi_p), col = "coral", lty = 3, lwd = 1.5)
+abline(v = c(ccs_low_b, ccs_hi_b), col = "darkred", lty = 3, lwd = 1.5)
+legend("bottom", inset = c(0, -0.32),
+       legend = c(sprintf("Pengurus (n=%d)", nrow(d_peng)),
+                  sprintf("Anggota Biasa (n=%d)", nrow(d_biasa)),
+                  sprintf("Cutoff P: [%.2f, %.2f]", ccs_low_p, ccs_hi_p),
+                  sprintf("Cutoff AB: [%.2f, %.2f]", ccs_low_b, ccs_hi_b)),
+       col = c("coral", "darkred", "coral", "darkred"),
+       lty = c(1, 2, 3, 3), lwd = c(2, 2, 1.5, 1.5),
+       cex = 0.80, bty = "n", xpd = TRUE)
+
+plot(density(d_peng$OL, na.rm = TRUE),
+     main = "Density OL: Pengurus vs Anggota Biasa", xlab = "Skor",
+     xlim = c(-4, 3), ylim = c(0, 1.2), lwd = 2, col = "lightgreen")
+lines(density(d_biasa$OL, na.rm = TRUE), col = "darkgreen", lwd = 2, lty = 2)
+abline(v = c(ol_low_p, ol_hi_p), col = "lightgreen", lty = 3, lwd = 1.5)
+abline(v = c(ol_low_b, ol_hi_b), col = "darkgreen", lty = 3, lwd = 1.5)
+legend("bottom", inset = c(0, -0.32),
+       legend = c(sprintf("Pengurus (n=%d)", nrow(d_peng)),
+                  sprintf("Anggota Biasa (n=%d)", nrow(d_biasa)),
+                  sprintf("Cutoff P: [%.2f, %.2f]", ol_low_p, ol_hi_p),
+                  sprintf("Cutoff AB: [%.2f, %.2f]", ol_low_b, ol_hi_b)),
+       col = c("lightgreen", "darkgreen", "lightgreen", "darkgreen"),
+       lty = c(1, 2, 3, 3), lwd = c(2, 2, 1.5, 1.5),
+       cex = 0.80, bty = "n", xpd = TRUE)
+
+par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1)
+```
+
+
+## Histogram per Subgroup {#sec-plot-hist-sub}
+
+```{r}
+#| label: fig-hist-subgroup
+#| fig-cap: "Distribusi Histogram per Subgroup (Pengurus vs. Anggota Biasa)"
+#| fig-width: 10.7
+#| fig-height: 8
+peb_n_p <- table(categorize_score(d_peng$PEB))
+ccs_n_p <- table(categorize_score(d_peng$CCS))
+ol_n_p  <- table(categorize_score(d_peng$OL))
+peb_n_b <- table(categorize_score(d_biasa$PEB))
+ccs_n_b <- table(categorize_score(d_biasa$CCS))
+ol_n_b  <- table(categorize_score(d_biasa$OL))
+
+plot_hist_sub <- function(vec, cutlow, cuthi, n_cat, colors3, judul, xmin, xmax) {
+  brk  <- hist(vec, plot = FALSE, breaks = 20)
+  cols <- cut(brk$mids, breaks = c(-Inf, cutlow, cuthi, Inf), labels = colors3)
+  hist(vec, main = judul, xlab = "Skor",
+       col = as.character(cols), border = "white", xlim = c(-4, 3), ylim = c(0, 150), breaks = 20)
+  op <- par(family = "mono")
+  legend("bottom", inset = c(0, -0.42),
+         legend = c(sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Rendah", n_cat["Rendah"], xmin, cutlow),
+                    sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Sedang", n_cat["Sedang"], cutlow, cuthi),
+                    sprintf("%-6s (n=%3d) [%6.2f, %5.2f]", "Tinggi", n_cat["Tinggi"], cuthi, xmax)),
+         fill = colors3, cex = 0.85, bty = "n", xpd = TRUE)
+  par(op)
+}
+
+par(mfrow = c(2, 3), mar = c(7, 4, 4, 2) + 0.5)
+
+plot_hist_sub(d_peng$PEB, peb_low_p, peb_hi_p, peb_n_p,
+              c("lightsteelblue","steelblue","darkslategray"),
+              "Distribusi PEB - Pengurus (n=176)",
+              min(d_peng$PEB, na.rm=TRUE), max(d_peng$PEB, na.rm=TRUE))
+plot_hist_sub(d_peng$CCS, ccs_low_p, ccs_hi_p, ccs_n_p,
+              c("lightsalmon","coral","darkred"),
+              "Distribusi CCS - Pengurus (n=176)",
+              min(d_peng$CCS, na.rm=TRUE), max(d_peng$CCS, na.rm=TRUE))
+plot_hist_sub(d_peng$OL, ol_low_p, ol_hi_p, ol_n_p,
+              c("palegreen","lightgreen","darkgreen"),
+              "Distribusi OL - Pengurus (n=176)",
+              min(d_peng$OL, na.rm=TRUE), max(d_peng$OL, na.rm=TRUE))
+
+plot_hist_sub(d_biasa$PEB, peb_low_b, peb_hi_b, peb_n_b,
+              c("lightsteelblue","steelblue","darkslategray"),
+              "Distribusi PEB - Anggota Biasa (n=362)",
+              min(d_biasa$PEB, na.rm=TRUE), max(d_biasa$PEB, na.rm=TRUE))
+plot_hist_sub(d_biasa$CCS, ccs_low_b, ccs_hi_b, ccs_n_b,
+              c("lightsalmon","coral","darkred"),
+              "Distribusi CCS - Anggota Biasa (n=362)",
+              min(d_biasa$CCS, na.rm=TRUE), max(d_biasa$CCS, na.rm=TRUE))
+plot_hist_sub(d_biasa$OL, ol_low_b, ol_hi_b, ol_n_b,
+              c("palegreen","lightgreen","darkgreen"),
+              "Distribusi OL - Anggota Biasa (n=362)",
+              min(d_biasa$OL, na.rm=TRUE), max(d_biasa$OL, na.rm=TRUE))
+
+par(mfrow = c(1, 1), mar = c(5, 4, 4, 2) + 0.1)
+```

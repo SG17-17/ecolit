@@ -17,7 +17,7 @@ df <- readRDS("data/cleaned_data.rds")
 ```
 
 ::: {.callout-note}
-## Catatan Penting
+## Catatan
 File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliabilitas alat ukur yang terintegrasi secara *real-time* dengan basis data primer.
 :::
 

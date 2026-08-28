@@ -27,7 +27,7 @@ summary(fit_eid, fit.measures = TRUE, standardized = TRUE)
 saveRDS(fit_eid, "data/fit_eid.rds")
 ```
 
-### Reliabilitas EID
+## Reliabilitas EID
 
 ```{r}
 #| label: tbl-rel-eid

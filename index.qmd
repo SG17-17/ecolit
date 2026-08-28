@@ -23,18 +23,14 @@ File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliab
 
 Dataset berisi **`r nrow(df)`** observasi dan siap digunakan untuk analisis lanjutan.
 
-## Statistik Deskriptif Demografi Responden {#sec-demografi}
-
-**Total Sampel (N):** `r nrow(df)`
-
-### Jenis Kelamin
+## Jenis Kelamin
 ```{r}
 #| label: tbl-gender
 #| tbl-cap: "Distribusi Jenis Kelamin"
 knitr::kable(print_demo_table(df$Gender, c("1" = "Laki-laki", "2" = "Perempuan")))
 ```
 
-### Usia
+## Usia
 ```{r}
 #| label: demografi-usia
 usia_m   <- round(mean(df$Usia, na.rm = TRUE), 2)
@@ -44,21 +40,21 @@ usia_max <- max(df$Usia, na.rm = TRUE)
 ```
 *M* = `r usia_m` tahun, *SD* = `r usia_sd`, Min = `r usia_min`, Max = `r usia_max`.
 
-### Semester
+## Semester
 ```{r}
 #| label: tbl-semester
 #| tbl-cap: "Distribusi Semester"
 knitr::kable(print_demo_table(df$Semester, c("1" = "Semester 1", "2" = "Semester 2", "3" = "Semester 3", "4" = "Semester 4", "5" = "Semester 5", "6" = "Semester 6", "7" = "Semester 7", "8" = "Semester 8", "Lebih dari semester 8" = "> Semester 8")))
 ```
 
-### Area Tempat Tinggal
+## Area Tempat Tinggal
 ```{r}
 #| label: tbl-area
 #| tbl-cap: "Distribusi Area Tempat Tinggal"
 knitr::kable(print_demo_table(df$Area, c("1" = "Urban (Kota)", "2" = "Suburban (Pinggiran)", "3" = "Rural (Pedesaan)")))
 ```
 
-### Tipe Hunian
+## Tipe Hunian
 ```{r}
 #| label: tbl-hunian
 #| tbl-cap: "Distribusi Tipe Hunian"

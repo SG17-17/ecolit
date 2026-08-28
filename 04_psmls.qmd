@@ -26,7 +26,7 @@ summary(fit_psmls, fit.measures = TRUE, standardized = TRUE)
 saveRDS(fit_psmls, "data/fit_psmls.rds")
 ```
 
-### Reliabilitas PSMLS
+## Reliabilitas PSMLS
 
 ```{r}
 #| label: tbl-rel-psmls

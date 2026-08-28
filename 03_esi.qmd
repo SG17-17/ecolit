@@ -24,7 +24,7 @@ summary(fit_esi, fit.measures = TRUE, standardized = TRUE)
 saveRDS(fit_esi, "data/fit_esi.rds")
 ```
 
-### Reliabilitas ESI
+## Reliabilitas ESI
 
 ```{r}
 #| label: tbl-rel-esi

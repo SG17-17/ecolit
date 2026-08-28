@@ -29,7 +29,7 @@ summary(fit_peb, fit.measures = TRUE, standardized = TRUE)
 saveRDS(fit_peb, "data/fit_peb.rds")
 ```
 
-### Reliabilitas PEB
+## Reliabilitas PEB
 
 ```{r}
 #| label: tbl-rel-peb

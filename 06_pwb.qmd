@@ -35,7 +35,7 @@ if(!is.null(fit_pwb)){
 }
 ```
 
-### Reliabilitas PWB
+## Reliabilitas PWB
 
 ```{r}
 #| label: tbl-rel-pwb

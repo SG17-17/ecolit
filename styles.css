@@ -1,7 +1,7 @@
-/* Mengubah variabel dasar Quarto agar seluruh latar belakang halaman menjadi abu-abu */
+/* Mengubah variabel dasar Quarto agar seluruh latar belakang halaman menjadi hijau matcha pastel */
 [data-bs-theme="light"] body, 
 [data-bs-theme="light"] .quarto-container {
-  background-color: #d1d5db !important;
+  background-color: #d9e2d5 !important;
 }
 
 /* Memaksa area konten utama (tengah) menjadi kotak putih seperti kertas (Card) */

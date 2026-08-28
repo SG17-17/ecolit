@@ -144,32 +144,6 @@ kable(print_demo_table(df$Area, c("1" = "Urban (Kota)", "2" = "Suburban (Pinggir
 kable(print_demo_table(df$Hunian, c("1" = "Rumah Orang Tua", "2" = "Kos/Kontrakan", "3" = "Asrama", "4" = "Lainnya")))
 ```
 
-## Statistik Deskriptif Level Item {#sec-item-deskriptif}
-
-```{r}
-#| label: tbl-item-stats
-#| tbl-cap: "Statistik Deskriptif Level Item"
-item_cols <- names(df)[grep("^(EID|ESI|PSMLS|PEB|PWB)", names(df))]
-item_desc <- describe(df[, item_cols], type = 2)
-
-item_stats <- data.frame(
-    Item     = item_cols,
-    N        = item_desc$n,
-    Mean     = round(item_desc$mean, 2),
-    SD       = round(item_desc$sd, 2),
-    Min      = item_desc$min,
-    Max      = item_desc$max,
-    Skewness = round(item_desc$skew, 2),
-    Kurtosis = round(item_desc$kurtosis, 2),
-    check.names = FALSE
-)
-kable(item_stats)
-```
-
-::: {.callout-tip}
-## Catatan Normalitas
-Berdasarkan West et al. (1995), data dianggap melanggar normalitas univariat jika nilai *Skewness* > |2.0| atau *Kurtosis* > |7.0|.
-:::
 
 # Model Pengukuran Final {#sec-cfa}
 
@@ -333,7 +307,7 @@ cat("\n2. Usia\n")
 cat(sprintf("Mean = %.2f, SD = %.2f, Min = %d, Max = %d\n", mean(df$Usia, na.rm=TRUE), sd(df$Usia, na.rm=TRUE), min(df$Usia, na.rm=TRUE), max(df$Usia, na.rm=TRUE)))
 
 cat("\n3. Semester\n")
-print(print_demo_table(df$Semester, c("1" = "Semester 1-2", "2" = "Semester 3-4", "3" = "Semester 5-6", "4" = "Semester 7 atau lebih", "5" = "Lulus")), row.names = FALSE)
+print(print_demo_table(df$Semester, c("1" = "Semester 1", "2" = "Semester 2", "3" = "Semester 3", "4" = "Semester 4", "5" = "Semester 5", "6" = "Semester 6", "7" = "Semester 7", "8" = "Semester 8", "Lebih dari semester 8" = "> Semester 8")), row.names = FALSE)
 
 cat("\n4. Area Tempat Tinggal\n")
 print(print_demo_table(df$Area, c("1" = "Urban (Kota)", "2" = "Suburban (Pinggiran)", "3" = "Rural (Pedesaan)")), row.names = FALSE)
@@ -341,10 +315,6 @@ print(print_demo_table(df$Area, c("1" = "Urban (Kota)", "2" = "Suburban (Pinggir
 cat("\n5. Tipe Hunian\n")
 print(print_demo_table(df$Hunian, c("1" = "Rumah Orang Tua", "2" = "Kos/Kontrakan", "3" = "Asrama", "4" = "Lainnya")), row.names = FALSE)
 
-cat("\n=================================================================\n")
-cat("STATISTIK DESKRIPTIF LEVEL ITEM (NORMALITAS)\n")
-cat("=================================================================\n\n")
-print(item_stats, row.names = FALSE)
 
 cat("\n=================================================================\n")
 cat("          HASIL ANALISIS CONFIRMATORY FACTOR ANALYSIS (CFA)\n")

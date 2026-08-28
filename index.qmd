@@ -46,6 +46,24 @@ get_rel_df <- function(fit) {
   )
 }
 
+# Helper function: Menghasilkan dataframe fit model CFA
+get_cfa_fit_df <- function(fit, model_name) {
+  if (is.null(fit)) return(NULL)
+  fits <- fitMeasures(fit, c("chisq", "df", "pvalue", "cfi", "tli", "rmsea", "srmr"))
+  data.frame(
+    Model = model_name,
+    `Chi-Square` = round(as.numeric(fits["chisq"]), 2),
+    df = as.numeric(fits["df"]),
+    p = round(as.numeric(fits["pvalue"]), 3),
+    CFI = round(as.numeric(fits["cfi"]), 3),
+    TLI = round(as.numeric(fits["tli"]), 3),
+    RMSEA = round(as.numeric(fits["rmsea"]), 3),
+    SRMR = round(as.numeric(fits["srmr"]), 3),
+    check.names = FALSE,
+    row.names = NULL
+  )
+}
+
 # Helper function: Tabel Reliabilitas (Markdown HTML)
 print_rel_table <- function(fit) {
   res <- get_rel_df(fit)
@@ -282,10 +300,32 @@ print_rel_table(fit_pwb)
 
 # Summary {#sec-summary}
 
-Berikut adalah ringkasan dari seluruh hasil analisis reliabilitas (Alpha, Omega, dan AVE) untuk semua variabel ukur.
+Berikut adalah ringkasan dari seluruh hasil analisis, meliputi **Fit Model CFA** dan **Reliabilitas** (Alpha, Omega, dan AVE) untuk semua variabel ukur.
+
+## Ringkasan Fit Model (CFA)
 
 ```{r}
-#| label: tbl-summary
+#| label: tbl-summary-cfa
+#| tbl-cap: "Tabel Ringkasan Fit Model CFA Keseluruhan"
+df_cfa <- rbind(
+  if(!is.null(fit_eid)) get_cfa_fit_df(fit_eid, "EID") else NULL,
+  if(!is.null(fit_esi)) get_cfa_fit_df(fit_esi, "ESI") else NULL,
+  if(!is.null(fit_psmls)) get_cfa_fit_df(fit_psmls, "PSMLS") else NULL,
+  if(!is.null(fit_peb)) get_cfa_fit_df(fit_peb, "PEB") else NULL,
+  if(!is.null(fit_pwb)) get_cfa_fit_df(fit_pwb, "PWB") else NULL
+)
+
+if (!is.null(df_cfa) && nrow(df_cfa) > 0) {
+  knitr::kable(df_cfa)
+} else {
+  cat("Belum ada data model CFA yang dapat diringkas.\n")
+}
+```
+
+## Ringkasan Reliabilitas
+
+```{r}
+#| label: tbl-summary-rel
 #| tbl-cap: "Tabel Ringkasan Reliabilitas Keseluruhan"
 df_summary <- rbind(
   if(!is.null(fit_eid)) get_rel_df(fit_eid) else NULL,

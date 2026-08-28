@@ -1,0 +1,35 @@
+---
+title: "Pro-Social Meaning in Life (PSMLS)"
+---
+
+Model multidimensional 4-faktor yang saling berkorelasi (First-Order). *Murni teoritis.*
+
+```{r}
+#| label: setup-cfa-psmls
+#| include: false
+
+source("R/helpers.R")
+df <- readRDS("data/cleaned_data.rds")
+```
+
+```{r}
+#| label: cfa-psmls
+model_psmls <- "
+  TechComp =~ PSMLS_1 + PSMLS_2 + PSMLS_3 + PSMLS_4 + PSMLS_5
+  SocialRel =~ PSMLS_6 + PSMLS_7 + PSMLS_8
+  Privacy =~ PSMLS_9 + PSMLS_10 + PSMLS_11
+  InfoAware =~ PSMLS_12 + PSMLS_13 + PSMLS_14
+"
+fit_psmls <- cfa(model_psmls, data = df, std.lv = TRUE)
+summary(fit_psmls, fit.measures = TRUE, standardized = TRUE)
+
+saveRDS(fit_psmls, "data/fit_psmls.rds")
+```
+
+### Reliabilitas PSMLS
+
+```{r}
+#| label: tbl-rel-psmls
+#| tbl-cap: "Reliabilitas Skala PSMLS (Dimensi)"
+print_rel_table(fit_psmls)
+```

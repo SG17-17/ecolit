@@ -1,6 +1,7 @@
 project:
   type: book
   output-dir: _book
+  pre-render: "Rscript R/setup_data.R"
 
 book:
   title: "Analisis Data — Pengujian Alat Ukur (CFA)"
@@ -9,6 +10,12 @@ book:
   date: today
   chapters:
     - index.qmd
+    - 02_eid.qmd
+    - 03_esi.qmd
+    - 04_psmls.qmd
+    - 05_peb.qmd
+    - 06_pwb.qmd
+    - 07_summary.qmd
 
 format:
   html:

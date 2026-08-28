@@ -1,0 +1,38 @@
+---
+title: "Pro-Environmental Behavior (PEB)"
+---
+
+Model multidimensional 4-faktor (First-Order). *Dioptimasi dengan 3 MI.*
+
+```{r}
+#| label: setup-cfa-peb
+#| include: false
+
+source("R/helpers.R")
+df <- readRDS("data/cleaned_data.rds")
+```
+
+```{r}
+#| label: cfa-peb
+model_peb <- "
+  ConsLife =~ PEB_1 + PEB_2 + PEB_3 + PEB_4 + PEB_5
+  SocEnv =~ PEB_6 + PEB_7 + PEB_8 + PEB_9 + PEB_10
+  EnvCit =~ PEB_11 + PEB_12 + PEB_13 + PEB_14 + PEB_15
+  LandStew =~ PEB_16 + PEB_17
+  PEB_7 ~~ PEB_8 
+  PEB_9 ~~ PEB_10 
+  PEB_2 ~~ PEB_3 
+"
+fit_peb <- cfa(model_peb, data = df, std.lv = TRUE)
+summary(fit_peb, fit.measures = TRUE, standardized = TRUE)
+
+saveRDS(fit_peb, "data/fit_peb.rds")
+```
+
+### Reliabilitas PEB
+
+```{r}
+#| label: tbl-rel-peb
+#| tbl-cap: "Reliabilitas Skala PEB (Dimensi)"
+print_rel_table(fit_peb)
+```

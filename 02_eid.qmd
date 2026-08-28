@@ -1,0 +1,36 @@
+---
+title: "Environmental Identity (EID)"
+---
+
+Model pengukuran unidimensional untuk EID (14 aitem). *Dioptimasi dengan toleransi 3 Modification Indices terbesar.*
+
+```{r}
+#| label: setup-cfa-eid
+#| include: false
+
+source("R/helpers.R")
+df <- readRDS("data/cleaned_data.rds")
+```
+
+```{r}
+#| label: cfa-eid
+model_eid <- "
+  EID =~ EID_1 + EID_2 + EID_3 + EID_4 + EID_5 + EID_6 + EID_7 + EID_8 + EID_9 + EID_10 + EID_11 + EID_12 + EID_13 + EID_14 
+  EID_7 ~~ EID_12 
+  EID_3 ~~ EID_6 
+  EID_11 ~~ EID_13 
+"
+fit_eid <- cfa(model_eid, data = df, std.lv = TRUE)
+summary(fit_eid, fit.measures = TRUE, standardized = TRUE)
+
+# Simpan hasil untuk halaman summary
+saveRDS(fit_eid, "data/fit_eid.rds")
+```
+
+### Reliabilitas EID
+
+```{r}
+#| label: tbl-rel-eid
+#| tbl-cap: "Reliabilitas Skala EID"
+print_rel_table(fit_eid)
+```

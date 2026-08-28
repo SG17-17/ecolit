@@ -1,0 +1,44 @@
+---
+title: "Psychological Well-Being (PWB)"
+---
+
+Model multidimensional 6-faktor (First-Order). *Dioptimasi dengan 3 MI.*
+
+```{r}
+#| label: setup-cfa-pwb
+#| include: false
+
+source("R/helpers.R")
+df <- readRDS("data/cleaned_data.rds")
+```
+
+```{r}
+#| label: cfa-pwb
+model_pwb <- "
+  Autonomy =~ PWB_1 + PWB_7 + PWB_13_R + PWB_19_R + PWB_25 + PWB_31_R + PWB_37
+  Mastery =~ PWB_2 + PWB_8 + PWB_14_R + PWB_20 + PWB_26_R + PWB_32_R + PWB_38
+  Growth =~ PWB_3_R + PWB_9 + PWB_15_R + PWB_21 + PWB_27_R + PWB_33 + PWB_39_R
+  Relations =~ PWB_4 + PWB_10_R + PWB_16_R + PWB_22 + PWB_28 + PWB_34_R + PWB_40
+  Purpose =~ PWB_5_R + PWB_11 + PWB_17_R + PWB_23_R + PWB_29 + PWB_35 + PWB_41_R
+  Acceptance =~ PWB_6 + PWB_12 + PWB_18_R + PWB_24 + PWB_30_R + PWB_36_R + PWB_42
+  PWB_34_R ~~ PWB_30_R 
+  PWB_26_R ~~ PWB_22 
+  PWB_37 ~~ PWB_36_R 
+"
+fit_pwb <- tryCatch(cfa(model_pwb, data = df, std.lv = TRUE), error = function(e) NULL)
+
+if(!is.null(fit_pwb)){
+  summary(fit_pwb, fit.measures = TRUE, standardized = TRUE)
+  saveRDS(fit_pwb, "data/fit_pwb.rds")
+} else {
+  cat("Model gagal dikalkulasi (Not Converged).\n")
+}
+```
+
+### Reliabilitas PWB
+
+```{r}
+#| label: tbl-rel-pwb
+#| tbl-cap: "Reliabilitas Skala PWB (Dimensi)"
+print_rel_table(fit_pwb)
+```

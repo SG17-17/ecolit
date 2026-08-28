@@ -1,0 +1,33 @@
+---
+title: "Environmental Self-Identity (ESI)"
+---
+
+Model pengukuran unidimensional untuk ESI (6 aitem). *Murni teoritis.*
+
+```{r}
+#| label: setup-cfa-esi
+#| include: false
+
+source("R/helpers.R")
+df <- readRDS("data/cleaned_data.rds")
+```
+
+```{r}
+#| label: cfa-esi
+model_esi <- "
+  ESI =~ ESI_1 + ESI_2 + ESI_3 + ESI_4 + ESI_5 + ESI_6 
+"
+fit_esi <- cfa(model_esi, data = df, std.lv = TRUE)
+summary(fit_esi, fit.measures = TRUE, standardized = TRUE)
+
+# Simpan hasil untuk halaman summary
+saveRDS(fit_esi, "data/fit_esi.rds")
+```
+
+### Reliabilitas ESI
+
+```{r}
+#| label: tbl-rel-esi
+#| tbl-cap: "Reliabilitas Skala ESI"
+print_rel_table(fit_esi)
+```

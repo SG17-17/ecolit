@@ -1,79 +1,19 @@
 ---
-title: "Pengantar Analisis"
+title: "Statistik Deskriptif (Demografi)"
 ---
 
 ```{r}
 #| label: setup
 #| include: false
 
-library(lavaan)
-library(semPlot)
-library(semTools)
-library(googlesheets4)
-library(knitr)
-library(dplyr)
-library(psych)
+# Eksekusi unduh data (menghasilkan data/cleaned_data.rds)
+source("R/setup_data.R")
 
-# Helper function: Tabel Demografi
-print_demo_table <- function(variabel, labels) {
-    freq <- table(variabel, useNA = "ifany")
-    pct  <- prop.table(freq) * 100
-    display <- sapply(names(freq), function(x) {
-        if (is.na(x)) return("Missing")
-        if (x %in% names(labels)) return(labels[[x]])
-        return(x)
-    })
-    data.frame(
-        Kategori   = unname(display),
-        Frekuensi  = as.numeric(freq),
-        Persentase = paste0(round(pct, 2), "%"),
-        check.names = FALSE
-    )
-}
+# Load helper functions
+source("R/helpers.R")
 
-# Helper function: Menghasilkan dataframe reliabilitas
-get_rel_df <- function(fit) {
-  if (is.null(fit)) return(NULL)
-  a <- compRelSEM(fit, tau.eq = TRUE)
-  o <- compRelSEM(fit, tau.eq = FALSE)
-  ave <- AVE(fit)
-  data.frame(
-      Faktor = names(a),
-      Alpha  = round(as.numeric(a), 3),
-      Omega  = round(as.numeric(o[names(a)]), 3),
-      AVE    = round(as.numeric(ave[names(a)]), 3),
-      check.names = FALSE
-  )
-}
-
-# Helper function: Menghasilkan dataframe fit model CFA
-get_cfa_fit_df <- function(fit, model_name) {
-  if (is.null(fit)) return(NULL)
-  fits <- fitMeasures(fit, c("chisq", "df", "pvalue", "cfi", "tli", "rmsea", "srmr"))
-  data.frame(
-    Model = model_name,
-    `Chi-Square` = round(as.numeric(fits["chisq"]), 2),
-    df = as.numeric(fits["df"]),
-    p = round(as.numeric(fits["pvalue"]), 3),
-    CFI = round(as.numeric(fits["cfi"]), 3),
-    TLI = round(as.numeric(fits["tli"]), 3),
-    RMSEA = round(as.numeric(fits["rmsea"]), 3),
-    SRMR = round(as.numeric(fits["srmr"]), 3),
-    check.names = FALSE,
-    row.names = NULL
-  )
-}
-
-# Helper function: Tabel Reliabilitas (Markdown HTML)
-print_rel_table <- function(fit) {
-  res <- get_rel_df(fit)
-  if (is.null(res)) return(cat("Tidak dapat menghitung reliabilitas karena model CFA tidak konvergen.\n"))
-  return(knitr::kable(res))
-}
-
-# Buat folder output
-folder_output <- "Output_Main/"
-dir.create(folder_output, showWarnings = FALSE, recursive = TRUE)
+# Baca data yang sudah disiapkan
+df <- readRDS("data/cleaned_data.rds")
 ```
 
 ::: {.callout-note}
@@ -81,46 +21,9 @@ dir.create(folder_output, showWarnings = FALSE, recursive = TRUE)
 File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliabilitas alat ukur yang terintegrasi secara *real-time* dengan basis data primer.
 :::
 
-# Persiapan Data {#sec-persiapan}
-
-## Import Dataset
-
-```{r}
-#| label: import-data
-# Menonaktifkan autentikasi Google
-gs4_deauth() 
-
-# Tautan dokumen sumber data
-link_spreadsheet <- "https://docs.google.com/spreadsheets/d/1u7L4GSSsuVDv9j7ccgWvccwr7A5Ks0szkiY-RTHVsA8/edit?usp=sharing"
-
-# Membaca data penelitian
-df <- read_sheet(link_spreadsheet, sheet = "DATA FINAL")
-
-# Penyesuaian list columns dan tipe data
-df[] <- lapply(df, function(x) {
-  if (is.list(x)) {
-    x <- unlist(lapply(x, function(v) if(is.null(v)) NA else as.character(v)))
-  }
-  return(x)
-})
-df <- as.data.frame(df, check.names = FALSE)
-
-# Mapping nama variabel demografi (Menggunakan nama kolom pasti / fixed keyword)
-df$Gender   <- df[["Jenis Kelamin"]]
-df$Usia     <- df[["Usia Anda saat ini (dalam angka):"]]
-df$Semester <- as.character(df[["Semester yang anda jalani saat ini"]])
-df$Provinsi <- df[["Daerah tempat tinggal saat ini"]]
-df$Area     <- df[["Mana yang paling menggambarkan area tempat tinggal Anda saat ini?"]]
-df$Hunian   <- df[["Selama berkuliah, jenis tempat tinggal utama Anda adalah:"]]
-```
-
 Dataset berisi **`r nrow(df)`** observasi dan siap digunakan untuk analisis lanjutan.
 
-# Analisis Deskriptif {#sec-deskriptif}
-
 ## Statistik Deskriptif Demografi Responden {#sec-demografi}
-
-
 
 **Total Sampel (N):** `r nrow(df)`
 
@@ -128,7 +31,7 @@ Dataset berisi **`r nrow(df)`** observasi dan siap digunakan untuk analisis lanj
 ```{r}
 #| label: tbl-gender
 #| tbl-cap: "Distribusi Jenis Kelamin"
-kable(print_demo_table(df$Gender, c("1" = "Laki-laki", "2" = "Perempuan")))
+knitr::kable(print_demo_table(df$Gender, c("1" = "Laki-laki", "2" = "Perempuan")))
 ```
 
 ### Usia
@@ -145,199 +48,19 @@ usia_max <- max(df$Usia, na.rm = TRUE)
 ```{r}
 #| label: tbl-semester
 #| tbl-cap: "Distribusi Semester"
-kable(print_demo_table(df$Semester, c("1" = "Semester 1", "2" = "Semester 2", "3" = "Semester 3", "4" = "Semester 4", "5" = "Semester 5", "6" = "Semester 6", "7" = "Semester 7", "8" = "Semester 8", "Lebih dari semester 8" = "> Semester 8")))
+knitr::kable(print_demo_table(df$Semester, c("1" = "Semester 1", "2" = "Semester 2", "3" = "Semester 3", "4" = "Semester 4", "5" = "Semester 5", "6" = "Semester 6", "7" = "Semester 7", "8" = "Semester 8", "Lebih dari semester 8" = "> Semester 8")))
 ```
 
 ### Area Tempat Tinggal
 ```{r}
 #| label: tbl-area
 #| tbl-cap: "Distribusi Area Tempat Tinggal"
-kable(print_demo_table(df$Area, c("1" = "Urban (Kota)", "2" = "Suburban (Pinggiran)", "3" = "Rural (Pedesaan)")))
+knitr::kable(print_demo_table(df$Area, c("1" = "Urban (Kota)", "2" = "Suburban (Pinggiran)", "3" = "Rural (Pedesaan)")))
 ```
 
 ### Tipe Hunian
 ```{r}
 #| label: tbl-hunian
 #| tbl-cap: "Distribusi Tipe Hunian"
-kable(print_demo_table(df$Hunian, c("1" = "Rumah Orang Tua", "2" = "Kos/Kontrakan", "3" = "Asrama", "4" = "Lainnya")))
-```
-
-
-# Model Pengukuran Final {#sec-cfa}
-
-Analisis validitas konstruk menggunakan kerangka *Confirmatory Factor Analysis* (CFA) murni (satu lapis). 
-
-## CFA Environmental Identity (EID) {#sec-cfa-eid}
-
-Model pengukuran unidimensional untuk EID (14 aitem). *Dioptimasi dengan toleransi 3 Modification Indices terbesar.*
-
-```{r}
-#| label: cfa-eid
-model_eid <- "
-  EID =~ EID_1 + EID_2 + EID_3 + EID_4 + EID_5 + EID_6 + EID_7 + EID_8 + EID_9 + EID_10 + EID_11 + EID_12 + EID_13 + EID_14 
-  EID_7 ~~ EID_12 
-  EID_3 ~~ EID_6 
-  EID_11 ~~ EID_13 
-"
-fit_eid <- cfa(model_eid, data = df, std.lv = TRUE)
-summary(fit_eid, fit.measures = TRUE, standardized = TRUE)
-```
-
-### Reliabilitas EID
-
-```{r}
-#| label: tbl-rel-eid
-#| tbl-cap: "Reliabilitas Skala EID"
-print_rel_table(fit_eid)
-```
-
-## CFA Environmental Self-Identity (ESI) {#sec-cfa-esi}
-
-Model pengukuran unidimensional untuk ESI (6 aitem). *Murni teoritis.*
-
-```{r}
-#| label: cfa-esi
-model_esi <- "
-  ESI =~ ESI_1 + ESI_2 + ESI_3 + ESI_4 + ESI_5 + ESI_6 
-"
-fit_esi <- cfa(model_esi, data = df, std.lv = TRUE)
-summary(fit_esi, fit.measures = TRUE, standardized = TRUE)
-```
-
-### Reliabilitas ESI
-
-```{r}
-#| label: tbl-rel-esi
-#| tbl-cap: "Reliabilitas Skala ESI"
-print_rel_table(fit_esi)
-```
-
-## CFA Pro-Social Meaning in Life (PSMLS) {#sec-cfa-psmls}
-
-Model multidimensional 4-faktor yang saling berkorelasi (First-Order). *Murni teoritis.*
-
-```{r}
-#| label: cfa-psmls
-model_psmls <- "
-  TechComp =~ PSMLS_1 + PSMLS_2 + PSMLS_3 + PSMLS_4 + PSMLS_5
-  SocialRel =~ PSMLS_6 + PSMLS_7 + PSMLS_8
-  Privacy =~ PSMLS_9 + PSMLS_10 + PSMLS_11
-  InfoAware =~ PSMLS_12 + PSMLS_13 + PSMLS_14
-"
-fit_psmls <- cfa(model_psmls, data = df, std.lv = TRUE)
-summary(fit_psmls, fit.measures = TRUE, standardized = TRUE)
-```
-
-### Reliabilitas PSMLS
-
-```{r}
-#| label: tbl-rel-psmls
-#| tbl-cap: "Reliabilitas Skala PSMLS (Dimensi)"
-print_rel_table(fit_psmls)
-```
-
-## CFA Pro-Environmental Behavior (PEB) {#sec-cfa-peb}
-
-Model multidimensional 4-faktor (First-Order). *Dioptimasi dengan 3 MI.*
-
-```{r}
-#| label: cfa-peb
-model_peb <- "
-  ConsLife =~ PEB_1 + PEB_2 + PEB_3 + PEB_4 + PEB_5
-  SocEnv =~ PEB_6 + PEB_7 + PEB_8 + PEB_9 + PEB_10
-  EnvCit =~ PEB_11 + PEB_12 + PEB_13 + PEB_14 + PEB_15
-  LandStew =~ PEB_16 + PEB_17
-  PEB_7 ~~ PEB_8 
-  PEB_9 ~~ PEB_10 
-  PEB_2 ~~ PEB_3 
-"
-fit_peb <- cfa(model_peb, data = df, std.lv = TRUE)
-summary(fit_peb, fit.measures = TRUE, standardized = TRUE)
-```
-
-### Reliabilitas PEB
-
-```{r}
-#| label: tbl-rel-peb
-#| tbl-cap: "Reliabilitas Skala PEB (Dimensi)"
-print_rel_table(fit_peb)
-```
-
-## CFA Psychological Well-Being (PWB) {#sec-cfa-pwb}
-
-Model multidimensional 6-faktor (First-Order). *Dioptimasi dengan 3 MI.*
-
-```{r}
-#| label: cfa-pwb
-model_pwb <- "
-  Autonomy =~ PWB_1 + PWB_7 + PWB_13_R + PWB_19_R + PWB_25 + PWB_31_R + PWB_37
-  Mastery =~ PWB_2 + PWB_8 + PWB_14_R + PWB_20 + PWB_26_R + PWB_32_R + PWB_38
-  Growth =~ PWB_3_R + PWB_9 + PWB_15_R + PWB_21 + PWB_27_R + PWB_33 + PWB_39_R
-  Relations =~ PWB_4 + PWB_10_R + PWB_16_R + PWB_22 + PWB_28 + PWB_34_R + PWB_40
-  Purpose =~ PWB_5_R + PWB_11 + PWB_17_R + PWB_23_R + PWB_29 + PWB_35 + PWB_41_R
-  Acceptance =~ PWB_6 + PWB_12 + PWB_18_R + PWB_24 + PWB_30_R + PWB_36_R + PWB_42
-  PWB_34_R ~~ PWB_30_R 
-  PWB_26_R ~~ PWB_22 
-  PWB_37 ~~ PWB_36_R 
-"
-fit_pwb <- tryCatch(cfa(model_pwb, data = df, std.lv = TRUE), error = function(e) NULL)
-
-if(!is.null(fit_pwb)){
-  summary(fit_pwb, fit.measures = TRUE, standardized = TRUE)
-} else {
-  cat("Model gagal dikalkulasi (Not Converged).\n")
-}
-```
-
-### Reliabilitas PWB
-
-```{r}
-#| label: tbl-rel-pwb
-#| tbl-cap: "Reliabilitas Skala PWB (Dimensi)"
-print_rel_table(fit_pwb)
-```
-
-
-# Summary {#sec-summary}
-
-Berikut adalah ringkasan dari seluruh hasil analisis, meliputi **Fit Model CFA** dan **Reliabilitas** (Alpha, Omega, dan AVE) untuk semua variabel ukur.
-
-## Ringkasan Fit Model (CFA)
-
-```{r}
-#| label: tbl-summary-cfa
-#| tbl-cap: "Tabel Ringkasan Fit Model CFA Keseluruhan"
-df_cfa <- rbind(
-  if(!is.null(fit_eid)) get_cfa_fit_df(fit_eid, "EID") else NULL,
-  if(!is.null(fit_esi)) get_cfa_fit_df(fit_esi, "ESI") else NULL,
-  if(!is.null(fit_psmls)) get_cfa_fit_df(fit_psmls, "PSMLS") else NULL,
-  if(!is.null(fit_peb)) get_cfa_fit_df(fit_peb, "PEB") else NULL,
-  if(!is.null(fit_pwb)) get_cfa_fit_df(fit_pwb, "PWB") else NULL
-)
-
-if (!is.null(df_cfa) && nrow(df_cfa) > 0) {
-  knitr::kable(df_cfa)
-} else {
-  cat("Belum ada data model CFA yang dapat diringkas.\n")
-}
-```
-
-## Ringkasan Reliabilitas
-
-```{r}
-#| label: tbl-summary-rel
-#| tbl-cap: "Tabel Ringkasan Reliabilitas Keseluruhan"
-df_summary <- rbind(
-  if(!is.null(fit_eid)) get_rel_df(fit_eid) else NULL,
-  if(!is.null(fit_esi)) get_rel_df(fit_esi) else NULL,
-  if(!is.null(fit_psmls)) get_rel_df(fit_psmls) else NULL,
-  if(!is.null(fit_peb)) get_rel_df(fit_peb) else NULL,
-  if(!is.null(fit_pwb)) get_rel_df(fit_pwb) else NULL
-)
-
-if (!is.null(df_summary) && nrow(df_summary) > 0) {
-  knitr::kable(df_summary)
-} else {
-  cat("Belum ada data reliabilitas yang dapat diringkas.\n")
-}
+knitr::kable(print_demo_table(df$Hunian, c("1" = "Rumah Orang Tua", "2" = "Kos/Kontrakan", "3" = "Asrama", "4" = "Lainnya")))
 ```

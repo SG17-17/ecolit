@@ -1,6 +1,7 @@
 project:
-  type: website
+  type: book
 
-website:
+book:
   title: "Laporan CFA Realtime"
-  page-navigation: true
+  chapters:
+    - index.qmd

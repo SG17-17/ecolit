@@ -22,7 +22,7 @@ book:
 
 format:
   html:
-    fontsize: "0.9em"
+    fontsize: 11pt
     grid:
       body-width: 1400px
       sidebar-width: 250px

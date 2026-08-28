@@ -1,6 +1,6 @@
-/* Memberikan warna latar belakang abu-abu sangat muda di mode terang (Light Mode) */
+/* Memberikan warna latar belakang abu-abu yang lebih gelap di mode terang (Light Mode) */
 [data-bs-theme="light"] body {
-  background-color: #f4f6f9;
+  background-color: #d1d5db;
 }
 
 /* Membuat area konten utama (tengah) menjadi kotak putih seperti kertas (Card) */
@@ -8,15 +8,15 @@
   background-color: #ffffff;
   padding: 2.5rem !important;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.03);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
   margin-top: 2rem;
   margin-bottom: 3rem;
 }
 
-/* Memastikan sidebar juga menyatu dengan background */
+/* Memastikan sidebar juga menyatu dengan background gelap */
 [data-bs-theme="light"] #quarto-sidebar,
 [data-bs-theme="light"] #quarto-margin-sidebar {
-  background-color: #f4f6f9;
+  background-color: #d1d5db;
 }
 
 /* Di mode gelap (Dark Mode), biarkan bawaan tema Darkly bekerja agar tidak bentrok */

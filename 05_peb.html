@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Peneliti">
-<meta name="dcterms.date" content="2026-08-28">
 
-<title>Analisis Data — Pengujian Alat Ukur (CFA)</title>
+<title>5&nbsp; Pro-Environmental Behavior (PEB) – Analisis Data — Pengujian Alat Ukur (CFA)</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -73,7 +71,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02_eid.html" rel="next">
+<link href="./06_pwb.html" rel="next">
+<link href="./04_psmls.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -124,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistik Deskriptif (Demografi)</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_peb.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pro-Environmental Behavior (PEB)</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -151,7 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistik Deskriptif (Demografi)</span></span></a>
   </div>
 </li>
@@ -175,7 +174,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_peb.html" class="sidebar-item-text sidebar-link">
+  <a href="./05_peb.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pro-Environmental Behavior (PEB)</span></span></a>
   </div>
 </li>
@@ -201,14 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Daftar Isi</h2>
    
   <ul>
-  <li><a href="#sec-demografi" id="toc-sec-demografi" class="nav-link active" data-scroll-target="#sec-demografi"><span class="header-section-number">0.1</span> Statistik Deskriptif Demografi Responden</a>
-  <ul class="collapse">
-  <li><a href="#jenis-kelamin" id="toc-jenis-kelamin" class="nav-link" data-scroll-target="#jenis-kelamin"><span class="header-section-number">0.1.1</span> Jenis Kelamin</a></li>
-  <li><a href="#usia" id="toc-usia" class="nav-link" data-scroll-target="#usia"><span class="header-section-number">0.1.2</span> Usia</a></li>
-  <li><a href="#semester" id="toc-semester" class="nav-link" data-scroll-target="#semester"><span class="header-section-number">0.1.3</span> Semester</a></li>
-  <li><a href="#area-tempat-tinggal" id="toc-area-tempat-tinggal" class="nav-link" data-scroll-target="#area-tempat-tinggal"><span class="header-section-number">0.1.4</span> Area Tempat Tinggal</a></li>
-  <li><a href="#tipe-hunian" id="toc-tipe-hunian" class="nav-link" data-scroll-target="#tipe-hunian"><span class="header-section-number">0.1.5</span> Tipe Hunian</a></li>
-  </ul></li>
+  <li><a href="#reliabilitas-peb" id="toc-reliabilitas-peb" class="nav-link active" data-scroll-target="#reliabilitas-peb"><span class="header-section-number">5.0.1</span> Reliabilitas PEB</a></li>
   </ul>
 </nav>
     </div>
@@ -217,27 +209,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Analisis Data — Pengujian Alat Ukur (CFA)</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
-<p class="subtitle lead">Validitas dan Reliabilitas Konstruk</p>
+<div class="quarto-title-block"><div><h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Pro-Environmental Behavior (PEB)</span></h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Show All Code</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Hide All Code</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">View Source</a></li></ul></div></div>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Peneliti </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">August 28, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -247,241 +226,199 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Catatan Penting
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliabilitas alat ukur yang terintegrasi secara <em>real-time</em> dengan basis data primer.</p>
-</div>
-</div>
-<p>Dataset berisi <strong>241</strong> observasi dan siap digunakan untuk analisis lanjutan.</p>
-<section id="sec-demografi" class="level2" data-number="0.1">
-<h2 data-number="0.1" class="anchored" data-anchor-id="sec-demografi"><span class="header-section-number">0.1</span> Statistik Deskriptif Demografi Responden</h2>
-<p><strong>Total Sampel (N):</strong> 241</p>
-<section id="jenis-kelamin" class="level3" data-number="0.1.1">
-<h3 data-number="0.1.1" class="anchored" data-anchor-id="jenis-kelamin"><span class="header-section-number">0.1.1</span> Jenis Kelamin</h3>
+<p>Model multidimensional 4-faktor (First-Order). <em>Dioptimasi dengan 3 MI.</em></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Gender, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Laki-laki"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Perempuan"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>model_peb <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">  ConsLife =~ PEB_1 + PEB_2 + PEB_3 + PEB_4 + PEB_5</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">  SocEnv =~ PEB_6 + PEB_7 + PEB_8 + PEB_9 + PEB_10</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">  EnvCit =~ PEB_11 + PEB_12 + PEB_13 + PEB_14 + PEB_15</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">  LandStew =~ PEB_16 + PEB_17</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_7 ~~ PEB_8 </span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_9 ~~ PEB_10 </span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_2 ~~ PEB_3 </span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>fit_peb <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model_peb, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_peb, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div id="tbl-gender" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.7-2 ended normally after 33 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        43
+
+  Number of observations                           241
+
+Model Test User Model:
+                                                      
+  Test statistic                               265.114
+  Degrees of freedom                               110
+  P-value (Chi-square)                           0.000
+
+Model Test Baseline Model:
+
+  Test statistic                              2047.492
+  Degrees of freedom                               136
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.919
+  Tucker-Lewis Index (TLI)                       0.900
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -5101.368
+  Loglikelihood unrestricted model (H1)      -4968.811
+                                                      
+  Akaike (AIC)                               10288.736
+  Bayesian (BIC)                             10438.583
+  Sample-size adjusted Bayesian (SABIC)      10302.282
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.076
+  90 Percent confidence interval - lower         0.065
+  90 Percent confidence interval - upper         0.088
+  P-value H_0: RMSEA &lt;= 0.050                    0.000
+  P-value H_0: RMSEA &gt;= 0.080                    0.322
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.067
+
+Goodness of Fit Index:
+
+  Goodness of Fit Index (GFI)                    0.921
+  90 Percent confidence interval - lower         0.899
+  90 Percent confidence interval - upper         0.941
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  ConsLife =~                                                           
+    PEB_1             0.598    0.063    9.535    0.000    0.598    0.623
+    PEB_2             0.301    0.066    4.542    0.000    0.301    0.326
+    PEB_3             0.547    0.055    9.955    0.000    0.547    0.646
+    PEB_4             0.488    0.057    8.489    0.000    0.488    0.565
+    PEB_5             0.648    0.077    8.376    0.000    0.648    0.558
+  SocEnv =~                                                             
+    PEB_6             0.687    0.054   12.767    0.000    0.687    0.739
+    PEB_7             0.830    0.070   11.944    0.000    0.830    0.708
+    PEB_8             0.877    0.063   13.976    0.000    0.877    0.790
+    PEB_9             0.656    0.068    9.688    0.000    0.656    0.598
+    PEB_10            0.627    0.057   11.007    0.000    0.627    0.661
+  EnvCit =~                                                             
+    PEB_11            0.554    0.063    8.791    0.000    0.554    0.547
+    PEB_12            0.805    0.072   11.106    0.000    0.805    0.661
+    PEB_13            0.776    0.073   10.694    0.000    0.776    0.642
+    PEB_14            0.759    0.059   12.867    0.000    0.759    0.739
+    PEB_15            0.755    0.066   11.362    0.000    0.755    0.673
+  LandStew =~                                                           
+    PEB_16            0.967    0.063   15.399    0.000    0.967    0.866
+    PEB_17            0.965    0.066   14.618    0.000    0.965    0.832
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+ .PEB_7 ~~                                                              
+   .PEB_8             0.290    0.053    5.461    0.000    0.290    0.516
+ .PEB_9 ~~                                                              
+   .PEB_10            0.292    0.050    5.856    0.000    0.292    0.466
+ .PEB_2 ~~                                                              
+   .PEB_3             0.229    0.045    5.069    0.000    0.229    0.405
+  ConsLife ~~                                                           
+    SocEnv            0.858    0.046   18.831    0.000    0.858    0.858
+    EnvCit            0.762    0.053   14.334    0.000    0.762    0.762
+    LandStew          0.577    0.065    8.927    0.000    0.577    0.577
+  SocEnv ~~                                                             
+    EnvCit            0.955    0.029   33.070    0.000    0.955    0.955
+    LandStew          0.697    0.049   14.149    0.000    0.697    0.697
+  EnvCit ~~                                                             
+    LandStew          0.839    0.037   22.854    0.000    0.839    0.839
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .PEB_1             0.563    0.062    9.073    0.000    0.563    0.612
+   .PEB_2             0.764    0.072   10.569    0.000    0.764    0.894
+   .PEB_3             0.417    0.047    8.811    0.000    0.417    0.582
+   .PEB_4             0.509    0.053    9.594    0.000    0.509    0.681
+   .PEB_5             0.927    0.096    9.641    0.000    0.927    0.689
+   .PEB_6             0.393    0.043    9.202    0.000    0.393    0.454
+   .PEB_7             0.686    0.074    9.297    0.000    0.686    0.499
+   .PEB_8             0.462    0.055    8.330    0.000    0.462    0.375
+   .PEB_9             0.773    0.076   10.157    0.000    0.773    0.642
+   .PEB_10            0.506    0.051    9.848    0.000    0.506    0.563
+   .PEB_11            0.719    0.069   10.470    0.000    0.719    0.701
+   .PEB_12            0.833    0.083   10.013    0.000    0.833    0.563
+   .PEB_13            0.860    0.085   10.115    0.000    0.860    0.588
+   .PEB_14            0.478    0.051    9.401    0.000    0.478    0.454
+   .PEB_15            0.688    0.069    9.943    0.000    0.688    0.547
+   .PEB_16            0.311    0.059    5.280    0.000    0.311    0.250
+   .PEB_17            0.413    0.064    6.486    0.000    0.413    0.307
+    ConsLife          1.000                               1.000    1.000
+    SocEnv            1.000                               1.000    1.000
+    EnvCit            1.000                               1.000    1.000
+    LandStew          1.000                               1.000    1.000</code></pre>
+</div>
+<details class="code-fold">
+<summary>Lihat kode</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(fit_peb, <span class="st">"data/fit_peb.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<section id="reliabilitas-peb" class="level3" data-number="5.0.1">
+<h3 data-number="5.0.1" class="anchored" data-anchor-id="reliabilitas-peb"><span class="header-section-number">5.0.1</span> Reliabilitas PEB</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Lihat kode</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_peb)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-rel-peb" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gender-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Distribusi Jenis Kelamin
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rel-peb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.1: Reliabilitas Skala PEB (Dimensi)
 </figcaption>
-<div aria-describedby="tbl-gender-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-rel-peb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Kategori</th>
-<th style="text-align: right;">Frekuensi</th>
-<th style="text-align: left;">Persentase</th>
+<th style="text-align: left;">Faktor</th>
+<th style="text-align: right;">Alpha</th>
+<th style="text-align: right;">Omega</th>
+<th style="text-align: right;">AVE</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Laki-laki</td>
-<td style="text-align: right;">77</td>
-<td style="text-align: left;">31.95%</td>
+<td style="text-align: left;">ConsLife</td>
+<td style="text-align: right;">0.704</td>
+<td style="text-align: right;">0.635</td>
+<td style="text-align: right;">0.306</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Perempuan</td>
-<td style="text-align: right;">164</td>
-<td style="text-align: left;">68.05%</td>
+<td style="text-align: left;">SocEnv</td>
+<td style="text-align: right;">0.850</td>
+<td style="text-align: right;">0.776</td>
+<td style="text-align: right;">0.494</td>
 </tr>
-</tbody>
-</table>
-</div>
-</div>
-</figure>
-</div>
-</div>
-</section>
-<section id="usia" class="level3" data-number="0.1.2">
-<h3 data-number="0.1.2" class="anchored" data-anchor-id="usia"><span class="header-section-number">0.1.2</span> Usia</h3>
-<div class="cell">
-<details class="code-fold">
-<summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usia_m   <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>usia_sd  <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sd</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>usia_min <span class="ot">&lt;-</span> <span class="fu">min</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>usia_max <span class="ot">&lt;-</span> <span class="fu">max</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<p><em>M</em> = 20.63 tahun, <em>SD</em> = 1.69, Min = 18, Max = 27.</p>
-</section>
-<section id="semester" class="level3" data-number="0.1.3">
-<h3 data-number="0.1.3" class="anchored" data-anchor-id="semester"><span class="header-section-number">0.1.3</span> Semester</h3>
-<div class="cell">
-<details class="code-fold">
-<summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Semester, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Semester 1"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Semester 2"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Semester 3"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Semester 4"</span>, <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Semester 5"</span>, <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"Semester 6"</span>, <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"Semester 7"</span>, <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"Semester 8"</span>, <span class="st">"Lebih dari semester 8"</span> <span class="ot">=</span> <span class="st">"&gt; Semester 8"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div id="tbl-semester" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-semester-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Distribusi Semester
-</figcaption>
-<div aria-describedby="tbl-semester-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="cell caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Kategori</th>
-<th style="text-align: right;">Frekuensi</th>
-<th style="text-align: left;">Persentase</th>
-</tr>
-</thead>
-<tbody>
 <tr class="odd">
-<td style="text-align: left;">Semester 1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: left;">6.64%</td>
+<td style="text-align: left;">EnvCit</td>
+<td style="text-align: right;">0.784</td>
+<td style="text-align: right;">0.789</td>
+<td style="text-align: right;">0.430</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Semester 2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">0.83%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Semester 3</td>
-<td style="text-align: right;">65</td>
-<td style="text-align: left;">26.97%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Semester 4</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">2.49%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Semester 5</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: left;">22.82%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Semester 6</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: left;">3.73%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Semester 7</td>
-<td style="text-align: right;">53</td>
-<td style="text-align: left;">21.99%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Semester 8</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">7.88%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">&gt; Semester 8</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: left;">6.64%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</figure>
-</div>
-</div>
-</section>
-<section id="area-tempat-tinggal" class="level3" data-number="0.1.4">
-<h3 data-number="0.1.4" class="anchored" data-anchor-id="area-tempat-tinggal"><span class="header-section-number">0.1.4</span> Area Tempat Tinggal</h3>
-<div class="cell">
-<details class="code-fold">
-<summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Area, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Urban (Kota)"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Suburban (Pinggiran)"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Rural (Pedesaan)"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div id="tbl-area" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: Distribusi Area Tempat Tinggal
-</figcaption>
-<div aria-describedby="tbl-area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="cell caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Kategori</th>
-<th style="text-align: right;">Frekuensi</th>
-<th style="text-align: left;">Persentase</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Urban (Kota)</td>
-<td style="text-align: right;">127</td>
-<td style="text-align: left;">52.7%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Suburban (Pinggiran)</td>
-<td style="text-align: right;">84</td>
-<td style="text-align: left;">34.85%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Rural (Pedesaan)</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: left;">12.45%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</figure>
-</div>
-</div>
-</section>
-<section id="tipe-hunian" class="level3" data-number="0.1.5">
-<h3 data-number="0.1.5" class="anchored" data-anchor-id="tipe-hunian"><span class="header-section-number">0.1.5</span> Tipe Hunian</h3>
-<div class="cell">
-<details class="code-fold">
-<summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Hunian, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rumah Orang Tua"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Kos/Kontrakan"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Asrama"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Lainnya"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div id="tbl-hunian" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-hunian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4: Distribusi Tipe Hunian
-</figcaption>
-<div aria-describedby="tbl-hunian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="cell caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Kategori</th>
-<th style="text-align: right;">Frekuensi</th>
-<th style="text-align: left;">Persentase</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Rumah Orang Tua</td>
-<td style="text-align: right;">106</td>
-<td style="text-align: left;">43.98%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Kos/Kontrakan</td>
-<td style="text-align: right;">127</td>
-<td style="text-align: left;">52.7%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Asrama</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">2.07%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Lainnya</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">1.24%</td>
+<td style="text-align: left;">LandStew</td>
+<td style="text-align: right;">0.837</td>
+<td style="text-align: right;">0.837</td>
+<td style="text-align: right;">0.720</td>
 </tr>
 </tbody>
 </table>
@@ -494,7 +431,6 @@ Table&nbsp;4: Distribusi Tipe Hunian
 
 <!-- -->
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -951,79 +887,54 @@ Table&nbsp;4: Distribusi Tipe Hunian
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./04_psmls.html" class="pagination-link" aria-label="Pro-Social Meaning in Life (PSMLS)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Pro-Social Meaning in Life (PSMLS)</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02_eid.html" class="pagination-link" aria-label="Environmental Identity (EID)">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Identity (EID)</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./06_pwb.html" class="pagination-link" aria-label="Psychological Well-Being (PWB)">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Psychological Well-Being (PWB)</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Statistik Deskriptif (Demografi)"</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Eksekusi unduh data (menghasilkan data/cleaned_data.rds)</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/setup_data.R"</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Load helper functions</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/helpers.R"</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Baca data yang sudah disiapkan</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/cleaned_data.rds"</span>)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Catatan Penting</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliabilitas alat ukur yang terintegrasi secara *real-time* dengan basis data primer.</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>Dataset berisi **`r nrow(df)`** observasi dan siap digunakan untuk analisis lanjutan.</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Statistik Deskriptif Demografi Responden {#sec-demografi}</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>**Total Sampel (N):** <span class="in">`r nrow(df)`</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="fu">### Jenis Kelamin</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-gender</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Jenis Kelamin"</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Gender, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Laki-laki"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Perempuan"</span>)))</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### Usia</span></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: demografi-usia</span></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>usia_m   <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>)</span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>usia_sd  <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sd</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>)</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>usia_min <span class="ot">&lt;-</span> <span class="fu">min</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>usia_max <span class="ot">&lt;-</span> <span class="fu">max</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>*M* = `r usia_m` tahun, *SD* = <span class="in">`r usia_sd`</span>, Min = <span class="in">`r usia_min`</span>, Max = <span class="in">`r usia_max`</span>.</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="fu">### Semester</span></span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-semester</span></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Semester"</span></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Semester, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Semester 1"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Semester 2"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Semester 3"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Semester 4"</span>, <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Semester 5"</span>, <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"Semester 6"</span>, <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"Semester 7"</span>, <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"Semester 8"</span>, <span class="st">"Lebih dari semester 8"</span> <span class="ot">=</span> <span class="st">"&gt; Semester 8"</span>)))</span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a><span class="fu">### Area Tempat Tinggal</span></span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-area</span></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Area Tempat Tinggal"</span></span>
-<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Area, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Urban (Kota)"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Suburban (Pinggiran)"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Rural (Pedesaan)"</span>)))</span>
-<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="fu">### Tipe Hunian</span></span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-hunian</span></span>
-<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Tipe Hunian"</span></span>
-<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Hunian, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rumah Orang Tua"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Kos/Kontrakan"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Asrama"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Lainnya"</span>)))</span>
-<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Pro-Environmental Behavior (PEB)"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Model multidimensional 4-faktor (First-Order). *Dioptimasi dengan 3 MI.*</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup-cfa-peb</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/helpers.R"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/cleaned_data.rds"</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cfa-peb</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>model_peb <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="st">  ConsLife =~ PEB_1 + PEB_2 + PEB_3 + PEB_4 + PEB_5</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="st">  SocEnv =~ PEB_6 + PEB_7 + PEB_8 + PEB_9 + PEB_10</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="st">  EnvCit =~ PEB_11 + PEB_12 + PEB_13 + PEB_14 + PEB_15</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="st">  LandStew =~ PEB_16 + PEB_17</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_7 ~~ PEB_8 </span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_9 ~~ PEB_10 </span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_2 ~~ PEB_3 </span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>fit_peb <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model_peb, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_peb, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(fit_peb, <span class="st">"data/fit_peb.rds"</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="fu">### Reliabilitas PEB</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-peb</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala PEB (Dimensi)"</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_peb)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

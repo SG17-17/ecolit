@@ -21,6 +21,9 @@ jobs:
         with:
           use-public-rspm: true
 
+      - name: Install Ubuntu System Dependencies
+        run: sudo apt-get update && sudo apt-get install -y libglpk-dev
+
       - name: Install required R packages
         run: |
           Rscript -e 'install.packages(c("rmarkdown", "quarto", "lavaan", "semTools", "semPlot", "googlesheets4", "dplyr", "psych", "knitr"))'

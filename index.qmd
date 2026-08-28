@@ -1,26 +1,5 @@
 ---
-title: "Analisis Data — Pengujian Alat Ukur (CFA)"
-subtitle: "Validitas dan Reliabilitas Konstruk"
-author: "Peneliti"
-date: "`r Sys.Date()`"
-date-format: long
-lang: id
-format:
-  html:
-    toc: true
-    toc-depth: 3
-    toc-title: "Daftar Isi"
-    number-sections: true
-    code-fold: true
-    code-tools: true
-    code-summary: "Lihat kode"
-    embed-resources: true
-    theme: cosmo
-    fig-dpi: 300
-    df-print: kable
-execute:
-  warning: false
-  message: false
+title: "Pengantar Analisis"
 ---
 
 ```{r}

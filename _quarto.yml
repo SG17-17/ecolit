@@ -1,7 +1,28 @@
 project:
   type: book
+  output-dir: _book
 
 book:
-  title: "Laporan CFA Realtime"
+  title: "Analisis Data — Pengujian Alat Ukur (CFA)"
+  subtitle: "Validitas dan Reliabilitas Konstruk"
+  author: "Peneliti"
+  date: today
   chapters:
     - index.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-title: "Daftar Isi"
+    number-sections: true
+    code-fold: true
+    code-tools: true
+    code-summary: "Lihat kode"
+    df-print: kable
+    fig-dpi: 300
+
+execute:
+  warning: false
+  message: false

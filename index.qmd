@@ -50,7 +50,7 @@ df <- as.data.frame(df, check.names = FALSE)
 # Mapping nama variabel demografi agar mudah dianalisis (Menggunakan pencarian kata kunci agar anti-error)
 df$Gender <- df[[ grep("Jenis Kelamin", names(df), ignore.case=TRUE)[1] ]]
 df$Usia <- df[[ grep("Usia", names(df), ignore.case=TRUE)[1] ]]
-df$Semester <- as.numeric(as.character(df[[ grep("Semester", names(df), ignore.case=TRUE)[1] ]]))
+df$Semester <- as.character(df[[ grep("Semester", names(df), ignore.case=TRUE)[1] ]])
 df$Provinsi <- df[[ grep("Daerah tempat tinggal", names(df), ignore.case=TRUE)[1] ]]
 df$Area <- df[[ grep("menggambarkan area", names(df), ignore.case=TRUE)[1] ]]
 df$Hunian <- df[[ grep("tempat tinggal utama", names(df), ignore.case=TRUE)[1] ]]
@@ -104,7 +104,7 @@ usia_max <- max(df$Usia, na.rm = TRUE)
 ```{r}
 #| label: tbl-semester
 #| tbl-cap: "Distribusi Semester"
-kable(print_demo_table(df$Semester, c("1" = "Semester 1-2", "2" = "Semester 3-4", "3" = "Semester 5-6", "4" = "Semester 7 atau lebih", "5" = "Lulus")))
+kable(print_demo_table(df$Semester, c("1" = "Semester 1", "2" = "Semester 2", "3" = "Semester 3", "4" = "Semester 4", "5" = "Semester 5", "6" = "Semester 6", "7" = "Semester 7", "8" = "Semester 8", "Lebih dari semester 8" = "> Semester 8")))
 ```
 
 ### Area Tempat Tinggal

@@ -31,19 +31,25 @@ print_demo_table <- function(variabel, labels) {
     )
 }
 
-# Helper function: Tabel Reliabilitas
-print_rel_table <- function(fit) {
-  if (is.null(fit)) return(cat("Tidak dapat menghitung reliabilitas karena model CFA tidak konvergen.\n"))
+# Helper function: Menghasilkan dataframe reliabilitas
+get_rel_df <- function(fit) {
+  if (is.null(fit)) return(NULL)
   a <- compRelSEM(fit, tau.eq = TRUE)
   o <- compRelSEM(fit, tau.eq = FALSE)
   ave <- AVE(fit)
-  res <- data.frame(
+  data.frame(
       Faktor = names(a),
       Alpha  = round(as.numeric(a), 3),
       Omega  = round(as.numeric(o[names(a)]), 3),
       AVE    = round(as.numeric(ave[names(a)]), 3),
       check.names = FALSE
   )
+}
+
+# Helper function: Tabel Reliabilitas (Markdown HTML)
+print_rel_table <- function(fit) {
+  res <- get_rel_df(fit)
+  if (is.null(res)) return(cat("Tidak dapat menghitung reliabilitas karena model CFA tidak konvergen.\n"))
   return(knitr::kable(res))
 }
 
@@ -349,28 +355,28 @@ cat("1. ENVIRONMENTAL IDENTITY (EID)\n")
 cat("=================================================================\n")
 print(summary(fit_eid, fit.measures = TRUE, standardized = TRUE))
 cat("\n--- Reliabilitas ---\n")
-print(rel_eid)
+print(get_rel_df(fit_eid), row.names = FALSE)
 
 cat("\n=================================================================\n")
 cat("2. ENVIRONMENTAL SELF-IDENTITY (ESI)\n")
 cat("=================================================================\n")
 print(summary(fit_esi, fit.measures = TRUE, standardized = TRUE))
 cat("\n--- Reliabilitas ---\n")
-print(rel_esi)
+print(get_rel_df(fit_esi), row.names = FALSE)
 
 cat("\n=================================================================\n")
 cat("3. PRO-SOCIAL MEANING IN LIFE (PSMLS)\n")
 cat("=================================================================\n")
 print(summary(fit_psmls, fit.measures = TRUE, standardized = TRUE))
 cat("\n--- Reliabilitas ---\n")
-print(rel_psmls)
+print(get_rel_df(fit_psmls), row.names = FALSE)
 
 cat("\n=================================================================\n")
 cat("4. PRO-ENVIRONMENTAL BEHAVIOR (PEB)\n")
 cat("=================================================================\n")
 print(summary(fit_peb, fit.measures = TRUE, standardized = TRUE))
 cat("\n--- Reliabilitas ---\n")
-print(rel_peb)
+print(get_rel_df(fit_peb), row.names = FALSE)
 
 cat("\n=================================================================\n")
 cat("5. PSYCHOLOGICAL WELL-BEING (PWB)\n")
@@ -378,7 +384,7 @@ cat("=================================================================\n")
 if(!is.null(fit_pwb)){
   print(summary(fit_pwb, fit.measures = TRUE, standardized = TRUE))
   cat("\n--- Reliabilitas ---\n")
-  print(rel_pwb)
+  print(get_rel_df(fit_pwb), row.names = FALSE)
 } else {
   cat("Model PWB Not Converged.\n")
 }

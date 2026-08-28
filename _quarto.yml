@@ -22,14 +22,15 @@ book:
 
 format:
   html:
-    css: styles.css
     fontsize: 11pt
     grid:
       body-width: 1500px
       sidebar-width: 250px
       margin-width: 250px
     theme:
-      light: cosmo
+      light:
+        - cosmo
+        - custom.scss
       dark: darkly
     toc: true
     toc-depth: 3

@@ -1,0 +1,19 @@
+/*-- scss:defaults --*/
+// Ubah variabel dasar Bootstrap agar seluruh warna latar (body & sidebar) menjadi hijau matcha
+$body-bg: #d9e2d5;
+
+/*-- scss:rules --*/
+// Paksa hanya area membaca (tengah) yang berwarna putih seperti kertas
+main, #quarto-document-content {
+  background-color: #ffffff !important;
+  padding: 2.5rem !important;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+// Pastikan sidebar kanan dan kiri benar-benar transparan (agar tembus warna matcha)
+#quarto-sidebar, .sidebar, #quarto-margin-sidebar, .margin-sidebar {
+  background-color: transparent !important;
+}

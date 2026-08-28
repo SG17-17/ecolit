@@ -78,5 +78,25 @@
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Pengantar Analisis</span>"
     ]
+  },
+  {
+    "objectID": "index.html#ringkasan-fit-model-cfa",
+    "href": "index.html#ringkasan-fit-model-cfa",
+    "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
+    "section": "4.1 Ringkasan Fit Model (CFA)",
+    "text": "4.1 Ringkasan Fit Model (CFA)\n\n\nLihat kode\ndf_cfa &lt;- rbind(\n  if(!is.null(fit_eid)) get_cfa_fit_df(fit_eid, \"EID\") else NULL,\n  if(!is.null(fit_esi)) get_cfa_fit_df(fit_esi, \"ESI\") else NULL,\n  if(!is.null(fit_psmls)) get_cfa_fit_df(fit_psmls, \"PSMLS\") else NULL,\n  if(!is.null(fit_peb)) get_cfa_fit_df(fit_peb, \"PEB\") else NULL,\n  if(!is.null(fit_pwb)) get_cfa_fit_df(fit_pwb, \"PWB\") else NULL\n)\n\nif (!is.null(df_cfa) && nrow(df_cfa) &gt; 0) {\n  knitr::kable(df_cfa)\n} else {\n  cat(\"Belum ada data model CFA yang dapat diringkas.\\n\")\n}\n\n\n\n\nTable 4.1: Tabel Ringkasan Fit Model CFA Keseluruhan\n\n\n\n\n\n\nModel\nChi-Square\ndf\np\nCFI\nTLI\nRMSEA\nSRMR\n\n\n\n\nEID\n258.93\n74\n0\n0.893\n0.868\n0.102\n0.066\n\n\nESI\n48.53\n9\n0\n0.955\n0.924\n0.135\n0.038\n\n\nPSMLS\n132.74\n71\n0\n0.967\n0.958\n0.060\n0.037\n\n\nPEB\n263.31\n110\n0\n0.919\n0.900\n0.076\n0.067\n\n\nPWB\n2868.02\n801\n0\n0.530\n0.495\n0.104\n0.143",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Pengantar Analisis</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#ringkasan-reliabilitas",
+    "href": "index.html#ringkasan-reliabilitas",
+    "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
+    "section": "4.2 Ringkasan Reliabilitas",
+    "text": "4.2 Ringkasan Reliabilitas\n\n\nLihat kode\ndf_summary &lt;- rbind(\n  if(!is.null(fit_eid)) get_rel_df(fit_eid) else NULL,\n  if(!is.null(fit_esi)) get_rel_df(fit_esi) else NULL,\n  if(!is.null(fit_psmls)) get_rel_df(fit_psmls) else NULL,\n  if(!is.null(fit_peb)) get_rel_df(fit_peb) else NULL,\n  if(!is.null(fit_pwb)) get_rel_df(fit_pwb) else NULL\n)\n\nif (!is.null(df_summary) && nrow(df_summary) &gt; 0) {\n  knitr::kable(df_summary)\n} else {\n  cat(\"Belum ada data reliabilitas yang dapat diringkas.\\n\")\n}\n\n\n\n\nTable 4.2: Tabel Ringkasan Reliabilitas Keseluruhan\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.916\n0.901\n0.441\n\n\nESI\n0.906\n0.907\n0.622\n\n\nTechComp\n0.895\n0.900\n0.638\n\n\nSocialRel\n0.744\n0.730\n0.490\n\n\nPrivacy\n0.678\n0.686\n0.418\n\n\nInfoAware\n0.882\n0.886\n0.721\n\n\nConsLife\n0.705\n0.635\n0.307\n\n\nSocEnv\n0.849\n0.775\n0.491\n\n\nEnvCit\n0.784\n0.789\n0.430\n\n\nLandStew\n0.837\n0.837\n0.720\n\n\nAutonomy\n0.612\n0.593\n0.252\n\n\nMastery\n-0.277\n0.029\n0.164\n\n\nGrowth\n-0.671\n0.060\n0.212\n\n\nRelations\n-0.263\n0.144\n0.231\n\n\nPurpose\n-0.881\n0.178\n0.388\n\n\nAcceptance\n0.322\n0.450\n0.157",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Pengantar Analisis</span>"
+    ]
   }
 ]

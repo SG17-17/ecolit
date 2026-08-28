@@ -448,6 +448,8 @@ if(!is.null(fit_pwb)){
 }
 sink()
 
-# Buka file TXT otomatis
-system(paste("open", file_txt))
+# Buka file TXT otomatis (Hanya jika dijalankan lokal di Mac)
+if (interactive() && Sys.info()["sysname"] == "Darwin") {
+  system(paste("open", file_txt))
+}
 ```

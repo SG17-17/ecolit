@@ -81,13 +81,13 @@ df[] <- lapply(df, function(x) {
 })
 df <- as.data.frame(df, check.names = FALSE)
 
-# Mapping nama variabel demografi agar mudah dianalisis (Menggunakan pencarian kata kunci agar anti-error)
-df$Gender <- df[[ grep("Jenis Kelamin", names(df), ignore.case=TRUE)[1] ]]
-df$Usia <- df[[ grep("Usia", names(df), ignore.case=TRUE)[1] ]]
-df$Semester <- as.character(df[[ grep("Semester", names(df), ignore.case=TRUE)[1] ]])
-df$Provinsi <- df[[ grep("Daerah tempat tinggal", names(df), ignore.case=TRUE)[1] ]]
-df$Area <- df[[ grep("menggambarkan area", names(df), ignore.case=TRUE)[1] ]]
-df$Hunian <- df[[ grep("tempat tinggal utama", names(df), ignore.case=TRUE)[1] ]]
+# Mapping nama variabel demografi (Menggunakan nama kolom pasti / fixed keyword)
+df$Gender   <- df[["Jenis Kelamin"]]
+df$Usia     <- df[["Usia Anda saat ini (dalam angka):"]]
+df$Semester <- as.character(df[["Semester yang anda jalani saat ini"]])
+df$Provinsi <- df[["Daerah tempat tinggal saat ini"]]
+df$Area     <- df[["Mana yang paling menggambarkan area tempat tinggal Anda saat ini?"]]
+df$Hunian   <- df[["Selama berkuliah, jenis tempat tinggal utama Anda adalah:"]]
 ```
 
 Dataset berisi **`r nrow(df)`** observasi dan siap digunakan untuk analisis lanjutan.

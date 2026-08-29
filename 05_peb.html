@@ -406,57 +406,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_peb, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.7-2 ended normally after 29 iterations
+<pre><code>lavaan 0.7-2 ended normally after 31 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
   Number of model parameters                        43
 
-  Number of observations                           270
+  Number of observations                           278
 
 Model Test User Model:
                                                       
-  Test statistic                               287.288
+  Test statistic                               298.372
   Degrees of freedom                               110
   P-value (Chi-square)                           0.000
 
 Model Test Baseline Model:
 
-  Test statistic                              2187.413
+  Test statistic                              2222.545
   Degrees of freedom                               136
   P-value                                        0.000
 
 User Model versus Baseline Model:
 
-  Comparative Fit Index (CFI)                    0.914
-  Tucker-Lewis Index (TLI)                       0.893
+  Comparative Fit Index (CFI)                    0.910
+  Tucker-Lewis Index (TLI)                       0.888
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)              -5793.035
-  Loglikelihood unrestricted model (H1)      -5649.392
+  Loglikelihood user model (H0)              -5956.830
+  Loglikelihood unrestricted model (H1)      -5807.644
                                                       
-  Akaike (AIC)                               11672.071
-  Bayesian (BIC)                             11826.803
-  Sample-size adjusted Bayesian (SABIC)      11690.464
+  Akaike (AIC)                               11999.660
+  Bayesian (BIC)                             12155.647
+  Sample-size adjusted Bayesian (SABIC)      12019.299
 
 Root Mean Square Error of Approximation:
 
-  RMSEA                                          0.077
-  90 Percent confidence interval - lower         0.066
-  90 Percent confidence interval - upper         0.088
+  RMSEA                                          0.078
+  90 Percent confidence interval - lower         0.068
+  90 Percent confidence interval - upper         0.089
   P-value H_0: RMSEA &lt;= 0.050                    0.000
-  P-value H_0: RMSEA &gt;= 0.080                    0.351
+  P-value H_0: RMSEA &gt;= 0.080                    0.419
 
 Standardized Root Mean Square Residual:
 
-  SRMR                                           0.063
+  SRMR                                           0.065
 
 Goodness of Fit Index:
 
-  Goodness of Fit Index (GFI)                    0.920
-  90 Percent confidence interval - lower         0.900
-  90 Percent confidence interval - upper         0.939
+  Goodness of Fit Index (GFI)                    0.917
+  90 Percent confidence interval - lower         0.897
+  90 Percent confidence interval - upper         0.935
 
 Parameter Estimates:
 
@@ -467,64 +467,64 @@ Parameter Estimates:
 Latent Variables:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
   ConsLife =~                                                           
-    PEB_1             0.604    0.059   10.211    0.000    0.604    0.628
-    PEB_2             0.244    0.062    3.964    0.000    0.244    0.271
-    PEB_3             0.535    0.052   10.358    0.000    0.535    0.636
-    PEB_4             0.509    0.056    9.018    0.000    0.509    0.565
-    PEB_5             0.693    0.073    9.551    0.000    0.693    0.594
+    PEB_1             0.599    0.058   10.345    0.000    0.599    0.628
+    PEB_2             0.248    0.061    4.052    0.000    0.248    0.273
+    PEB_3             0.536    0.051   10.562    0.000    0.536    0.639
+    PEB_4             0.508    0.055    9.226    0.000    0.508    0.570
+    PEB_5             0.688    0.071    9.673    0.000    0.688    0.593
   SocEnv =~                                                             
-    PEB_6             0.695    0.054   12.923    0.000    0.695    0.717
-    PEB_7             0.806    0.066   12.236    0.000    0.806    0.692
-    PEB_8             0.849    0.061   13.893    0.000    0.849    0.758
-    PEB_9             0.686    0.064   10.750    0.000    0.686    0.624
-    PEB_10            0.661    0.054   12.147    0.000    0.661    0.685
+    PEB_6             0.687    0.053   12.986    0.000    0.687    0.713
+    PEB_7             0.794    0.065   12.235    0.000    0.794    0.685
+    PEB_8             0.834    0.060   13.962    0.000    0.834    0.754
+    PEB_9             0.682    0.063   10.877    0.000    0.682    0.623
+    PEB_10            0.652    0.053   12.227    0.000    0.652    0.682
   EnvCit =~                                                             
-    PEB_11            0.580    0.061    9.498    0.000    0.580    0.556
-    PEB_12            0.818    0.069   11.923    0.000    0.818    0.669
-    PEB_13            0.771    0.068   11.308    0.000    0.771    0.642
-    PEB_14            0.704    0.058   12.109    0.000    0.704    0.677
-    PEB_15            0.750    0.061   12.194    0.000    0.750    0.681
+    PEB_11            0.567    0.060    9.464    0.000    0.567    0.549
+    PEB_12            0.814    0.068   12.060    0.000    0.814    0.668
+    PEB_13            0.769    0.067   11.489    0.000    0.769    0.643
+    PEB_14            0.697    0.057   12.171    0.000    0.697    0.673
+    PEB_15            0.737    0.061   12.132    0.000    0.737    0.672
   LandStew =~                                                           
-    PEB_16            0.931    0.063   14.871    0.000    0.931    0.832
-    PEB_17            0.872    0.066   13.248    0.000    0.872    0.753
+    PEB_16            0.925    0.062   14.992    0.000    0.925    0.829
+    PEB_17            0.879    0.065   13.491    0.000    0.879    0.757
 
 Covariances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
  .PEB_7 ~~                                                              
-   .PEB_8             0.330    0.053    6.167    0.000    0.330    0.537
+   .PEB_8             0.328    0.052    6.263    0.000    0.328    0.534
  .PEB_9 ~~                                                              
-   .PEB_10            0.277    0.047    5.941    0.000    0.277    0.459
+   .PEB_10            0.275    0.046    6.034    0.000    0.275    0.460
  .PEB_2 ~~                                                              
-   .PEB_3             0.234    0.042    5.588    0.000    0.234    0.414
+   .PEB_3             0.226    0.041    5.495    0.000    0.226    0.401
   ConsLife ~~                                                           
-    SocEnv            0.850    0.044   19.384    0.000    0.850    0.850
-    EnvCit            0.781    0.049   15.985    0.000    0.781    0.781
-    LandStew          0.626    0.061   10.254    0.000    0.626    0.626
+    SocEnv            0.852    0.043   19.692    0.000    0.852    0.852
+    EnvCit            0.766    0.049   15.526    0.000    0.766    0.766
+    LandStew          0.607    0.061    9.894    0.000    0.607    0.607
   SocEnv ~~                                                             
-    EnvCit            0.965    0.028   34.153    0.000    0.965    0.965
-    LandStew          0.732    0.048   15.104    0.000    0.732    0.732
+    EnvCit            0.962    0.029   33.560    0.000    0.962    0.962
+    LandStew          0.723    0.049   14.833    0.000    0.723    0.723
   EnvCit ~~                                                             
-    LandStew          0.875    0.037   23.561    0.000    0.875    0.875
+    LandStew          0.871    0.037   23.510    0.000    0.871    0.871
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-   .PEB_1             0.560    0.058    9.582    0.000    0.560    0.606
-   .PEB_2             0.755    0.067   11.337    0.000    0.755    0.927
-   .PEB_3             0.423    0.045    9.491    0.000    0.423    0.596
-   .PEB_4             0.552    0.054   10.170    0.000    0.552    0.680
-   .PEB_5             0.883    0.089    9.931    0.000    0.883    0.648
-   .PEB_6             0.457    0.046    9.868    0.000    0.457    0.486
-   .PEB_7             0.707    0.071    9.953    0.000    0.707    0.521
-   .PEB_8             0.533    0.058    9.240    0.000    0.533    0.425
-   .PEB_9             0.740    0.070   10.540    0.000    0.740    0.611
-   .PEB_10            0.494    0.049   10.140    0.000    0.494    0.531
-   .PEB_11            0.749    0.068   11.047    0.000    0.749    0.690
-   .PEB_12            0.825    0.078   10.528    0.000    0.825    0.552
-   .PEB_13            0.849    0.079   10.692    0.000    0.849    0.588
-   .PEB_14            0.585    0.056   10.472    0.000    0.585    0.541
-   .PEB_15            0.651    0.062   10.446    0.000    0.651    0.536
-   .PEB_16            0.387    0.065    5.989    0.000    0.387    0.308
-   .PEB_17            0.581    0.070    8.335    0.000    0.581    0.433
+   .PEB_1             0.552    0.057    9.716    0.000    0.552    0.606
+   .PEB_2             0.762    0.066   11.495    0.000    0.762    0.926
+   .PEB_3             0.417    0.043    9.583    0.000    0.417    0.592
+   .PEB_4             0.537    0.052   10.275    0.000    0.537    0.675
+   .PEB_5             0.871    0.087   10.071    0.000    0.871    0.648
+   .PEB_6             0.458    0.046   10.033    0.000    0.458    0.492
+   .PEB_7             0.714    0.070   10.143    0.000    0.714    0.531
+   .PEB_8             0.529    0.056    9.408    0.000    0.529    0.432
+   .PEB_9             0.733    0.069   10.684    0.000    0.733    0.612
+   .PEB_10            0.490    0.048   10.295    0.000    0.490    0.535
+   .PEB_11            0.745    0.066   11.213    0.000    0.745    0.699
+   .PEB_12            0.821    0.077   10.647    0.000    0.821    0.553
+   .PEB_13            0.837    0.077   10.805    0.000    0.837    0.586
+   .PEB_14            0.586    0.055   10.613    0.000    0.586    0.547
+   .PEB_15            0.661    0.062   10.625    0.000    0.661    0.549
+   .PEB_16            0.390    0.064    6.127    0.000    0.390    0.313
+   .PEB_17            0.576    0.069    8.319    0.000    0.576    0.427
     ConsLife          1.000                               1.000    1.000
     SocEnv            1.000                               1.000    1.000
     EnvCit            1.000                               1.000    1.000
@@ -561,21 +561,21 @@ Table&nbsp;5.1: Reliabilitas Skala PEB (Dimensi)
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">ConsLife</td>
-<td style="text-align: right;">0.698</td>
-<td style="text-align: right;">0.638</td>
+<td style="text-align: right;">0.699</td>
+<td style="text-align: right;">0.640</td>
 <td style="text-align: right;">0.314</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SocEnv</td>
-<td style="text-align: right;">0.848</td>
-<td style="text-align: right;">0.772</td>
-<td style="text-align: right;">0.485</td>
+<td style="text-align: right;">0.846</td>
+<td style="text-align: right;">0.767</td>
+<td style="text-align: right;">0.479</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">EnvCit</td>
-<td style="text-align: right;">0.778</td>
-<td style="text-align: right;">0.784</td>
-<td style="text-align: right;">0.421</td>
+<td style="text-align: right;">0.775</td>
+<td style="text-align: right;">0.781</td>
+<td style="text-align: right;">0.416</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">LandStew</td>

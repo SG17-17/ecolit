@@ -400,57 +400,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_esi, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.7-2 ended normally after 18 iterations
+<pre><code>lavaan 0.7-2 ended normally after 17 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
   Number of model parameters                        12
 
-  Number of observations                           287
+  Number of observations                           312
 
 Model Test User Model:
                                                       
-  Test statistic                                62.938
+  Test statistic                                72.477
   Degrees of freedom                                 9
   P-value (Chi-square)                           0.000
 
 Model Test Baseline Model:
 
-  Test statistic                               995.572
+  Test statistic                              1080.750
   Degrees of freedom                                15
   P-value                                        0.000
 
 User Model versus Baseline Model:
 
-  Comparative Fit Index (CFI)                    0.945
-  Tucker-Lewis Index (TLI)                       0.908
+  Comparative Fit Index (CFI)                    0.940
+  Tucker-Lewis Index (TLI)                       0.901
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)              -1934.322
-  Loglikelihood unrestricted model (H1)      -1902.853
+  Loglikelihood user model (H0)              -2107.387
+  Loglikelihood unrestricted model (H1)      -2071.148
                                                       
-  Akaike (AIC)                                3892.645
-  Bayesian (BIC)                              3936.558
-  Sample-size adjusted Bayesian (SABIC)       3898.505
+  Akaike (AIC)                                4238.773
+  Bayesian (BIC)                              4283.690
+  Sample-size adjusted Bayesian (SABIC)       4245.630
 
 Root Mean Square Error of Approximation:
 
-  RMSEA                                          0.145
-  90 Percent confidence interval - lower         0.112
-  90 Percent confidence interval - upper         0.179
+  RMSEA                                          0.150
+  90 Percent confidence interval - lower         0.119
+  90 Percent confidence interval - upper         0.183
   P-value H_0: RMSEA &lt;= 0.050                    0.000
-  P-value H_0: RMSEA &gt;= 0.080                    0.999
+  P-value H_0: RMSEA &gt;= 0.080                    1.000
 
 Standardized Root Mean Square Residual:
 
-  SRMR                                           0.041
+  SRMR                                           0.042
 
 Goodness of Fit Index:
 
-  Goodness of Fit Index (GFI)                    0.939
-  90 Percent confidence interval - lower         0.910
-  90 Percent confidence interval - upper         0.962
+  Goodness of Fit Index (GFI)                    0.933
+  90 Percent confidence interval - lower         0.904
+  90 Percent confidence interval - upper         0.956
 
 Parameter Estimates:
 
@@ -461,21 +461,21 @@ Parameter Estimates:
 Latent Variables:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
   ESI =~                                                                
-    ESI_1             0.749    0.048   15.572    0.000    0.749    0.791
-    ESI_2             0.832    0.047   17.618    0.000    0.832    0.858
-    ESI_3             0.786    0.053   14.940    0.000    0.786    0.769
-    ESI_4             0.821    0.053   15.386    0.000    0.821    0.785
-    ESI_5             0.629    0.050   12.679    0.000    0.629    0.683
-    ESI_6             0.714    0.050   14.400    0.000    0.714    0.749
+    ESI_1             0.727    0.047   15.627    0.000    0.727    0.770
+    ESI_2             0.840    0.045   18.784    0.000    0.840    0.870
+    ESI_3             0.809    0.051   15.902    0.000    0.809    0.780
+    ESI_4             0.793    0.052   15.377    0.000    0.793    0.762
+    ESI_5             0.642    0.048   13.517    0.000    0.642    0.694
+    ESI_6             0.714    0.047   15.046    0.000    0.714    0.750
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-   .ESI_1             0.336    0.034    9.854    0.000    0.336    0.374
-   .ESI_2             0.249    0.029    8.430    0.000    0.249    0.264
-   .ESI_3             0.427    0.042   10.148    0.000    0.427    0.409
-   .ESI_4             0.420    0.042    9.946    0.000    0.420    0.384
-   .ESI_5             0.453    0.042   10.883    0.000    0.453    0.534
-   .ESI_6             0.398    0.038   10.362    0.000    0.398    0.439
+   .ESI_1             0.361    0.034   10.568    0.000    0.361    0.406
+   .ESI_2             0.227    0.027    8.381    0.000    0.227    0.243
+   .ESI_3             0.422    0.040   10.445    0.000    0.422    0.392
+   .ESI_4             0.455    0.043   10.672    0.000    0.455    0.420
+   .ESI_5             0.444    0.039   11.279    0.000    0.444    0.518
+   .ESI_6             0.395    0.037   10.800    0.000    0.395    0.437
     ESI               1.000                               1.000    1.000</code></pre>
 </div>
 <details class="code-fold">
@@ -510,9 +510,9 @@ Table&nbsp;3.1: Reliabilitas Skala ESI
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">ESI</td>
-<td style="text-align: right;">0.899</td>
-<td style="text-align: right;">0.899</td>
-<td style="text-align: right;">0.602</td>
+<td style="text-align: right;">0.898</td>
+<td style="text-align: right;">0.898</td>
+<td style="text-align: right;">0.599</td>
 </tr>
 </tbody>
 </table>

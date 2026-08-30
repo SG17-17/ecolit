@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Muhammad Niam Makhali">
-<meta name="dcterms.date" content="2026-08-29">
+<meta name="dcterms.date" content="2026-08-30">
 
 <title>Analisis Data — Pengujian Alat Ukur (CFA)</title>
 <style>
@@ -395,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 29, 2026</p>
+      <p class="date">August 30, 2026</p>
     </div>
   </div>
   
@@ -420,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliabilitas alat ukur yang terintegrasi secara <em>real-time</em> dengan basis data primer.</p>
 </div>
 </div>
-<p>Dataset berisi <strong>278</strong> observasi dan siap digunakan untuk analisis lanjutan.</p>
+<p>Dataset berisi <strong>287</strong> observasi dan siap digunakan untuk analisis lanjutan.</p>
 <section id="jenis-kelamin" class="level2">
 <h2 class="anchored" data-anchor-id="jenis-kelamin">Jenis Kelamin</h2>
 <div class="cell">
@@ -446,13 +446,13 @@ Table&nbsp;1: Distribusi Jenis Kelamin
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Laki-laki</td>
-<td style="text-align: right;">91</td>
-<td style="text-align: left;">32.73%</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: left;">32.4%</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Perempuan</td>
-<td style="text-align: right;">187</td>
-<td style="text-align: left;">67.27%</td>
+<td style="text-align: right;">194</td>
+<td style="text-align: left;">67.6%</td>
 </tr>
 </tbody>
 </table>
@@ -473,7 +473,7 @@ Table&nbsp;1: Distribusi Jenis Kelamin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>usia_max <span class="ot">&lt;-</span> <span class="fu">max</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p><em>M</em> = 20.69 tahun, <em>SD</em> = 1.68, Min = 18, Max = 27.</p>
+<p><em>M</em> = 20.68 tahun, <em>SD</em> = 1.67, Min = 18, Max = 27.</p>
 </section>
 <section id="semester" class="level2">
 <h2 class="anchored" data-anchor-id="semester">Semester</h2>
@@ -501,47 +501,47 @@ Table&nbsp;2: Distribusi Semester
 <tr class="odd">
 <td style="text-align: left;">Semester 1</td>
 <td style="text-align: right;">17</td>
-<td style="text-align: left;">6.12%</td>
+<td style="text-align: left;">5.92%</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Semester 2</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: left;">0.72%</td>
+<td style="text-align: left;">0.7%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Semester 3</td>
-<td style="text-align: right;">67</td>
-<td style="text-align: left;">24.1%</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: left;">24.74%</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Semester 4</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">2.52%</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">2.79%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Semester 5</td>
-<td style="text-align: right;">71</td>
-<td style="text-align: left;">25.54%</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: left;">25.09%</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Semester 6</td>
 <td style="text-align: right;">11</td>
-<td style="text-align: left;">3.96%</td>
+<td style="text-align: left;">3.83%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Semester 7</td>
-<td style="text-align: right;">65</td>
-<td style="text-align: left;">23.38%</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">23%</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Semester 8</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">6.83%</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;">7.32%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">&gt; Semester 8</td>
 <td style="text-align: right;">19</td>
-<td style="text-align: left;">6.83%</td>
+<td style="text-align: left;">6.62%</td>
 </tr>
 </tbody>
 </table>
@@ -576,18 +576,18 @@ Table&nbsp;3: Distribusi Area Tempat Tinggal
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Urban (Kota)</td>
-<td style="text-align: right;">137</td>
-<td style="text-align: left;">49.28%</td>
+<td style="text-align: right;">143</td>
+<td style="text-align: left;">49.83%</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Suburban (Pinggiran)</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: left;">34.53%</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: left;">34.15%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Rural (Pedesaan)</td>
-<td style="text-align: right;">45</td>
-<td style="text-align: left;">16.19%</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: left;">16.03%</td>
 </tr>
 </tbody>
 </table>
@@ -622,23 +622,23 @@ Table&nbsp;4: Distribusi Tipe Hunian
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Rumah Orang Tua</td>
-<td style="text-align: right;">116</td>
-<td style="text-align: left;">41.73%</td>
+<td style="text-align: right;">118</td>
+<td style="text-align: left;">41.11%</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Kos/Kontrakan</td>
-<td style="text-align: right;">151</td>
-<td style="text-align: left;">54.32%</td>
+<td style="text-align: right;">158</td>
+<td style="text-align: left;">55.05%</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Asrama</td>
 <td style="text-align: right;">8</td>
-<td style="text-align: left;">2.88%</td>
+<td style="text-align: left;">2.79%</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Lainnya</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: left;">1.08%</td>
+<td style="text-align: left;">1.05%</td>
 </tr>
 </tbody>
 </table>

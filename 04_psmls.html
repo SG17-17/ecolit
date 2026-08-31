@@ -362,7 +362,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Daftar Isi</h2>
    
   <ul>
-  <li><a href="#reliabilitas-psml" id="toc-reliabilitas-psml" class="nav-link active" data-scroll-target="#reliabilitas-psml">Reliabilitas PSML</a></li>
+  <li><a href="#definisi-model" id="toc-definisi-model" class="nav-link active" data-scroll-target="#definisi-model">Definisi Model</a></li>
+  <li><a href="#hasil-cfa-data-bersih-lolos-filter" id="toc-hasil-cfa-data-bersih-lolos-filter" class="nav-link" data-scroll-target="#hasil-cfa-data-bersih-lolos-filter">Hasil CFA: Data Bersih (Lolos Filter)</a></li>
+  <li><a href="#hasil-cfa-data-mentah-termasuk-gugur" id="toc-hasil-cfa-data-mentah-termasuk-gugur" class="nav-link" data-scroll-target="#hasil-cfa-data-mentah-termasuk-gugur">Hasil CFA: Data Mentah (Termasuk GUGUR)</a></li>
+  <li><a href="#perbandingan-reliabilitas-psmls" id="toc-perbandingan-reliabilitas-psmls" class="nav-link" data-scroll-target="#perbandingan-reliabilitas-psmls">Perbandingan Reliabilitas PSMLS</a></li>
   </ul>
 </nav>
     </div>
@@ -390,6 +393,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Model multidimensional 4-faktor yang saling berkorelasi (First-Order). <em>Murni teoritis.</em></p>
+<section id="definisi-model" class="level2">
+<h2 class="anchored" data-anchor-id="definisi-model">Definisi Model</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Lihat kode</summary>
@@ -399,8 +404,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">  Privacy =~ PSMLS_9 + PSMLS_10 + PSMLS_11</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">  InfoAware =~ PSMLS_12 + PSMLS_13 + PSMLS_14</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>fit_psmls <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model_psmls, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_psmls, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>fit_psmls_clean <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">cfa</span>(model_psmls, <span class="at">data =</span> df_clean, <span class="at">std.lv =</span> <span class="cn">TRUE</span>), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>fit_psmls_raw   <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">cfa</span>(model_psmls, <span class="at">data =</span> df_raw, <span class="at">std.lv =</span> <span class="cn">TRUE</span>), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Simpan hasil untuk halaman summary</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fit_psmls_clean)) <span class="fu">saveRDS</span>(fit_psmls_clean, <span class="st">"data/fit_psmls_clean.rds"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fit_psmls_raw)) <span class="fu">saveRDS</span>(fit_psmls_raw, <span class="st">"data/fit_psmls_raw.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="hasil-cfa-data-bersih-lolos-filter" class="level2">
+<h2 class="anchored" data-anchor-id="hasil-cfa-data-bersih-lolos-filter">Hasil CFA: Data Bersih (Lolos Filter)</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Lihat kode</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(fit_psmls_clean)) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(fit_psmls_clean, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Model gagal dikalkulasi (Not Converged) pada data bersih.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.7-2 ended normally after 42 iterations
@@ -515,29 +537,154 @@ Variances:
     Privacy           1.000                               1.000    1.000
     InfoAware         1.000                               1.000    1.000</code></pre>
 </div>
-<details class="code-fold">
-<summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(fit_psmls, <span class="st">"data/fit_psmls.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
-<section id="reliabilitas-psml" class="level2">
-<h2 class="anchored" data-anchor-id="reliabilitas-psml">Reliabilitas PSML</h2>
+</section>
+<section id="hasil-cfa-data-mentah-termasuk-gugur" class="level2">
+<h2 class="anchored" data-anchor-id="hasil-cfa-data-mentah-termasuk-gugur">Hasil CFA: Data Mentah (Termasuk GUGUR)</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_psmls)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(fit_psmls_raw)) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(fit_psmls_raw, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Model gagal dikalkulasi (Not Converged) pada data mentah.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div id="tbl-rel-psmls" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell-output cell-output-stdout">
+<pre><code>lavaan 0.7-2 ended normally after 40 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        34
+
+                                                  Used       Total
+  Number of observations                           404         406
+
+Model Test User Model:
+                                                      
+  Test statistic                               221.161
+  Degrees of freedom                                71
+  P-value (Chi-square)                           0.000
+
+Model Test Baseline Model:
+
+  Test statistic                              3686.081
+  Degrees of freedom                                91
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.958
+  Tucker-Lewis Index (TLI)                       0.946
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -4749.133
+  Loglikelihood unrestricted model (H1)      -4638.552
+                                                      
+  Akaike (AIC)                                9566.265
+  Bayesian (BIC)                              9702.314
+  Sample-size adjusted Bayesian (SABIC)       9594.428
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.072
+  90 Percent confidence interval - lower         0.062
+  90 Percent confidence interval - upper         0.083
+  P-value H_0: RMSEA &lt;= 0.050                    0.000
+  P-value H_0: RMSEA &gt;= 0.080                    0.127
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.036
+
+Goodness of Fit Index:
+
+  Goodness of Fit Index (GFI)                    0.949
+  90 Percent confidence interval - lower         0.933
+  90 Percent confidence interval - upper         0.962
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  TechComp =~                                                           
+    PSMLS_1           0.541    0.029   18.772    0.000    0.541    0.796
+    PSMLS_2           0.570    0.033   17.387    0.000    0.570    0.755
+    PSMLS_3           0.675    0.033   20.182    0.000    0.675    0.834
+    PSMLS_4           0.586    0.027   21.599    0.000    0.586    0.871
+    PSMLS_5           0.530    0.030   17.393    0.000    0.530    0.755
+  SocialRel =~                                                          
+    PSMLS_6           0.681    0.036   18.849    0.000    0.681    0.819
+    PSMLS_7           0.528    0.041   12.824    0.000    0.528    0.613
+    PSMLS_8           0.587    0.031   19.185    0.000    0.587    0.829
+  Privacy =~                                                            
+    PSMLS_9           0.575    0.032   18.161    0.000    0.575    0.799
+    PSMLS_10          0.549    0.038   14.426    0.000    0.549    0.669
+    PSMLS_11          0.559    0.040   13.841    0.000    0.559    0.648
+  InfoAware =~                                                          
+    PSMLS_12          0.677    0.032   20.978    0.000    0.677    0.858
+    PSMLS_13          0.687    0.030   23.059    0.000    0.687    0.911
+    PSMLS_14          0.593    0.030   19.481    0.000    0.593    0.817
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  TechComp ~~                                                           
+    SocialRel         0.746    0.031   24.360    0.000    0.746    0.746
+    Privacy           0.846    0.027   31.640    0.000    0.846    0.846
+    InfoAware         0.653    0.034   19.287    0.000    0.653    0.653
+  SocialRel ~~                                                          
+    Privacy           0.828    0.032   26.295    0.000    0.828    0.828
+    InfoAware         0.723    0.032   22.343    0.000    0.723    0.723
+  Privacy ~~                                                            
+    InfoAware         0.824    0.028   28.988    0.000    0.824    0.824
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .PSMLS_1           0.170    0.014   12.025    0.000    0.170    0.367
+   .PSMLS_2           0.246    0.020   12.541    0.000    0.246    0.430
+   .PSMLS_3           0.199    0.018   11.288    0.000    0.199    0.304
+   .PSMLS_4           0.109    0.011   10.205    0.000    0.109    0.242
+   .PSMLS_5           0.212    0.017   12.539    0.000    0.212    0.430
+   .PSMLS_6           0.228    0.024    9.559    0.000    0.228    0.329
+   .PSMLS_7           0.463    0.036   12.906    0.000    0.463    0.624
+   .PSMLS_8           0.156    0.017    9.178    0.000    0.156    0.312
+   .PSMLS_9           0.188    0.019   10.118    0.000    0.188    0.362
+   .PSMLS_10          0.372    0.030   12.586    0.000    0.372    0.552
+   .PSMLS_11          0.432    0.034   12.781    0.000    0.432    0.580
+   .PSMLS_12          0.165    0.016   10.250    0.000    0.165    0.264
+   .PSMLS_13          0.097    0.013    7.558    0.000    0.097    0.171
+   .PSMLS_14          0.175    0.015   11.449    0.000    0.175    0.332
+    TechComp          1.000                               1.000    1.000
+    SocialRel         1.000                               1.000    1.000
+    Privacy           1.000                               1.000    1.000
+    InfoAware         1.000                               1.000    1.000</code></pre>
+</div>
+</div>
+</section>
+<section id="perbandingan-reliabilitas-psmls" class="level2">
+<h2 class="anchored" data-anchor-id="perbandingan-reliabilitas-psmls">Perbandingan Reliabilitas PSMLS</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Lihat kode</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_psmls_clean, <span class="st">"Bersih"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-rel-psmls-clean" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rel-psmls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.1: Reliabilitas Skala PSMLS (Dimensi)
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rel-psmls-clean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.1: Reliabilitas Skala PSMLS (Data Bersih)
 </figcaption>
-<div aria-describedby="tbl-rel-psmls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-rel-psmls-clean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Faktor</th>
+<th style="text-align: left;">Kondisi</th>
 <th style="text-align: right;">Alpha</th>
 <th style="text-align: right;">Omega</th>
 <th style="text-align: right;">AVE</th>
@@ -546,27 +693,89 @@ Table&nbsp;4.1: Reliabilitas Skala PSMLS (Dimensi)
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">TechComp</td>
+<td style="text-align: left;">Bersih</td>
 <td style="text-align: right;">0.895</td>
 <td style="text-align: right;">0.894</td>
 <td style="text-align: right;">0.634</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SocialRel</td>
+<td style="text-align: left;">Bersih</td>
 <td style="text-align: right;">0.760</td>
 <td style="text-align: right;">0.758</td>
 <td style="text-align: right;">0.519</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Privacy</td>
+<td style="text-align: left;">Bersih</td>
 <td style="text-align: right;">0.701</td>
 <td style="text-align: right;">0.689</td>
 <td style="text-align: right;">0.432</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">InfoAware</td>
+<td style="text-align: left;">Bersih</td>
 <td style="text-align: right;">0.874</td>
 <td style="text-align: right;">0.877</td>
 <td style="text-align: right;">0.704</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Lihat kode</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_psmls_raw, <span class="st">"Mentah"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-rel-psmls-raw" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rel-psmls-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4.2: Reliabilitas Skala PSMLS (Data Mentah)
+</figcaption>
+<div aria-describedby="tbl-rel-psmls-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Faktor</th>
+<th style="text-align: left;">Kondisi</th>
+<th style="text-align: right;">Alpha</th>
+<th style="text-align: right;">Omega</th>
+<th style="text-align: right;">AVE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">TechComp</td>
+<td style="text-align: left;">Mentah</td>
+<td style="text-align: right;">0.899</td>
+<td style="text-align: right;">0.897</td>
+<td style="text-align: right;">0.645</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">SocialRel</td>
+<td style="text-align: left;">Mentah</td>
+<td style="text-align: right;">0.790</td>
+<td style="text-align: right;">0.789</td>
+<td style="text-align: right;">0.562</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Privacy</td>
+<td style="text-align: left;">Mentah</td>
+<td style="text-align: right;">0.745</td>
+<td style="text-align: right;">0.736</td>
+<td style="text-align: right;">0.488</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">InfoAware</td>
+<td style="text-align: left;">Mentah</td>
+<td style="text-align: right;">0.896</td>
+<td style="text-align: right;">0.898</td>
+<td style="text-align: right;">0.746</td>
 </tr>
 </tbody>
 </table>
@@ -1058,41 +1267,70 @@ Table&nbsp;4.1: Reliabilitas Skala PSMLS (Dimensi)
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Perceived Social Media Literacy (PSML)"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Model multidimensional 4-faktor yang saling berkorelasi (First-Order). *Murni teoritis.*</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup-cfa-psmls</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/helpers.R"</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/cleaned_data.rds"</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cfa-psmls</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>model_psmls <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="st">  TechComp =~ PSMLS_1 + PSMLS_2 + PSMLS_3 + PSMLS_4 + PSMLS_5</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="st">  SocialRel =~ PSMLS_6 + PSMLS_7 + PSMLS_8</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="st">  Privacy =~ PSMLS_9 + PSMLS_10 + PSMLS_11</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="st">  InfoAware =~ PSMLS_12 + PSMLS_13 + PSMLS_14</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>fit_psmls <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model_psmls, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_psmls, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(fit_psmls, <span class="st">"data/fit_psmls.rds"</span>)</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reliabilitas PSML</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-psmls</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala PSMLS (Dimensi)"</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_psmls)</span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Perceived Social Media Literacy (PSML)"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>Model multidimensional 4-faktor yang saling berkorelasi (First-Order). *Murni teoritis.*</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup-cfa-psmls</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/helpers.R"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>df_clean <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/cleaned_data.rds"</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>df_raw   <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/raw_data.rds"</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Definisi Model</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cfa-psmls</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>model_psmls <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="st">  TechComp =~ PSMLS_1 + PSMLS_2 + PSMLS_3 + PSMLS_4 + PSMLS_5</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="st">  SocialRel =~ PSMLS_6 + PSMLS_7 + PSMLS_8</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="st">  Privacy =~ PSMLS_9 + PSMLS_10 + PSMLS_11</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="st">  InfoAware =~ PSMLS_12 + PSMLS_13 + PSMLS_14</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>fit_psmls_clean <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">cfa</span>(model_psmls, <span class="at">data =</span> df_clean, <span class="at">std.lv =</span> <span class="cn">TRUE</span>), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>fit_psmls_raw   <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">cfa</span>(model_psmls, <span class="at">data =</span> df_raw, <span class="at">std.lv =</span> <span class="cn">TRUE</span>), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Simpan hasil untuk halaman summary</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fit_psmls_clean)) <span class="fu">saveRDS</span>(fit_psmls_clean, <span class="st">"data/fit_psmls_clean.rds"</span>)</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fit_psmls_raw)) <span class="fu">saveRDS</span>(fit_psmls_raw, <span class="st">"data/fit_psmls_raw.rds"</span>)</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hasil CFA: Data Bersih (Lolos Filter)</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(fit_psmls_clean)) {</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(fit_psmls_clean, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Model gagal dikalkulasi (Not Converged) pada data bersih.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hasil CFA: Data Mentah (Termasuk GUGUR)</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(fit_psmls_raw)) {</span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(fit_psmls_raw, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Model gagal dikalkulasi (Not Converged) pada data mentah.</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perbandingan Reliabilitas PSMLS</span></span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-psmls-clean</span></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala PSMLS (Data Bersih)"</span></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_psmls_clean, <span class="st">"Bersih"</span>)</span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-psmls-raw</span></span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala PSMLS (Data Mentah)"</span></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_psmls_raw, <span class="st">"Mentah"</span>)</span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

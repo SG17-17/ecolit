@@ -46,7 +46,7 @@ get_cfa_fit_df <- function(fit, model_name) {
   if (is.null(fit)) return(NULL)
   
   # Deteksi estimator yang digunakan
-  est <- lavInspect(fit, "options")$estimator
+  est <- lavInspect(fit, "options")$estimator.orig
   if (est == "MLR") {
     fits <- fitMeasures(fit, c("chisq.scaled", "df.scaled", "pvalue.scaled", "cfi.robust", "tli.robust", "rmsea.robust", "srmr"))
     
@@ -92,7 +92,7 @@ library(semPlot)
 # Helper function: Visualisasi Model CFA (semPlot)
 plot_cfa <- function(fit, title_text) {
   # Ambil nilai MLR Robust secara otomatis
-  est <- lavInspect(fit, "options")$estimator
+  est <- lavInspect(fit, "options")$estimator.orig
   if (est == "MLR") {
     fit_idx <- fitMeasures(fit, c("chisq.scaled", "cfi.robust", "tli.robust", "rmsea.robust", "srmr"))
   } else {

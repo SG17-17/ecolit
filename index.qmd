@@ -56,7 +56,7 @@ Berikut proses penyaringan data dari responden masuk hingga menjadi data final.
 
 ***
 
-Dataset bersih yang memuat **`r nrow(df)`** observasi di atas kini siap digunakan untuk analisis lanjutan berupa Statistik Deskriptif dan CFA.
+Setelah proses penyaringan selesai, diperoleh **`r nrow(df)` observasi** yang dapat digunakan untuk analisis selanjutnya.
 
 ## Jenis Kelamin
 ```{r}

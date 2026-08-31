@@ -362,10 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Daftar Isi</h2>
    
   <ul>
-  <li><a href="#definisi-model" id="toc-definisi-model" class="nav-link active" data-scroll-target="#definisi-model">Definisi Model</a></li>
-  <li><a href="#hasil-cfa-data-bersih-lolos-filter" id="toc-hasil-cfa-data-bersih-lolos-filter" class="nav-link" data-scroll-target="#hasil-cfa-data-bersih-lolos-filter">Hasil CFA: Data Bersih (Lolos Filter)</a></li>
-  <li><a href="#hasil-cfa-data-mentah-termasuk-gugur" id="toc-hasil-cfa-data-mentah-termasuk-gugur" class="nav-link" data-scroll-target="#hasil-cfa-data-mentah-termasuk-gugur">Hasil CFA: Data Mentah (Termasuk GUGUR)</a></li>
-  <li><a href="#perbandingan-reliabilitas-peb" id="toc-perbandingan-reliabilitas-peb" class="nav-link" data-scroll-target="#perbandingan-reliabilitas-peb">Perbandingan Reliabilitas PEB</a></li>
+  <li><a href="#reliabilitas-peb" id="toc-reliabilitas-peb" class="nav-link active" data-scroll-target="#reliabilitas-peb">Reliabilitas PEB</a></li>
   </ul>
 </nav>
     </div>
@@ -393,8 +390,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Model multidimensional 4-faktor (First-Order). <em>Dioptimasi dengan 3 MI.</em></p>
-<section id="definisi-model" class="level2">
-<h2 class="anchored" data-anchor-id="definisi-model">Definisi Model</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Lihat kode</summary>
@@ -407,25 +402,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_9 ~~ PEB_10 </span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_2 ~~ PEB_3 </span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>fit_peb_clean <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">cfa</span>(model_peb, <span class="at">data =</span> df_clean, <span class="at">std.lv =</span> <span class="cn">TRUE</span>), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>fit_peb_raw   <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">cfa</span>(model_peb, <span class="at">data =</span> df_raw, <span class="at">std.lv =</span> <span class="cn">TRUE</span>), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Simpan hasil untuk halaman summary</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fit_peb_clean)) <span class="fu">saveRDS</span>(fit_peb_clean, <span class="st">"data/fit_peb_clean.rds"</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fit_peb_raw)) <span class="fu">saveRDS</span>(fit_peb_raw, <span class="st">"data/fit_peb_raw.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-</section>
-<section id="hasil-cfa-data-bersih-lolos-filter" class="level2">
-<h2 class="anchored" data-anchor-id="hasil-cfa-data-bersih-lolos-filter">Hasil CFA: Data Bersih (Lolos Filter)</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(fit_peb_clean)) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(fit_peb_clean, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Model gagal dikalkulasi (Not Converged) pada data bersih.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>fit_peb <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model_peb, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_peb, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>lavaan 0.7-2 ended normally after 28 iterations
@@ -552,166 +530,29 @@ Variances:
     EnvCit            1.000                               1.000    1.000
     LandStew          1.000                               1.000    1.000</code></pre>
 </div>
+<details class="code-fold">
+<summary>Lihat kode</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(fit_peb, <span class="st">"data/fit_peb.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
-</section>
-<section id="hasil-cfa-data-mentah-termasuk-gugur" class="level2">
-<h2 class="anchored" data-anchor-id="hasil-cfa-data-mentah-termasuk-gugur">Hasil CFA: Data Mentah (Termasuk GUGUR)</h2>
+<section id="reliabilitas-peb" class="level2">
+<h2 class="anchored" data-anchor-id="reliabilitas-peb">Reliabilitas PEB</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(fit_peb_raw)) {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(fit_peb_raw, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Model gagal dikalkulasi (Not Converged) pada data mentah.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_peb)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.7-2 ended normally after 30 iterations
-
-  Estimator                                         ML
-  Optimization method                           NLMINB
-  Number of model parameters                        43
-
-                                                  Used       Total
-  Number of observations                           404         406
-
-Model Test User Model:
-                                                      
-  Test statistic                               390.130
-  Degrees of freedom                               110
-  P-value (Chi-square)                           0.000
-
-Model Test Baseline Model:
-
-  Test statistic                              3340.575
-  Degrees of freedom                               136
-  P-value                                        0.000
-
-User Model versus Baseline Model:
-
-  Comparative Fit Index (CFI)                    0.913
-  Tucker-Lewis Index (TLI)                       0.892
-
-Loglikelihood and Information Criteria:
-
-  Loglikelihood user model (H0)              -8627.933
-  Loglikelihood unrestricted model (H1)      -8432.868
-                                                      
-  Akaike (AIC)                               17341.867
-  Bayesian (BIC)                             17513.928
-  Sample-size adjusted Bayesian (SABIC)      17377.484
-
-Root Mean Square Error of Approximation:
-
-  RMSEA                                          0.079
-  90 Percent confidence interval - lower         0.071
-  90 Percent confidence interval - upper         0.088
-  P-value H_0: RMSEA &lt;= 0.050                    0.000
-  P-value H_0: RMSEA &gt;= 0.080                    0.464
-
-Standardized Root Mean Square Residual:
-
-  SRMR                                           0.062
-
-Goodness of Fit Index:
-
-  Goodness of Fit Index (GFI)                    0.914
-  90 Percent confidence interval - lower         0.898
-  90 Percent confidence interval - upper         0.929
-
-Parameter Estimates:
-
-  Standard errors                             Standard
-  Information                                 Expected
-  Information saturated (h1) model          Structured
-
-Latent Variables:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-  ConsLife =~                                                           
-    PEB_1             0.615    0.049   12.465    0.000    0.615    0.627
-    PEB_2             0.256    0.052    4.958    0.000    0.256    0.278
-    PEB_3             0.573    0.042   13.588    0.000    0.573    0.673
-    PEB_4             0.551    0.046   11.995    0.000    0.551    0.607
-    PEB_5             0.692    0.059   11.794    0.000    0.692    0.598
-  SocEnv =~                                                             
-    PEB_6             0.669    0.044   15.236    0.000    0.669    0.695
-    PEB_7             0.773    0.053   14.701    0.000    0.773    0.679
-    PEB_8             0.859    0.050   17.222    0.000    0.859    0.763
-    PEB_9             0.711    0.051   13.850    0.000    0.711    0.646
-    PEB_10            0.684    0.046   14.849    0.000    0.684    0.682
-  EnvCit =~                                                             
-    PEB_11            0.603    0.050   11.976    0.000    0.603    0.570
-    PEB_12            0.851    0.054   15.734    0.000    0.851    0.707
-    PEB_13            0.802    0.054   14.819    0.000    0.802    0.676
-    PEB_14            0.670    0.047   14.136    0.000    0.670    0.651
-    PEB_15            0.793    0.049   16.138    0.000    0.793    0.721
-  LandStew =~                                                           
-    PEB_16            0.942    0.050   18.944    0.000    0.942    0.846
-    PEB_17            0.884    0.053   16.789    0.000    0.884    0.766
-
-Covariances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
- .PEB_7 ~~                                                              
-   .PEB_8             0.314    0.042    7.450    0.000    0.314    0.516
- .PEB_9 ~~                                                              
-   .PEB_10            0.306    0.039    7.805    0.000    0.306    0.497
- .PEB_2 ~~                                                              
-   .PEB_3             0.167    0.034    4.975    0.000    0.167    0.300
-  ConsLife ~~                                                           
-    SocEnv            0.828    0.036   22.889    0.000    0.828    0.828
-    EnvCit            0.717    0.042   17.207    0.000    0.717    0.717
-    LandStew          0.597    0.049   12.081    0.000    0.597    0.597
-  SocEnv ~~                                                             
-    EnvCit            0.977    0.022   45.057    0.000    0.977    0.977
-    LandStew          0.763    0.037   20.562    0.000    0.763    0.763
-  EnvCit ~~                                                             
-    LandStew          0.879    0.028   31.332    0.000    0.879    0.879
-
-Variances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-   .PEB_1             0.585    0.050   11.756    0.000    0.585    0.607
-   .PEB_2             0.783    0.057   13.827    0.000    0.783    0.923
-   .PEB_3             0.397    0.036   11.041    0.000    0.397    0.547
-   .PEB_4             0.521    0.043   12.004    0.000    0.521    0.632
-   .PEB_5             0.858    0.071   12.103    0.000    0.858    0.642
-   .PEB_6             0.481    0.038   12.513    0.000    0.481    0.518
-   .PEB_7             0.697    0.056   12.476    0.000    0.697    0.538
-   .PEB_8             0.531    0.046   11.420    0.000    0.531    0.419
-   .PEB_9             0.705    0.055   12.874    0.000    0.705    0.582
-   .PEB_10            0.539    0.043   12.591    0.000    0.539    0.535
-   .PEB_11            0.758    0.056   13.504    0.000    0.758    0.676
-   .PEB_12            0.724    0.057   12.648    0.000    0.724    0.500
-   .PEB_13            0.765    0.059   12.922    0.000    0.765    0.544
-   .PEB_14            0.609    0.046   13.094    0.000    0.609    0.576
-   .PEB_15            0.582    0.047   12.506    0.000    0.582    0.481
-   .PEB_16            0.353    0.049    7.210    0.000    0.353    0.284
-   .PEB_17            0.551    0.054   10.264    0.000    0.551    0.414
-    ConsLife          1.000                               1.000    1.000
-    SocEnv            1.000                               1.000    1.000
-    EnvCit            1.000                               1.000    1.000
-    LandStew          1.000                               1.000    1.000</code></pre>
-</div>
-</div>
-</section>
-<section id="perbandingan-reliabilitas-peb" class="level2">
-<h2 class="anchored" data-anchor-id="perbandingan-reliabilitas-peb">Perbandingan Reliabilitas PEB</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_peb_clean, <span class="st">"Bersih"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div id="tbl-rel-peb-clean" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div id="tbl-rel-peb" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rel-peb-clean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5.1: Reliabilitas Skala PEB (Data Bersih)
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rel-peb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.1: Reliabilitas Skala PEB (Dimensi)
 </figcaption>
-<div aria-describedby="tbl-rel-peb-clean-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-rel-peb-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">Faktor</th>
-<th style="text-align: left;">Kondisi</th>
 <th style="text-align: right;">Alpha</th>
 <th style="text-align: right;">Omega</th>
 <th style="text-align: right;">AVE</th>
@@ -720,89 +561,27 @@ Table&nbsp;5.1: Reliabilitas Skala PEB (Data Bersih)
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">ConsLife</td>
-<td style="text-align: left;">Bersih</td>
 <td style="text-align: right;">0.705</td>
 <td style="text-align: right;">0.664</td>
 <td style="text-align: right;">0.331</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SocEnv</td>
-<td style="text-align: left;">Bersih</td>
 <td style="text-align: right;">0.848</td>
 <td style="text-align: right;">0.767</td>
 <td style="text-align: right;">0.481</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">EnvCit</td>
-<td style="text-align: left;">Bersih</td>
 <td style="text-align: right;">0.787</td>
 <td style="text-align: right;">0.793</td>
 <td style="text-align: right;">0.434</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">LandStew</td>
-<td style="text-align: left;">Bersih</td>
 <td style="text-align: right;">0.768</td>
 <td style="text-align: right;">0.770</td>
 <td style="text-align: right;">0.627</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</figure>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_peb_raw, <span class="st">"Mentah"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div id="tbl-rel-peb-raw" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rel-peb-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;5.2: Reliabilitas Skala PEB (Data Mentah)
-</figcaption>
-<div aria-describedby="tbl-rel-peb-raw-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<table class="cell caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Faktor</th>
-<th style="text-align: left;">Kondisi</th>
-<th style="text-align: right;">Alpha</th>
-<th style="text-align: right;">Omega</th>
-<th style="text-align: right;">AVE</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">ConsLife</td>
-<td style="text-align: left;">Mentah</td>
-<td style="text-align: right;">0.706</td>
-<td style="text-align: right;">0.669</td>
-<td style="text-align: right;">0.331</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SocEnv</td>
-<td style="text-align: left;">Mentah</td>
-<td style="text-align: right;">0.848</td>
-<td style="text-align: right;">0.770</td>
-<td style="text-align: right;">0.483</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">EnvCit</td>
-<td style="text-align: left;">Mentah</td>
-<td style="text-align: right;">0.797</td>
-<td style="text-align: right;">0.803</td>
-<td style="text-align: right;">0.449</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">LandStew</td>
-<td style="text-align: left;">Mentah</td>
-<td style="text-align: right;">0.786</td>
-<td style="text-align: right;">0.787</td>
-<td style="text-align: right;">0.649</td>
 </tr>
 </tbody>
 </table>
@@ -1294,73 +1073,44 @@ Table&nbsp;5.2: Reliabilitas Skala PEB (Data Mentah)
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Pro-Environmental Behavior (PEB)"</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>Model multidimensional 4-faktor (First-Order). *Dioptimasi dengan 3 MI.*</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup-cfa-peb</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/helpers.R"</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>df_clean <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/cleaned_data.rds"</span>)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>df_raw   <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/raw_data.rds"</span>)</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Definisi Model</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cfa-peb</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>model_peb <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="st">  ConsLife =~ PEB_1 + PEB_2 + PEB_3 + PEB_4 + PEB_5</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="st">  SocEnv =~ PEB_6 + PEB_7 + PEB_8 + PEB_9 + PEB_10</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="st">  EnvCit =~ PEB_11 + PEB_12 + PEB_13 + PEB_14 + PEB_15</span></span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="st">  LandStew =~ PEB_16 + PEB_17</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_7 ~~ PEB_8 </span></span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_9 ~~ PEB_10 </span></span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_2 ~~ PEB_3 </span></span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>fit_peb_clean <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">cfa</span>(model_peb, <span class="at">data =</span> df_clean, <span class="at">std.lv =</span> <span class="cn">TRUE</span>), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>fit_peb_raw   <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>(<span class="fu">cfa</span>(model_peb, <span class="at">data =</span> df_raw, <span class="at">std.lv =</span> <span class="cn">TRUE</span>), <span class="at">error =</span> <span class="cf">function</span>(e) <span class="cn">NULL</span>)</span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Simpan hasil untuk halaman summary</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fit_peb_clean)) <span class="fu">saveRDS</span>(fit_peb_clean, <span class="st">"data/fit_peb_clean.rds"</span>)</span>
-<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(fit_peb_raw)) <span class="fu">saveRDS</span>(fit_peb_raw, <span class="st">"data/fit_peb_raw.rds"</span>)</span>
-<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hasil CFA: Data Bersih (Lolos Filter)</span></span>
-<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(fit_peb_clean)) {</span>
-<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(fit_peb_clean, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Model gagal dikalkulasi (Not Converged) pada data bersih.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a><span class="fu">## Hasil CFA: Data Mentah (Termasuk GUGUR)</span></span>
-<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(fit_peb_raw)) {</span>
-<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>(fit_peb_raw, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Model gagal dikalkulasi (Not Converged) pada data mentah.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Perbandingan Reliabilitas PEB</span></span>
-<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-peb-clean</span></span>
-<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala PEB (Data Bersih)"</span></span>
-<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_peb_clean, <span class="st">"Bersih"</span>)</span>
-<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-peb-raw</span></span>
-<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala PEB (Data Mentah)"</span></span>
-<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_peb_raw, <span class="st">"Mentah"</span>)</span>
-<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Pro-Environmental Behavior (PEB)"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Model multidimensional 4-faktor (First-Order). *Dioptimasi dengan 3 MI.*</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup-cfa-peb</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/helpers.R"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/cleaned_data.rds"</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cfa-peb</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>model_peb <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="st">  ConsLife =~ PEB_1 + PEB_2 + PEB_3 + PEB_4 + PEB_5</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="st">  SocEnv =~ PEB_6 + PEB_7 + PEB_8 + PEB_9 + PEB_10</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="st">  EnvCit =~ PEB_11 + PEB_12 + PEB_13 + PEB_14 + PEB_15</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="st">  LandStew =~ PEB_16 + PEB_17</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_7 ~~ PEB_8 </span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_9 ~~ PEB_10 </span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="st">  PEB_2 ~~ PEB_3 </span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>fit_peb <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model_peb, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_peb, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(fit_peb, <span class="st">"data/fit_peb.rds"</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reliabilitas PEB</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-peb</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala PEB (Dimensi)"</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_peb)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

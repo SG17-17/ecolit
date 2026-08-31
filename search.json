@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "",
-    "text": "Database & Pemrosesan Responden\nData responden diambil secara otomatis dari Google Sheets (Scoring). Selanjutnya, data diperiksa dan disaring sesuai kriteria yang telah ditentukan untuk mendapatkan data yang siap digunakan.\nUpdate terakhir: 31 August 2026, Pukul 17:49 WIB\nBerikut proses penyaringan data dari responden masuk hingga menjadi data final.\nSetelah proses penyaringan selesai, diperoleh 386 observasi yang dapat digunakan untuk analisis selanjutnya.",
+    "text": "Database & Pemrosesan Responden\nData responden diambil secara otomatis dari Google Sheets (Scoring). Selanjutnya, data diperiksa dan disaring sesuai kriteria yang telah ditentukan untuk mendapatkan data yang siap digunakan.\nUpdate terakhir: 31 August 2026, Pukul 17:56 WIB\nBerikut proses penyaringan data dari responden masuk hingga menjadi data final.\nSetelah proses penyaringan selesai, diperoleh 386 observasi yang dapat digunakan untuk analisis selanjutnya.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -84,7 +84,7 @@
     "href": "02_eid.html",
     "title": "Environmental Identity (EID)",
     "section": "",
-    "text": "Model Fit EID\nModel pengukuran unidimensional untuk EID (14 aitem). Dioptimasi dengan toleransi 3 Modification Indices terbesar.\nLihat kode\nprint_fit_table(fit_eid, \"EID\")\n\n\n\n\nTable 2.1: Fit Model EID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n298.17\n74\n0\n0.882\n0.855\n0.104\n0.062",
+    "text": "Model Fit EID\nModel pengukuran unidimensional murni untuk EID (14 aitem).\nLihat kode\nprint_fit_table(fit_eid, \"EID\")\n\n\n\n\nTable 2.1: Fit Model EID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n343.12\n77\n0\n0.858\n0.832\n0.112\n0.066",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental Identity (EID)</span>"
     ]
@@ -104,7 +104,7 @@
     "href": "02_eid.html#reliabilitas-eid",
     "title": "Environmental Identity (EID)",
     "section": "Reliabilitas EID",
-    "text": "Reliabilitas EID\n\n\nLihat kode\nprint_rel_table(fit_eid)\n\n\n\n\nTable 2.2: Reliabilitas Skala EID\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.915\n0.905\n0.437",
+    "text": "Reliabilitas EID\n\n\nLihat kode\nprint_rel_table(fit_eid)\n\n\n\n\nTable 2.2: Reliabilitas Skala EID\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.915\n0.911\n0.44",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental Identity (EID)</span>"
     ]
@@ -234,7 +234,7 @@
     "href": "07_summary.html",
     "title": "Summary & Kesimpulan",
     "section": "",
-    "text": "Ringkasan Fit Model (CFA)\nBerikut adalah ringkasan dari seluruh hasil analisis, meliputi Fit Model CFA dan Reliabilitas (Alpha, Omega, dan AVE) untuk semua variabel ukur.\nLihat kode\ndf_cfa &lt;- rbind(\n  if(!is.null(fit_eid)) get_cfa_fit_df(fit_eid, \"EID\") else NULL,\n  if(!is.null(fit_esi)) get_cfa_fit_df(fit_esi, \"ESI\") else NULL,\n  if(!is.null(fit_psmls)) get_cfa_fit_df(fit_psmls, \"PSMLS\") else NULL,\n  if(!is.null(fit_peb)) get_cfa_fit_df(fit_peb, \"PEB\") else NULL,\n  if(!is.null(fit_pwb)) get_cfa_fit_df(fit_pwb, \"PWB\") else NULL\n)\n\nif (!is.null(df_cfa) && nrow(df_cfa) &gt; 0) {\n  knitr::kable(df_cfa)\n} else {\n  cat(\"Belum ada data model CFA yang dapat diringkas.\\n\")\n}\n\n\n\n\nTable 7.1: Tabel Ringkasan Fit Model CFA Keseluruhan\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n298.17\n74\n0\n0.882\n0.855\n0.104\n0.062\n\n\nESI\n30.70\n9\n0\n0.965\n0.941\n0.115\n0.035\n\n\nPSMLS\n129.56\n71\n0\n0.970\n0.961\n0.057\n0.035\n\n\nPEB\n303.56\n110\n0\n0.921\n0.903\n0.075\n0.060\n\n\nPWB\n3268.86\n801\n0\n0.562\n0.529\n0.098\n0.129",
+    "text": "Ringkasan Fit Model (CFA)\nBerikut adalah ringkasan dari seluruh hasil analisis, meliputi Fit Model CFA dan Reliabilitas (Alpha, Omega, dan AVE) untuk semua variabel ukur.\nLihat kode\ndf_cfa &lt;- rbind(\n  if(!is.null(fit_eid)) get_cfa_fit_df(fit_eid, \"EID\") else NULL,\n  if(!is.null(fit_esi)) get_cfa_fit_df(fit_esi, \"ESI\") else NULL,\n  if(!is.null(fit_psmls)) get_cfa_fit_df(fit_psmls, \"PSMLS\") else NULL,\n  if(!is.null(fit_peb)) get_cfa_fit_df(fit_peb, \"PEB\") else NULL,\n  if(!is.null(fit_pwb)) get_cfa_fit_df(fit_pwb, \"PWB\") else NULL\n)\n\nif (!is.null(df_cfa) && nrow(df_cfa) &gt; 0) {\n  knitr::kable(df_cfa)\n} else {\n  cat(\"Belum ada data model CFA yang dapat diringkas.\\n\")\n}\n\n\n\n\nTable 7.1: Tabel Ringkasan Fit Model CFA Keseluruhan\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n343.12\n77\n0\n0.858\n0.832\n0.112\n0.066\n\n\nESI\n30.70\n9\n0\n0.965\n0.941\n0.115\n0.035\n\n\nPSMLS\n129.56\n71\n0\n0.970\n0.961\n0.057\n0.035\n\n\nPEB\n303.56\n110\n0\n0.921\n0.903\n0.075\n0.060\n\n\nPWB\n3268.86\n801\n0\n0.562\n0.529\n0.098\n0.129",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Summary & Kesimpulan</span>"
     ]
@@ -244,7 +244,7 @@
     "href": "07_summary.html#ringkasan-reliabilitas",
     "title": "Summary & Kesimpulan",
     "section": "Ringkasan Reliabilitas",
-    "text": "Ringkasan Reliabilitas\n\n\nLihat kode\ndf_summary &lt;- rbind(\n  if(!is.null(fit_eid)) get_rel_df(fit_eid) else NULL,\n  if(!is.null(fit_esi)) get_rel_df(fit_esi) else NULL,\n  if(!is.null(fit_psmls)) get_rel_df(fit_psmls) else NULL,\n  if(!is.null(fit_peb)) get_rel_df(fit_peb) else NULL,\n  if(!is.null(fit_pwb)) get_rel_df(fit_pwb) else NULL\n)\n\nif (!is.null(df_summary) && nrow(df_summary) &gt; 0) {\n  knitr::kable(df_summary)\n} else {\n  cat(\"Belum ada data reliabilitas yang dapat diringkas.\\n\")\n}\n\n\n\n\nTable 7.2: Tabel Ringkasan Reliabilitas Keseluruhan\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.915\n0.905\n0.437\n\n\nESI\n0.899\n0.897\n0.600\n\n\nTechComp\n0.896\n0.896\n0.638\n\n\nSocialRel\n0.764\n0.765\n0.525\n\n\nPrivacy\n0.696\n0.688\n0.428\n\n\nInfoAware\n0.869\n0.872\n0.695\n\n\nConsLife\n0.703\n0.660\n0.330\n\n\nSocEnv\n0.848\n0.768\n0.483\n\n\nEnvCit\n0.795\n0.800\n0.445\n\n\nLandStew\n0.775\n0.777\n0.635\n\n\nAutonomy\n0.630\n0.636\n0.250\n\n\nMastery\n-0.210\n0.054\n0.208\n\n\nGrowth\n-0.921\n0.047\n0.223\n\n\nRelations\n-0.207\n0.167\n0.230\n\n\nPurpose\n-0.667\n0.213\n0.366\n\n\nAcceptance\n0.337\n0.512\n0.171",
+    "text": "Ringkasan Reliabilitas\n\n\nLihat kode\ndf_summary &lt;- rbind(\n  if(!is.null(fit_eid)) get_rel_df(fit_eid) else NULL,\n  if(!is.null(fit_esi)) get_rel_df(fit_esi) else NULL,\n  if(!is.null(fit_psmls)) get_rel_df(fit_psmls) else NULL,\n  if(!is.null(fit_peb)) get_rel_df(fit_peb) else NULL,\n  if(!is.null(fit_pwb)) get_rel_df(fit_pwb) else NULL\n)\n\nif (!is.null(df_summary) && nrow(df_summary) &gt; 0) {\n  knitr::kable(df_summary)\n} else {\n  cat(\"Belum ada data reliabilitas yang dapat diringkas.\\n\")\n}\n\n\n\n\nTable 7.2: Tabel Ringkasan Reliabilitas Keseluruhan\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.915\n0.911\n0.440\n\n\nESI\n0.899\n0.897\n0.600\n\n\nTechComp\n0.896\n0.896\n0.638\n\n\nSocialRel\n0.764\n0.765\n0.525\n\n\nPrivacy\n0.696\n0.688\n0.428\n\n\nInfoAware\n0.869\n0.872\n0.695\n\n\nConsLife\n0.703\n0.660\n0.330\n\n\nSocEnv\n0.848\n0.768\n0.483\n\n\nEnvCit\n0.795\n0.800\n0.445\n\n\nLandStew\n0.775\n0.777\n0.635\n\n\nAutonomy\n0.630\n0.636\n0.250\n\n\nMastery\n-0.210\n0.054\n0.208\n\n\nGrowth\n-0.921\n0.047\n0.223\n\n\nRelations\n-0.207\n0.167\n0.230\n\n\nPurpose\n-0.667\n0.213\n0.366\n\n\nAcceptance\n0.337\n0.512\n0.171",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Summary & Kesimpulan</span>"
     ]

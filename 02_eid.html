@@ -391,34 +391,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Model pengukuran unidimensional untuk EID (14 aitem). <em>Dioptimasi dengan toleransi 3 Modification Indices terbesar.</em></p>
+<p>Model pengukuran unidimensional murni untuk EID (14 aitem).</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Lihat kode</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>model_eid <span class="ot">&lt;-</span> <span class="st">"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">  EID =~ EID_1 + EID_2 + EID_3 + EID_4 + EID_5 + EID_6 + EID_7 + EID_8 + EID_9 + EID_10 + EID_11 + EID_12 + EID_13 + EID_14 </span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">  EID_7 ~~ EID_12 </span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">  EID_3 ~~ EID_6 </span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">  EID_11 ~~ EID_13 </span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>fit_eid <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model_eid, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>, <span class="at">estimator =</span> <span class="st">"MLR"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_eid, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>fit_eid <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model_eid, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>, <span class="at">estimator =</span> <span class="st">"MLR"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_eid, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.7-2 ended normally after 19 iterations
+<pre><code>lavaan 0.7-2 ended normally after 16 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
-  Number of model parameters                        31
+  Number of model parameters                        28
 
   Number of observations                           386
 
 Model Test User Model:
                                               Standard      Scaled
-  Test Statistic                               413.064     298.174
-  Degrees of freedom                                74          74
+  Test Statistic                               483.905     343.123
+  Degrees of freedom                                77          77
   P-value (Chi-square)                           0.000       0.000
-  Scaling correction factor                                  1.385
+  Scaling correction factor                                  1.410
     Yuan-Bentler correction (Mplus variant)                       
 
 Model Test Baseline Model:
@@ -430,52 +427,52 @@ Model Test Baseline Model:
 
 User Model versus Baseline Model:
 
-  Comparative Fit Index (CFI)                    0.874       0.875
-  Tucker-Lewis Index (TLI)                       0.845       0.846
+  Comparative Fit Index (CFI)                    0.848       0.851
+  Tucker-Lewis Index (TLI)                       0.821       0.824
                                                                   
-  Robust Comparative Fit Index (CFI)                         0.882
-  Robust Tucker-Lewis Index (TLI)                            0.855
+  Robust Comparative Fit Index (CFI)                         0.858
+  Robust Tucker-Lewis Index (TLI)                            0.832
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)              -7527.177   -7527.177
-  Scaling correction factor                                  1.609
+  Loglikelihood user model (H0)              -7562.598   -7562.598
+  Scaling correction factor                                  1.564
       for the MLR correction                                      
   Loglikelihood unrestricted model (H1)      -7320.645   -7320.645
   Scaling correction factor                                  1.451
       for the MLR correction                                      
                                                                   
-  Akaike (AIC)                               15116.354   15116.354
-  Bayesian (BIC)                             15238.985   15238.985
-  Sample-size adjusted Bayesian (SABIC)      15140.626   15140.626
+  Akaike (AIC)                               15181.195   15181.195
+  Bayesian (BIC)                             15291.959   15291.959
+  Sample-size adjusted Bayesian (SABIC)      15203.118   15203.118
 
 Root Mean Square Error of Approximation:
 
-  RMSEA                                          0.109       0.089
-  90 Percent confidence interval - lower         0.099       0.080
-  90 Percent confidence interval - upper         0.119       0.098
+  RMSEA                                          0.117       0.095
+  90 Percent confidence interval - lower         0.107       0.086
+  90 Percent confidence interval - upper         0.127       0.103
   P-value H_0: RMSEA &lt;= 0.050                    0.000       0.000
-  P-value H_0: RMSEA &gt;= 0.080                    1.000       0.945
+  P-value H_0: RMSEA &gt;= 0.080                    1.000       0.997
                                                                   
-  Robust RMSEA                                               0.104
-  90 Percent confidence interval - lower                     0.092
-  90 Percent confidence interval - upper                     0.117
+  Robust RMSEA                                               0.112
+  90 Percent confidence interval - lower                     0.100
+  90 Percent confidence interval - upper                     0.125
   P-value H_0: Robust RMSEA &lt;= 0.050                         0.000
-  P-value H_0: Robust RMSEA &gt;= 0.080                         0.999
+  P-value H_0: Robust RMSEA &gt;= 0.080                         1.000
 
 Standardized Root Mean Square Residual:
 
-  SRMR                                           0.062       0.062
+  SRMR                                           0.066       0.066
 
 Goodness of Fit Index:
 
-  Goodness of Fit Index (GFI)                    0.881            
-  90 Percent confidence interval - lower         0.862            
-  90 Percent confidence interval - upper         0.900            
+  Goodness of Fit Index (GFI)                    0.840            
+  90 Percent confidence interval - lower         0.820            
+  90 Percent confidence interval - upper         0.860            
                                                                   
-  Robust GFI                                                 0.890
-  90 Percent confidence interval - lower                     0.866
-  90 Percent confidence interval - upper                     0.911
+  Robust GFI                                                 0.849
+  90 Percent confidence interval - lower                     0.824
+  90 Percent confidence interval - upper                     0.872
 
 Parameter Estimates:
 
@@ -486,46 +483,37 @@ Parameter Estimates:
 Latent Variables:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
   EID =~                                                                
-    EID_1             0.910    0.072   12.689    0.000    0.910    0.681
-    EID_2             0.877    0.064   13.706    0.000    0.877    0.665
-    EID_3             0.789    0.067   11.829    0.000    0.789    0.660
-    EID_4             0.913    0.065   13.991    0.000    0.913    0.745
-    EID_5             0.647    0.084    7.721    0.000    0.647    0.448
-    EID_6             0.673    0.072    9.402    0.000    0.673    0.605
-    EID_7             0.697    0.061   11.370    0.000    0.697    0.623
-    EID_8             0.737    0.070   10.589    0.000    0.737    0.631
-    EID_9             1.016    0.065   15.723    0.000    1.016    0.709
-    EID_10            0.813    0.068   12.032    0.000    0.813    0.654
-    EID_11            0.740    0.065   11.431    0.000    0.740    0.703
-    EID_12            0.686    0.068   10.105    0.000    0.686    0.613
-    EID_13            0.901    0.069   13.027    0.000    0.901    0.764
-    EID_14            0.827    0.062   13.247    0.000    0.827    0.748
-
-Covariances:
-                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
- .EID_7 ~~                                                              
-   .EID_12            0.192    0.066    2.902    0.004    0.192    0.249
- .EID_3 ~~                                                              
-   .EID_6             0.167    0.051    3.300    0.001    0.167    0.211
- .EID_11 ~~                                                             
-   .EID_13            0.172    0.066    2.601    0.009    0.172    0.301
+    EID_1             0.901    0.071   12.623    0.000    0.901    0.675
+    EID_2             0.871    0.063   13.782    0.000    0.871    0.660
+    EID_3             0.793    0.064   12.319    0.000    0.793    0.664
+    EID_4             0.907    0.065   13.908    0.000    0.907    0.740
+    EID_5             0.635    0.082    7.715    0.000    0.635    0.439
+    EID_6             0.684    0.070    9.787    0.000    0.684    0.615
+    EID_7             0.709    0.058   12.135    0.000    0.709    0.635
+    EID_8             0.730    0.069   10.646    0.000    0.730    0.626
+    EID_9             1.007    0.064   15.708    0.000    1.007    0.703
+    EID_10            0.813    0.066   12.273    0.000    0.813    0.655
+    EID_11            0.758    0.062   12.317    0.000    0.758    0.720
+    EID_12            0.706    0.066   10.665    0.000    0.706    0.631
+    EID_13            0.915    0.066   13.775    0.000    0.915    0.776
+    EID_14            0.834    0.059   14.127    0.000    0.834    0.755
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-   .EID_1             0.954    0.110    8.681    0.000    0.954    0.536
-   .EID_2             0.971    0.098    9.870    0.000    0.971    0.558
-   .EID_3             0.805    0.078   10.336    0.000    0.805    0.564
-   .EID_4             0.668    0.065   10.273    0.000    0.668    0.445
-   .EID_5             1.668    0.130   12.784    0.000    1.668    0.799
-   .EID_6             0.783    0.065   12.078    0.000    0.783    0.634
-   .EID_7             0.763    0.067   11.373    0.000    0.763    0.611
-   .EID_8             0.819    0.114    7.174    0.000    0.819    0.601
-   .EID_9             1.021    0.093   10.990    0.000    1.021    0.497
-   .EID_10            0.881    0.088   10.069    0.000    0.881    0.572
-   .EID_11            0.562    0.070    8.082    0.000    0.562    0.506
-   .EID_12            0.783    0.081    9.646    0.000    0.783    0.625
-   .EID_13            0.580    0.091    6.373    0.000    0.580    0.417
-   .EID_14            0.537    0.069    7.803    0.000    0.537    0.440
+   .EID_1             0.971    0.110    8.835    0.000    0.971    0.545
+   .EID_2             0.982    0.099    9.965    0.000    0.982    0.564
+   .EID_3             0.798    0.078   10.232    0.000    0.798    0.559
+   .EID_4             0.679    0.065   10.455    0.000    0.679    0.452
+   .EID_5             1.684    0.129   13.023    0.000    1.684    0.807
+   .EID_6             0.768    0.063   12.165    0.000    0.768    0.622
+   .EID_7             0.745    0.067   11.204    0.000    0.745    0.597
+   .EID_8             0.829    0.114    7.292    0.000    0.829    0.609
+   .EID_9             1.040    0.093   11.183    0.000    1.040    0.506
+   .EID_10            0.881    0.088   10.057    0.000    0.881    0.571
+   .EID_11            0.535    0.064    8.349    0.000    0.535    0.482
+   .EID_12            0.755    0.079    9.603    0.000    0.755    0.602
+   .EID_13            0.554    0.080    6.902    0.000    0.554    0.398
+   .EID_14            0.524    0.063    8.371    0.000    0.524    0.430
     EID               1.000                               1.000    1.000</code></pre>
 </div>
 <details class="code-fold">
@@ -574,13 +562,13 @@ Table&nbsp;2.1: Fit Model EID
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">EID</td>
-<td style="text-align: right;">298.17</td>
-<td style="text-align: right;">74</td>
+<td style="text-align: right;">343.12</td>
+<td style="text-align: right;">77</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.882</td>
-<td style="text-align: right;">0.855</td>
-<td style="text-align: right;">0.104</td>
-<td style="text-align: right;">0.062</td>
+<td style="text-align: right;">0.858</td>
+<td style="text-align: right;">0.832</td>
+<td style="text-align: right;">0.112</td>
+<td style="text-align: right;">0.066</td>
 </tr>
 </tbody>
 </table>
@@ -638,8 +626,8 @@ Table&nbsp;2.2: Reliabilitas Skala EID
 <tr class="odd">
 <td style="text-align: left;">EID</td>
 <td style="text-align: right;">0.915</td>
-<td style="text-align: right;">0.905</td>
-<td style="text-align: right;">0.437</td>
+<td style="text-align: right;">0.911</td>
+<td style="text-align: right;">0.44</td>
 </tr>
 </tbody>
 </table>
@@ -1135,7 +1123,7 @@ Table&nbsp;2.2: Reliabilitas Skala EID
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Environmental Identity (EID)"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Model pengukuran unidimensional untuk EID (14 aitem). *Dioptimasi dengan toleransi 3 Modification Indices terbesar.*</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Model pengukuran unidimensional murni untuk EID (14 aitem).</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup-cfa-eid</span></span>
@@ -1149,44 +1137,41 @@ Table&nbsp;2.2: Reliabilitas Skala EID
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: cfa-eid</span></span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>model_eid <span class="ot">&lt;-</span> <span class="st">"</span></span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="st">  EID =~ EID_1 + EID_2 + EID_3 + EID_4 + EID_5 + EID_6 + EID_7 + EID_8 + EID_9 + EID_10 + EID_11 + EID_12 + EID_13 + EID_14 </span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="st">  EID_7 ~~ EID_12 </span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="st">  EID_3 ~~ EID_6 </span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="st">  EID_11 ~~ EID_13 </span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>fit_eid <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model_eid, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>, <span class="at">estimator =</span> <span class="st">"MLR"</span>)</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_eid, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Simpan hasil untuk halaman summary</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(fit_eid, <span class="st">"data/fit_eid.rds"</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>fit_eid <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model_eid, <span class="at">data =</span> df, <span class="at">std.lv =</span> <span class="cn">TRUE</span>, <span class="at">estimator =</span> <span class="st">"MLR"</span>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_eid, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Simpan hasil untuk halaman summary</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(fit_eid, <span class="st">"data/fit_eid.rds"</span>)</span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Fit EID</span></span>
 <span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Fit EID</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-fit-eid</span></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Fit Model EID"</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="fu">print_fit_table</span>(fit_eid, <span class="st">"EID"</span>)</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-fit-eid</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Fit Model EID"</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="fu">print_fit_table</span>(fit_eid, <span class="st">"EID"</span>)</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualisasi Model EID</span></span>
 <span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualisasi Model EID</span></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-cfa-eid</span></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Visualisasi CFA First-Order EID"</span></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 8</span></span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 6</span></span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cfa</span>(fit_eid, <span class="st">"CFA Model EID (First-Order)"</span>)</span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reliabilitas EID</span></span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-eid</span></span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala EID"</span></span>
-<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_eid)</span>
-<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-cfa-eid</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Visualisasi CFA First-Order EID"</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 8</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 6</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cfa</span>(fit_eid, <span class="st">"CFA Model EID (First-Order)"</span>)</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reliabilitas EID</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-eid</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala EID"</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_eid)</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

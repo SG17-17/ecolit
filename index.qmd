@@ -47,6 +47,13 @@ usia_max <- max(df$Usia, na.rm = TRUE)
 knitr::kable(print_demo_table(df$Semester, c("1" = "Semester 1", "2" = "Semester 2", "3" = "Semester 3", "4" = "Semester 4", "5" = "Semester 5", "6" = "Semester 6", "7" = "Semester 7", "8" = "Semester 8", "Lebih dari semester 8" = "> Semester 8")))
 ```
 
+## Wilayah Pembangunan (Tempat Tinggal)
+```{r}
+#| label: tbl-wilayah
+#| tbl-cap: "Distribusi Wilayah Pembangunan"
+knitr::kable(print_demo_table(df$Provinsi, c("1" = "Bodebekpunjur", "2" = "Purwasuka", "3" = "Sukabumi dsk", "4" = "Cekungan Bandung", "5" = "Priangan Timur", "6" = "Ciayumajakuning")))
+```
+
 ## Area Tempat Tinggal
 ```{r}
 #| label: tbl-area

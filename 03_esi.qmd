@@ -17,11 +17,20 @@ df <- readRDS("data/cleaned_data.rds")
 model_esi <- "
   ESI =~ ESI_1 + ESI_2 + ESI_3 + ESI_4 + ESI_5 + ESI_6 
 "
-fit_esi <- cfa(model_esi, data = df, std.lv = TRUE)
+fit_esi <- cfa(model_esi, data = df, std.lv = TRUE, estimator = "MLR")
 summary(fit_esi, fit.measures = TRUE, standardized = TRUE)
 
 # Simpan hasil untuk halaman summary
 saveRDS(fit_esi, "data/fit_esi.rds")
+```
+
+
+## Model Fit ESI
+
+```{r}
+#| label: tbl-fit-esi
+#| tbl-cap: "Fit Model ESI"
+print_fit_table(fit_esi, "ESI")
 ```
 
 ## Reliabilitas ESI

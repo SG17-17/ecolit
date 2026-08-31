@@ -44,7 +44,16 @@ print_rel_table <- function(fit) {
 # Helper function: Menghasilkan dataframe fit model CFA
 get_cfa_fit_df <- function(fit, model_name) {
   if (is.null(fit)) return(NULL)
-  fits <- fitMeasures(fit, c("chisq", "df", "pvalue", "cfi", "tli", "rmsea", "srmr"))
+  
+  # Deteksi estimator yang digunakan
+  est <- lavInspect(fit, "options")$estimator
+  if (est == "MLR") {
+    fits <- fitMeasures(fit, c("chisq.scaled", "df.scaled", "pvalue.scaled", "cfi.robust", "tli.robust", "rmsea.robust", "srmr"))
+    names(fits) <- c("chisq", "df", "pvalue", "cfi", "tli", "rmsea", "srmr")
+  } else {
+    fits <- fitMeasures(fit, c("chisq", "df", "pvalue", "cfi", "tli", "rmsea", "srmr"))
+  }
+  
   data.frame(
     Model = model_name,
     `Chi-Square` = round(as.numeric(fits["chisq"]), 2),
@@ -57,4 +66,11 @@ get_cfa_fit_df <- function(fit, model_name) {
     check.names = FALSE,
     row.names = NULL
   )
+}
+
+# Helper function: Tabel Fit Model CFA (Markdown HTML)
+print_fit_table <- function(fit, model_name) {
+  res <- get_cfa_fit_df(fit, model_name)
+  if (is.null(res)) return(cat("Tidak dapat menghitung fit model karena model CFA tidak konvergen.\n"))
+  return(knitr::kable(res))
 }

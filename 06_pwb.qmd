@@ -25,7 +25,7 @@ model_pwb <- "
   PWB_26_R ~~ PWB_22 
   PWB_37 ~~ PWB_36_R 
 "
-fit_pwb <- tryCatch(cfa(model_pwb, data = df, std.lv = TRUE), error = function(e) NULL)
+fit_pwb <- tryCatch(cfa(model_pwb, data = df, std.lv = TRUE, estimator = "MLR"), error = function(e) NULL)
 
 if(!is.null(fit_pwb)){
   print(summary(fit_pwb, fit.measures = TRUE, standardized = TRUE))
@@ -33,6 +33,15 @@ if(!is.null(fit_pwb)){
 } else {
   cat("Model gagal dikalkulasi (Not Converged).\n")
 }
+```
+
+
+## Model Fit PWB
+
+```{r}
+#| label: tbl-fit-pwb
+#| tbl-cap: "Fit Model PWB"
+print_fit_table(fit_pwb, "PWB")
 ```
 
 ## Reliabilitas PWB

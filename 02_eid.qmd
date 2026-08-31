@@ -20,11 +20,20 @@ model_eid <- "
   EID_3 ~~ EID_6 
   EID_11 ~~ EID_13 
 "
-fit_eid <- cfa(model_eid, data = df, std.lv = TRUE)
+fit_eid <- cfa(model_eid, data = df, std.lv = TRUE, estimator = "MLR")
 summary(fit_eid, fit.measures = TRUE, standardized = TRUE)
 
 # Simpan hasil untuk halaman summary
 saveRDS(fit_eid, "data/fit_eid.rds")
+```
+
+
+## Model Fit EID
+
+```{r}
+#| label: tbl-fit-eid
+#| tbl-cap: "Fit Model EID"
+print_fit_table(fit_eid, "EID")
 ```
 
 ## Reliabilitas EID

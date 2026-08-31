@@ -23,10 +23,19 @@ model_peb <- "
   PEB_9 ~~ PEB_10 
   PEB_2 ~~ PEB_3 
 "
-fit_peb <- cfa(model_peb, data = df, std.lv = TRUE)
+fit_peb <- cfa(model_peb, data = df, std.lv = TRUE, estimator = "MLR")
 summary(fit_peb, fit.measures = TRUE, standardized = TRUE)
 
 saveRDS(fit_peb, "data/fit_peb.rds")
+```
+
+
+## Model Fit PEB
+
+```{r}
+#| label: tbl-fit-peb
+#| tbl-cap: "Fit Model PEB"
+print_fit_table(fit_peb, "PEB")
 ```
 
 ## Reliabilitas PEB

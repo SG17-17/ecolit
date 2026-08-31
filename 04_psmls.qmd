@@ -20,10 +20,19 @@ model_psmls <- "
   Privacy =~ PSMLS_9 + PSMLS_10 + PSMLS_11
   InfoAware =~ PSMLS_12 + PSMLS_13 + PSMLS_14
 "
-fit_psmls <- cfa(model_psmls, data = df, std.lv = TRUE)
+fit_psmls <- cfa(model_psmls, data = df, std.lv = TRUE, estimator = "MLR")
 summary(fit_psmls, fit.measures = TRUE, standardized = TRUE)
 
 saveRDS(fit_psmls, "data/fit_psmls.rds")
+```
+
+
+## Model Fit PSML
+
+```{r}
+#| label: tbl-fit-psmls
+#| tbl-cap: "Fit Model PSML"
+print_fit_table(fit_psmls, "PSML")
 ```
 
 ## Reliabilitas PSML

@@ -70,6 +70,16 @@
     ]
   },
   {
+    "objectID": "02_eid.html#visualisasi-model-eid",
+    "href": "02_eid.html#visualisasi-model-eid",
+    "title": "Environmental Identity (EID)",
+    "section": "Visualisasi Model EID",
+    "text": "Visualisasi Model EID\n\n\nLihat kode\nplot_cfa(fit_eid, \"CFA Model EID (First-Order)\")\n\n\n\n\n\n\n\n\nFigure 2.1: Visualisasi CFA First-Order EID",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental Identity (EID)</span>"
+    ]
+  },
+  {
     "objectID": "02_eid.html#reliabilitas-eid",
     "href": "02_eid.html#reliabilitas-eid",
     "title": "Environmental Identity (EID)",
@@ -85,6 +95,16 @@
     "title": "Environmental Self-Identity (ESI)",
     "section": "",
     "text": "Model Fit ESI\nModel pengukuran unidimensional untuk ESI (6 aitem). Murni teoritis.\nLihat kode\nprint_fit_table(fit_esi, \"ESI\")\n\n\n\n\nTable 3.1: Fit Model ESI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nESI\n30.07\n9\n0\n0.964\n0.941\n0.114\n0.035",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Environmental Self-Identity (ESI)</span>"
+    ]
+  },
+  {
+    "objectID": "03_esi.html#visualisasi-model-esi",
+    "href": "03_esi.html#visualisasi-model-esi",
+    "title": "Environmental Self-Identity (ESI)",
+    "section": "Visualisasi Model ESI",
+    "text": "Visualisasi Model ESI\n\n\nLihat kode\nplot_cfa(fit_esi, \"CFA Model ESI (First-Order)\")\n\n\n\n\n\n\n\n\nFigure 3.1: Visualisasi CFA First-Order ESI",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Environmental Self-Identity (ESI)</span>"
     ]
@@ -110,6 +130,16 @@
     ]
   },
   {
+    "objectID": "04_psmls.html#visualisasi-model-psml",
+    "href": "04_psmls.html#visualisasi-model-psml",
+    "title": "Perceived Social Media Literacy (PSML)",
+    "section": "Visualisasi Model PSML",
+    "text": "Visualisasi Model PSML\n\n\nLihat kode\nplot_cfa(fit_psmls, \"CFA Model PSML (First-Order)\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Perceived Social Media Literacy (PSML)</span>"
+    ]
+  },
+  {
     "objectID": "04_psmls.html#reliabilitas-psml",
     "href": "04_psmls.html#reliabilitas-psml",
     "title": "Perceived Social Media Literacy (PSML)",
@@ -130,6 +160,16 @@
     ]
   },
   {
+    "objectID": "05_peb.html#visualisasi-model-peb",
+    "href": "05_peb.html#visualisasi-model-peb",
+    "title": "Pro-Environmental Behavior (PEB)",
+    "section": "Visualisasi Model PEB",
+    "text": "Visualisasi Model PEB\n\n\nLihat kode\nplot_cfa(fit_peb, \"CFA Model PEB (First-Order)\")",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pro-Environmental Behavior (PEB)</span>"
+    ]
+  },
+  {
     "objectID": "05_peb.html#reliabilitas-peb",
     "href": "05_peb.html#reliabilitas-peb",
     "title": "Pro-Environmental Behavior (PEB)",
@@ -145,6 +185,16 @@
     "title": "Psychological Well-Being (PWB)",
     "section": "",
     "text": "Model Fit PWB\nModel multidimensional 6-faktor (First-Order). Dioptimasi dengan 3 MI.\nLihat kode\nprint_fit_table(fit_pwb, \"PWB\")\n\n\n\n\nTable 6.1: Fit Model PWB\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPWB\n3171.34\n801\n0\n0.565\n0.533\n0.097\n0.13",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Psychological Well-Being (PWB)</span>"
+    ]
+  },
+  {
+    "objectID": "06_pwb.html#visualisasi-model-pwb",
+    "href": "06_pwb.html#visualisasi-model-pwb",
+    "title": "Psychological Well-Being (PWB)",
+    "section": "Visualisasi Model PWB",
+    "text": "Visualisasi Model PWB\n\n\nLihat kode\nplot_cfa(fit_pwb, \"CFA Model PWB (First-Order)\")",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Psychological Well-Being (PWB)</span>"
     ]

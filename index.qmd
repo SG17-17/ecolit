@@ -32,17 +32,27 @@ Data utama penelitian ini ditarik secara otomatis dari [Google Sheets](https://d
 
 Berikut adalah rekam jejak penyaringan data dari responden masuk hingga menjadi data final (bersih):
 
-```{mermaid}
-flowchart TD
-    A[Total Data Masuk<br/><b>`r db_info$total_masuk`</b> responden] --> B{Pengecekan<br/>Validitas}
-    B -- Gugur (Attention Check) --> C[Data Gugur<br/><b>`r db_info$total_gugur`</b> responden]
-    B -- Lolos --> D[Data Final / Bersih<br/><b>`r db_info$total_valid`</b> responden]
-    
-    style A fill:#4e79a7,color:#fff,stroke:#333,stroke-width:2px
-    style B fill:#f28e2b,color:#fff,stroke:#333,stroke-width:2px
-    style C fill:#e15759,color:#fff,stroke:#333,stroke-width:2px
-    style D fill:#59a14f,color:#fff,stroke:#333,stroke-width:2px
-```
+
+<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: space-between;">
+  <div style="flex: 1; min-width: 200px; background: #f8f9fa; border-top: 5px solid #4e79a7; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <div style="margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Total Responden</div>
+    <div style="font-size: 3.5rem; font-weight: 800; color: #212529; margin: 0.5rem 0; line-height: 1;">`r db_info$total_masuk`</div>
+    <div style="font-size: 0.85rem; color: #6c757d;">Data Masuk</div>
+  </div>
+
+  <div style="flex: 1; min-width: 200px; background: #f8f9fa; border-top: 5px solid #e15759; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <div style="margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Tereliminasi</div>
+    <div style="font-size: 3.5rem; font-weight: 800; color: #e15759; margin: 0.5rem 0; line-height: 1;">`r db_info$total_gugur`</div>
+    <div style="font-size: 0.85rem; color: #6c757d;">Gugur (Attention Check)</div>
+  </div>
+
+  <div style="flex: 1; min-width: 200px; background: #f8f9fa; border-top: 5px solid #59a14f; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <div style="margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Data Final</div>
+    <div style="font-size: 3.5rem; font-weight: 800; color: #59a14f; margin: 0.5rem 0; line-height: 1;">`r db_info$total_valid`</div>
+    <div style="font-size: 0.85rem; color: #6c757d;">Lolos Validitas (Bersih)</div>
+  </div>
+</div>
+
 
 ***
 

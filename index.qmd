@@ -24,13 +24,13 @@ File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliab
 :::
 
 
-## Data Base & Pemrosesan Responden
+## Database & Pemrosesan Responden
 
-Data utama penelitian ini ditarik secara otomatis dari [Google Sheets](https://docs.google.com/spreadsheets/d/1u7L4GSSsuVDv9j7ccgWvccwr7A5Ks0szkiY-RTHVsA8/edit?usp=sharing) (sheet `Scoring`). Mesin pemroses akan memfilter data yang masuk untuk memastikan kualitas responden.
+Data responden diambil secara otomatis dari [Google Sheets](https://docs.google.com/spreadsheets/d/1u7L4GSSsuVDv9j7ccgWvccwr7A5Ks0szkiY-RTHVsA8/edit?usp=sharing) (Scoring). Selanjutnya, data diperiksa dan disaring sesuai kriteria yang telah ditentukan untuk mendapatkan data yang siap digunakan.
 
-> 🕒 **Pembaruan Terakhir:** `r db_info$waktu_update`
+**Update terakhir:** `r db_info$waktu_update`
 
-Berikut adalah rekam jejak penyaringan data dari responden masuk hingga menjadi data final (bersih):
+Berikut proses penyaringan data dari responden masuk hingga menjadi data final.
 
 
 <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: space-between;">

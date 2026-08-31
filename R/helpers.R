@@ -49,23 +49,35 @@ get_cfa_fit_df <- function(fit, model_name) {
   est <- lavInspect(fit, "options")$estimator
   if (est == "MLR") {
     fits <- fitMeasures(fit, c("chisq.scaled", "df.scaled", "pvalue.scaled", "cfi.robust", "tli.robust", "rmsea.robust", "srmr"))
-    names(fits) <- c("chisq", "df", "pvalue", "cfi", "tli", "rmsea", "srmr")
+    
+    data.frame(
+      Model = model_name,
+      `Chi-Square (Scaled)` = round(as.numeric(fits["chisq.scaled"]), 2),
+      df = as.numeric(fits["df.scaled"]),
+      p = round(as.numeric(fits["pvalue.scaled"]), 3),
+      `CFI (Robust)` = round(as.numeric(fits["cfi.robust"]), 3),
+      `TLI (Robust)` = round(as.numeric(fits["tli.robust"]), 3),
+      `RMSEA (Robust)` = round(as.numeric(fits["rmsea.robust"]), 3),
+      SRMR = round(as.numeric(fits["srmr"]), 3),
+      check.names = FALSE,
+      row.names = NULL
+    )
   } else {
     fits <- fitMeasures(fit, c("chisq", "df", "pvalue", "cfi", "tli", "rmsea", "srmr"))
+    
+    data.frame(
+      Model = model_name,
+      `Chi-Square` = round(as.numeric(fits["chisq"]), 2),
+      df = as.numeric(fits["df"]),
+      p = round(as.numeric(fits["pvalue"]), 3),
+      CFI = round(as.numeric(fits["cfi"]), 3),
+      TLI = round(as.numeric(fits["tli"]), 3),
+      RMSEA = round(as.numeric(fits["rmsea"]), 3),
+      SRMR = round(as.numeric(fits["srmr"]), 3),
+      check.names = FALSE,
+      row.names = NULL
+    )
   }
-  
-  data.frame(
-    Model = model_name,
-    `Chi-Square` = round(as.numeric(fits["chisq"]), 2),
-    df = as.numeric(fits["df"]),
-    p = round(as.numeric(fits["pvalue"]), 3),
-    CFI = round(as.numeric(fits["cfi"]), 3),
-    TLI = round(as.numeric(fits["tli"]), 3),
-    RMSEA = round(as.numeric(fits["rmsea"]), 3),
-    SRMR = round(as.numeric(fits["srmr"]), 3),
-    check.names = FALSE,
-    row.names = NULL
-  )
 }
 
 # Helper function: Tabel Fit Model CFA (Markdown HTML)

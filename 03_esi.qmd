@@ -34,6 +34,16 @@ print_fit_table(fit_esi, "ESI")
 ```
 
 
+## Visualisasi Model ESI
+
+```{r}
+#| label: fig-cfa-esi
+#| fig-cap: "Visualisasi CFA First-Order ESI"
+#| fig-width: 8
+#| fig-height: 6
+plot_cfa(fit_esi, "CFA Model ESI (First-Order)")
+```
+
 ## Reliabilitas ESI
 
 ```{r}

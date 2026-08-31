@@ -39,6 +39,16 @@ print_fit_table(fit_peb, "PEB")
 ```
 
 
+## Visualisasi Model PEB
+
+```{r}
+#| label: fig-cfa-peb
+#| fig-cap: "Visualisasi CFA First-Order PEB"
+#| fig-width: 8
+#| fig-height: 6
+plot_cfa(fit_peb, "CFA Model PEB (First-Order)")
+```
+
 ## Reliabilitas PEB
 
 ```{r}

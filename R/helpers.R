@@ -86,3 +86,36 @@ print_fit_table <- function(fit, model_name) {
   if (is.null(res)) return(cat("Tidak dapat menghitung fit model karena model CFA tidak konvergen.\n"))
   return(knitr::kable(res))
 }
+
+library(semPlot)
+
+# Helper function: Visualisasi Model CFA (semPlot)
+plot_cfa <- function(fit, title_text) {
+  # Ambil nilai MLR Robust secara otomatis
+  est <- lavInspect(fit, "options")$estimator.orig
+  if (est == "MLR") {
+    fit_idx <- fitMeasures(fit, c("chisq.scaled", "cfi.robust", "tli.robust", "rmsea.robust", "srmr"))
+  } else {
+    fit_idx <- fitMeasures(fit, c("chisq", "cfi", "tli", "rmsea", "srmr"))
+    names(fit_idx) <- c("chisq.scaled", "cfi.robust", "tli.robust", "rmsea.robust", "srmr")
+  }
+  
+  # Render semPaths
+  semPlot::semPaths(fit, title = FALSE, whatLabels = "std.all", edge.label.cex = 0.6,
+         color = "white", edge.color = "black", sizeMan = 3.5, sizeLat = 8,
+         layout = "tree2", rotation = 2, style = "lisrel",
+         curve = 2.5, asize = 2, residuals = FALSE, mar = c(3,5,3,5))
+  
+  # Judul & Legend Fit Indices
+  title(title_text, cex.main = 1.0, font.main = 2, adj = 0)
+  op <- par(family = "mono")
+  legend("bottomleft", inset = c(0.1, 0.15), legend = c(
+      "Fit Indices (MLR):", 
+      sprintf("Chi-Square: %.2f", fit_idx["chisq.scaled"]),
+      sprintf("CFI: %.3f", fit_idx["cfi.robust"]), 
+      sprintf("TLI: %.3f", fit_idx["tli.robust"]),
+      sprintf("RMSEA: %.3f", fit_idx["rmsea.robust"]), 
+      sprintf("SRMR: %.3f", fit_idx["srmr"])
+  ), bty = "n", cex = 0.8)
+  par(op)
+}

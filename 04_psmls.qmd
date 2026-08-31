@@ -36,6 +36,16 @@ print_fit_table(fit_psmls, "PSML")
 ```
 
 
+## Visualisasi Model PSML
+
+```{r}
+#| label: fig-cfa-psmls
+#| fig-cap: "Visualisasi CFA First-Order PSML"
+#| fig-width: 8
+#| fig-height: 6
+plot_cfa(fit_psmls, "CFA Model PSML (First-Order)")
+```
+
 ## Reliabilitas PSML
 
 ```{r}

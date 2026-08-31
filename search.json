@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "",
-    "text": "Database & Pemrosesan Responden\nData responden diambil secara otomatis dari Google Sheets (Scoring). Selanjutnya, data diperiksa dan disaring sesuai kriteria yang telah ditentukan untuk mendapatkan data yang siap digunakan.\nUpdate terakhir: 31 August 2026, Pukul 16:59 WIB\nBerikut proses penyaringan data dari responden masuk hingga menjadi data final.\nSetelah proses penyaringan selesai, diperoleh 381 observasi yang dapat digunakan untuk analisis selanjutnya.",
+    "text": "Database & Pemrosesan Responden\nData responden diambil secara otomatis dari Google Sheets (Scoring). Selanjutnya, data diperiksa dan disaring sesuai kriteria yang telah ditentukan untuk mendapatkan data yang siap digunakan.\nUpdate terakhir: 31 August 2026, Pukul 17:49 WIB\nBerikut proses penyaringan data dari responden masuk hingga menjadi data final.\nSetelah proses penyaringan selesai, diperoleh 386 observasi yang dapat digunakan untuk analisis selanjutnya.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#database-pemrosesan-responden",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "",
-    "text": "Total Responden\n\n\n414\n\n\nData Masuk\n\n\n\n\nTereliminasi\n\n\n33\n\n\nGugur (Attention Check)\n\n\n\n\nData Final\n\n\n381\n\n\nLolos Validitas (Bersih)",
+    "text": "Total Responden\n\n\n419\n\n\nData Masuk\n\n\n\n\nTereliminasi\n\n\n33\n\n\nGugur (Attention Check)\n\n\n\n\nData Final\n\n\n386\n\n\nLolos Validitas (Bersih)",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -24,7 +24,7 @@
     "href": "index.html#jenis-kelamin",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Jenis Kelamin",
-    "text": "Jenis Kelamin\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Gender, c(\"1\" = \"Laki-laki\", \"2\" = \"Perempuan\")))\n\n\n\n\nTable 1: Distribusi Jenis Kelamin\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nLaki-laki\n131\n34.38%\n\n\nPerempuan\n250\n65.62%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Gender)) %&gt;%\n  mutate(Gender = factor(Gender, levels = c(1, 2), labels = c(\"Laki-laki\", \"Perempuan\"))) %&gt;%\n  ggplot(aes(x = Gender, fill = Gender)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#4e79a7\", \"#e15759\")) +\n  labs(x = NULL, y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Jenis Kelamin",
+    "text": "Jenis Kelamin\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Gender, c(\"1\" = \"Laki-laki\", \"2\" = \"Perempuan\")))\n\n\n\n\nTable 1: Distribusi Jenis Kelamin\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nLaki-laki\n132\n34.2%\n\n\nPerempuan\n254\n65.8%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Gender)) %&gt;%\n  mutate(Gender = factor(Gender, levels = c(1, 2), labels = c(\"Laki-laki\", \"Perempuan\"))) %&gt;%\n  ggplot(aes(x = Gender, fill = Gender)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#4e79a7\", \"#e15759\")) +\n  labs(x = NULL, y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Jenis Kelamin",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -34,7 +34,7 @@
     "href": "index.html#usia",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Usia",
-    "text": "Usia\n\n\nLihat kode\nusia_m   &lt;- round(mean(df$Usia, na.rm = TRUE), 2)\nusia_sd  &lt;- round(sd(df$Usia, na.rm = TRUE), 2)\nusia_min &lt;- min(df$Usia, na.rm = TRUE)\nusia_max &lt;- max(df$Usia, na.rm = TRUE)\n\n\nM = 20.67 tahun, SD = 1.65, Min = 18, Max = 27.\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Usia)) %&gt;%\n  ggplot(aes(x = Usia)) +\n  geom_histogram(binwidth = 1, fill = \"#59a14f\", color = \"black\", alpha = 0.8) +\n  labs(x = \"Usia (Tahun)\", y = \"Jumlah\") +\n  theme_minimal()\n\n\n\n\n\nVisualisasi Sebaran Usia",
+    "text": "Usia\n\n\nLihat kode\nusia_m   &lt;- round(mean(df$Usia, na.rm = TRUE), 2)\nusia_sd  &lt;- round(sd(df$Usia, na.rm = TRUE), 2)\nusia_min &lt;- min(df$Usia, na.rm = TRUE)\nusia_max &lt;- max(df$Usia, na.rm = TRUE)\n\n\nM = 20.67 tahun, SD = 1.64, Min = 18, Max = 27.\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Usia)) %&gt;%\n  ggplot(aes(x = Usia)) +\n  geom_histogram(binwidth = 1, fill = \"#59a14f\", color = \"black\", alpha = 0.8) +\n  labs(x = \"Usia (Tahun)\", y = \"Jumlah\") +\n  theme_minimal()\n\n\n\n\n\nVisualisasi Sebaran Usia",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -44,7 +44,7 @@
     "href": "index.html#semester",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Semester",
-    "text": "Semester\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Semester, c(\"1\" = \"Semester 1\", \"2\" = \"Semester 2\", \"3\" = \"Semester 3\", \"4\" = \"Semester 4\", \"5\" = \"Semester 5\", \"6\" = \"Semester 6\", \"7\" = \"Semester 7\", \"8\" = \"Semester 8\", \"Lebih dari semester 8\" = \"&gt; Semester 8\")))\n\n\n\n\nTable 2: Distribusi Semester\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nSemester 1\n25\n6.56%\n\n\nSemester 2\n7\n1.84%\n\n\nSemester 3\n84\n22.05%\n\n\nSemester 4\n11\n2.89%\n\n\nSemester 5\n105\n27.56%\n\n\nSemester 6\n15\n3.94%\n\n\nSemester 7\n83\n21.78%\n\n\nSemester 8\n28\n7.35%\n\n\n&gt; Semester 8\n23\n6.04%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Semester)) %&gt;%\n  mutate(Semester = factor(Semester, \n                           levels = c(\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"Lebih dari semester 8\"), \n                           labels = c(\"Sem 1\", \"Sem 2\", \"Sem 3\", \"Sem 4\", \"Sem 5\", \"Sem 6\", \"Sem 7\", \"Sem 8\", \"&gt; Sem 8\"))) %&gt;%\n  ggplot(aes(x = Semester, fill = Semester)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = \"Semester\", y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\", axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\nVisualisasi Semester",
+    "text": "Semester\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Semester, c(\"1\" = \"Semester 1\", \"2\" = \"Semester 2\", \"3\" = \"Semester 3\", \"4\" = \"Semester 4\", \"5\" = \"Semester 5\", \"6\" = \"Semester 6\", \"7\" = \"Semester 7\", \"8\" = \"Semester 8\", \"Lebih dari semester 8\" = \"&gt; Semester 8\")))\n\n\n\n\nTable 2: Distribusi Semester\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nSemester 1\n25\n6.48%\n\n\nSemester 2\n7\n1.81%\n\n\nSemester 3\n84\n21.76%\n\n\nSemester 4\n11\n2.85%\n\n\nSemester 5\n106\n27.46%\n\n\nSemester 6\n15\n3.89%\n\n\nSemester 7\n87\n22.54%\n\n\nSemester 8\n28\n7.25%\n\n\n&gt; Semester 8\n23\n5.96%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Semester)) %&gt;%\n  mutate(Semester = factor(Semester, \n                           levels = c(\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"Lebih dari semester 8\"), \n                           labels = c(\"Sem 1\", \"Sem 2\", \"Sem 3\", \"Sem 4\", \"Sem 5\", \"Sem 6\", \"Sem 7\", \"Sem 8\", \"&gt; Sem 8\"))) %&gt;%\n  ggplot(aes(x = Semester, fill = Semester)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = \"Semester\", y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\", axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\nVisualisasi Semester",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -54,7 +54,7 @@
     "href": "index.html#wilayah-pembangunan-tempat-tinggal",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Wilayah Pembangunan (Tempat Tinggal)",
-    "text": "Wilayah Pembangunan (Tempat Tinggal)\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Provinsi, c(\"1\" = \"Bodebekpunjur\", \"2\" = \"Purwasuka\", \"3\" = \"Sukabumi dsk\", \"4\" = \"Cekungan Bandung\", \"5\" = \"Priangan Timur\", \"6\" = \"Ciayumajakuning\")))\n\n\n\n\nTable 3: Distribusi Wilayah Pembangunan\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nBodebekpunjur\n60\n15.75%\n\n\nPurwasuka\n10\n2.62%\n\n\nSukabumi dsk\n9\n2.36%\n\n\nCekungan Bandung\n268\n70.34%\n\n\nPriangan Timur\n19\n4.99%\n\n\nCiayumajakuning\n15\n3.94%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Provinsi)) %&gt;%\n  mutate(Provinsi = factor(Provinsi, \n                           levels = c(\"1\", \"2\", \"3\", \"4\", \"5\", \"6\"), \n                           labels = c(\"Bodebekpunjur\", \"Purwasuka\", \"Sukabumi dsk\", \"Cekungan Bandung\", \"Priangan Timur\", \"Ciayumajakuning\"))) %&gt;%\n  ggplot(aes(y = reorder(Provinsi, Provinsi, function(x) length(x)), fill = Provinsi)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = \"Jumlah\", y = NULL) +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Wilayah Pembangunan",
+    "text": "Wilayah Pembangunan (Tempat Tinggal)\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Provinsi, c(\"1\" = \"Bodebekpunjur\", \"2\" = \"Purwasuka\", \"3\" = \"Sukabumi dsk\", \"4\" = \"Cekungan Bandung\", \"5\" = \"Priangan Timur\", \"6\" = \"Ciayumajakuning\")))\n\n\n\n\nTable 3: Distribusi Wilayah Pembangunan\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nBodebekpunjur\n60\n15.54%\n\n\nPurwasuka\n10\n2.59%\n\n\nSukabumi dsk\n9\n2.33%\n\n\nCekungan Bandung\n272\n70.47%\n\n\nPriangan Timur\n20\n5.18%\n\n\nCiayumajakuning\n15\n3.89%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Provinsi)) %&gt;%\n  mutate(Provinsi = factor(Provinsi, \n                           levels = c(\"1\", \"2\", \"3\", \"4\", \"5\", \"6\"), \n                           labels = c(\"Bodebekpunjur\", \"Purwasuka\", \"Sukabumi dsk\", \"Cekungan Bandung\", \"Priangan Timur\", \"Ciayumajakuning\"))) %&gt;%\n  ggplot(aes(y = reorder(Provinsi, Provinsi, function(x) length(x)), fill = Provinsi)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = \"Jumlah\", y = NULL) +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Wilayah Pembangunan",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -64,7 +64,7 @@
     "href": "index.html#area-tempat-tinggal",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Area Tempat Tinggal",
-    "text": "Area Tempat Tinggal\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Area, c(\"1\" = \"Urban (Kota)\", \"2\" = \"Suburban (Pinggiran)\", \"3\" = \"Rural (Pedesaan)\")))\n\n\n\n\nTable 4: Distribusi Area Tempat Tinggal\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nUrban (Kota)\n186\n48.82%\n\n\nSuburban (Pinggiran)\n133\n34.91%\n\n\nRural (Pedesaan)\n62\n16.27%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Area)) %&gt;%\n  mutate(Area = factor(Area, levels = c(\"1\", \"2\", \"3\"), labels = c(\"Urban\", \"Suburban\", \"Rural\"))) %&gt;%\n  ggplot(aes(x = Area, fill = Area)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#76b7b2\", \"#f28e2b\", \"#edc948\")) +\n  labs(x = NULL, y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Area Tempat Tinggal",
+    "text": "Area Tempat Tinggal\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Area, c(\"1\" = \"Urban (Kota)\", \"2\" = \"Suburban (Pinggiran)\", \"3\" = \"Rural (Pedesaan)\")))\n\n\n\n\nTable 4: Distribusi Area Tempat Tinggal\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nUrban (Kota)\n190\n49.22%\n\n\nSuburban (Pinggiran)\n134\n34.72%\n\n\nRural (Pedesaan)\n62\n16.06%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Area)) %&gt;%\n  mutate(Area = factor(Area, levels = c(\"1\", \"2\", \"3\"), labels = c(\"Urban\", \"Suburban\", \"Rural\"))) %&gt;%\n  ggplot(aes(x = Area, fill = Area)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#76b7b2\", \"#f28e2b\", \"#edc948\")) +\n  labs(x = NULL, y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Area Tempat Tinggal",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -74,7 +74,7 @@
     "href": "index.html#tipe-hunian",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Tipe Hunian",
-    "text": "Tipe Hunian\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Hunian, c(\"1\" = \"Rumah Orang Tua\", \"2\" = \"Kos/Kontrakan\", \"3\" = \"Asrama\", \"4\" = \"Lainnya\")))\n\n\n\n\nTable 5: Distribusi Tipe Hunian\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nRumah Orang Tua\n160\n41.99%\n\n\nKos/Kontrakan\n206\n54.07%\n\n\nAsrama\n11\n2.89%\n\n\nLainnya\n3\n0.79%\n\n\nMess tempat kerja\n1\n0.26%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Hunian)) %&gt;%\n  mutate(Hunian = factor(Hunian, levels = c(\"1\", \"2\", \"3\", \"4\"), labels = c(\"Rumah Orang Tua\", \"Kos/Kontrakan\", \"Asrama\", \"Lainnya\"))) %&gt;%\n  ggplot(aes(x = reorder(Hunian, Hunian, function(x) -length(x)), fill = Hunian)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = NULL, y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Tipe Hunian",
+    "text": "Tipe Hunian\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Hunian, c(\"1\" = \"Rumah Orang Tua\", \"2\" = \"Kos/Kontrakan\", \"3\" = \"Asrama\", \"4\" = \"Lainnya\")))\n\n\n\n\nTable 5: Distribusi Tipe Hunian\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nRumah Orang Tua\n164\n42.49%\n\n\nKos/Kontrakan\n207\n53.63%\n\n\nAsrama\n11\n2.85%\n\n\nLainnya\n3\n0.78%\n\n\nMess tempat kerja\n1\n0.26%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Hunian)) %&gt;%\n  mutate(Hunian = factor(Hunian, levels = c(\"1\", \"2\", \"3\", \"4\"), labels = c(\"Rumah Orang Tua\", \"Kos/Kontrakan\", \"Asrama\", \"Lainnya\"))) %&gt;%\n  ggplot(aes(x = reorder(Hunian, Hunian, function(x) -length(x)), fill = Hunian)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = NULL, y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Tipe Hunian",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -84,7 +84,7 @@
     "href": "02_eid.html",
     "title": "Environmental Identity (EID)",
     "section": "",
-    "text": "Model Fit EID\nModel pengukuran unidimensional untuk EID (14 aitem). Dioptimasi dengan toleransi 3 Modification Indices terbesar.\nLihat kode\nprint_fit_table(fit_eid, \"EID\")\n\n\n\n\nTable 2.1: Fit Model EID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n290.55\n74\n0\n0.884\n0.858\n0.103\n0.062",
+    "text": "Model Fit EID\nModel pengukuran unidimensional untuk EID (14 aitem). Dioptimasi dengan toleransi 3 Modification Indices terbesar.\nLihat kode\nprint_fit_table(fit_eid, \"EID\")\n\n\n\n\nTable 2.1: Fit Model EID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n298.17\n74\n0\n0.882\n0.855\n0.104\n0.062",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental Identity (EID)</span>"
     ]
@@ -104,7 +104,7 @@
     "href": "02_eid.html#reliabilitas-eid",
     "title": "Environmental Identity (EID)",
     "section": "Reliabilitas EID",
-    "text": "Reliabilitas EID\n\n\nLihat kode\nprint_rel_table(fit_eid)\n\n\n\n\nTable 2.2: Reliabilitas Skala EID\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.915\n0.904\n0.437",
+    "text": "Reliabilitas EID\n\n\nLihat kode\nprint_rel_table(fit_eid)\n\n\n\n\nTable 2.2: Reliabilitas Skala EID\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.915\n0.905\n0.437",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental Identity (EID)</span>"
     ]
@@ -114,7 +114,7 @@
     "href": "03_esi.html",
     "title": "Environmental Self-Identity (ESI)",
     "section": "",
-    "text": "Model Fit ESI\nModel pengukuran unidimensional untuk ESI (6 aitem). Murni teoritis.\nLihat kode\nprint_fit_table(fit_esi, \"ESI\")\n\n\n\n\nTable 3.1: Fit Model ESI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nESI\n30.48\n9\n0\n0.965\n0.941\n0.115\n0.035",
+    "text": "Model Fit ESI\nModel pengukuran unidimensional untuk ESI (6 aitem). Murni teoritis.\nLihat kode\nprint_fit_table(fit_esi, \"ESI\")\n\n\n\n\nTable 3.1: Fit Model ESI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nESI\n30.7\n9\n0\n0.965\n0.941\n0.115\n0.035",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Environmental Self-Identity (ESI)</span>"
     ]
@@ -134,7 +134,7 @@
     "href": "03_esi.html#reliabilitas-esi",
     "title": "Environmental Self-Identity (ESI)",
     "section": "Reliabilitas ESI",
-    "text": "Reliabilitas ESI\n\n\nLihat kode\nprint_rel_table(fit_esi)\n\n\n\n\nTable 3.2: Reliabilitas Skala ESI\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nESI\n0.898\n0.897\n0.599",
+    "text": "Reliabilitas ESI\n\n\nLihat kode\nprint_rel_table(fit_esi)\n\n\n\n\nTable 3.2: Reliabilitas Skala ESI\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nESI\n0.899\n0.897\n0.6",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Environmental Self-Identity (ESI)</span>"
     ]
@@ -144,7 +144,7 @@
     "href": "04_psmls.html",
     "title": "Perceived Social Media Literacy (PSML)",
     "section": "",
-    "text": "Model Fit PSML\nModel multidimensional 4-faktor yang saling berkorelasi (First-Order). Murni teoritis.\nLihat kode\nprint_fit_table(fit_psmls, \"PSML\")\n\n\n\n\nTable 4.1: Fit Model PSML\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPSML\n128.63\n71\n0\n0.97\n0.961\n0.057\n0.035",
+    "text": "Model Fit PSML\nModel multidimensional 4-faktor yang saling berkorelasi (First-Order). Murni teoritis.\nLihat kode\nprint_fit_table(fit_psmls, \"PSML\")\n\n\n\n\nTable 4.1: Fit Model PSML\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPSML\n129.56\n71\n0\n0.97\n0.961\n0.057\n0.035",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Perceived Social Media Literacy (PSML)</span>"
     ]
@@ -164,7 +164,7 @@
     "href": "04_psmls.html#reliabilitas-psml",
     "title": "Perceived Social Media Literacy (PSML)",
     "section": "Reliabilitas PSML",
-    "text": "Reliabilitas PSML\n\n\nLihat kode\nprint_rel_table(fit_psmls)\n\n\n\n\nTable 4.2: Reliabilitas Skala PSMLS (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nTechComp\n0.896\n0.896\n0.638\n\n\nSocialRel\n0.764\n0.766\n0.526\n\n\nPrivacy\n0.696\n0.688\n0.428\n\n\nInfoAware\n0.870\n0.873\n0.696",
+    "text": "Reliabilitas PSML\n\n\nLihat kode\nprint_rel_table(fit_psmls)\n\n\n\n\nTable 4.2: Reliabilitas Skala PSMLS (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nTechComp\n0.896\n0.896\n0.638\n\n\nSocialRel\n0.764\n0.765\n0.525\n\n\nPrivacy\n0.696\n0.688\n0.428\n\n\nInfoAware\n0.869\n0.872\n0.695",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Perceived Social Media Literacy (PSML)</span>"
     ]
@@ -174,7 +174,7 @@
     "href": "05_peb.html",
     "title": "Pro-Environmental Behavior (PEB)",
     "section": "",
-    "text": "Model Fit PEB\nModel multidimensional 4-faktor (First-Order). Dioptimasi dengan 3 MI.\nLihat kode\nprint_fit_table(fit_peb, \"PEB\")\n\n\n\n\nTable 5.1: Fit Model PEB\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPEB\n296.77\n110\n0\n0.922\n0.904\n0.074\n0.059",
+    "text": "Model Fit PEB\nModel multidimensional 4-faktor (First-Order). Dioptimasi dengan 3 MI.\nLihat kode\nprint_fit_table(fit_peb, \"PEB\")\n\n\n\n\nTable 5.1: Fit Model PEB\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPEB\n303.56\n110\n0\n0.921\n0.903\n0.075\n0.06",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pro-Environmental Behavior (PEB)</span>"
     ]
@@ -194,7 +194,7 @@
     "href": "05_peb.html#reliabilitas-peb",
     "title": "Pro-Environmental Behavior (PEB)",
     "section": "Reliabilitas PEB",
-    "text": "Reliabilitas PEB\n\n\nLihat kode\nprint_rel_table(fit_peb)\n\n\n\n\nTable 5.2: Reliabilitas Skala PEB (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nConsLife\n0.706\n0.663\n0.332\n\n\nSocEnv\n0.849\n0.770\n0.485\n\n\nEnvCit\n0.791\n0.797\n0.439\n\n\nLandStew\n0.771\n0.772\n0.630",
+    "text": "Reliabilitas PEB\n\n\nLihat kode\nprint_rel_table(fit_peb)\n\n\n\n\nTable 5.2: Reliabilitas Skala PEB (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nConsLife\n0.703\n0.660\n0.330\n\n\nSocEnv\n0.848\n0.768\n0.483\n\n\nEnvCit\n0.795\n0.800\n0.445\n\n\nLandStew\n0.775\n0.777\n0.635",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pro-Environmental Behavior (PEB)</span>"
     ]
@@ -204,7 +204,7 @@
     "href": "06_pwb.html",
     "title": "Psychological Well-Being (PWB)",
     "section": "",
-    "text": "Model Fit PWB\nModel multidimensional 6-faktor (First-Order). Dioptimasi dengan 3 MI.\nLihat kode\nprint_fit_table(fit_pwb, \"PWB\")\n\n\n\n\nTable 6.1: Fit Model PWB\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPWB\n3224.28\n801\n0\n0.564\n0.532\n0.098\n0.13",
+    "text": "Model Fit PWB\nModel multidimensional 6-faktor (First-Order). Dioptimasi dengan 3 MI.\nLihat kode\nprint_fit_table(fit_pwb, \"PWB\")\n\n\n\n\nTable 6.1: Fit Model PWB\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPWB\n3268.86\n801\n0\n0.562\n0.529\n0.098\n0.129",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Psychological Well-Being (PWB)</span>"
     ]
@@ -224,7 +224,7 @@
     "href": "06_pwb.html#reliabilitas-pwb",
     "title": "Psychological Well-Being (PWB)",
     "section": "Reliabilitas PWB",
-    "text": "Reliabilitas PWB\n\n\nLihat kode\nprint_rel_table(fit_pwb)\n\n\n\n\nTable 6.2: Reliabilitas Skala PWB (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nAutonomy\n0.631\n0.636\n0.251\n\n\nMastery\n-0.209\n0.054\n0.206\n\n\nGrowth\n-0.908\n0.050\n0.226\n\n\nRelations\n-0.230\n0.172\n0.233\n\n\nPurpose\n-0.659\n0.213\n0.368\n\n\nAcceptance\n0.343\n0.505\n0.171",
+    "text": "Reliabilitas PWB\n\n\nLihat kode\nprint_rel_table(fit_pwb)\n\n\n\n\nTable 6.2: Reliabilitas Skala PWB (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nAutonomy\n0.630\n0.636\n0.250\n\n\nMastery\n-0.210\n0.054\n0.208\n\n\nGrowth\n-0.921\n0.047\n0.223\n\n\nRelations\n-0.207\n0.167\n0.230\n\n\nPurpose\n-0.667\n0.213\n0.366\n\n\nAcceptance\n0.337\n0.512\n0.171",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Psychological Well-Being (PWB)</span>"
     ]
@@ -234,7 +234,7 @@
     "href": "07_summary.html",
     "title": "Summary & Kesimpulan",
     "section": "",
-    "text": "Ringkasan Fit Model (CFA)\nBerikut adalah ringkasan dari seluruh hasil analisis, meliputi Fit Model CFA dan Reliabilitas (Alpha, Omega, dan AVE) untuk semua variabel ukur.\nLihat kode\ndf_cfa &lt;- rbind(\n  if(!is.null(fit_eid)) get_cfa_fit_df(fit_eid, \"EID\") else NULL,\n  if(!is.null(fit_esi)) get_cfa_fit_df(fit_esi, \"ESI\") else NULL,\n  if(!is.null(fit_psmls)) get_cfa_fit_df(fit_psmls, \"PSMLS\") else NULL,\n  if(!is.null(fit_peb)) get_cfa_fit_df(fit_peb, \"PEB\") else NULL,\n  if(!is.null(fit_pwb)) get_cfa_fit_df(fit_pwb, \"PWB\") else NULL\n)\n\nif (!is.null(df_cfa) && nrow(df_cfa) &gt; 0) {\n  knitr::kable(df_cfa)\n} else {\n  cat(\"Belum ada data model CFA yang dapat diringkas.\\n\")\n}\n\n\n\n\nTable 7.1: Tabel Ringkasan Fit Model CFA Keseluruhan\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n290.55\n74\n0\n0.884\n0.858\n0.103\n0.062\n\n\nESI\n30.48\n9\n0\n0.965\n0.941\n0.115\n0.035\n\n\nPSMLS\n128.63\n71\n0\n0.970\n0.961\n0.057\n0.035\n\n\nPEB\n296.77\n110\n0\n0.922\n0.904\n0.074\n0.059\n\n\nPWB\n3224.28\n801\n0\n0.564\n0.532\n0.098\n0.130",
+    "text": "Ringkasan Fit Model (CFA)\nBerikut adalah ringkasan dari seluruh hasil analisis, meliputi Fit Model CFA dan Reliabilitas (Alpha, Omega, dan AVE) untuk semua variabel ukur.\nLihat kode\ndf_cfa &lt;- rbind(\n  if(!is.null(fit_eid)) get_cfa_fit_df(fit_eid, \"EID\") else NULL,\n  if(!is.null(fit_esi)) get_cfa_fit_df(fit_esi, \"ESI\") else NULL,\n  if(!is.null(fit_psmls)) get_cfa_fit_df(fit_psmls, \"PSMLS\") else NULL,\n  if(!is.null(fit_peb)) get_cfa_fit_df(fit_peb, \"PEB\") else NULL,\n  if(!is.null(fit_pwb)) get_cfa_fit_df(fit_pwb, \"PWB\") else NULL\n)\n\nif (!is.null(df_cfa) && nrow(df_cfa) &gt; 0) {\n  knitr::kable(df_cfa)\n} else {\n  cat(\"Belum ada data model CFA yang dapat diringkas.\\n\")\n}\n\n\n\n\nTable 7.1: Tabel Ringkasan Fit Model CFA Keseluruhan\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n298.17\n74\n0\n0.882\n0.855\n0.104\n0.062\n\n\nESI\n30.70\n9\n0\n0.965\n0.941\n0.115\n0.035\n\n\nPSMLS\n129.56\n71\n0\n0.970\n0.961\n0.057\n0.035\n\n\nPEB\n303.56\n110\n0\n0.921\n0.903\n0.075\n0.060\n\n\nPWB\n3268.86\n801\n0\n0.562\n0.529\n0.098\n0.129",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Summary & Kesimpulan</span>"
     ]
@@ -244,7 +244,7 @@
     "href": "07_summary.html#ringkasan-reliabilitas",
     "title": "Summary & Kesimpulan",
     "section": "Ringkasan Reliabilitas",
-    "text": "Ringkasan Reliabilitas\n\n\nLihat kode\ndf_summary &lt;- rbind(\n  if(!is.null(fit_eid)) get_rel_df(fit_eid) else NULL,\n  if(!is.null(fit_esi)) get_rel_df(fit_esi) else NULL,\n  if(!is.null(fit_psmls)) get_rel_df(fit_psmls) else NULL,\n  if(!is.null(fit_peb)) get_rel_df(fit_peb) else NULL,\n  if(!is.null(fit_pwb)) get_rel_df(fit_pwb) else NULL\n)\n\nif (!is.null(df_summary) && nrow(df_summary) &gt; 0) {\n  knitr::kable(df_summary)\n} else {\n  cat(\"Belum ada data reliabilitas yang dapat diringkas.\\n\")\n}\n\n\n\n\nTable 7.2: Tabel Ringkasan Reliabilitas Keseluruhan\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.915\n0.904\n0.437\n\n\nESI\n0.898\n0.897\n0.599\n\n\nTechComp\n0.896\n0.896\n0.638\n\n\nSocialRel\n0.764\n0.766\n0.526\n\n\nPrivacy\n0.696\n0.688\n0.428\n\n\nInfoAware\n0.870\n0.873\n0.696\n\n\nConsLife\n0.706\n0.663\n0.332\n\n\nSocEnv\n0.849\n0.770\n0.485\n\n\nEnvCit\n0.791\n0.797\n0.439\n\n\nLandStew\n0.771\n0.772\n0.630\n\n\nAutonomy\n0.631\n0.636\n0.251\n\n\nMastery\n-0.209\n0.054\n0.206\n\n\nGrowth\n-0.908\n0.050\n0.226\n\n\nRelations\n-0.230\n0.172\n0.233\n\n\nPurpose\n-0.659\n0.213\n0.368\n\n\nAcceptance\n0.343\n0.505\n0.171",
+    "text": "Ringkasan Reliabilitas\n\n\nLihat kode\ndf_summary &lt;- rbind(\n  if(!is.null(fit_eid)) get_rel_df(fit_eid) else NULL,\n  if(!is.null(fit_esi)) get_rel_df(fit_esi) else NULL,\n  if(!is.null(fit_psmls)) get_rel_df(fit_psmls) else NULL,\n  if(!is.null(fit_peb)) get_rel_df(fit_peb) else NULL,\n  if(!is.null(fit_pwb)) get_rel_df(fit_pwb) else NULL\n)\n\nif (!is.null(df_summary) && nrow(df_summary) &gt; 0) {\n  knitr::kable(df_summary)\n} else {\n  cat(\"Belum ada data reliabilitas yang dapat diringkas.\\n\")\n}\n\n\n\n\nTable 7.2: Tabel Ringkasan Reliabilitas Keseluruhan\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.915\n0.905\n0.437\n\n\nESI\n0.899\n0.897\n0.600\n\n\nTechComp\n0.896\n0.896\n0.638\n\n\nSocialRel\n0.764\n0.765\n0.525\n\n\nPrivacy\n0.696\n0.688\n0.428\n\n\nInfoAware\n0.869\n0.872\n0.695\n\n\nConsLife\n0.703\n0.660\n0.330\n\n\nSocEnv\n0.848\n0.768\n0.483\n\n\nEnvCit\n0.795\n0.800\n0.445\n\n\nLandStew\n0.775\n0.777\n0.635\n\n\nAutonomy\n0.630\n0.636\n0.250\n\n\nMastery\n-0.210\n0.054\n0.208\n\n\nGrowth\n-0.921\n0.047\n0.223\n\n\nRelations\n-0.207\n0.167\n0.230\n\n\nPurpose\n-0.667\n0.213\n0.366\n\n\nAcceptance\n0.337\n0.512\n0.171",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Summary & Kesimpulan</span>"
     ]

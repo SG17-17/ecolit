@@ -11,6 +11,8 @@ source("R/setup_data.R")
 
 # Load helper functions
 source("R/helpers.R")
+library(ggplot2)
+library(dplyr)
 
 # Baca data yang sudah disiapkan
 df <- readRDS("data/cleaned_data.rds")
@@ -30,6 +32,20 @@ Dataset berisi **`r nrow(df)`** observasi dan siap digunakan untuk analisis lanj
 knitr::kable(print_demo_table(df$Gender, c("1" = "Laki-laki", "2" = "Perempuan")))
 ```
 
+```{r}
+#| label: plot-gender
+#| fig-cap: "Visualisasi Jenis Kelamin"
+df %>% 
+  filter(!is.na(Gender)) %>%
+  mutate(Gender = factor(Gender, levels = c(1, 2), labels = c("Laki-laki", "Perempuan"))) %>%
+  ggplot(aes(x = Gender, fill = Gender)) +
+  geom_bar(color = "black", alpha = 0.8) +
+  scale_fill_manual(values = c("#4e79a7", "#e15759")) +
+  labs(x = NULL, y = "Jumlah") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
 ## Usia
 ```{r}
 #| label: demografi-usia
@@ -40,11 +56,37 @@ usia_max <- max(df$Usia, na.rm = TRUE)
 ```
 *M* = `r usia_m` tahun, *SD* = `r usia_sd`, Min = `r usia_min`, Max = `r usia_max`.
 
+```{r}
+#| label: plot-usia
+#| fig-cap: "Visualisasi Sebaran Usia"
+df %>% 
+  filter(!is.na(Usia)) %>%
+  ggplot(aes(x = Usia)) +
+  geom_histogram(binwidth = 1, fill = "#59a14f", color = "black", alpha = 0.8) +
+  labs(x = "Usia (Tahun)", y = "Jumlah") +
+  theme_minimal()
+```
+
 ## Semester
 ```{r}
 #| label: tbl-semester
 #| tbl-cap: "Distribusi Semester"
 knitr::kable(print_demo_table(df$Semester, c("1" = "Semester 1", "2" = "Semester 2", "3" = "Semester 3", "4" = "Semester 4", "5" = "Semester 5", "6" = "Semester 6", "7" = "Semester 7", "8" = "Semester 8", "Lebih dari semester 8" = "> Semester 8")))
+```
+
+```{r}
+#| label: plot-semester
+#| fig-cap: "Visualisasi Semester"
+df %>% 
+  filter(!is.na(Semester)) %>%
+  mutate(Semester = factor(Semester, 
+                           levels = c("1", "2", "3", "4", "5", "6", "7", "8", "Lebih dari semester 8"), 
+                           labels = c("Sem 1", "Sem 2", "Sem 3", "Sem 4", "Sem 5", "Sem 6", "Sem 7", "Sem 8", "> Sem 8"))) %>%
+  ggplot(aes(x = Semester, fill = Semester)) +
+  geom_bar(color = "black", alpha = 0.8) +
+  labs(x = "Semester", y = "Jumlah") +
+  theme_minimal() +
+  theme(legend.position = "none", axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
 ## Wilayah Pembangunan (Tempat Tinggal)
@@ -54,6 +96,21 @@ knitr::kable(print_demo_table(df$Semester, c("1" = "Semester 1", "2" = "Semester
 knitr::kable(print_demo_table(df$Provinsi, c("1" = "Bodebekpunjur", "2" = "Purwasuka", "3" = "Sukabumi dsk", "4" = "Cekungan Bandung", "5" = "Priangan Timur", "6" = "Ciayumajakuning")))
 ```
 
+```{r}
+#| label: plot-wilayah
+#| fig-cap: "Visualisasi Wilayah Pembangunan"
+df %>% 
+  filter(!is.na(Provinsi)) %>%
+  mutate(Provinsi = factor(Provinsi, 
+                           levels = c("1", "2", "3", "4", "5", "6"), 
+                           labels = c("Bodebekpunjur", "Purwasuka", "Sukabumi dsk", "Cekungan Bandung", "Priangan Timur", "Ciayumajakuning"))) %>%
+  ggplot(aes(y = reorder(Provinsi, Provinsi, function(x) length(x)), fill = Provinsi)) +
+  geom_bar(color = "black", alpha = 0.8) +
+  labs(x = "Jumlah", y = NULL) +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
 ## Area Tempat Tinggal
 ```{r}
 #| label: tbl-area
@@ -61,9 +118,36 @@ knitr::kable(print_demo_table(df$Provinsi, c("1" = "Bodebekpunjur", "2" = "Purwa
 knitr::kable(print_demo_table(df$Area, c("1" = "Urban (Kota)", "2" = "Suburban (Pinggiran)", "3" = "Rural (Pedesaan)")))
 ```
 
+```{r}
+#| label: plot-area
+#| fig-cap: "Visualisasi Area Tempat Tinggal"
+df %>% 
+  filter(!is.na(Area)) %>%
+  mutate(Area = factor(Area, levels = c("1", "2", "3"), labels = c("Urban", "Suburban", "Rural"))) %>%
+  ggplot(aes(x = Area, fill = Area)) +
+  geom_bar(color = "black", alpha = 0.8) +
+  scale_fill_manual(values = c("#76b7b2", "#f28e2b", "#edc948")) +
+  labs(x = NULL, y = "Jumlah") +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+
 ## Tipe Hunian
 ```{r}
 #| label: tbl-hunian
 #| tbl-cap: "Distribusi Tipe Hunian"
 knitr::kable(print_demo_table(df$Hunian, c("1" = "Rumah Orang Tua", "2" = "Kos/Kontrakan", "3" = "Asrama", "4" = "Lainnya")))
+```
+
+```{r}
+#| label: plot-hunian
+#| fig-cap: "Visualisasi Tipe Hunian"
+df %>% 
+  filter(!is.na(Hunian)) %>%
+  mutate(Hunian = factor(Hunian, levels = c("1", "2", "3", "4"), labels = c("Rumah Orang Tua", "Kos/Kontrakan", "Asrama", "Lainnya"))) %>%
+  ggplot(aes(x = reorder(Hunian, Hunian, function(x) -length(x)), fill = Hunian)) +
+  geom_bar(color = "black", alpha = 0.8) +
+  labs(x = NULL, y = "Jumlah") +
+  theme_minimal() +
+  theme(legend.position = "none")
 ```

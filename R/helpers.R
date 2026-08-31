@@ -52,13 +52,13 @@ get_cfa_fit_df <- function(fit, model_name) {
     
     data.frame(
       Model = model_name,
-      `Chi-Square (Scaled)` = round(as.numeric(fits["chisq.scaled"]), 2),
+      `chisq.scaled` = round(as.numeric(fits["chisq.scaled"]), 2),
       df = as.numeric(fits["df.scaled"]),
-      p = round(as.numeric(fits["pvalue.scaled"]), 3),
-      `CFI (Robust)` = round(as.numeric(fits["cfi.robust"]), 3),
-      `TLI (Robust)` = round(as.numeric(fits["tli.robust"]), 3),
-      `RMSEA (Robust)` = round(as.numeric(fits["rmsea.robust"]), 3),
-      SRMR = round(as.numeric(fits["srmr"]), 3),
+      pvalue = round(as.numeric(fits["pvalue.scaled"]), 3),
+      `cfi.robust` = round(as.numeric(fits["cfi.robust"]), 3),
+      `tli.robust` = round(as.numeric(fits["tli.robust"]), 3),
+      `rmsea.robust` = round(as.numeric(fits["rmsea.robust"]), 3),
+      srmr = round(as.numeric(fits["srmr"]), 3),
       check.names = FALSE,
       row.names = NULL
     )

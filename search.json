@@ -64,7 +64,17 @@
     "href": "02_eid.html",
     "title": "Environmental Identity (EID)",
     "section": "",
-    "text": "Reliabilitas EID\nModel pengukuran unidimensional untuk EID (14 aitem). Dioptimasi dengan toleransi 3 Modification Indices terbesar.\nLihat kode\nprint_rel_table(fit_eid)\n\n\n\n\nTable 2.1: Reliabilitas Skala EID\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.914\n0.904\n0.434",
+    "text": "Model Fit EID\nModel pengukuran unidimensional untuk EID (14 aitem). Dioptimasi dengan toleransi 3 Modification Indices terbesar.\nLihat kode\nprint_fit_table(fit_eid, \"EID\")\n\n\n\n\nTable 2.1: Fit Model EID\n\n\n\n\n\n\nModel\nChi-Square\ndf\np\nCFI\nTLI\nRMSEA\nSRMR\n\n\n\n\nEID\n386.35\n74\n0\n0.878\n0.85\n0.106\n0.062",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental Identity (EID)</span>"
+    ]
+  },
+  {
+    "objectID": "02_eid.html#reliabilitas-eid",
+    "href": "02_eid.html#reliabilitas-eid",
+    "title": "Environmental Identity (EID)",
+    "section": "Reliabilitas EID",
+    "text": "Reliabilitas EID\n\n\nLihat kode\nprint_rel_table(fit_eid)\n\n\n\n\nTable 2.2: Reliabilitas Skala EID\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.914\n0.904\n0.434",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental Identity (EID)</span>"
     ]
@@ -74,7 +84,17 @@
     "href": "03_esi.html",
     "title": "Environmental Self-Identity (ESI)",
     "section": "",
-    "text": "Reliabilitas ESI\nModel pengukuran unidimensional untuk ESI (6 aitem). Murni teoritis.\nLihat kode\nprint_rel_table(fit_esi)\n\n\n\n\nTable 3.1: Reliabilitas Skala ESI\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nESI\n0.897\n0.896\n0.597",
+    "text": "Model Fit ESI\nModel pengukuran unidimensional untuk ESI (6 aitem). Murni teoritis.\nLihat kode\nprint_fit_table(fit_esi, \"ESI\")\n\n\n\n\nTable 3.1: Fit Model ESI\n\n\n\n\n\n\nModel\nChi-Square\ndf\np\nCFI\nTLI\nRMSEA\nSRMR\n\n\n\n\nESI\n62.85\n9\n0\n0.957\n0.928\n0.127\n0.035",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Environmental Self-Identity (ESI)</span>"
+    ]
+  },
+  {
+    "objectID": "03_esi.html#reliabilitas-esi",
+    "href": "03_esi.html#reliabilitas-esi",
+    "title": "Environmental Self-Identity (ESI)",
+    "section": "Reliabilitas ESI",
+    "text": "Reliabilitas ESI\n\n\nLihat kode\nprint_rel_table(fit_esi)\n\n\n\n\nTable 3.2: Reliabilitas Skala ESI\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nESI\n0.897\n0.896\n0.597",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Environmental Self-Identity (ESI)</span>"
     ]
@@ -84,7 +104,17 @@
     "href": "04_psmls.html",
     "title": "Perceived Social Media Literacy (PSML)",
     "section": "",
-    "text": "Reliabilitas PSML\nModel multidimensional 4-faktor yang saling berkorelasi (First-Order). Murni teoritis.\nLihat kode\nprint_rel_table(fit_psmls)\n\n\n\n\nTable 4.1: Reliabilitas Skala PSMLS (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nTechComp\n0.895\n0.894\n0.634\n\n\nSocialRel\n0.760\n0.758\n0.519\n\n\nPrivacy\n0.701\n0.689\n0.432\n\n\nInfoAware\n0.874\n0.877\n0.704",
+    "text": "Model Fit PSML\nModel multidimensional 4-faktor yang saling berkorelasi (First-Order). Murni teoritis.\nLihat kode\nprint_fit_table(fit_psmls, \"PSML\")\n\n\n\n\nTable 4.1: Fit Model PSML\n\n\n\n\n\n\nModel\nChi-Square\ndf\np\nCFI\nTLI\nRMSEA\nSRMR\n\n\n\n\nPSML\n200.1\n71\n0\n0.956\n0.944\n0.07\n0.036",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Perceived Social Media Literacy (PSML)</span>"
+    ]
+  },
+  {
+    "objectID": "04_psmls.html#reliabilitas-psml",
+    "href": "04_psmls.html#reliabilitas-psml",
+    "title": "Perceived Social Media Literacy (PSML)",
+    "section": "Reliabilitas PSML",
+    "text": "Reliabilitas PSML\n\n\nLihat kode\nprint_rel_table(fit_psmls)\n\n\n\n\nTable 4.2: Reliabilitas Skala PSMLS (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nTechComp\n0.895\n0.894\n0.634\n\n\nSocialRel\n0.760\n0.758\n0.519\n\n\nPrivacy\n0.701\n0.689\n0.432\n\n\nInfoAware\n0.874\n0.877\n0.704",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Perceived Social Media Literacy (PSML)</span>"
     ]
@@ -94,7 +124,17 @@
     "href": "05_peb.html",
     "title": "Pro-Environmental Behavior (PEB)",
     "section": "",
-    "text": "Reliabilitas PEB\nModel multidimensional 4-faktor (First-Order). Dioptimasi dengan 3 MI.\nLihat kode\nprint_rel_table(fit_peb)\n\n\n\n\nTable 5.1: Reliabilitas Skala PEB (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nConsLife\n0.705\n0.664\n0.331\n\n\nSocEnv\n0.848\n0.767\n0.481\n\n\nEnvCit\n0.787\n0.793\n0.434\n\n\nLandStew\n0.768\n0.770\n0.627",
+    "text": "Model Fit PEB\nModel multidimensional 4-faktor (First-Order). Dioptimasi dengan 3 MI.\nLihat kode\nprint_fit_table(fit_peb, \"PEB\")\n\n\n\n\nTable 5.1: Fit Model PEB\n\n\n\n\n\n\nModel\nChi-Square\ndf\np\nCFI\nTLI\nRMSEA\nSRMR\n\n\n\n\nPEB\n361.81\n110\n0\n0.914\n0.894\n0.078\n0.06",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pro-Environmental Behavior (PEB)</span>"
+    ]
+  },
+  {
+    "objectID": "05_peb.html#reliabilitas-peb",
+    "href": "05_peb.html#reliabilitas-peb",
+    "title": "Pro-Environmental Behavior (PEB)",
+    "section": "Reliabilitas PEB",
+    "text": "Reliabilitas PEB\n\n\nLihat kode\nprint_rel_table(fit_peb)\n\n\n\n\nTable 5.2: Reliabilitas Skala PEB (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nConsLife\n0.705\n0.664\n0.331\n\n\nSocEnv\n0.848\n0.767\n0.481\n\n\nEnvCit\n0.787\n0.793\n0.434\n\n\nLandStew\n0.768\n0.770\n0.627",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pro-Environmental Behavior (PEB)</span>"
     ]
@@ -104,7 +144,17 @@
     "href": "06_pwb.html",
     "title": "Psychological Well-Being (PWB)",
     "section": "",
-    "text": "Reliabilitas PWB\nModel multidimensional 6-faktor (First-Order). Dioptimasi dengan 3 MI.\nLihat kode\nprint_rel_table(fit_pwb)\n\n\n\n\nTable 6.1: Reliabilitas Skala PWB (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nAutonomy\n0.630\n0.639\n0.254\n\n\nMastery\n-0.214\n0.053\n0.209\n\n\nGrowth\n-0.882\n0.053\n0.227\n\n\nRelations\n-0.217\n0.173\n0.233\n\n\nPurpose\n-0.683\n0.211\n0.371\n\n\nAcceptance\n0.344\n0.507\n0.170",
+    "text": "Model Fit PWB\nModel multidimensional 6-faktor (First-Order). Dioptimasi dengan 3 MI.\nLihat kode\nprint_fit_table(fit_pwb, \"PWB\")\n\n\n\n\nTable 6.1: Fit Model PWB\n\n\n\n\n\n\nModel\nChi-Square\ndf\np\nCFI\nTLI\nRMSEA\nSRMR\n\n\n\n\nPWB\n3810.49\n801\n0\n0.554\n0.52\n0.1\n0.13",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Psychological Well-Being (PWB)</span>"
+    ]
+  },
+  {
+    "objectID": "06_pwb.html#reliabilitas-pwb",
+    "href": "06_pwb.html#reliabilitas-pwb",
+    "title": "Psychological Well-Being (PWB)",
+    "section": "Reliabilitas PWB",
+    "text": "Reliabilitas PWB\n\n\nLihat kode\nprint_rel_table(fit_pwb)\n\n\n\n\nTable 6.2: Reliabilitas Skala PWB (Dimensi)\n\n\n\n\n\n\nFaktor\nAlpha\nOmega\nAVE\n\n\n\n\nAutonomy\n0.630\n0.639\n0.254\n\n\nMastery\n-0.214\n0.053\n0.209\n\n\nGrowth\n-0.882\n0.053\n0.227\n\n\nRelations\n-0.217\n0.173\n0.233\n\n\nPurpose\n-0.683\n0.211\n0.371\n\n\nAcceptance\n0.344\n0.507\n0.170",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Psychological Well-Being (PWB)</span>"
     ]

@@ -30,11 +30,21 @@
     ]
   },
   {
+    "objectID": "index.html#wilayah-pembangunan-tempat-tinggal",
+    "href": "index.html#wilayah-pembangunan-tempat-tinggal",
+    "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
+    "section": "Wilayah Pembangunan (Tempat Tinggal)",
+    "text": "Wilayah Pembangunan (Tempat Tinggal)\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Provinsi, c(\"1\" = \"Bodebekpunjur\", \"2\" = \"Purwasuka\", \"3\" = \"Sukabumi dsk\", \"4\" = \"Cekungan Bandung\", \"5\" = \"Priangan Timur\", \"6\" = \"Ciayumajakuning\")))\n\n\n\n\nTable 3: Distribusi Wilayah Pembangunan\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nBodebekpunjur\n60\n16.09%\n\n\nPurwasuka\n10\n2.68%\n\n\nSukabumi dsk\n9\n2.41%\n\n\nCekungan Bandung\n261\n69.97%\n\n\nPriangan Timur\n19\n5.09%\n\n\nCiayumajakuning\n14\n3.75%",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
+    ]
+  },
+  {
     "objectID": "index.html#area-tempat-tinggal",
     "href": "index.html#area-tempat-tinggal",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Area Tempat Tinggal",
-    "text": "Area Tempat Tinggal\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Area, c(\"1\" = \"Urban (Kota)\", \"2\" = \"Suburban (Pinggiran)\", \"3\" = \"Rural (Pedesaan)\")))\n\n\n\n\nTable 3: Distribusi Area Tempat Tinggal\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nUrban (Kota)\n183\n49.06%\n\n\nSuburban (Pinggiran)\n128\n34.32%\n\n\nRural (Pedesaan)\n62\n16.62%",
+    "text": "Area Tempat Tinggal\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Area, c(\"1\" = \"Urban (Kota)\", \"2\" = \"Suburban (Pinggiran)\", \"3\" = \"Rural (Pedesaan)\")))\n\n\n\n\nTable 4: Distribusi Area Tempat Tinggal\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nUrban (Kota)\n183\n49.06%\n\n\nSuburban (Pinggiran)\n128\n34.32%\n\n\nRural (Pedesaan)\n62\n16.62%",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -44,7 +54,7 @@
     "href": "index.html#tipe-hunian",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Tipe Hunian",
-    "text": "Tipe Hunian\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Hunian, c(\"1\" = \"Rumah Orang Tua\", \"2\" = \"Kos/Kontrakan\", \"3\" = \"Asrama\", \"4\" = \"Lainnya\")))\n\n\n\n\nTable 4: Distribusi Tipe Hunian\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nRumah Orang Tua\n152\n40.75%\n\n\nKos/Kontrakan\n206\n55.23%\n\n\nAsrama\n11\n2.95%\n\n\nLainnya\n3\n0.8%\n\n\nMess tempat kerja\n1\n0.27%",
+    "text": "Tipe Hunian\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Hunian, c(\"1\" = \"Rumah Orang Tua\", \"2\" = \"Kos/Kontrakan\", \"3\" = \"Asrama\", \"4\" = \"Lainnya\")))\n\n\n\n\nTable 5: Distribusi Tipe Hunian\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nRumah Orang Tua\n152\n40.75%\n\n\nKos/Kontrakan\n206\n55.23%\n\n\nAsrama\n11\n2.95%\n\n\nLainnya\n3\n0.8%\n\n\nMess tempat kerja\n1\n0.27%",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]

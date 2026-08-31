@@ -366,6 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#jenis-kelamin" id="toc-jenis-kelamin" class="nav-link active" data-scroll-target="#jenis-kelamin">Jenis Kelamin</a></li>
   <li><a href="#usia" id="toc-usia" class="nav-link" data-scroll-target="#usia">Usia</a></li>
   <li><a href="#semester" id="toc-semester" class="nav-link" data-scroll-target="#semester">Semester</a></li>
+  <li><a href="#wilayah-pembangunan-tempat-tinggal" id="toc-wilayah-pembangunan-tempat-tinggal" class="nav-link" data-scroll-target="#wilayah-pembangunan-tempat-tinggal">Wilayah Pembangunan (Tempat Tinggal)</a></li>
   <li><a href="#area-tempat-tinggal" id="toc-area-tempat-tinggal" class="nav-link" data-scroll-target="#area-tempat-tinggal">Area Tempat Tinggal</a></li>
   <li><a href="#tipe-hunian" id="toc-tipe-hunian" class="nav-link" data-scroll-target="#tipe-hunian">Tipe Hunian</a></li>
   </ul>
@@ -551,17 +552,78 @@ Table&nbsp;2: Distribusi Semester
 </div>
 </div>
 </section>
+<section id="wilayah-pembangunan-tempat-tinggal" class="level2">
+<h2 class="anchored" data-anchor-id="wilayah-pembangunan-tempat-tinggal">Wilayah Pembangunan (Tempat Tinggal)</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Lihat kode</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Provinsi, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Bodebekpunjur"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Purwasuka"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Sukabumi dsk"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Cekungan Bandung"</span>, <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Priangan Timur"</span>, <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"Ciayumajakuning"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div id="tbl-wilayah" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-wilayah-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Distribusi Wilayah Pembangunan
+</figcaption>
+<div aria-describedby="tbl-wilayah-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Kategori</th>
+<th style="text-align: right;">Frekuensi</th>
+<th style="text-align: left;">Persentase</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Bodebekpunjur</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: left;">16.09%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Purwasuka</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">2.68%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sukabumi dsk</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">2.41%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cekungan Bandung</td>
+<td style="text-align: right;">261</td>
+<td style="text-align: left;">69.97%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Priangan Timur</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">5.09%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ciayumajakuning</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">3.75%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
 <section id="area-tempat-tinggal" class="level2">
 <h2 class="anchored" data-anchor-id="area-tempat-tinggal">Area Tempat Tinggal</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Area, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Urban (Kota)"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Suburban (Pinggiran)"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Rural (Pedesaan)"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Area, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Urban (Kota)"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Suburban (Pinggiran)"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Rural (Pedesaan)"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-area" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: Distribusi Area Tempat Tinggal
+Table&nbsp;4: Distribusi Area Tempat Tinggal
 </figcaption>
 <div aria-describedby="tbl-area-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -602,12 +664,12 @@ Table&nbsp;3: Distribusi Area Tempat Tinggal
 <div class="cell">
 <details class="code-fold">
 <summary>Lihat kode</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Hunian, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rumah Orang Tua"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Kos/Kontrakan"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Asrama"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Lainnya"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Hunian, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rumah Orang Tua"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Kos/Kontrakan"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Asrama"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Lainnya"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-hunian" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-hunian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4: Distribusi Tipe Hunian
+Table&nbsp;5: Distribusi Tipe Hunian
 </figcaption>
 <div aria-describedby="tbl-hunian-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -1132,68 +1194,75 @@ Table&nbsp;4: Distribusi Tipe Hunian
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Statistik Deskriptif (Demografi)"</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Eksekusi unduh data (menghasilkan data/cleaned_data.rds)</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/setup_data.R"</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Load helper functions</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/helpers.R"</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Baca data yang sudah disiapkan</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/cleaned_data.rds"</span>)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Catatan</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliabilitas alat ukur yang terintegrasi secara *real-time* dengan basis data primer.</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>Dataset berisi **`r nrow(df)`** observasi dan siap digunakan untuk analisis lanjutan.</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Jenis Kelamin</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-gender</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Jenis Kelamin"</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Gender, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Laki-laki"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Perempuan"</span>)))</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Usia</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: demografi-usia</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>usia_m   <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>)</span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>usia_sd  <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sd</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>)</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>usia_min <span class="ot">&lt;-</span> <span class="fu">min</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>usia_max <span class="ot">&lt;-</span> <span class="fu">max</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>*M* = `r usia_m` tahun, *SD* = <span class="in">`r usia_sd`</span>, Min = <span class="in">`r usia_min`</span>, Max = <span class="in">`r usia_max`</span>.</span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Semester</span></span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-semester</span></span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Semester"</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Semester, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Semester 1"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Semester 2"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Semester 3"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Semester 4"</span>, <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Semester 5"</span>, <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"Semester 6"</span>, <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"Semester 7"</span>, <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"Semester 8"</span>, <span class="st">"Lebih dari semester 8"</span> <span class="ot">=</span> <span class="st">"&gt; Semester 8"</span>)))</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Area Tempat Tinggal</span></span>
-<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-area</span></span>
-<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Area Tempat Tinggal"</span></span>
-<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Area, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Urban (Kota)"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Suburban (Pinggiran)"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Rural (Pedesaan)"</span>)))</span>
-<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tipe Hunian</span></span>
-<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-hunian</span></span>
-<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Tipe Hunian"</span></span>
-<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Hunian, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rumah Orang Tua"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Kos/Kontrakan"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Asrama"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Lainnya"</span>)))</span>
-<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Statistik Deskriptif (Demografi)"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| include: false</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Eksekusi unduh data (menghasilkan data/cleaned_data.rds)</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/setup_data.R"</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Load helper functions</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"R/helpers.R"</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Baca data yang sudah disiapkan</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/cleaned_data.rds"</span>)</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Catatan</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliabilitas alat ukur yang terintegrasi secara *real-time* dengan basis data primer.</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>Dataset berisi **`r nrow(df)`** observasi dan siap digunakan untuk analisis lanjutan.</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="fu">## Jenis Kelamin</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-gender</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Jenis Kelamin"</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Gender, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Laki-laki"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Perempuan"</span>)))</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="fu">## Usia</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: demografi-usia</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>usia_m   <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>)</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>usia_sd  <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sd</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>)</span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>usia_min <span class="ot">&lt;-</span> <span class="fu">min</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>usia_max <span class="ot">&lt;-</span> <span class="fu">max</span>(df<span class="sc">$</span>Usia, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>*M* = `r usia_m` tahun, *SD* = <span class="in">`r usia_sd`</span>, Min = <span class="in">`r usia_min`</span>, Max = <span class="in">`r usia_max`</span>.</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="fu">## Semester</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-semester</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Semester"</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Semester, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Semester 1"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Semester 2"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Semester 3"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Semester 4"</span>, <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Semester 5"</span>, <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"Semester 6"</span>, <span class="st">"7"</span> <span class="ot">=</span> <span class="st">"Semester 7"</span>, <span class="st">"8"</span> <span class="ot">=</span> <span class="st">"Semester 8"</span>, <span class="st">"Lebih dari semester 8"</span> <span class="ot">=</span> <span class="st">"&gt; Semester 8"</span>)))</span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Wilayah Pembangunan (Tempat Tinggal)</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-wilayah</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Wilayah Pembangunan"</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Provinsi, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Bodebekpunjur"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Purwasuka"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Sukabumi dsk"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Cekungan Bandung"</span>, <span class="st">"5"</span> <span class="ot">=</span> <span class="st">"Priangan Timur"</span>, <span class="st">"6"</span> <span class="ot">=</span> <span class="st">"Ciayumajakuning"</span>)))</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="fu">## Area Tempat Tinggal</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-area</span></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Area Tempat Tinggal"</span></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Area, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Urban (Kota)"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Suburban (Pinggiran)"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Rural (Pedesaan)"</span>)))</span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Tipe Hunian</span></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-hunian</span></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Distribusi Tipe Hunian"</span></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="fu">print_demo_table</span>(df<span class="sc">$</span>Hunian, <span class="fu">c</span>(<span class="st">"1"</span> <span class="ot">=</span> <span class="st">"Rumah Orang Tua"</span>, <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"Kos/Kontrakan"</span>, <span class="st">"3"</span> <span class="ot">=</span> <span class="st">"Asrama"</span>, <span class="st">"4"</span> <span class="ot">=</span> <span class="st">"Lainnya"</span>)))</span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

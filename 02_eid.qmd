@@ -36,6 +36,17 @@ saveRDS(fit_eid, "data/fit_eid.rds")
 print_fit_table(fit_eid, "EID")
 ```
 
+
+## Visualisasi Model EID
+
+```{r}
+#| label: fig-cfa-eid
+#| fig-cap: "Visualisasi CFA First-Order EID"
+#| fig-width: 8
+#| fig-height: 6
+plot_cfa(fit_eid, "CFA Model EID (First-Order)")
+```
+
 ## Reliabilitas EID
 
 ```{r}

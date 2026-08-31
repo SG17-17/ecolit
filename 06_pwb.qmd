@@ -44,6 +44,17 @@ if(!is.null(fit_pwb)){
 print_fit_table(fit_pwb, "PWB")
 ```
 
+
+## Visualisasi Model PWB
+
+```{r}
+#| label: fig-cfa-pwb
+#| fig-cap: "Visualisasi CFA First-Order PWB"
+#| fig-width: 8
+#| fig-height: 6
+plot_cfa(fit_pwb, "CFA Model PWB (First-Order)")
+```
+
 ## Reliabilitas PWB
 
 ```{r}

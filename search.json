@@ -4,17 +4,17 @@
     "href": "index.html",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "",
-    "text": "Data Base & Pemrosesan Responden\nData utama penelitian ini ditarik secara otomatis dari Google Sheets (sheet Scoring). Mesin pemroses akan memfilter data yang masuk untuk memastikan kualitas responden.\nBerikut adalah rekam jejak penyaringan data dari responden masuk hingga menjadi data final (bersih):\nDataset bersih yang memuat 374 observasi di atas kini siap digunakan untuk analisis lanjutan berupa Statistik Deskriptif dan CFA.",
+    "text": "Database & Pemrosesan Responden\nData responden diambil secara otomatis dari Google Sheets (Scoring). Selanjutnya, data diperiksa dan disaring sesuai kriteria yang telah ditentukan untuk mendapatkan data yang siap digunakan.\nUpdate terakhir: 31 August 2026, Pukul 15:34 WIB\nBerikut proses penyaringan data dari responden masuk hingga menjadi data final.\nSetelah proses penyaringan selesai, diperoleh 374 observasi yang dapat digunakan untuk analisis selanjutnya.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
   },
   {
-    "objectID": "index.html#data-base-pemrosesan-responden",
-    "href": "index.html#data-base-pemrosesan-responden",
+    "objectID": "index.html#database-pemrosesan-responden",
+    "href": "index.html#database-pemrosesan-responden",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "",
-    "text": "🕒 Pembaruan Terakhir: 31 August 2026, Pukul 15:30 WIB\n\n\n\n\n&lt;div style=\"margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;\"&gt;Total Responden&lt;/div&gt;\n&lt;div style=\"font-size: 3.5rem; font-weight: 800; color: #212529; margin: 0.5rem 0; line-height: 1;\"&gt;407&lt;/div&gt;\n&lt;div style=\"font-size: 0.85rem; color: #6c757d;\"&gt;Data Masuk&lt;/div&gt;\n\n\n&lt;div style=\"margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;\"&gt;Tereliminasi&lt;/div&gt;\n&lt;div style=\"font-size: 3.5rem; font-weight: 800; color: #e15759; margin: 0.5rem 0; line-height: 1;\"&gt;33&lt;/div&gt;\n&lt;div style=\"font-size: 0.85rem; color: #6c757d;\"&gt;Gugur (Attention Check)&lt;/div&gt;\n\n\n&lt;div style=\"margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;\"&gt;Data Final&lt;/div&gt;\n&lt;div style=\"font-size: 3.5rem; font-weight: 800; color: #59a14f; margin: 0.5rem 0; line-height: 1;\"&gt;374&lt;/div&gt;\n&lt;div style=\"font-size: 0.85rem; color: #6c757d;\"&gt;Lolos Validitas (Bersih)&lt;/div&gt;",
+    "text": "&lt;div style=\"margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;\"&gt;Total Responden&lt;/div&gt;\n&lt;div style=\"font-size: 3.5rem; font-weight: 800; color: #212529; margin: 0.5rem 0; line-height: 1;\"&gt;407&lt;/div&gt;\n&lt;div style=\"font-size: 0.85rem; color: #6c757d;\"&gt;Data Masuk&lt;/div&gt;\n\n\n&lt;div style=\"margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;\"&gt;Tereliminasi&lt;/div&gt;\n&lt;div style=\"font-size: 3.5rem; font-weight: 800; color: #e15759; margin: 0.5rem 0; line-height: 1;\"&gt;33&lt;/div&gt;\n&lt;div style=\"font-size: 0.85rem; color: #6c757d;\"&gt;Gugur (Attention Check)&lt;/div&gt;\n\n\n&lt;div style=\"margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;\"&gt;Data Final&lt;/div&gt;\n&lt;div style=\"font-size: 3.5rem; font-weight: 800; color: #59a14f; margin: 0.5rem 0; line-height: 1;\"&gt;374&lt;/div&gt;\n&lt;div style=\"font-size: 0.85rem; color: #6c757d;\"&gt;Lolos Validitas (Bersih)&lt;/div&gt;",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]

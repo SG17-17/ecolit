@@ -363,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Daftar Isi</h2>
    
   <ul>
-  <li><a href="#data-base-pemrosesan-responden" id="toc-data-base-pemrosesan-responden" class="nav-link active" data-scroll-target="#data-base-pemrosesan-responden">Data Base &amp; Pemrosesan Responden</a></li>
+  <li><a href="#database-pemrosesan-responden" id="toc-database-pemrosesan-responden" class="nav-link active" data-scroll-target="#database-pemrosesan-responden">Database &amp; Pemrosesan Responden</a></li>
   <li><a href="#jenis-kelamin" id="toc-jenis-kelamin" class="nav-link" data-scroll-target="#jenis-kelamin">Jenis Kelamin</a></li>
   <li><a href="#usia" id="toc-usia" class="nav-link" data-scroll-target="#usia">Usia</a></li>
   <li><a href="#semester" id="toc-semester" class="nav-link" data-scroll-target="#semester">Semester</a></li>
@@ -422,13 +422,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliabilitas alat ukur yang terintegrasi secara <em>real-time</em> dengan basis data primer.</p>
 </div>
 </div>
-<section id="data-base-pemrosesan-responden" class="level2">
-<h2 class="anchored" data-anchor-id="data-base-pemrosesan-responden">Data Base &amp; Pemrosesan Responden</h2>
-<p>Data utama penelitian ini ditarik secara otomatis dari <a href="https://docs.google.com/spreadsheets/d/1u7L4GSSsuVDv9j7ccgWvccwr7A5Ks0szkiY-RTHVsA8/edit?usp=sharing">Google Sheets</a> (sheet <code>Scoring</code>). Mesin pemroses akan memfilter data yang masuk untuk memastikan kualitas responden.</p>
-<blockquote class="blockquote">
-<p>🕒 <strong>Pembaruan Terakhir:</strong> 31 August 2026, Pukul 15:30 WIB</p>
-</blockquote>
-<p>Berikut adalah rekam jejak penyaringan data dari responden masuk hingga menjadi data final (bersih):</p>
+<section id="database-pemrosesan-responden" class="level2">
+<h2 class="anchored" data-anchor-id="database-pemrosesan-responden">Database &amp; Pemrosesan Responden</h2>
+<p>Data responden diambil secara otomatis dari <a href="https://docs.google.com/spreadsheets/d/1u7L4GSSsuVDv9j7ccgWvccwr7A5Ks0szkiY-RTHVsA8/edit?usp=sharing">Google Sheets</a> (Scoring). Selanjutnya, data diperiksa dan disaring sesuai kriteria yang telah ditentukan untuk mendapatkan data yang siap digunakan.</p>
+<p><strong>Update terakhir:</strong> 31 August 2026, Pukul 15:34 WIB</p>
+<p>Berikut proses penyaringan data dari responden masuk hingga menjadi data final.</p>
 <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: space-between;">
 <div style="flex: 1; min-width: 200px; background: #f8f9fa; border-top: 5px solid #4e79a7; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
 <pre><code>&lt;div style="margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;"&gt;Total Responden&lt;/div&gt;
@@ -447,7 +445,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <hr>
-<p>Dataset bersih yang memuat <strong>374</strong> observasi di atas kini siap digunakan untuk analisis lanjutan berupa Statistik Deskriptif dan CFA.</p>
+<p>Setelah proses penyaringan selesai, diperoleh <strong>374 observasi</strong> yang dapat digunakan untuk analisis selanjutnya.</p>
 </section>
 <section id="jenis-kelamin" class="level2">
 <h2 class="anchored" data-anchor-id="jenis-kelamin">Jenis Kelamin</h2>
@@ -1377,13 +1375,13 @@ Table&nbsp;5: Distribusi Tipe Hunian
 <span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Base &amp; Pemrosesan Responden</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## Database &amp; Pemrosesan Responden</span></span>
 <span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>Data utama penelitian ini ditarik secara otomatis dari <span class="co">[</span><span class="ot">Google Sheets</span><span class="co">](https://docs.google.com/spreadsheets/d/1u7L4GSSsuVDv9j7ccgWvccwr7A5Ks0szkiY-RTHVsA8/edit?usp=sharing)</span> (sheet <span class="in">`Scoring`</span>). Mesin pemroses akan memfilter data yang masuk untuk memastikan kualitas responden.</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>Data responden diambil secara otomatis dari <span class="co">[</span><span class="ot">Google Sheets</span><span class="co">](https://docs.google.com/spreadsheets/d/1u7L4GSSsuVDv9j7ccgWvccwr7A5Ks0szkiY-RTHVsA8/edit?usp=sharing)</span> (Scoring). Selanjutnya, data diperiksa dan disaring sesuai kriteria yang telah ditentukan untuk mendapatkan data yang siap digunakan.</span>
 <span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; 🕒 **Pembaruan Terakhir:** </span><span class="in">`r db_info$waktu_update`</span></span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>**Update terakhir:** <span class="in">`r db_info$waktu_update`</span></span>
 <span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>Berikut adalah rekam jejak penyaringan data dari responden masuk hingga menjadi data final (bersih):</span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>Berikut proses penyaringan data dari responden masuk hingga menjadi data final.</span>
 <span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> style</span><span class="op">=</span><span class="st">"display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: space-between;"</span><span class="dt">&gt;</span></span>
@@ -1409,7 +1407,7 @@ Table&nbsp;5: Distribusi Tipe Hunian
 <span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>***</span>
 <span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>Dataset bersih yang memuat **`r nrow(df)`** observasi di atas kini siap digunakan untuk analisis lanjutan berupa Statistik Deskriptif dan CFA.</span>
+<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>Setelah proses penyaringan selesai, diperoleh **`r nrow(df)` observasi** yang dapat digunakan untuk analisis selanjutnya.</span>
 <span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Jenis Kelamin</span></span>
 <span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>

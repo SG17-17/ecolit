@@ -43,6 +43,7 @@ print_fit_table(fit_psmls, "PSML")
 #| fig-cap: "Visualisasi CFA First-Order PSML"
 #| fig-width: 8
 #| fig-height: 6
+#| eval: false
 plot_cfa(fit_psmls, "CFA Model PSML (First-Order)")
 ```
 

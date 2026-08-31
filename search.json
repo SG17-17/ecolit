@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "",
-    "text": "Jenis Kelamin\nDataset berisi 373 observasi dan siap digunakan untuk analisis lanjutan.\nLihat kode\nknitr::kable(print_demo_table(df$Gender, c(\"1\" = \"Laki-laki\", \"2\" = \"Perempuan\")))\n\n\n\n\nTable 1: Distribusi Jenis Kelamin\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nLaki-laki\n127\n34.05%\n\n\nPerempuan\n246\n65.95%",
+    "text": "Jenis Kelamin\nDataset berisi 373 observasi dan siap digunakan untuk analisis lanjutan.\nLihat kode\nknitr::kable(print_demo_table(df$Gender, c(\"1\" = \"Laki-laki\", \"2\" = \"Perempuan\")))\n\n\n\n\nTable 1: Distribusi Jenis Kelamin\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nLaki-laki\n127\n34.05%\n\n\nPerempuan\n246\n65.95%\nLihat kode\ndf %&gt;% \n  filter(!is.na(Gender)) %&gt;%\n  mutate(Gender = factor(Gender, levels = c(1, 2), labels = c(\"Laki-laki\", \"Perempuan\"))) %&gt;%\n  ggplot(aes(x = Gender, fill = Gender)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#4e79a7\", \"#e15759\")) +\n  labs(x = NULL, y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Jenis Kelamin",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#usia",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Usia",
-    "text": "Usia\n\n\nLihat kode\nusia_m   &lt;- round(mean(df$Usia, na.rm = TRUE), 2)\nusia_sd  &lt;- round(sd(df$Usia, na.rm = TRUE), 2)\nusia_min &lt;- min(df$Usia, na.rm = TRUE)\nusia_max &lt;- max(df$Usia, na.rm = TRUE)\n\n\nM = 20.67 tahun, SD = 1.66, Min = 18, Max = 27.",
+    "text": "Usia\n\n\nLihat kode\nusia_m   &lt;- round(mean(df$Usia, na.rm = TRUE), 2)\nusia_sd  &lt;- round(sd(df$Usia, na.rm = TRUE), 2)\nusia_min &lt;- min(df$Usia, na.rm = TRUE)\nusia_max &lt;- max(df$Usia, na.rm = TRUE)\n\n\nM = 20.67 tahun, SD = 1.66, Min = 18, Max = 27.\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Usia)) %&gt;%\n  ggplot(aes(x = Usia)) +\n  geom_histogram(binwidth = 1, fill = \"#59a14f\", color = \"black\", alpha = 0.8) +\n  labs(x = \"Usia (Tahun)\", y = \"Jumlah\") +\n  theme_minimal()\n\n\n\n\n\nVisualisasi Sebaran Usia",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -24,7 +24,7 @@
     "href": "index.html#semester",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Semester",
-    "text": "Semester\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Semester, c(\"1\" = \"Semester 1\", \"2\" = \"Semester 2\", \"3\" = \"Semester 3\", \"4\" = \"Semester 4\", \"5\" = \"Semester 5\", \"6\" = \"Semester 6\", \"7\" = \"Semester 7\", \"8\" = \"Semester 8\", \"Lebih dari semester 8\" = \"&gt; Semester 8\")))\n\n\n\n\nTable 2: Distribusi Semester\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nSemester 1\n25\n6.7%\n\n\nSemester 2\n7\n1.88%\n\n\nSemester 3\n84\n22.52%\n\n\nSemester 4\n11\n2.95%\n\n\nSemester 5\n100\n26.81%\n\n\nSemester 6\n14\n3.75%\n\n\nSemester 7\n82\n21.98%\n\n\nSemester 8\n28\n7.51%\n\n\n&gt; Semester 8\n22\n5.9%",
+    "text": "Semester\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Semester, c(\"1\" = \"Semester 1\", \"2\" = \"Semester 2\", \"3\" = \"Semester 3\", \"4\" = \"Semester 4\", \"5\" = \"Semester 5\", \"6\" = \"Semester 6\", \"7\" = \"Semester 7\", \"8\" = \"Semester 8\", \"Lebih dari semester 8\" = \"&gt; Semester 8\")))\n\n\n\n\nTable 2: Distribusi Semester\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nSemester 1\n25\n6.7%\n\n\nSemester 2\n7\n1.88%\n\n\nSemester 3\n84\n22.52%\n\n\nSemester 4\n11\n2.95%\n\n\nSemester 5\n100\n26.81%\n\n\nSemester 6\n14\n3.75%\n\n\nSemester 7\n82\n21.98%\n\n\nSemester 8\n28\n7.51%\n\n\n&gt; Semester 8\n22\n5.9%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Semester)) %&gt;%\n  mutate(Semester = factor(Semester, \n                           levels = c(\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"Lebih dari semester 8\"), \n                           labels = c(\"Sem 1\", \"Sem 2\", \"Sem 3\", \"Sem 4\", \"Sem 5\", \"Sem 6\", \"Sem 7\", \"Sem 8\", \"&gt; Sem 8\"))) %&gt;%\n  ggplot(aes(x = Semester, fill = Semester)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = \"Semester\", y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\", axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\nVisualisasi Semester",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -34,7 +34,7 @@
     "href": "index.html#wilayah-pembangunan-tempat-tinggal",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Wilayah Pembangunan (Tempat Tinggal)",
-    "text": "Wilayah Pembangunan (Tempat Tinggal)\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Provinsi, c(\"1\" = \"Bodebekpunjur\", \"2\" = \"Purwasuka\", \"3\" = \"Sukabumi dsk\", \"4\" = \"Cekungan Bandung\", \"5\" = \"Priangan Timur\", \"6\" = \"Ciayumajakuning\")))\n\n\n\n\nTable 3: Distribusi Wilayah Pembangunan\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nBodebekpunjur\n60\n16.09%\n\n\nPurwasuka\n10\n2.68%\n\n\nSukabumi dsk\n9\n2.41%\n\n\nCekungan Bandung\n261\n69.97%\n\n\nPriangan Timur\n19\n5.09%\n\n\nCiayumajakuning\n14\n3.75%",
+    "text": "Wilayah Pembangunan (Tempat Tinggal)\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Provinsi, c(\"1\" = \"Bodebekpunjur\", \"2\" = \"Purwasuka\", \"3\" = \"Sukabumi dsk\", \"4\" = \"Cekungan Bandung\", \"5\" = \"Priangan Timur\", \"6\" = \"Ciayumajakuning\")))\n\n\n\n\nTable 3: Distribusi Wilayah Pembangunan\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nBodebekpunjur\n60\n16.09%\n\n\nPurwasuka\n10\n2.68%\n\n\nSukabumi dsk\n9\n2.41%\n\n\nCekungan Bandung\n261\n69.97%\n\n\nPriangan Timur\n19\n5.09%\n\n\nCiayumajakuning\n14\n3.75%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Provinsi)) %&gt;%\n  mutate(Provinsi = factor(Provinsi, \n                           levels = c(\"1\", \"2\", \"3\", \"4\", \"5\", \"6\"), \n                           labels = c(\"Bodebekpunjur\", \"Purwasuka\", \"Sukabumi dsk\", \"Cekungan Bandung\", \"Priangan Timur\", \"Ciayumajakuning\"))) %&gt;%\n  ggplot(aes(y = reorder(Provinsi, Provinsi, function(x) length(x)), fill = Provinsi)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = \"Jumlah\", y = NULL) +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Wilayah Pembangunan",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -44,7 +44,7 @@
     "href": "index.html#area-tempat-tinggal",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Area Tempat Tinggal",
-    "text": "Area Tempat Tinggal\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Area, c(\"1\" = \"Urban (Kota)\", \"2\" = \"Suburban (Pinggiran)\", \"3\" = \"Rural (Pedesaan)\")))\n\n\n\n\nTable 4: Distribusi Area Tempat Tinggal\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nUrban (Kota)\n183\n49.06%\n\n\nSuburban (Pinggiran)\n128\n34.32%\n\n\nRural (Pedesaan)\n62\n16.62%",
+    "text": "Area Tempat Tinggal\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Area, c(\"1\" = \"Urban (Kota)\", \"2\" = \"Suburban (Pinggiran)\", \"3\" = \"Rural (Pedesaan)\")))\n\n\n\n\nTable 4: Distribusi Area Tempat Tinggal\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nUrban (Kota)\n183\n49.06%\n\n\nSuburban (Pinggiran)\n128\n34.32%\n\n\nRural (Pedesaan)\n62\n16.62%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Area)) %&gt;%\n  mutate(Area = factor(Area, levels = c(\"1\", \"2\", \"3\"), labels = c(\"Urban\", \"Suburban\", \"Rural\"))) %&gt;%\n  ggplot(aes(x = Area, fill = Area)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#76b7b2\", \"#f28e2b\", \"#edc948\")) +\n  labs(x = NULL, y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Area Tempat Tinggal",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]
@@ -54,7 +54,7 @@
     "href": "index.html#tipe-hunian",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "Tipe Hunian",
-    "text": "Tipe Hunian\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Hunian, c(\"1\" = \"Rumah Orang Tua\", \"2\" = \"Kos/Kontrakan\", \"3\" = \"Asrama\", \"4\" = \"Lainnya\")))\n\n\n\n\nTable 5: Distribusi Tipe Hunian\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nRumah Orang Tua\n152\n40.75%\n\n\nKos/Kontrakan\n206\n55.23%\n\n\nAsrama\n11\n2.95%\n\n\nLainnya\n3\n0.8%\n\n\nMess tempat kerja\n1\n0.27%",
+    "text": "Tipe Hunian\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Hunian, c(\"1\" = \"Rumah Orang Tua\", \"2\" = \"Kos/Kontrakan\", \"3\" = \"Asrama\", \"4\" = \"Lainnya\")))\n\n\n\n\nTable 5: Distribusi Tipe Hunian\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nRumah Orang Tua\n152\n40.75%\n\n\nKos/Kontrakan\n206\n55.23%\n\n\nAsrama\n11\n2.95%\n\n\nLainnya\n3\n0.8%\n\n\nMess tempat kerja\n1\n0.27%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Hunian)) %&gt;%\n  mutate(Hunian = factor(Hunian, levels = c(\"1\", \"2\", \"3\", \"4\"), labels = c(\"Rumah Orang Tua\", \"Kos/Kontrakan\", \"Asrama\", \"Lainnya\"))) %&gt;%\n  ggplot(aes(x = reorder(Hunian, Hunian, function(x) -length(x)), fill = Hunian)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = NULL, y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Tipe Hunian",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]

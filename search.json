@@ -4,7 +4,27 @@
     "href": "index.html",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "",
-    "text": "Jenis Kelamin\nDataset berisi 374 observasi dan siap digunakan untuk analisis lanjutan.\nLihat kode\nknitr::kable(print_demo_table(df$Gender, c(\"1\" = \"Laki-laki\", \"2\" = \"Perempuan\")))\n\n\n\n\nTable 1: Distribusi Jenis Kelamin\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nLaki-laki\n128\n34.22%\n\n\nPerempuan\n246\n65.78%\nLihat kode\ndf %&gt;% \n  filter(!is.na(Gender)) %&gt;%\n  mutate(Gender = factor(Gender, levels = c(1, 2), labels = c(\"Laki-laki\", \"Perempuan\"))) %&gt;%\n  ggplot(aes(x = Gender, fill = Gender)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#4e79a7\", \"#e15759\")) +\n  labs(x = NULL, y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Jenis Kelamin",
+    "text": "Data Base & Pemrosesan Responden\nData utama penelitian ini ditarik secara otomatis dari Google Sheets (sheet Scoring). Mesin pemroses akan memfilter data yang masuk untuk memastikan kualitas responden.\nBerikut adalah rekam jejak penyaringan data dari responden masuk hingga menjadi data final (bersih):\nflowchart TD\n    A[Total Data Masuk&lt;br/&gt;&lt;b&gt;`r db_info$total_masuk`&lt;/b&gt; responden] --&gt; B{Pengecekan&lt;br/&gt;Validitas}\n    B -- Gugur (Attention Check) --&gt; C[Data Gugur&lt;br/&gt;&lt;b&gt;`r db_info$total_gugur`&lt;/b&gt; responden]\n    B -- Lolos --&gt; D[Data Final / Bersih&lt;br/&gt;&lt;b&gt;`r db_info$total_valid`&lt;/b&gt; responden]\n    \n    style A fill:#4e79a7,color:#fff,stroke:#333,stroke-width:2px\n    style B fill:#f28e2b,color:#fff,stroke:#333,stroke-width:2px\n    style C fill:#e15759,color:#fff,stroke:#333,stroke-width:2px\n    style D fill:#59a14f,color:#fff,stroke:#333,stroke-width:2px\nDataset bersih yang memuat 374 observasi di atas kini siap digunakan untuk analisis lanjutan berupa Statistik Deskriptif dan CFA.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#data-base-pemrosesan-responden",
+    "href": "index.html#data-base-pemrosesan-responden",
+    "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
+    "section": "",
+    "text": "🕒 Pembaruan Terakhir: 31 August 2026, Pukul 15:22 WIB",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
+    ]
+  },
+  {
+    "objectID": "index.html#jenis-kelamin",
+    "href": "index.html#jenis-kelamin",
+    "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
+    "section": "Jenis Kelamin",
+    "text": "Jenis Kelamin\n\n\nLihat kode\nknitr::kable(print_demo_table(df$Gender, c(\"1\" = \"Laki-laki\", \"2\" = \"Perempuan\")))\n\n\n\n\nTable 1: Distribusi Jenis Kelamin\n\n\n\n\n\n\nKategori\nFrekuensi\nPersentase\n\n\n\n\nLaki-laki\n128\n34.22%\n\n\nPerempuan\n246\n65.78%\n\n\n\n\n\n\n\n\n\n\nLihat kode\ndf %&gt;% \n  filter(!is.na(Gender)) %&gt;%\n  mutate(Gender = factor(Gender, levels = c(1, 2), labels = c(\"Laki-laki\", \"Perempuan\"))) %&gt;%\n  ggplot(aes(x = Gender, fill = Gender)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#4e79a7\", \"#e15759\")) +\n  labs(x = NULL, y = \"Jumlah\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Jenis Kelamin",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]

@@ -2,7 +2,7 @@ on:
   push:
     branches: main
   schedule:
-    - cron: '0 0 * * *' # Setiap jam 12 malam otomatis jalan
+    - cron: '0 * * * *' # Setiap 1 jam otomatis jalan
   workflow_dispatch: # Supaya bisa di klik run manual dari web GitHub
 
 name: Render and Publish Quarto

@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Data Analysis — Measurement Model Testing (CFA)",
     "section": "",
-    "text": "Database & Respondent Processing\nRespondent data is automatically pulled from Google Sheets (Scoring). Subsequently, the data is checked and filtered according to predetermined criteria to obtain data that is ready to use.\nLast updated: 03 September 2026, Pukul 04:32 WIB\nBelow is the data filtering process from incoming respondents to the final data.\nAfter the filtering process is complete, a total of 555 observations are obtained which can be used for further analysis.",
+    "text": "Database & Respondent Processing\nRespondent data is automatically pulled from Google Sheets (Scoring). Subsequently, the data is checked and filtered according to predetermined criteria to obtain data that is ready to use.\nLast updated: 03 September 2026, Pukul 06:48 WIB\nBelow is the data filtering process from incoming respondents to the final data.\nAfter the filtering process is complete, a total of 555 observations are obtained which can be used for further analysis.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descriptive Statistics (Demographics)</span>"
     ]

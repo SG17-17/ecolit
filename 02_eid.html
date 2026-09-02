@@ -402,49 +402,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_eid, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.7-2 ended normally after 16 iterations
+<pre><code>lavaan 0.7-2 ended normally after 15 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
   Number of model parameters                        28
 
-  Number of observations                           443
+  Number of observations                           456
 
 Model Test User Model:
                                               Standard      Scaled
-  Test Statistic                               492.158     346.331
+  Test Statistic                               504.988     355.023
   Degrees of freedom                                77          77
   P-value (Chi-square)                           0.000       0.000
-  Scaling correction factor                                  1.421
+  Scaling correction factor                                  1.422
     Yuan-Bentler correction (Mplus variant)                       
 
 Model Test Baseline Model:
 
-  Test statistic                              3166.452    2148.597
+  Test statistic                              3284.693    2226.755
   Degrees of freedom                                91          91
   P-value                                        0.000       0.000
-  Scaling correction factor                                  1.474
+  Scaling correction factor                                  1.475
 
 User Model versus Baseline Model:
 
-  Comparative Fit Index (CFI)                    0.865       0.869
-  Tucker-Lewis Index (TLI)                       0.840       0.845
+  Comparative Fit Index (CFI)                    0.866       0.870
+  Tucker-Lewis Index (TLI)                       0.842       0.846
                                                                   
   Robust Comparative Fit Index (CFI)                         0.874
-  Robust Tucker-Lewis Index (TLI)                            0.851
+  Robust Tucker-Lewis Index (TLI)                            0.852
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)              -8665.409   -8665.409
-  Scaling correction factor                                  1.500
+  Loglikelihood user model (H0)              -8888.513   -8888.513
+  Scaling correction factor                                  1.497
       for the MLR correction                                      
-  Loglikelihood unrestricted model (H1)      -8419.330   -8419.330
+  Loglikelihood unrestricted model (H1)      -8636.019   -8636.019
   Scaling correction factor                                  1.442
       for the MLR correction                                      
                                                                   
-  Akaike (AIC)                               17386.818   17386.818
-  Bayesian (BIC)                             17501.438   17501.438
-  Sample-size adjusted Bayesian (SABIC)      17412.579   17412.579
+  Akaike (AIC)                               17833.026   17833.026
+  Bayesian (BIC)                             17948.456   17948.456
+  Sample-size adjusted Bayesian (SABIC)      17859.593   17859.593
 
 Root Mean Square Error of Approximation:
 
@@ -452,7 +452,7 @@ Root Mean Square Error of Approximation:
   90 Percent confidence interval - lower         0.101       0.081
   90 Percent confidence interval - upper         0.120       0.097
   P-value H_0: RMSEA &lt;= 0.050                    0.000       0.000
-  P-value H_0: RMSEA &gt;= 0.080                    1.000       0.967
+  P-value H_0: RMSEA &gt;= 0.080                    1.000       0.971
                                                                   
   Robust RMSEA                                               0.106
   90 Percent confidence interval - lower                     0.095
@@ -462,7 +462,7 @@ Root Mean Square Error of Approximation:
 
 Standardized Root Mean Square Residual:
 
-  SRMR                                           0.061       0.061
+  SRMR                                           0.060       0.060
 
 Goodness of Fit Index:
 
@@ -483,37 +483,37 @@ Parameter Estimates:
 Latent Variables:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
   EID =~                                                                
-    EID_1             0.890    0.064   14.007    0.000    0.890    0.678
-    EID_2             0.876    0.058   15.063    0.000    0.876    0.671
-    EID_3             0.818    0.058   14.105    0.000    0.818    0.678
-    EID_4             0.914    0.061   14.959    0.000    0.914    0.730
-    EID_5             0.656    0.074    8.809    0.000    0.656    0.454
-    EID_6             0.679    0.063   10.794    0.000    0.679    0.611
-    EID_7             0.718    0.053   13.596    0.000    0.718    0.640
-    EID_8             0.712    0.065   10.927    0.000    0.712    0.607
-    EID_9             1.001    0.058   17.195    0.000    1.001    0.702
-    EID_10            0.809    0.060   13.452    0.000    0.809    0.656
-    EID_11            0.786    0.055   14.311    0.000    0.786    0.737
-    EID_12            0.736    0.059   12.426    0.000    0.736    0.651
-    EID_13            0.929    0.061   15.196    0.000    0.929    0.777
-    EID_14            0.820    0.053   15.490    0.000    0.820    0.755
+    EID_1             0.890    0.062   14.323    0.000    0.890    0.681
+    EID_2             0.866    0.057   15.202    0.000    0.866    0.668
+    EID_3             0.822    0.057   14.515    0.000    0.822    0.683
+    EID_4             0.915    0.060   15.336    0.000    0.915    0.734
+    EID_5             0.652    0.073    8.976    0.000    0.652    0.454
+    EID_6             0.681    0.061   11.082    0.000    0.681    0.614
+    EID_7             0.723    0.052   13.954    0.000    0.723    0.644
+    EID_8             0.716    0.064   11.219    0.000    0.716    0.611
+    EID_9             0.998    0.057   17.520    0.000    0.998    0.705
+    EID_10            0.811    0.059   13.777    0.000    0.811    0.659
+    EID_11            0.788    0.054   14.626    0.000    0.788    0.738
+    EID_12            0.737    0.058   12.721    0.000    0.737    0.653
+    EID_13            0.928    0.060   15.524    0.000    0.928    0.777
+    EID_14            0.821    0.052   15.843    0.000    0.821    0.755
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-   .EID_1             0.931    0.096    9.664    0.000    0.931    0.540
-   .EID_2             0.939    0.088   10.703    0.000    0.939    0.550
-   .EID_3             0.786    0.070   11.260    0.000    0.786    0.540
-   .EID_4             0.731    0.068   10.671    0.000    0.731    0.467
-   .EID_5             1.660    0.122   13.577    0.000    1.660    0.794
-   .EID_6             0.775    0.060   12.834    0.000    0.775    0.627
-   .EID_7             0.742    0.061   12.204    0.000    0.742    0.590
-   .EID_8             0.869    0.102    8.479    0.000    0.869    0.631
-   .EID_9             1.030    0.087   11.823    0.000    1.030    0.507
-   .EID_10            0.865    0.079   10.886    0.000    0.865    0.569
-   .EID_11            0.520    0.057    9.189    0.000    0.520    0.457
-   .EID_12            0.736    0.071   10.330    0.000    0.736    0.576
-   .EID_13            0.566    0.071    7.969    0.000    0.566    0.396
-   .EID_14            0.508    0.054    9.405    0.000    0.508    0.430
+   .EID_1             0.917    0.094    9.762    0.000    0.917    0.537
+   .EID_2             0.928    0.085   10.892    0.000    0.928    0.553
+   .EID_3             0.773    0.068   11.349    0.000    0.773    0.534
+   .EID_4             0.715    0.067   10.717    0.000    0.715    0.461
+   .EID_5             1.639    0.119   13.751    0.000    1.639    0.794
+   .EID_6             0.765    0.059   12.998    0.000    0.765    0.623
+   .EID_7             0.736    0.059   12.404    0.000    0.736    0.585
+   .EID_8             0.863    0.100    8.594    0.000    0.863    0.627
+   .EID_9             1.008    0.085   11.903    0.000    1.008    0.503
+   .EID_10            0.858    0.078   11.073    0.000    0.858    0.566
+   .EID_11            0.520    0.055    9.400    0.000    0.520    0.456
+   .EID_12            0.731    0.070   10.438    0.000    0.731    0.573
+   .EID_13            0.564    0.069    8.135    0.000    0.564    0.396
+   .EID_14            0.509    0.053    9.627    0.000    0.509    0.430
     EID               1.000                               1.000    1.000</code></pre>
 </div>
 <details class="code-fold">
@@ -545,7 +545,7 @@ Table&nbsp;2.1: Fit Model EID
 <col style="width: 15%">
 <col style="width: 15%">
 <col style="width: 18%">
-<col style="width: 8%">
+<col style="width: 7%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -562,13 +562,13 @@ Table&nbsp;2.1: Fit Model EID
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">EID</td>
-<td style="text-align: right;">346.33</td>
+<td style="text-align: right;">355.02</td>
 <td style="text-align: right;">77</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.874</td>
-<td style="text-align: right;">0.851</td>
+<td style="text-align: right;">0.852</td>
 <td style="text-align: right;">0.106</td>
-<td style="text-align: right;">0.061</td>
+<td style="text-align: right;">0.06</td>
 </tr>
 </tbody>
 </table>
@@ -626,8 +626,8 @@ Table&nbsp;2.2: Reliabilitas Skala EID
 <tr class="odd">
 <td style="text-align: left;">EID</td>
 <td style="text-align: right;">0.917</td>
-<td style="text-align: right;">0.913</td>
-<td style="text-align: right;">0.445</td>
+<td style="text-align: right;">0.914</td>
+<td style="text-align: right;">0.447</td>
 </tr>
 </tbody>
 </table>

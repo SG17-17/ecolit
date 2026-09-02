@@ -2,7 +2,7 @@
 title: "Environmental Self-Identity (ESI)"
 ---
 
-Model pengukuran unidimensional untuk ESI (6 aitem). *Murni teoritis.*
+Unidimensional measurement model for ESI (6 items). *Purely theoretical.*
 
 ```{r}
 #| label: setup-cfa-esi
@@ -20,7 +20,7 @@ model_esi <- "
 fit_esi <- cfa(model_esi, data = df, std.lv = TRUE, estimator = "MLR")
 summary(fit_esi, fit.measures = TRUE, standardized = TRUE)
 
-# Simpan hasil untuk halaman summary
+# Save results for summary page
 saveRDS(fit_esi, "data/fit_esi.rds")
 ```
 
@@ -29,25 +29,25 @@ saveRDS(fit_esi, "data/fit_esi.rds")
 
 ```{r}
 #| label: tbl-fit-esi
-#| tbl-cap: "Fit Model ESI"
+#| tbl-cap: "Model Fit ESI"
 print_fit_table(fit_esi, "ESI")
 ```
 
 
-## Visualisasi Model ESI
+## Model Visualization ESI
 
 ```{r}
 #| label: fig-cfa-esi
-#| fig-cap: "Visualisasi CFA First-Order ESI"
+#| fig-cap: "First-Order CFA Visualization ESI"
 #| fig-width: 8
 #| fig-height: 6
 plot_cfa(fit_esi, "CFA Model ESI (First-Order)")
 ```
 
-## Reliabilitas ESI
+## Reliability ESI
 
 ```{r}
 #| label: tbl-rel-esi
-#| tbl-cap: "Reliabilitas Skala ESI"
+#| tbl-cap: "Scale Reliability ESI"
 print_rel_table(fit_esi)
 ```

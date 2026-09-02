@@ -2,7 +2,7 @@
 title: "Perceived Social Media Literacy (PSML)"
 ---
 
-Model multidimensional 4-faktor yang saling berkorelasi (First-Order). *Murni teoritis.*
+Correlated 4-factor multidimensional model (First-Order). *Purely theoretical.*
 
 ```{r}
 #| label: setup-cfa-psmls
@@ -31,26 +31,26 @@ saveRDS(fit_psmls, "data/fit_psmls.rds")
 
 ```{r}
 #| label: tbl-fit-psmls
-#| tbl-cap: "Fit Model PSML"
+#| tbl-cap: "Model Fit PSML"
 print_fit_table(fit_psmls, "PSML")
 ```
 
 
-## Visualisasi Model PSML
+## Model Visualization PSML
 
 ```{r}
 #| label: fig-cfa-psmls
-#| fig-cap: "Visualisasi CFA First-Order PSML"
+#| fig-cap: "First-Order CFA Visualization PSML"
 #| fig-width: 8
 #| fig-height: 6
 #| eval: false
 plot_cfa(fit_psmls, "CFA Model PSML (First-Order)")
 ```
 
-## Reliabilitas PSML
+## Reliability PSML
 
 ```{r}
 #| label: tbl-rel-psmls
-#| tbl-cap: "Reliabilitas Skala PSMLS (Dimensi)"
+#| tbl-cap: "Scale Reliability PSMLS (Dimensi)"
 print_rel_table(fit_psmls)
 ```

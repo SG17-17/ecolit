@@ -12,9 +12,9 @@ print_demo_table <- function(variabel, labels) {
         return(x)
     })
     data.frame(
-        Kategori   = unname(display),
-        Frekuensi  = as.numeric(freq),
-        Persentase = paste0(round(pct, 2), "%"),
+        Category   = unname(display),
+        Frequency  = as.numeric(freq),
+        Percentage = paste0(round(pct, 2), "%"),
         check.names = FALSE
     )
 }
@@ -26,7 +26,7 @@ get_rel_df <- function(fit) {
   o <- compRelSEM(fit, tau.eq = FALSE)
   ave <- AVE(fit)
   data.frame(
-      Faktor = names(a),
+      Factor = names(a),
       Alpha  = round(as.numeric(a), 3),
       Omega  = round(as.numeric(o[names(a)]), 3),
       AVE    = round(as.numeric(ave[names(a)]), 3),
@@ -37,7 +37,7 @@ get_rel_df <- function(fit) {
 # Helper function: Tabel Reliabilitas (Markdown HTML)
 print_rel_table <- function(fit) {
   res <- get_rel_df(fit)
-  if (is.null(res)) return(cat("Tidak dapat menghitung reliabilitas karena model CFA tidak konvergen.\n"))
+  if (is.null(res)) return(cat("Unable to compute reliability because the CFA model did not converge.\n"))
   return(knitr::kable(res))
 }
 
@@ -83,7 +83,7 @@ get_cfa_fit_df <- function(fit, model_name) {
 # Helper function: Tabel Fit Model CFA (Markdown HTML)
 print_fit_table <- function(fit, model_name) {
   res <- get_cfa_fit_df(fit, model_name)
-  if (is.null(res)) return(cat("Tidak dapat menghitung fit model karena model CFA tidak konvergen.\n"))
+  if (is.null(res)) return(cat("Unable to compute model fit because the CFA model did not converge.\n"))
   return(knitr::kable(res))
 }
 

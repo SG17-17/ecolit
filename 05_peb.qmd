@@ -2,7 +2,7 @@
 title: "Pro-Environmental Behavior (PEB)"
 ---
 
-Model multidimensional 4-faktor (First-Order). *Dioptimasi dengan 3 MI.*
+4-factor multidimensional model (First-Order). *Optimized with 3 MIs.*
 
 ```{r}
 #| label: setup-cfa-peb
@@ -34,26 +34,26 @@ saveRDS(fit_peb, "data/fit_peb.rds")
 
 ```{r}
 #| label: tbl-fit-peb
-#| tbl-cap: "Fit Model PEB"
+#| tbl-cap: "Model Fit PEB"
 print_fit_table(fit_peb, "PEB")
 ```
 
 
-## Visualisasi Model PEB
+## Model Visualization PEB
 
 ```{r}
 #| label: fig-cfa-peb
-#| fig-cap: "Visualisasi CFA First-Order PEB"
+#| fig-cap: "First-Order CFA Visualization PEB"
 #| fig-width: 8
 #| fig-height: 6
 #| eval: false
 plot_cfa(fit_peb, "CFA Model PEB (First-Order)")
 ```
 
-## Reliabilitas PEB
+## Reliability PEB
 
 ```{r}
 #| label: tbl-rel-peb
-#| tbl-cap: "Reliabilitas Skala PEB (Dimensi)"
+#| tbl-cap: "Scale Reliability PEB (Dimensi)"
 print_rel_table(fit_peb)
 ```

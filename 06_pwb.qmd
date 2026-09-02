@@ -2,7 +2,7 @@
 title: "Psychological Well-Being (PWB)"
 ---
 
-Model multidimensional 6-faktor (First-Order). *Dioptimasi dengan 3 MI.*
+6-factor multidimensional model (First-Order). *Optimized with 3 MIs.*
 
 ```{r}
 #| label: setup-cfa-pwb
@@ -40,26 +40,26 @@ if(!is.null(fit_pwb)){
 
 ```{r}
 #| label: tbl-fit-pwb
-#| tbl-cap: "Fit Model PWB"
+#| tbl-cap: "Model Fit PWB"
 print_fit_table(fit_pwb, "PWB")
 ```
 
 
-## Visualisasi Model PWB
+## Model Visualization PWB
 
 ```{r}
 #| label: fig-cfa-pwb
-#| fig-cap: "Visualisasi CFA First-Order PWB"
+#| fig-cap: "First-Order CFA Visualization PWB"
 #| fig-width: 8
 #| fig-height: 6
 #| eval: false
 plot_cfa(fit_pwb, "CFA Model PWB (First-Order)")
 ```
 
-## Reliabilitas PWB
+## Reliability PWB
 
 ```{r}
 #| label: tbl-rel-pwb
-#| tbl-cap: "Reliabilitas Skala PWB (Dimensi)"
+#| tbl-cap: "Scale Reliability PWB (Dimensi)"
 print_rel_table(fit_pwb)
 ```

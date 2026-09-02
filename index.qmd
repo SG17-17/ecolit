@@ -1,5 +1,5 @@
 ---
-title: "Statistik Deskriptif (Demografi)"
+title: "Descriptive Statistics (Demographics)"
 ---
 
 ```{r}
@@ -19,64 +19,64 @@ db_info <- readRDS("data/db_info.rds")
 df <- readRDS("data/cleaned_data.rds")
 ```
 ::: {.callout-note}
-## Catatan
-File ini berisi analisis utama untuk pengujian model pengukuran (CFA) dan reliabilitas alat ukur yang terintegrasi secara *real-time* dengan basis data primer.
+## Note
+This file contains the main analysis for measurement model testing (CFA) and scale reliability integrated in real-time with the primary database.
 :::
 
 
-## Database & Pemrosesan Responden
+## Database & Respondent Processing
 
-Data responden diambil secara otomatis dari [Google Sheets](https://docs.google.com/spreadsheets/d/1u7L4GSSsuVDv9j7ccgWvccwr7A5Ks0szkiY-RTHVsA8/edit?usp=sharing) (Scoring). Selanjutnya, data diperiksa dan disaring sesuai kriteria yang telah ditentukan untuk mendapatkan data yang siap digunakan.
+Respondent data is automatically pulled from [Google Sheets](https://docs.google.com/spreadsheets/d/1u7L4GSSsuVDv9j7ccgWvccwr7A5Ks0szkiY-RTHVsA8/edit?usp=sharing) (Scoring). Subsequently, the data is checked and filtered according to predetermined criteria to obtain data that is ready to use.
 
-**Update terakhir:** `r db_info$waktu_update`
+**Last updated:** `r db_info$waktu_update`
 
-Berikut proses penyaringan data dari responden masuk hingga menjadi data final.
+Below is the data filtering process from incoming respondents to the final data.
 
 
 <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: space-between;">
 <div style="flex: 1; min-width: 200px; background: #f8f9fa; border-top: 5px solid #4e79a7; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<div style="margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Total Responden</div>
+<div style="margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Total Respondents</div>
 <div style="font-size: 3.5rem; font-weight: 800; color: #212529; margin: 0.5rem 0; line-height: 1;">`r db_info$total_masuk`</div>
-<div style="font-size: 0.85rem; color: #6c757d;">Data Masuk</div>
+<div style="font-size: 0.85rem; color: #6c757d;">Incoming Data</div>
 </div>
 <div style="flex: 1; min-width: 200px; background: #f8f9fa; border-top: 5px solid #e15759; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<div style="margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Tereliminasi</div>
+<div style="margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Eliminated</div>
 <div style="font-size: 3.5rem; font-weight: 800; color: #e15759; margin: 0.5rem 0; line-height: 1;">`r db_info$total_gugur`</div>
-<div style="font-size: 0.85rem; color: #6c757d;">Gugur (Attention Check)</div>
+<div style="font-size: 0.85rem; color: #6c757d;">Excluded (Attention Check)</div>
 </div>
 <div style="flex: 1; min-width: 200px; background: #f8f9fa; border-top: 5px solid #59a14f; border-radius: 8px; padding: 1.5rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-<div style="margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Data Final</div>
+<div style="margin: 0; color: #6c757d; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Final Data</div>
 <div style="font-size: 3.5rem; font-weight: 800; color: #59a14f; margin: 0.5rem 0; line-height: 1;">`r db_info$total_valid`</div>
-<div style="font-size: 0.85rem; color: #6c757d;">Lolos Validitas (Bersih)</div>
+<div style="font-size: 0.85rem; color: #6c757d;">Passed Validity (Clean)</div>
 </div>
 </div>
 
 ***
 
-Setelah proses penyaringan selesai, diperoleh **`r nrow(df)` observasi** yang dapat digunakan untuk analisis selanjutnya.
+After the filtering process is complete, a total of **`r nrow(df)` observations** are obtained which can be used for further analysis.
 
-## Jenis Kelamin
+## Gender
 ```{r}
 #| label: tbl-gender
-#| tbl-cap: "Distribusi Jenis Kelamin"
-knitr::kable(print_demo_table(df$Gender, c("1" = "Laki-laki", "2" = "Perempuan")))
+#| tbl-cap: "Gender Distribution"
+knitr::kable(print_demo_table(df$Gender, c("1" = "Male", "2" = "Female")))
 ```
 
 ```{r}
 #| label: plot-gender
-#| fig-cap: "Visualisasi Jenis Kelamin"
+#| fig-cap: "Gender Visualization"
 df %>% 
   filter(!is.na(Gender)) %>%
-  mutate(Gender = factor(Gender, levels = c(1, 2), labels = c("Laki-laki", "Perempuan"))) %>%
+  mutate(Gender = factor(Gender, levels = c(1, 2), labels = c("Male", "Female"))) %>%
   ggplot(aes(x = Gender, fill = Gender)) +
   geom_bar(color = "black", alpha = 0.8) +
   scale_fill_manual(values = c("#4e79a7", "#e15759")) +
-  labs(x = NULL, y = "Jumlah") +
+  labs(x = NULL, y = "Count") +
   theme_minimal() +
   theme(legend.position = "none")
 ```
 
-## Usia
+## Age
 ```{r}
 #| label: demografi-usia
 usia_m   <- round(mean(df$Usia, na.rm = TRUE), 2)
@@ -84,51 +84,51 @@ usia_sd  <- round(sd(df$Usia, na.rm = TRUE), 2)
 usia_min <- min(df$Usia, na.rm = TRUE)
 usia_max <- max(df$Usia, na.rm = TRUE)
 ```
-*M* = `r usia_m` tahun, *SD* = `r usia_sd`, Min = `r usia_min`, Max = `r usia_max`.
+*M* = `r usia_m` years old, *SD* = `r usia_sd`, Min = `r usia_min`, Max = `r usia_max`.
 
 ```{r}
 #| label: plot-usia
-#| fig-cap: "Visualisasi Sebaran Usia"
+#| fig-cap: "Age Distribution Visualization"
 df %>% 
   filter(!is.na(Usia)) %>%
   ggplot(aes(x = Usia)) +
   geom_histogram(binwidth = 1, fill = "#59a14f", color = "black", alpha = 0.8) +
-  labs(x = "Usia (Tahun)", y = "Jumlah") +
+  labs(x = "Age (Years)", y = "Count") +
   theme_minimal()
 ```
 
 ## Semester
 ```{r}
 #| label: tbl-semester
-#| tbl-cap: "Distribusi Semester"
-knitr::kable(print_demo_table(df$Semester, c("1" = "Semester 1", "2" = "Semester 2", "3" = "Semester 3", "4" = "Semester 4", "5" = "Semester 5", "6" = "Semester 6", "7" = "Semester 7", "8" = "Semester 8", "Lebih dari semester 8" = "> Semester 8")))
+#| tbl-cap: "Semester Distribution"
+knitr::kable(print_demo_table(df$Semester, c("1" = "Semester 1", "2" = "Semester 2", "3" = "Semester 3", "4" = "Semester 4", "5" = "Semester 5", "6" = "Semester 6", "7" = "Semester 7", "8" = "Semester 8", "> Semester 8" = "> Semester 8")))
 ```
 
 ```{r}
 #| label: plot-semester
-#| fig-cap: "Visualisasi Semester"
+#| fig-cap: "Semester Visualization"
 df %>% 
   filter(!is.na(Semester)) %>%
   mutate(Semester = factor(Semester, 
-                           levels = c("1", "2", "3", "4", "5", "6", "7", "8", "Lebih dari semester 8"), 
+                           levels = c("1", "2", "3", "4", "5", "6", "7", "8", "> Semester 8"), 
                            labels = c("Sem 1", "Sem 2", "Sem 3", "Sem 4", "Sem 5", "Sem 6", "Sem 7", "Sem 8", "> Sem 8"))) %>%
   ggplot(aes(x = Semester, fill = Semester)) +
   geom_bar(color = "black", alpha = 0.8) +
-  labs(x = "Semester", y = "Jumlah") +
+  labs(x = "Semester", y = "Count") +
   theme_minimal() +
   theme(legend.position = "none", axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-## Wilayah Pembangunan (Tempat Tinggal)
+## Development Region (Residence)
 ```{r}
 #| label: tbl-wilayah
-#| tbl-cap: "Distribusi Wilayah Pembangunan"
+#| tbl-cap: "Development Region Distribution"
 knitr::kable(print_demo_table(df$Provinsi, c("1" = "Bodebekpunjur", "2" = "Purwasuka", "3" = "Sukabumi dsk", "4" = "Cekungan Bandung", "5" = "Priangan Timur", "6" = "Ciayumajakuning")))
 ```
 
 ```{r}
 #| label: plot-wilayah
-#| fig-cap: "Visualisasi Wilayah Pembangunan"
+#| fig-cap: "Development Region Visualization"
 df %>% 
   filter(!is.na(Provinsi)) %>%
   mutate(Provinsi = factor(Provinsi, 
@@ -136,37 +136,37 @@ df %>%
                            labels = c("Bodebekpunjur", "Purwasuka", "Sukabumi dsk", "Cekungan Bandung", "Priangan Timur", "Ciayumajakuning"))) %>%
   ggplot(aes(y = reorder(Provinsi, Provinsi, function(x) length(x)), fill = Provinsi)) +
   geom_bar(color = "black", alpha = 0.8) +
-  labs(x = "Jumlah", y = NULL) +
+  labs(x = "Count", y = NULL) +
   theme_minimal() +
   theme(legend.position = "none")
 ```
 
-## Area Tempat Tinggal
+## Living Area
 ```{r}
 #| label: tbl-area
-#| tbl-cap: "Distribusi Area Tempat Tinggal"
-knitr::kable(print_demo_table(df$Area, c("1" = "Urban (Kota)", "2" = "Suburban (Pinggiran)", "3" = "Rural (Pedesaan)")))
+#| tbl-cap: "Living Area Distribution"
+knitr::kable(print_demo_table(df$Area, c("1" = "Urban", "2" = "Suburban", "3" = "Rural")))
 ```
 
 ```{r}
 #| label: plot-area
-#| fig-cap: "Visualisasi Area Tempat Tinggal"
+#| fig-cap: "Living Area Visualization"
 df %>% 
   filter(!is.na(Area)) %>%
   mutate(Area = factor(Area, levels = c("1", "2", "3"), labels = c("Urban", "Suburban", "Rural"))) %>%
   ggplot(aes(x = Area, fill = Area)) +
   geom_bar(color = "black", alpha = 0.8) +
   scale_fill_manual(values = c("#76b7b2", "#f28e2b", "#edc948")) +
-  labs(x = NULL, y = "Jumlah") +
+  labs(x = NULL, y = "Count") +
   theme_minimal() +
   theme(legend.position = "none")
 ```
 
-## Tipe Hunian
+## Housing Type
 ```{r}
 #| label: tbl-hunian
-#| tbl-cap: "Distribusi Tipe Hunian"
-knitr::kable(print_demo_table(df$Hunian, c("1" = "Rumah Orang Tua", "2" = "Kos/Kontrakan", "3" = "Asrama", "4" = "Lainnya")))
+#| tbl-cap: "Housing Type Distribution"
+knitr::kable(print_demo_table(df$Hunian, c("1" = "Parent's House", "2" = "Boarding House", "3" = "Dormitory", "4" = "Other")))
 ```
 
 ```{r}
@@ -174,10 +174,10 @@ knitr::kable(print_demo_table(df$Hunian, c("1" = "Rumah Orang Tua", "2" = "Kos/K
 #| fig-cap: "Visualisasi Tipe Hunian"
 df %>% 
   filter(!is.na(Hunian)) %>%
-  mutate(Hunian = factor(Hunian, levels = c("1", "2", "3", "4"), labels = c("Rumah Orang Tua", "Kos/Kontrakan", "Asrama", "Lainnya"))) %>%
+  mutate(Hunian = factor(Hunian, levels = c("1", "2", "3", "4"), labels = c("Parent's House", "Boarding House", "Dormitory", "Other"))) %>%
   ggplot(aes(x = reorder(Hunian, Hunian, function(x) -length(x)), fill = Hunian)) +
   geom_bar(color = "black", alpha = 0.8) +
-  labs(x = NULL, y = "Jumlah") +
+  labs(x = NULL, y = "Count") +
   theme_minimal() +
   theme(legend.position = "none")
 ```

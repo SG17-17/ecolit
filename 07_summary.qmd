@@ -1,8 +1,8 @@
 ---
-title: "Summary & Kesimpulan"
+title: "Summary & Conclusions"
 ---
 
-Berikut adalah ringkasan dari seluruh hasil analisis, meliputi **Fit Model CFA** dan **Reliabilitas** (Alpha, Omega, dan AVE) untuk semua variabel ukur.
+Below is a summary of all analysis results, including **CFA Model Fit** and **Reliability** (Alpha, Omega, and AVE) for all measurement variables.
 
 ```{r}
 #| label: setup-summary
@@ -17,11 +17,11 @@ fit_peb <- if(file.exists("data/fit_peb.rds")) readRDS("data/fit_peb.rds") else 
 fit_pwb <- if(file.exists("data/fit_pwb.rds")) readRDS("data/fit_pwb.rds") else NULL
 ```
 
-## Ringkasan Fit Model (CFA)
+## Model Fit Summary (CFA)
 
 ```{r}
 #| label: tbl-summary-cfa
-#| tbl-cap: "Tabel Ringkasan Fit Model CFA Keseluruhan"
+#| tbl-cap: "Overall CFA Model Fit Summary Table"
 df_cfa <- rbind(
   if(!is.null(fit_eid)) get_cfa_fit_df(fit_eid, "EID") else NULL,
   if(!is.null(fit_esi)) get_cfa_fit_df(fit_esi, "ESI") else NULL,
@@ -33,15 +33,15 @@ df_cfa <- rbind(
 if (!is.null(df_cfa) && nrow(df_cfa) > 0) {
   knitr::kable(df_cfa)
 } else {
-  cat("Belum ada data model CFA yang dapat diringkas.\n")
+  cat("No CFA model data available to summarize.\n")
 }
 ```
 
-## Ringkasan Reliabilitas
+## Reliability Summary
 
 ```{r}
 #| label: tbl-summary-rel
-#| tbl-cap: "Tabel Ringkasan Reliabilitas Keseluruhan"
+#| tbl-cap: "Overall Reliability Summary Table"
 df_summary <- rbind(
   if(!is.null(fit_eid)) get_rel_df(fit_eid) else NULL,
   if(!is.null(fit_esi)) get_rel_df(fit_esi) else NULL,
@@ -53,6 +53,6 @@ df_summary <- rbind(
 if (!is.null(df_summary) && nrow(df_summary) > 0) {
   knitr::kable(df_summary)
 } else {
-  cat("Belum ada data reliabilitas yang dapat diringkas.\n")
+  cat("No reliability data available to summarize.\n")
 }
 ```

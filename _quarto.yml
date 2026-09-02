@@ -4,8 +4,8 @@ project:
   pre-render: "Rscript R/setup_data.R"
 
 book:
-  title: "Analisis Data — Pengujian Alat Ukur (CFA)"
-  subtitle: "Validitas dan Reliabilitas Konstruk"
+  title: "Data Analysis — Measurement Model Testing (CFA)"
+  subtitle: "Construct Validity and Reliability"
   author: "Muhammad Niam Makhali"
   date: today
   page-footer:
@@ -34,11 +34,11 @@ format:
       dark: darkly
     toc: true
     toc-depth: 3
-    toc-title: "Daftar Isi"
+    toc-title: "Table of Contents"
     number-sections: false
     code-fold: true
     code-tools: true
-    code-summary: "Lihat kode"
+    code-summary: "Show code"
     df-print: kable
     fig-dpi: 300
 

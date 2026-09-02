@@ -84,9 +84,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-91765e6d680498beea3368017c5870ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-c3efc056cb81073ed25de927b4c5627d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-91765e6d680498beea3368017c5870ea.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-59ddbb863ad6cbc1373a9539cdbe62fd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-9fbe1de810b3ed67a0143e858aac3a16.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-59ddbb863ad6cbc1373a9539cdbe62fd.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -416,17 +416,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.7-2 ended normally after 43 iterations
+<pre><code>lavaan 0.7-2 ended normally after 42 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
   Number of model parameters                       102
 
-  Number of observations                           554
+  Number of observations                           555
 
 Model Test User Model:
                                               Standard      Scaled
-  Test Statistic                              4607.215    3796.097
+  Test Statistic                              4612.519    3798.623
   Degrees of freedom                               801         801
   P-value (Chi-square)                           0.000       0.000
   Scaling correction factor                                  1.214
@@ -434,31 +434,31 @@ Model Test User Model:
 
 Model Test Baseline Model:
 
-  Test statistic                             10058.975    8058.622
+  Test statistic                             10078.883    8071.200
   Degrees of freedom                               861         861
   P-value                                        0.000       0.000
-  Scaling correction factor                                  1.248
+  Scaling correction factor                                  1.249
 
 User Model versus Baseline Model:
 
-  Comparative Fit Index (CFI)                    0.586       0.584
-  Tucker-Lewis Index (TLI)                       0.555       0.553
+  Comparative Fit Index (CFI)                    0.587       0.584
+  Tucker-Lewis Index (TLI)                       0.556       0.553
                                                                   
-  Robust Comparative Fit Index (CFI)                         0.595
+  Robust Comparative Fit Index (CFI)                         0.596
   Robust Tucker-Lewis Index (TLI)                            0.565
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)             -33105.884  -33105.884
+  Loglikelihood user model (H0)             -33154.088  -33154.088
   Scaling correction factor                                  1.420
       for the MLR correction                                      
-  Loglikelihood unrestricted model (H1)     -30802.276  -30802.276
-  Scaling correction factor                                  1.237
+  Loglikelihood unrestricted model (H1)     -30847.828  -30847.828
+  Scaling correction factor                                  1.238
       for the MLR correction                                      
                                                                   
-  Akaike (AIC)                               66415.768   66415.768
-  Bayesian (BIC)                             66856.119   66856.119
-  Sample-size adjusted Bayesian (SABIC)      66532.325   66532.325
+  Akaike (AIC)                               66512.175   66512.175
+  Bayesian (BIC)                             66952.710   66952.710
+  Sample-size adjusted Bayesian (SABIC)      66628.916   66628.916
 
 Root Mean Square Error of Approximation:
 
@@ -466,9 +466,9 @@ Root Mean Square Error of Approximation:
   90 Percent confidence interval - lower         0.090       0.080
   90 Percent confidence interval - upper         0.095       0.085
   P-value H_0: RMSEA &lt;= 0.050                    0.000       0.000
-  P-value H_0: RMSEA &gt;= 0.080                    1.000       0.932
+  P-value H_0: RMSEA &gt;= 0.080                    1.000       0.929
                                                                   
-  Robust RMSEA                                               0.091
+  Robust RMSEA                                               0.090
   90 Percent confidence interval - lower                     0.088
   90 Percent confidence interval - upper                     0.093
   P-value H_0: Robust RMSEA &lt;= 0.050                         0.000
@@ -480,12 +480,12 @@ Standardized Root Mean Square Residual:
 
 Goodness of Fit Index:
 
-  Goodness of Fit Index (GFI)                    0.600            
+  Goodness of Fit Index (GFI)                    0.601            
   90 Percent confidence interval - lower         0.591            
-  90 Percent confidence interval - upper         0.609            
+  90 Percent confidence interval - upper         0.610            
                                                                   
   Robust GFI                                                 0.606
-  90 Percent confidence interval - lower                     0.595
+  90 Percent confidence interval - lower                     0.596
   90 Percent confidence interval - upper                     0.616
 
 Parameter Estimates:
@@ -497,127 +497,127 @@ Parameter Estimates:
 Latent Variables:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
   Autonomy =~                                                           
-    PWB_1             0.393    0.051    7.730    0.000    0.393    0.391
-    PWB_7             0.215    0.059    3.631    0.000    0.215    0.207
-    PWB_13_R          0.667    0.061   10.870    0.000    0.667    0.535
-    PWB_19_R          0.632    0.059   10.751    0.000    0.632    0.491
-    PWB_25            0.353    0.056    6.279    0.000    0.353    0.322
-    PWB_31_R          0.924    0.052   17.665    0.000    0.924    0.674
-    PWB_37            0.539    0.057    9.460    0.000    0.539    0.551
+    PWB_1             0.395    0.051    7.774    0.000    0.395    0.393
+    PWB_7             0.217    0.059    3.673    0.000    0.217    0.209
+    PWB_13_R          0.667    0.061   10.892    0.000    0.667    0.535
+    PWB_19_R          0.631    0.059   10.768    0.000    0.631    0.491
+    PWB_25            0.354    0.056    6.320    0.000    0.354    0.323
+    PWB_31_R          0.922    0.052   17.677    0.000    0.922    0.673
+    PWB_37            0.539    0.057    9.461    0.000    0.539    0.551
   Mastery =~                                                            
-    PWB_2             0.291    0.060    4.834    0.000    0.291    0.286
-    PWB_8             0.351    0.060    5.839    0.000    0.351    0.392
-    PWB_14_R         -0.317    0.064   -4.979    0.000   -0.317   -0.303
-    PWB_20            0.253    0.045    5.575    0.000    0.253    0.325
-    PWB_26_R         -0.238    0.056   -4.223    0.000   -0.238   -0.263
-    PWB_32_R          0.934    0.057   16.240    0.000    0.934    0.676
-    PWB_38           -0.633    0.057  -11.099    0.000   -0.633   -0.546
+    PWB_2             0.293    0.060    4.882    0.000    0.293    0.288
+    PWB_8             0.350    0.060    5.855    0.000    0.350    0.392
+    PWB_14_R         -0.316    0.064   -4.965    0.000   -0.316   -0.301
+    PWB_20            0.254    0.045    5.608    0.000    0.254    0.326
+    PWB_26_R         -0.236    0.056   -4.202    0.000   -0.236   -0.261
+    PWB_32_R          0.934    0.057   16.310    0.000    0.934    0.676
+    PWB_38           -0.635    0.057  -11.161    0.000   -0.635   -0.547
   Growth =~                                                             
-    PWB_3_R           0.582    0.075    7.703    0.000    0.582    0.427
-    PWB_9            -0.537    0.068   -7.936    0.000   -0.537   -0.442
-    PWB_15_R          0.534    0.065    8.218    0.000    0.534    0.423
-    PWB_21           -0.738    0.072  -10.275    0.000   -0.738   -0.548
-    PWB_27_R          0.655    0.065   10.061    0.000    0.655    0.493
-    PWB_33            0.439    0.063    7.017    0.000    0.439    0.432
-    PWB_39_R         -0.418    0.055   -7.647    0.000   -0.418   -0.457
+    PWB_3_R           0.582    0.075    7.735    0.000    0.582    0.428
+    PWB_9            -0.537    0.068   -7.946    0.000   -0.537   -0.442
+    PWB_15_R          0.533    0.065    8.232    0.000    0.533    0.423
+    PWB_21           -0.737    0.072  -10.298    0.000   -0.737   -0.549
+    PWB_27_R          0.654    0.065   10.073    0.000    0.654    0.493
+    PWB_33            0.440    0.062    7.042    0.000    0.440    0.433
+    PWB_39_R         -0.418    0.054   -7.665    0.000   -0.418   -0.458
   Relations =~                                                          
-    PWB_4             0.521    0.061    8.590    0.000    0.521    0.431
-    PWB_10_R         -0.661    0.066   -9.989    0.000   -0.661   -0.521
-    PWB_16_R          0.321    0.046    6.943    0.000    0.321    0.367
-    PWB_22           -0.212    0.057   -3.727    0.000   -0.212   -0.220
-    PWB_28           -0.286    0.049   -5.806    0.000   -0.286   -0.325
-    PWB_34_R          0.548    0.068    8.086    0.000    0.548    0.519
-    PWB_40            0.823    0.056   14.651    0.000    0.823    0.634
+    PWB_4             0.521    0.060    8.623    0.000    0.521    0.431
+    PWB_10_R         -0.662    0.066  -10.026    0.000   -0.662   -0.522
+    PWB_16_R          0.322    0.046    6.978    0.000    0.322    0.368
+    PWB_22           -0.210    0.057   -3.706    0.000   -0.210   -0.218
+    PWB_28           -0.286    0.049   -5.815    0.000   -0.286   -0.325
+    PWB_34_R          0.546    0.068    8.067    0.000    0.546    0.518
+    PWB_40            0.822    0.056   14.662    0.000    0.822    0.634
   Purpose =~                                                            
-    PWB_5_R           0.426    0.052    8.141    0.000    0.426    0.465
-    PWB_11           -0.310    0.047   -6.527    0.000   -0.310   -0.384
-    PWB_17_R         -0.839    0.065  -12.991    0.000   -0.839   -0.621
-    PWB_23_R         -0.790    0.069  -11.373    0.000   -0.790   -0.564
-    PWB_29            0.357    0.073    4.897    0.000    0.357    0.266
-    PWB_35            1.032    0.054   19.102    0.000    1.032    0.746
-    PWB_41_R         -0.974    0.055  -17.800    0.000   -0.974   -0.714
+    PWB_5_R           0.427    0.052    8.165    0.000    0.427    0.466
+    PWB_11           -0.308    0.047   -6.489    0.000   -0.308   -0.382
+    PWB_17_R         -0.840    0.064  -13.038    0.000   -0.840   -0.621
+    PWB_23_R         -0.789    0.069  -11.382    0.000   -0.789   -0.564
+    PWB_29            0.357    0.073    4.913    0.000    0.357    0.267
+    PWB_35            1.032    0.054   19.148    0.000    1.032    0.747
+    PWB_41_R         -0.975    0.055  -17.859    0.000   -0.975   -0.715
   Acceptance =~                                                         
-    PWB_6             0.457    0.058    7.936    0.000    0.457    0.373
-    PWB_12            0.550    0.057    9.648    0.000    0.550    0.449
-    PWB_18_R          0.459    0.059    7.797    0.000    0.459    0.446
-    PWB_24            0.717    0.062   11.505    0.000    0.717    0.485
-    PWB_30_R          0.518    0.071    7.334    0.000    0.518    0.457
-    PWB_36_R          0.363    0.068    5.352    0.000    0.363    0.334
-    PWB_42           -0.371    0.065   -5.730    0.000   -0.371   -0.329
+    PWB_6             0.459    0.057    7.978    0.000    0.459    0.374
+    PWB_12            0.549    0.057    9.651    0.000    0.549    0.448
+    PWB_18_R          0.459    0.059    7.805    0.000    0.459    0.446
+    PWB_24            0.716    0.062   11.515    0.000    0.716    0.485
+    PWB_30_R          0.516    0.071    7.308    0.000    0.516    0.456
+    PWB_36_R          0.362    0.068    5.340    0.000    0.362    0.333
+    PWB_42           -0.369    0.065   -5.711    0.000   -0.369   -0.328
 
 Covariances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
  .PWB_34_R ~~                                                           
-   .PWB_30_R          0.503    0.069    7.289    0.000    0.503    0.553
+   .PWB_30_R          0.504    0.069    7.346    0.000    0.504    0.555
  .PWB_26_R ~~                                                           
-   .PWB_22           -0.422    0.046   -9.146    0.000   -0.422   -0.515
+   .PWB_22           -0.422    0.046   -9.186    0.000   -0.422   -0.516
  .PWB_37 ~~                                                             
-   .PWB_36_R         -0.332    0.056   -5.921    0.000   -0.332   -0.397
+   .PWB_36_R         -0.331    0.056   -5.936    0.000   -0.331   -0.397
   Autonomy ~~                                                           
-    Mastery           1.082    0.043   25.290    0.000    1.082    1.082
-    Growth            1.066    0.033   32.789    0.000    1.066    1.066
-    Relations        -1.077    0.031  -34.304    0.000   -1.077   -1.077
-    Purpose          -1.032    0.028  -36.225    0.000   -1.032   -1.032
-    Acceptance       -1.131    0.036  -31.773    0.000   -1.131   -1.131
+    Mastery           1.083    0.043   25.387    0.000    1.083    1.083
+    Growth            1.067    0.032   32.856    0.000    1.067    1.067
+    Relations        -1.077    0.031  -34.343    0.000   -1.077   -1.077
+    Purpose          -1.032    0.029  -36.210    0.000   -1.032   -1.032
+    Acceptance       -1.131    0.036  -31.728    0.000   -1.131   -1.131
   Mastery ~~                                                            
-    Growth            0.977    0.054   18.201    0.000    0.977    0.977
-    Relations        -1.028    0.051  -20.227    0.000   -1.028   -1.028
-    Purpose          -0.997    0.047  -21.006    0.000   -0.997   -0.997
-    Acceptance       -1.038    0.054  -19.234    0.000   -1.038   -1.038
+    Growth            0.977    0.054   18.259    0.000    0.977    0.977
+    Relations        -1.027    0.051  -20.321    0.000   -1.027   -1.027
+    Purpose          -0.997    0.047  -21.137    0.000   -0.997   -0.997
+    Acceptance       -1.036    0.054  -19.294    0.000   -1.036   -1.036
   Growth ~~                                                             
-    Relations        -1.085    0.043  -25.487    0.000   -1.085   -1.085
-    Purpose          -0.964    0.036  -27.163    0.000   -0.964   -0.964
-    Acceptance       -1.095    0.051  -21.327    0.000   -1.095   -1.095
+    Relations        -1.086    0.043  -25.549    0.000   -1.086   -1.086
+    Purpose          -0.964    0.035  -27.185    0.000   -0.964   -0.964
+    Acceptance       -1.095    0.051  -21.355    0.000   -1.095   -1.095
   Relations ~~                                                          
-    Purpose           1.041    0.033   31.778    0.000    1.041    1.041
-    Acceptance        1.139    0.041   27.909    0.000    1.139    1.139
+    Purpose           1.041    0.033   31.780    0.000    1.041    1.041
+    Acceptance        1.139    0.041   27.908    0.000    1.139    1.139
   Purpose ~~                                                            
-    Acceptance        1.082    0.037   29.151    0.000    1.082    1.082
+    Acceptance        1.082    0.037   29.103    0.000    1.082    1.082
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-   .PWB_1             0.856    0.067   12.751    0.000    0.856    0.847
-   .PWB_7             1.028    0.080   12.926    0.000    1.028    0.957
-   .PWB_13_R          1.110    0.083   13.377    0.000    1.110    0.714
-   .PWB_19_R          1.255    0.078   16.012    0.000    1.255    0.759
-   .PWB_25            1.076    0.083   12.934    0.000    1.076    0.896
-   .PWB_31_R          1.027    0.078   13.192    0.000    1.027    0.546
-   .PWB_37            0.668    0.061   10.941    0.000    0.668    0.697
-   .PWB_2             0.948    0.067   14.091    0.000    0.948    0.918
-   .PWB_8             0.677    0.061   11.015    0.000    0.677    0.846
-   .PWB_14_R          0.998    0.074   13.433    0.000    0.998    0.908
-   .PWB_20            0.544    0.048   11.393    0.000    0.544    0.895
-   .PWB_26_R          0.760    0.053   14.346    0.000    0.760    0.931
-   .PWB_32_R          1.037    0.100   10.378    0.000    1.037    0.543
-   .PWB_38            0.944    0.070   13.500    0.000    0.944    0.702
-   .PWB_3_R           1.514    0.097   15.630    0.000    1.514    0.817
-   .PWB_9             1.192    0.081   14.722    0.000    1.192    0.805
-   .PWB_15_R          1.307    0.108   12.124    0.000    1.307    0.821
-   .PWB_21            1.265    0.122   10.358    0.000    1.265    0.699
-   .PWB_27_R          1.332    0.098   13.569    0.000    1.332    0.756
-   .PWB_33            0.839    0.083   10.131    0.000    0.839    0.813
-   .PWB_39_R          0.660    0.057   11.614    0.000    0.660    0.791
-   .PWB_4             1.191    0.073   16.323    0.000    1.191    0.815
-   .PWB_10_R          1.172    0.089   13.178    0.000    1.172    0.728
-   .PWB_16_R          0.663    0.046   14.271    0.000    0.663    0.866
-   .PWB_22            0.880    0.059   14.917    0.000    0.880    0.952
-   .PWB_28            0.695    0.051   13.548    0.000    0.695    0.895
-   .PWB_34_R          0.813    0.073   11.066    0.000    0.813    0.730
-   .PWB_40            1.009    0.074   13.707    0.000    1.009    0.598
-   .PWB_5_R           0.658    0.051   12.978    0.000    0.658    0.783
-   .PWB_11            0.554    0.048   11.581    0.000    0.554    0.852
-   .PWB_17_R          1.124    0.097   11.571    0.000    1.124    0.615
-   .PWB_23_R          1.337    0.115   11.671    0.000    1.337    0.682
-   .PWB_29            1.666    0.093   17.903    0.000    1.666    0.929
-   .PWB_35            0.847    0.083   10.154    0.000    0.847    0.443
-   .PWB_41_R          0.913    0.084   10.862    0.000    0.913    0.490
-   .PWB_6             1.293    0.081   15.999    0.000    1.293    0.861
-   .PWB_12            1.199    0.079   15.225    0.000    1.199    0.799
-   .PWB_18_R          0.850    0.068   12.411    0.000    0.850    0.801
-   .PWB_24            1.668    0.098   16.971    0.000    1.668    0.764
-   .PWB_30_R          1.016    0.085   11.908    0.000    1.016    0.791
-   .PWB_36_R          1.047    0.078   13.383    0.000    1.047    0.888
-   .PWB_42            1.132    0.087   13.040    0.000    1.132    0.892
+   .PWB_1             0.856    0.067   12.766    0.000    0.856    0.846
+   .PWB_7             1.029    0.080   12.935    0.000    1.029    0.956
+   .PWB_13_R          1.108    0.083   13.385    0.000    1.108    0.714
+   .PWB_19_R          1.253    0.078   16.022    0.000    1.253    0.759
+   .PWB_25            1.076    0.083   12.945    0.000    1.076    0.896
+   .PWB_31_R          1.027    0.077   13.261    0.000    1.027    0.547
+   .PWB_37            0.667    0.061   10.953    0.000    0.667    0.697
+   .PWB_2             0.949    0.067   14.108    0.000    0.949    0.917
+   .PWB_8             0.676    0.061   11.033    0.000    0.676    0.847
+   .PWB_14_R          0.998    0.074   13.464    0.000    0.998    0.909
+   .PWB_20            0.544    0.048   11.393    0.000    0.544    0.894
+   .PWB_26_R          0.761    0.053   14.379    0.000    0.761    0.932
+   .PWB_32_R          1.035    0.100   10.398    0.000    1.035    0.543
+   .PWB_38            0.945    0.070   13.534    0.000    0.945    0.701
+   .PWB_3_R           1.512    0.097   15.628    0.000    1.512    0.817
+   .PWB_9             1.190    0.081   14.727    0.000    1.190    0.805
+   .PWB_15_R          1.305    0.108   12.133    0.000    1.305    0.821
+   .PWB_21            1.263    0.122   10.372    0.000    1.263    0.699
+   .PWB_27_R          1.329    0.098   13.586    0.000    1.329    0.757
+   .PWB_33            0.838    0.083   10.132    0.000    0.838    0.813
+   .PWB_39_R          0.659    0.057   11.620    0.000    0.659    0.791
+   .PWB_4             1.188    0.073   16.316    0.000    1.188    0.814
+   .PWB_10_R          1.170    0.089   13.179    0.000    1.170    0.727
+   .PWB_16_R          0.663    0.046   14.279    0.000    0.663    0.865
+   .PWB_22            0.879    0.059   14.950    0.000    0.879    0.952
+   .PWB_28            0.694    0.051   13.546    0.000    0.694    0.895
+   .PWB_34_R          0.813    0.073   11.126    0.000    0.813    0.732
+   .PWB_40            1.008    0.073   13.728    0.000    1.008    0.599
+   .PWB_5_R           0.656    0.051   12.976    0.000    0.656    0.783
+   .PWB_11            0.555    0.048   11.629    0.000    0.555    0.854
+   .PWB_17_R          1.122    0.097   11.562    0.000    1.122    0.614
+   .PWB_23_R          1.335    0.114   11.697    0.000    1.335    0.682
+   .PWB_29            1.663    0.093   17.889    0.000    1.663    0.929
+   .PWB_35            0.844    0.083   10.138    0.000    0.844    0.442
+   .PWB_41_R          0.911    0.084   10.857    0.000    0.911    0.489
+   .PWB_6             1.290    0.081   15.988    0.000    1.290    0.860
+   .PWB_12            1.197    0.079   15.235    0.000    1.197    0.799
+   .PWB_18_R          0.849    0.068   12.405    0.000    0.849    0.801
+   .PWB_24            1.665    0.098   16.977    0.000    1.665    0.764
+   .PWB_30_R          1.016    0.085   11.961    0.000    1.016    0.792
+   .PWB_36_R          1.046    0.078   13.402    0.000    1.046    0.889
+   .PWB_42            1.131    0.087   13.066    0.000    1.131    0.893
     Autonomy          1.000                               1.000    1.000
     Mastery           1.000                               1.000    1.000
     Growth            1.000                               1.000    1.000
@@ -666,12 +666,12 @@ Table&nbsp;6.1: Model Fit PWB
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">PWB</td>
-<td style="text-align: right;">3796.1</td>
+<td style="text-align: right;">3798.62</td>
 <td style="text-align: right;">801</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.595</td>
+<td style="text-align: right;">0.596</td>
 <td style="text-align: right;">0.565</td>
-<td style="text-align: right;">0.091</td>
+<td style="text-align: right;">0.09</td>
 <td style="text-align: right;">0.112</td>
 </tr>
 </tbody>
@@ -717,15 +717,15 @@ Table&nbsp;6.2: Scale Reliability PWB (Dimensi)
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Autonomy</td>
-<td style="text-align: right;">0.645</td>
+<td style="text-align: right;">0.646</td>
 <td style="text-align: right;">0.663</td>
 <td style="text-align: right;">0.248</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Mastery</td>
-<td style="text-align: right;">-0.222</td>
-<td style="text-align: right;">0.064</td>
-<td style="text-align: right;">0.223</td>
+<td style="text-align: right;">-0.223</td>
+<td style="text-align: right;">0.065</td>
+<td style="text-align: right;">0.224</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Growth</td>
@@ -735,15 +735,15 @@ Table&nbsp;6.2: Scale Reliability PWB (Dimensi)
 </tr>
 <tr class="even">
 <td style="text-align: left;">Relations</td>
-<td style="text-align: right;">-0.132</td>
+<td style="text-align: right;">-0.133</td>
 <td style="text-align: right;">0.148</td>
 <td style="text-align: right;">0.229</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Purpose</td>
-<td style="text-align: right;">-0.678</td>
-<td style="text-align: right;">0.176</td>
-<td style="text-align: right;">0.345</td>
+<td style="text-align: right;">-0.680</td>
+<td style="text-align: right;">0.175</td>
+<td style="text-align: right;">0.346</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Acceptance</td>

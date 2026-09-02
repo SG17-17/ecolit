@@ -402,17 +402,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_eid, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.7-2 ended normally after 15 iterations
+<pre><code>lavaan 0.7-2 ended normally after 16 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
   Number of model parameters                        28
 
-  Number of observations                           430
+  Number of observations                           431
 
 Model Test User Model:
                                               Standard      Scaled
-  Test Statistic                               500.427     351.429
+  Test Statistic                               500.698     351.612
   Degrees of freedom                                77          77
   P-value (Chi-square)                           0.000       0.000
   Scaling correction factor                                  1.424
@@ -420,7 +420,7 @@ Model Test User Model:
 
 Model Test Baseline Model:
 
-  Test statistic                              3042.733    2060.945
+  Test statistic                              3048.307    2064.685
   Degrees of freedom                                91          91
   P-value                                        0.000       0.000
   Scaling correction factor                                  1.476
@@ -428,23 +428,23 @@ Model Test Baseline Model:
 User Model versus Baseline Model:
 
   Comparative Fit Index (CFI)                    0.857       0.861
-  Tucker-Lewis Index (TLI)                       0.830       0.835
+  Tucker-Lewis Index (TLI)                       0.831       0.836
                                                                   
   Robust Comparative Fit Index (CFI)                         0.866
   Robust Tucker-Lewis Index (TLI)                            0.841
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)              -8400.116   -8400.116
-  Scaling correction factor                                  1.513
+  Loglikelihood user model (H0)              -8416.499   -8416.499
+  Scaling correction factor                                  1.514
       for the MLR correction                                      
-  Loglikelihood unrestricted model (H1)      -8149.903   -8149.903
+  Loglikelihood unrestricted model (H1)      -8166.150   -8166.150
   Scaling correction factor                                  1.448
       for the MLR correction                                      
                                                                   
-  Akaike (AIC)                               16856.233   16856.233
-  Bayesian (BIC)                             16970.019   16970.019
-  Sample-size adjusted Bayesian (SABIC)      16881.163   16881.163
+  Akaike (AIC)                               16888.998   16888.998
+  Bayesian (BIC)                             17002.849   17002.849
+  Sample-size adjusted Bayesian (SABIC)      16913.993   16913.993
 
 Root Mean Square Error of Approximation:
 
@@ -462,13 +462,13 @@ Root Mean Square Error of Approximation:
 
 Standardized Root Mean Square Residual:
 
-  SRMR                                           0.064       0.064
+  SRMR                                           0.063       0.063
 
 Goodness of Fit Index:
 
   Goodness of Fit Index (GFI)                    0.850            
   90 Percent confidence interval - lower         0.831            
-  90 Percent confidence interval - upper         0.868            
+  90 Percent confidence interval - upper         0.869            
                                                                   
   Robust GFI                                                 0.858
   90 Percent confidence interval - lower                     0.835
@@ -483,37 +483,37 @@ Parameter Estimates:
 Latent Variables:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
   EID =~                                                                
-    EID_1             0.885    0.066   13.425    0.000    0.885    0.674
-    EID_2             0.866    0.060   14.527    0.000    0.866    0.666
-    EID_3             0.794    0.059   13.458    0.000    0.794    0.664
-    EID_4             0.933    0.061   15.398    0.000    0.933    0.744
-    EID_5             0.658    0.076    8.671    0.000    0.658    0.456
-    EID_6             0.676    0.065   10.450    0.000    0.676    0.609
-    EID_7             0.699    0.054   12.930    0.000    0.699    0.629
-    EID_8             0.700    0.065   10.730    0.000    0.700    0.602
-    EID_9             0.997    0.060   16.717    0.000    0.997    0.705
-    EID_10            0.791    0.062   12.777    0.000    0.791    0.647
-    EID_11            0.766    0.056   13.629    0.000    0.766    0.728
-    EID_12            0.717    0.061   11.718    0.000    0.717    0.637
-    EID_13            0.908    0.062   14.701    0.000    0.908    0.773
-    EID_14            0.816    0.054   15.047    0.000    0.816    0.752
+    EID_1             0.885    0.066   13.435    0.000    0.885    0.674
+    EID_2             0.864    0.060   14.526    0.000    0.864    0.665
+    EID_3             0.794    0.059   13.476    0.000    0.794    0.664
+    EID_4             0.932    0.061   15.393    0.000    0.932    0.744
+    EID_5             0.657    0.076    8.671    0.000    0.657    0.456
+    EID_6             0.676    0.065   10.466    0.000    0.676    0.609
+    EID_7             0.699    0.054   12.933    0.000    0.699    0.629
+    EID_8             0.701    0.065   10.753    0.000    0.701    0.603
+    EID_9             0.993    0.060   16.626    0.000    0.993    0.703
+    EID_10            0.792    0.062   12.803    0.000    0.792    0.648
+    EID_11            0.765    0.056   13.624    0.000    0.765    0.728
+    EID_12            0.718    0.061   11.752    0.000    0.718    0.637
+    EID_13            0.908    0.062   14.728    0.000    0.908    0.773
+    EID_14            0.815    0.054   15.054    0.000    0.815    0.753
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-   .EID_1             0.942    0.099    9.515    0.000    0.942    0.546
-   .EID_2             0.942    0.090   10.454    0.000    0.942    0.557
-   .EID_3             0.802    0.072   11.190    0.000    0.802    0.560
-   .EID_4             0.701    0.065   10.849    0.000    0.701    0.446
-   .EID_5             1.647    0.121   13.561    0.000    1.647    0.792
-   .EID_6             0.776    0.061   12.621    0.000    0.776    0.629
-   .EID_7             0.747    0.062   11.984    0.000    0.747    0.604
-   .EID_8             0.862    0.105    8.230    0.000    0.862    0.638
-   .EID_9             1.003    0.086   11.703    0.000    1.003    0.502
-   .EID_10            0.868    0.081   10.660    0.000    0.868    0.581
-   .EID_11            0.520    0.058    8.991    0.000    0.520    0.470
-   .EID_12            0.754    0.073   10.354    0.000    0.754    0.595
-   .EID_13            0.554    0.073    7.641    0.000    0.554    0.402
-   .EID_14            0.510    0.056    9.109    0.000    0.510    0.434
+   .EID_1             0.940    0.099    9.510    0.000    0.940    0.546
+   .EID_2             0.940    0.090   10.464    0.000    0.940    0.557
+   .EID_3             0.800    0.072   11.183    0.000    0.800    0.559
+   .EID_4             0.700    0.064   10.855    0.000    0.700    0.446
+   .EID_5             1.644    0.121   13.561    0.000    1.644    0.792
+   .EID_6             0.774    0.061   12.615    0.000    0.774    0.629
+   .EID_7             0.745    0.062   11.985    0.000    0.745    0.604
+   .EID_8             0.861    0.105    8.233    0.000    0.861    0.637
+   .EID_9             1.009    0.085   11.807    0.000    1.009    0.506
+   .EID_10            0.867    0.081   10.669    0.000    0.867    0.581
+   .EID_11            0.519    0.058    9.001    0.000    0.519    0.470
+   .EID_12            0.754    0.073   10.371    0.000    0.754    0.594
+   .EID_13            0.554    0.072    7.653    0.000    0.554    0.402
+   .EID_14            0.509    0.056    9.113    0.000    0.509    0.434
     EID               1.000                               1.000    1.000</code></pre>
 </div>
 <details class="code-fold">
@@ -562,13 +562,13 @@ Table&nbsp;2.1: Fit Model EID
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">EID</td>
-<td style="text-align: right;">351.43</td>
+<td style="text-align: right;">351.61</td>
 <td style="text-align: right;">77</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.866</td>
 <td style="text-align: right;">0.841</td>
 <td style="text-align: right;">0.109</td>
-<td style="text-align: right;">0.064</td>
+<td style="text-align: right;">0.063</td>
 </tr>
 </tbody>
 </table>

@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Analisis Data — Pengujian Alat Ukur (CFA)",
     "section": "",
-    "text": "Database & Pemrosesan Responden\nData responden diambil secara otomatis dari Google Sheets (Scoring). Selanjutnya, data diperiksa dan disaring sesuai kriteria yang telah ditentukan untuk mendapatkan data yang siap digunakan.\nUpdate terakhir: 02 September 2026, Pukul 14:37 WIB\nBerikut proses penyaringan data dari responden masuk hingga menjadi data final.\nSetelah proses penyaringan selesai, diperoleh 472 observasi yang dapat digunakan untuk analisis selanjutnya.",
+    "text": "Database & Pemrosesan Responden\nData responden diambil secara otomatis dari Google Sheets (Scoring). Selanjutnya, data diperiksa dan disaring sesuai kriteria yang telah ditentukan untuk mendapatkan data yang siap digunakan.\nUpdate terakhir: 02 September 2026, Pukul 14:46 WIB\nBerikut proses penyaringan data dari responden masuk hingga menjadi data final.\nSetelah proses penyaringan selesai, diperoleh 472 observasi yang dapat digunakan untuk analisis selanjutnya.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Statistik Deskriptif (Demografi)</span>"
     ]

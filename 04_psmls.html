@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Perceived Social Media Literacy (PSML) – Analisis Data — Pengujian Alat Ukur (CFA)</title>
+<title>Perceived Social Media Literacy (PSML) – Data Analysis — Measurement Model Testing (CFA)</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -304,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Analisis Data — Pengujian Alat Ukur (CFA)</a> 
+      <a href="./">Data Analysis — Measurement Model Testing (CFA)</a> 
         <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -319,7 +319,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Statistik Deskriptif (Demografi)</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Descriptive Statistics (Demographics)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -349,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07_summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Summary &amp; Kesimpulan</span></a>
+  <a href="./07_summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Summary &amp; Conclusions</span></a>
   </div>
 </li>
     </ul>
@@ -359,12 +359,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Daftar Isi</h2>
+    <h2 id="toc-title">Table of Contents</h2>
    
   <ul>
   <li><a href="#model-fit-psml" id="toc-model-fit-psml" class="nav-link active" data-scroll-target="#model-fit-psml">Model Fit PSML</a></li>
-  <li><a href="#visualisasi-model-psml" id="toc-visualisasi-model-psml" class="nav-link" data-scroll-target="#visualisasi-model-psml">Visualisasi Model PSML</a></li>
-  <li><a href="#reliabilitas-psml" id="toc-reliabilitas-psml" class="nav-link" data-scroll-target="#reliabilitas-psml">Reliabilitas PSML</a></li>
+  <li><a href="#model-visualization-psml" id="toc-model-visualization-psml" class="nav-link" data-scroll-target="#model-visualization-psml">Model Visualization PSML</a></li>
+  <li><a href="#reliability-psml" id="toc-reliability-psml" class="nav-link" data-scroll-target="#reliability-psml">Reliability PSML</a></li>
   </ul>
 </nav>
     </div>
@@ -391,10 +391,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Model multidimensional 4-faktor yang saling berkorelasi (First-Order). <em>Murni teoritis.</em></p>
+<p>Correlated 4-factor multidimensional model (First-Order). <em>Purely theoretical.</em></p>
 <div class="cell">
 <details class="code-fold">
-<summary>Lihat kode</summary>
+<summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>model_psmls <span class="ot">&lt;-</span> <span class="st">"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">  TechComp =~ PSMLS_1 + PSMLS_2 + PSMLS_3 + PSMLS_4 + PSMLS_5</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">  SocialRel =~ PSMLS_6 + PSMLS_7 + PSMLS_8</span></span>
@@ -405,63 +405,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_psmls, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.7-2 ended normally after 37 iterations
+<pre><code>lavaan 0.7-2 ended normally after 44 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
   Number of model parameters                        34
 
-  Number of observations                           510
+  Number of observations                           511
 
 Model Test User Model:
                                               Standard      Scaled
-  Test Statistic                               267.146     173.556
+  Test Statistic                               264.747     172.250
   Degrees of freedom                                71          71
   P-value (Chi-square)                           0.000       0.000
-  Scaling correction factor                                  1.539
+  Scaling correction factor                                  1.537
     Yuan-Bentler correction (Mplus variant)                       
 
 Model Test Baseline Model:
 
-  Test statistic                              4041.051    2136.349
+  Test statistic                              4043.129    2139.151
   Degrees of freedom                                91          91
   P-value                                        0.000       0.000
-  Scaling correction factor                                  1.892
+  Scaling correction factor                                  1.890
 
 User Model versus Baseline Model:
 
-  Comparative Fit Index (CFI)                    0.950       0.950
-  Tucker-Lewis Index (TLI)                       0.936       0.936
+  Comparative Fit Index (CFI)                    0.951       0.951
+  Tucker-Lewis Index (TLI)                       0.937       0.937
                                                                   
-  Robust Comparative Fit Index (CFI)                         0.959
+  Robust Comparative Fit Index (CFI)                         0.960
   Robust Tucker-Lewis Index (TLI)                            0.948
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)              -5876.731   -5876.731
+  Loglikelihood user model (H0)              -5891.778   -5891.778
   Scaling correction factor                                  2.347
       for the MLR correction                                      
-  Loglikelihood unrestricted model (H1)      -5743.158   -5743.158
-  Scaling correction factor                                  1.801
+  Loglikelihood unrestricted model (H1)      -5759.404   -5759.404
+  Scaling correction factor                                  1.799
       for the MLR correction                                      
                                                                   
-  Akaike (AIC)                               11821.463   11821.463
-  Bayesian (BIC)                             11965.433   11965.433
-  Sample-size adjusted Bayesian (SABIC)      11857.512   11857.512
+  Akaike (AIC)                               11851.556   11851.556
+  Bayesian (BIC)                             11995.593   11995.593
+  Sample-size adjusted Bayesian (SABIC)      11887.672   11887.672
 
 Root Mean Square Error of Approximation:
 
-  RMSEA                                          0.074       0.053
+  RMSEA                                          0.073       0.053
   90 Percent confidence interval - lower         0.064       0.045
   90 Percent confidence interval - upper         0.083       0.061
-  P-value H_0: RMSEA &lt;= 0.050                    0.000       0.247
-  P-value H_0: RMSEA &gt;= 0.080                    0.137       0.000
+  P-value H_0: RMSEA &lt;= 0.050                    0.000       0.273
+  P-value H_0: RMSEA &gt;= 0.080                    0.117       0.000
                                                                   
-  Robust RMSEA                                               0.066
-  90 Percent confidence interval - lower                     0.054
-  90 Percent confidence interval - upper                     0.079
-  P-value H_0: Robust RMSEA &lt;= 0.050                         0.018
-  P-value H_0: Robust RMSEA &gt;= 0.080                         0.033
+  Robust RMSEA                                               0.065
+  90 Percent confidence interval - lower                     0.053
+  90 Percent confidence interval - upper                     0.078
+  P-value H_0: Robust RMSEA &lt;= 0.050                         0.021
+  P-value H_0: Robust RMSEA &gt;= 0.080                         0.028
 
 Standardized Root Mean Square Residual:
 
@@ -470,12 +470,12 @@ Standardized Root Mean Square Residual:
 Goodness of Fit Index:
 
   Goodness of Fit Index (GFI)                    0.947            
-  90 Percent confidence interval - lower         0.933            
-  90 Percent confidence interval - upper         0.958            
+  90 Percent confidence interval - lower         0.934            
+  90 Percent confidence interval - upper         0.959            
                                                                   
-  Robust GFI                                                 0.956
+  Robust GFI                                                 0.957
   90 Percent confidence interval - lower                     0.940
-  90 Percent confidence interval - upper                     0.970
+  90 Percent confidence interval - upper                     0.971
 
 Parameter Estimates:
 
@@ -486,59 +486,59 @@ Parameter Estimates:
 Latent Variables:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
   TechComp =~                                                           
-    PSMLS_1           0.508    0.021   23.908    0.000    0.508    0.825
-    PSMLS_2           0.569    0.027   21.344    0.000    0.569    0.783
-    PSMLS_3           0.613    0.026   23.239    0.000    0.613    0.812
-    PSMLS_4           0.521    0.022   23.804    0.000    0.521    0.859
-    PSMLS_5           0.495    0.023   21.292    0.000    0.495    0.755
+    PSMLS_1           0.508    0.021   23.919    0.000    0.508    0.825
+    PSMLS_2           0.569    0.027   21.337    0.000    0.569    0.784
+    PSMLS_3           0.613    0.026   23.240    0.000    0.613    0.812
+    PSMLS_4           0.521    0.022   23.792    0.000    0.521    0.859
+    PSMLS_5           0.495    0.023   21.310    0.000    0.495    0.755
   SocialRel =~                                                          
-    PSMLS_6           0.613    0.034   18.051    0.000    0.613    0.771
-    PSMLS_7           0.494    0.038   12.942    0.000    0.494    0.588
-    PSMLS_8           0.524    0.030   17.369    0.000    0.524    0.756
+    PSMLS_6           0.611    0.034   17.992    0.000    0.611    0.770
+    PSMLS_7           0.495    0.038   12.982    0.000    0.495    0.589
+    PSMLS_8           0.525    0.030   17.439    0.000    0.525    0.756
   Privacy =~                                                            
-    PSMLS_9           0.514    0.024   21.056    0.000    0.514    0.757
-    PSMLS_10          0.491    0.036   13.605    0.000    0.491    0.620
-    PSMLS_11          0.506    0.035   14.431    0.000    0.506    0.613
+    PSMLS_9           0.514    0.024   21.108    0.000    0.514    0.758
+    PSMLS_10          0.490    0.036   13.621    0.000    0.490    0.620
+    PSMLS_11          0.507    0.035   14.459    0.000    0.507    0.612
   InfoAware =~                                                          
-    PSMLS_12          0.620    0.028   22.427    0.000    0.620    0.831
-    PSMLS_13          0.603    0.024   25.632    0.000    0.603    0.875
-    PSMLS_14          0.525    0.025   20.803    0.000    0.525    0.772
+    PSMLS_12          0.621    0.028   22.514    0.000    0.621    0.832
+    PSMLS_13          0.604    0.023   25.730    0.000    0.604    0.876
+    PSMLS_14          0.524    0.025   20.773    0.000    0.524    0.771
 
 Covariances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
   TechComp ~~                                                           
-    SocialRel         0.686    0.036   19.108    0.000    0.686    0.686
-    Privacy           0.809    0.035   23.190    0.000    0.809    0.809
-    InfoAware         0.608    0.037   16.615    0.000    0.608    0.608
+    SocialRel         0.683    0.036   19.005    0.000    0.683    0.683
+    Privacy           0.805    0.035   22.990    0.000    0.805    0.805
+    InfoAware         0.603    0.037   16.418    0.000    0.603    0.603
   SocialRel ~~                                                          
-    Privacy           0.758    0.050   15.092    0.000    0.758    0.758
-    InfoAware         0.688    0.042   16.262    0.000    0.688    0.688
+    Privacy           0.760    0.050   15.149    0.000    0.760    0.760
+    InfoAware         0.689    0.042   16.306    0.000    0.689    0.689
   Privacy ~~                                                            
-    InfoAware         0.822    0.039   21.020    0.000    0.822    0.822
+    InfoAware         0.822    0.039   20.993    0.000    0.822    0.822
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-   .PSMLS_1           0.121    0.024    5.128    0.000    0.121    0.320
-   .PSMLS_2           0.204    0.048    4.247    0.000    0.204    0.386
-   .PSMLS_3           0.194    0.035    5.498    0.000    0.194    0.341
-   .PSMLS_4           0.096    0.016    5.939    0.000    0.096    0.262
-   .PSMLS_5           0.185    0.040    4.566    0.000    0.185    0.430
-   .PSMLS_6           0.256    0.034    7.433    0.000    0.256    0.406
-   .PSMLS_7           0.461    0.041   11.114    0.000    0.461    0.654
-   .PSMLS_8           0.206    0.028    7.465    0.000    0.206    0.429
-   .PSMLS_9           0.197    0.030    6.658    0.000    0.197    0.427
-   .PSMLS_10          0.385    0.052    7.471    0.000    0.385    0.615
-   .PSMLS_11          0.425    0.043    9.878    0.000    0.425    0.624
-   .PSMLS_12          0.172    0.037    4.626    0.000    0.172    0.309
-   .PSMLS_13          0.111    0.017    6.500    0.000    0.111    0.234
-   .PSMLS_14          0.187    0.021    8.894    0.000    0.187    0.404
+   .PSMLS_1           0.121    0.024    5.118    0.000    0.121    0.319
+   .PSMLS_2           0.204    0.048    4.241    0.000    0.204    0.386
+   .PSMLS_3           0.194    0.035    5.489    0.000    0.194    0.340
+   .PSMLS_4           0.096    0.016    5.924    0.000    0.096    0.262
+   .PSMLS_5           0.185    0.040    4.566    0.000    0.185    0.429
+   .PSMLS_6           0.257    0.034    7.459    0.000    0.257    0.408
+   .PSMLS_7           0.460    0.041   11.107    0.000    0.460    0.653
+   .PSMLS_8           0.207    0.028    7.495    0.000    0.207    0.429
+   .PSMLS_9           0.196    0.030    6.644    0.000    0.196    0.426
+   .PSMLS_10          0.385    0.051    7.469    0.000    0.385    0.615
+   .PSMLS_11          0.431    0.043    9.965    0.000    0.431    0.626
+   .PSMLS_12          0.172    0.037    4.619    0.000    0.172    0.308
+   .PSMLS_13          0.111    0.017    6.518    0.000    0.111    0.233
+   .PSMLS_14          0.187    0.021    8.969    0.000    0.187    0.406
     TechComp          1.000                               1.000    1.000
     SocialRel         1.000                               1.000    1.000
     Privacy           1.000                               1.000    1.000
     InfoAware         1.000                               1.000    1.000</code></pre>
 </div>
 <details class="code-fold">
-<summary>Lihat kode</summary>
+<summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(fit_psmls, <span class="st">"data/fit_psmls.rds"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
@@ -546,13 +546,13 @@ Variances:
 <h2 class="anchored" data-anchor-id="model-fit-psml">Model Fit PSML</h2>
 <div class="cell">
 <details class="code-fold">
-<summary>Lihat kode</summary>
+<summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_fit_table</span>(fit_psmls, <span class="st">"PSML"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-fit-psmls" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-fit-psmls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.1: Fit Model PSML
+Table&nbsp;4.1: Model Fit PSML
 </figcaption>
 <div aria-describedby="tbl-fit-psmls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -582,12 +582,12 @@ Table&nbsp;4.1: Fit Model PSML
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">PSML</td>
-<td style="text-align: right;">173.56</td>
+<td style="text-align: right;">172.25</td>
 <td style="text-align: right;">71</td>
 <td style="text-align: right;">0</td>
-<td style="text-align: right;">0.959</td>
+<td style="text-align: right;">0.96</td>
 <td style="text-align: right;">0.948</td>
-<td style="text-align: right;">0.066</td>
+<td style="text-align: right;">0.065</td>
 <td style="text-align: right;">0.035</td>
 </tr>
 </tbody>
@@ -598,33 +598,33 @@ Table&nbsp;4.1: Fit Model PSML
 </div>
 </div>
 </section>
-<section id="visualisasi-model-psml" class="level2">
-<h2 class="anchored" data-anchor-id="visualisasi-model-psml">Visualisasi Model PSML</h2>
+<section id="model-visualization-psml" class="level2">
+<h2 class="anchored" data-anchor-id="model-visualization-psml">Model Visualization PSML</h2>
 <div class="cell">
 <details class="code-fold">
-<summary>Lihat kode</summary>
+<summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cfa</span>(fit_psmls, <span class="st">"CFA Model PSML (First-Order)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
-<section id="reliabilitas-psml" class="level2">
-<h2 class="anchored" data-anchor-id="reliabilitas-psml">Reliabilitas PSML</h2>
+<section id="reliability-psml" class="level2">
+<h2 class="anchored" data-anchor-id="reliability-psml">Reliability PSML</h2>
 <div class="cell">
 <details class="code-fold">
-<summary>Lihat kode</summary>
+<summary>Show code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_psmls)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-rel-psmls" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-rel-psmls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;4.2: Reliabilitas Skala PSMLS (Dimensi)
+Table&nbsp;4.2: Scale Reliability PSMLS (Dimensi)
 </figcaption>
 <div aria-describedby="tbl-rel-psmls-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 <table class="cell caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">Faktor</th>
+<th style="text-align: left;">Factor</th>
 <th style="text-align: right;">Alpha</th>
 <th style="text-align: right;">Omega</th>
 <th style="text-align: right;">AVE</th>
@@ -635,23 +635,23 @@ Table&nbsp;4.2: Reliabilitas Skala PSMLS (Dimensi)
 <td style="text-align: left;">TechComp</td>
 <td style="text-align: right;">0.900</td>
 <td style="text-align: right;">0.901</td>
-<td style="text-align: right;">0.648</td>
+<td style="text-align: right;">0.649</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SocialRel</td>
-<td style="text-align: right;">0.740</td>
+<td style="text-align: right;">0.741</td>
 <td style="text-align: right;">0.741</td>
 <td style="text-align: right;">0.492</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Privacy</td>
 <td style="text-align: right;">0.695</td>
-<td style="text-align: right;">0.693</td>
-<td style="text-align: right;">0.431</td>
+<td style="text-align: right;">0.692</td>
+<td style="text-align: right;">0.430</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">InfoAware</td>
-<td style="text-align: right;">0.865</td>
+<td style="text-align: right;">0.864</td>
 <td style="text-align: right;">0.867</td>
 <td style="text-align: right;">0.686</td>
 </tr>
@@ -1149,7 +1149,7 @@ Table&nbsp;4.2: Reliabilitas Skala PSMLS (Dimensi)
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Perceived Social Media Literacy (PSML)"</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Model multidimensional 4-faktor yang saling berkorelasi (First-Order). *Murni teoritis.*</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Correlated 4-factor multidimensional model (First-Order). *Purely theoretical.*</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup-cfa-psmls</span></span>
@@ -1178,27 +1178,27 @@ Table&nbsp;4.2: Reliabilitas Skala PSMLS (Dimensi)
 <span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-fit-psmls</span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Fit Model PSML"</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Model Fit PSML"</span></span>
 <span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="fu">print_fit_table</span>(fit_psmls, <span class="st">"PSML"</span>)</span>
 <span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Visualisasi Model PSML</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Visualization PSML</span></span>
 <span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: fig-cfa-psmls</span></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Visualisasi CFA First-Order PSML"</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "First-Order CFA Visualization PSML"</span></span>
 <span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-width: 8</span></span>
 <span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-height: 6</span></span>
 <span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
 <span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cfa</span>(fit_psmls, <span class="st">"CFA Model PSML (First-Order)"</span>)</span>
 <span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reliabilitas PSML</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reliability PSML</span></span>
 <span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: tbl-rel-psmls</span></span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Reliabilitas Skala PSMLS (Dimensi)"</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="co">#| tbl-cap: "Scale Reliability PSMLS (Dimensi)"</span></span>
 <span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="fu">print_rel_table</span>(fit_psmls)</span>
 <span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>

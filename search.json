@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Data Analysis — Measurement Model Testing (CFA)",
     "section": "",
-    "text": "Database & Respondent Processing\nRespondent data is automatically pulled from Google Sheets (Scoring). Subsequently, the data is checked and filtered according to predetermined criteria to obtain data that is ready to use.\nLast updated: 03 September 2026, Pukul 16:22 WIB\nBelow is the data filtering process from incoming respondents to the final data.\nAfter the filtering process is complete, a total of 624 observations are obtained which can be used for further analysis.",
+    "text": "Database & Respondent Processing\nRespondent data is automatically pulled from Google Sheets (Scoring). Subsequently, the data is checked and filtered according to predetermined criteria to obtain data that is ready to use.\nLast updated: 03 September 2026, Pukul 16:49 WIB\nBelow is the data filtering process from incoming respondents to the final data.\nAfter the filtering process is complete, a total of 666 observations are obtained which can be used for further analysis.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descriptive Statistics (Demographics)</span>"
     ]
@@ -14,7 +14,7 @@
     "href": "index.html#database-respondent-processing",
     "title": "Data Analysis — Measurement Model Testing (CFA)",
     "section": "",
-    "text": "Total Respondents\n\n\n673\n\n\nIncoming Data\n\n\n\n\nEliminated\n\n\n49\n\n\nExcluded (Attention Check)\n\n\n\n\nFinal Data\n\n\n624\n\n\nPassed Validity (Clean)",
+    "text": "Total Respondents\n\n\n715\n\n\nIncoming Data\n\n\n\n\nEliminated\n\n\n49\n\n\nExcluded (Attention Check)\n\n\n\n\nFinal Data\n\n\n666\n\n\nPassed Validity (Clean)",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descriptive Statistics (Demographics)</span>"
     ]
@@ -24,7 +24,7 @@
     "href": "index.html#gender",
     "title": "Data Analysis — Measurement Model Testing (CFA)",
     "section": "Gender",
-    "text": "Gender\n\n\nShow code\nknitr::kable(print_demo_table(df$Gender, c(\"1\" = \"Male\", \"2\" = \"Female\")))\n\n\n\n\nTable 1: Gender Distribution\n\n\n\n\n\n\nCategory\nFrequency\nPercentage\n\n\n\n\nMale\n240\n38.46%\n\n\nFemale\n384\n61.54%\n\n\n\n\n\n\n\n\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Gender)) %&gt;%\n  mutate(Gender = factor(Gender, levels = c(1, 2), labels = c(\"Male\", \"Female\"))) %&gt;%\n  ggplot(aes(x = Gender, fill = Gender)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#4e79a7\", \"#e15759\")) +\n  labs(x = NULL, y = \"Count\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nGender Visualization",
+    "text": "Gender\n\n\nShow code\nknitr::kable(print_demo_table(df$Gender, c(\"1\" = \"Male\", \"2\" = \"Female\")))\n\n\n\n\nTable 1: Gender Distribution\n\n\n\n\n\n\nCategory\nFrequency\nPercentage\n\n\n\n\nMale\n262\n39.34%\n\n\nFemale\n404\n60.66%\n\n\n\n\n\n\n\n\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Gender)) %&gt;%\n  mutate(Gender = factor(Gender, levels = c(1, 2), labels = c(\"Male\", \"Female\"))) %&gt;%\n  ggplot(aes(x = Gender, fill = Gender)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#4e79a7\", \"#e15759\")) +\n  labs(x = NULL, y = \"Count\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nGender Visualization",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descriptive Statistics (Demographics)</span>"
     ]
@@ -34,7 +34,7 @@
     "href": "index.html#age",
     "title": "Data Analysis — Measurement Model Testing (CFA)",
     "section": "Age",
-    "text": "Age\n\n\nShow code\nusia_m   &lt;- round(mean(df$Usia, na.rm = TRUE), 2)\nusia_sd  &lt;- round(sd(df$Usia, na.rm = TRUE), 2)\nusia_min &lt;- min(df$Usia, na.rm = TRUE)\nusia_max &lt;- max(df$Usia, na.rm = TRUE)\n\n\nM = 20.4 years old, SD = 1.5, Min = 18, Max = 27.\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Usia)) %&gt;%\n  ggplot(aes(x = Usia)) +\n  geom_histogram(binwidth = 1, fill = \"#59a14f\", color = \"black\", alpha = 0.8) +\n  labs(x = \"Age (Years)\", y = \"Count\") +\n  theme_minimal()\n\n\n\n\n\nAge Distribution Visualization",
+    "text": "Age\n\n\nShow code\nusia_m   &lt;- round(mean(df$Usia, na.rm = TRUE), 2)\nusia_sd  &lt;- round(sd(df$Usia, na.rm = TRUE), 2)\nusia_min &lt;- min(df$Usia, na.rm = TRUE)\nusia_max &lt;- max(df$Usia, na.rm = TRUE)\n\n\nM = 20.38 years old, SD = 1.46, Min = 18, Max = 27.\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Usia)) %&gt;%\n  ggplot(aes(x = Usia)) +\n  geom_histogram(binwidth = 1, fill = \"#59a14f\", color = \"black\", alpha = 0.8) +\n  labs(x = \"Age (Years)\", y = \"Count\") +\n  theme_minimal()\n\n\n\n\n\nAge Distribution Visualization",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descriptive Statistics (Demographics)</span>"
     ]
@@ -44,7 +44,7 @@
     "href": "index.html#semester",
     "title": "Data Analysis — Measurement Model Testing (CFA)",
     "section": "Semester",
-    "text": "Semester\n\n\nShow code\nknitr::kable(print_demo_table(df$Semester, c(\"1\" = \"Semester 1\", \"2\" = \"Semester 2\", \"3\" = \"Semester 3\", \"4\" = \"Semester 4\", \"5\" = \"Semester 5\", \"6\" = \"Semester 6\", \"7\" = \"Semester 7\", \"8\" = \"Semester 8\", \"&gt; Semester 8\" = \"&gt; Semester 8\")))\n\n\n\n\nTable 2: Semester Distribution\n\n\n\n\n\n\nCategory\nFrequency\nPercentage\n\n\n\n\nSemester 1\n28\n4.49%\n\n\nSemester 2\n7\n1.12%\n\n\nSemester 3\n215\n34.46%\n\n\nSemester 4\n12\n1.92%\n\n\nSemester 5\n178\n28.53%\n\n\nSemester 6\n15\n2.4%\n\n\nSemester 7\n115\n18.43%\n\n\nSemester 8\n29\n4.65%\n\n\nLebih dari semester 8\n25\n4.01%\n\n\n\n\n\n\n\n\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Semester)) %&gt;%\n  mutate(Semester = factor(Semester, \n                           levels = c(\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"&gt; Semester 8\"), \n                           labels = c(\"Sem 1\", \"Sem 2\", \"Sem 3\", \"Sem 4\", \"Sem 5\", \"Sem 6\", \"Sem 7\", \"Sem 8\", \"&gt; Sem 8\"))) %&gt;%\n  ggplot(aes(x = Semester, fill = Semester)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = \"Semester\", y = \"Count\") +\n  theme_minimal() +\n  theme(legend.position = \"none\", axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\nSemester Visualization",
+    "text": "Semester\n\n\nShow code\nknitr::kable(print_demo_table(df$Semester, c(\"1\" = \"Semester 1\", \"2\" = \"Semester 2\", \"3\" = \"Semester 3\", \"4\" = \"Semester 4\", \"5\" = \"Semester 5\", \"6\" = \"Semester 6\", \"7\" = \"Semester 7\", \"8\" = \"Semester 8\", \"&gt; Semester 8\" = \"&gt; Semester 8\")))\n\n\n\n\nTable 2: Semester Distribution\n\n\n\n\n\n\nCategory\nFrequency\nPercentage\n\n\n\n\nSemester 1\n28\n4.2%\n\n\nSemester 2\n7\n1.05%\n\n\nSemester 3\n215\n32.28%\n\n\nSemester 4\n12\n1.8%\n\n\nSemester 5\n220\n33.03%\n\n\nSemester 6\n15\n2.25%\n\n\nSemester 7\n115\n17.27%\n\n\nSemester 8\n29\n4.35%\n\n\nLebih dari semester 8\n25\n3.75%\n\n\n\n\n\n\n\n\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Semester)) %&gt;%\n  mutate(Semester = factor(Semester, \n                           levels = c(\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"&gt; Semester 8\"), \n                           labels = c(\"Sem 1\", \"Sem 2\", \"Sem 3\", \"Sem 4\", \"Sem 5\", \"Sem 6\", \"Sem 7\", \"Sem 8\", \"&gt; Sem 8\"))) %&gt;%\n  ggplot(aes(x = Semester, fill = Semester)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = \"Semester\", y = \"Count\") +\n  theme_minimal() +\n  theme(legend.position = \"none\", axis.text.x = element_text(angle = 45, hjust = 1))\n\n\n\n\n\nSemester Visualization",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descriptive Statistics (Demographics)</span>"
     ]
@@ -54,7 +54,7 @@
     "href": "index.html#development-region-residence",
     "title": "Data Analysis — Measurement Model Testing (CFA)",
     "section": "Development Region (Residence)",
-    "text": "Development Region (Residence)\n\n\nShow code\nknitr::kable(print_demo_table(df$Provinsi, c(\"1\" = \"Bodebekpunjur\", \"2\" = \"Purwasuka\", \"3\" = \"Sukabumi dsk\", \"4\" = \"Cekungan Bandung\", \"5\" = \"Priangan Timur\", \"6\" = \"Ciayumajakuning\")))\n\n\n\n\nTable 3: Development Region Distribution\n\n\n\n\n\n\nCategory\nFrequency\nPercentage\n\n\n\n\nBodebekpunjur\n73\n11.7%\n\n\nPurwasuka\n17\n2.72%\n\n\nSukabumi dsk\n16\n2.56%\n\n\nCekungan Bandung\n457\n73.24%\n\n\nPriangan Timur\n36\n5.77%\n\n\nCiayumajakuning\n25\n4.01%\n\n\n\n\n\n\n\n\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Provinsi)) %&gt;%\n  mutate(Provinsi = factor(Provinsi, \n                           levels = c(\"1\", \"2\", \"3\", \"4\", \"5\", \"6\"), \n                           labels = c(\"Bodebekpunjur\", \"Purwasuka\", \"Sukabumi dsk\", \"Cekungan Bandung\", \"Priangan Timur\", \"Ciayumajakuning\"))) %&gt;%\n  ggplot(aes(y = reorder(Provinsi, Provinsi, function(x) length(x)), fill = Provinsi)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = \"Count\", y = NULL) +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nDevelopment Region Visualization",
+    "text": "Development Region (Residence)\n\n\nShow code\nknitr::kable(print_demo_table(df$Provinsi, c(\"1\" = \"Bodebekpunjur\", \"2\" = \"Purwasuka\", \"3\" = \"Sukabumi dsk\", \"4\" = \"Cekungan Bandung\", \"5\" = \"Priangan Timur\", \"6\" = \"Ciayumajakuning\")))\n\n\n\n\nTable 3: Development Region Distribution\n\n\n\n\n\n\nCategory\nFrequency\nPercentage\n\n\n\n\nBodebekpunjur\n75\n11.26%\n\n\nPurwasuka\n19\n2.85%\n\n\nSukabumi dsk\n20\n3%\n\n\nCekungan Bandung\n485\n72.82%\n\n\nPriangan Timur\n40\n6.01%\n\n\nCiayumajakuning\n27\n4.05%\n\n\n\n\n\n\n\n\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Provinsi)) %&gt;%\n  mutate(Provinsi = factor(Provinsi, \n                           levels = c(\"1\", \"2\", \"3\", \"4\", \"5\", \"6\"), \n                           labels = c(\"Bodebekpunjur\", \"Purwasuka\", \"Sukabumi dsk\", \"Cekungan Bandung\", \"Priangan Timur\", \"Ciayumajakuning\"))) %&gt;%\n  ggplot(aes(y = reorder(Provinsi, Provinsi, function(x) length(x)), fill = Provinsi)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = \"Count\", y = NULL) +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nDevelopment Region Visualization",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descriptive Statistics (Demographics)</span>"
     ]
@@ -64,7 +64,7 @@
     "href": "index.html#living-area",
     "title": "Data Analysis — Measurement Model Testing (CFA)",
     "section": "Living Area",
-    "text": "Living Area\n\n\nShow code\nknitr::kable(print_demo_table(df$Area, c(\"1\" = \"Urban\", \"2\" = \"Suburban\", \"3\" = \"Rural\")))\n\n\n\n\nTable 4: Living Area Distribution\n\n\n\n\n\n\nCategory\nFrequency\nPercentage\n\n\n\n\nUrban\n286\n45.83%\n\n\nSuburban\n230\n36.86%\n\n\nRural\n108\n17.31%\n\n\n\n\n\n\n\n\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Area)) %&gt;%\n  mutate(Area = factor(Area, levels = c(\"1\", \"2\", \"3\"), labels = c(\"Urban\", \"Suburban\", \"Rural\"))) %&gt;%\n  ggplot(aes(x = Area, fill = Area)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#76b7b2\", \"#f28e2b\", \"#edc948\")) +\n  labs(x = NULL, y = \"Count\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nLiving Area Visualization",
+    "text": "Living Area\n\n\nShow code\nknitr::kable(print_demo_table(df$Area, c(\"1\" = \"Urban\", \"2\" = \"Suburban\", \"3\" = \"Rural\")))\n\n\n\n\nTable 4: Living Area Distribution\n\n\n\n\n\n\nCategory\nFrequency\nPercentage\n\n\n\n\nUrban\n302\n45.35%\n\n\nSuburban\n253\n37.99%\n\n\nRural\n111\n16.67%\n\n\n\n\n\n\n\n\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Area)) %&gt;%\n  mutate(Area = factor(Area, levels = c(\"1\", \"2\", \"3\"), labels = c(\"Urban\", \"Suburban\", \"Rural\"))) %&gt;%\n  ggplot(aes(x = Area, fill = Area)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  scale_fill_manual(values = c(\"#76b7b2\", \"#f28e2b\", \"#edc948\")) +\n  labs(x = NULL, y = \"Count\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nLiving Area Visualization",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descriptive Statistics (Demographics)</span>"
     ]
@@ -74,7 +74,7 @@
     "href": "index.html#housing-type",
     "title": "Data Analysis — Measurement Model Testing (CFA)",
     "section": "Housing Type",
-    "text": "Housing Type\n\n\nShow code\nknitr::kable(print_demo_table(df$Hunian, c(\"1\" = \"Parent's House\", \"2\" = \"Boarding House\", \"3\" = \"Dormitory\", \"4\" = \"Other\")))\n\n\n\n\nTable 5: Housing Type Distribution\n\n\n\n\n\n\nCategory\nFrequency\nPercentage\n\n\n\n\nParent’s House\n293\n46.96%\n\n\nBoarding House\n292\n46.79%\n\n\nDormitory\n28\n4.49%\n\n\nOther\n5\n0.8%\n\n\nMess tempat kerja\n1\n0.16%\n\n\nPondok pesantren\n3\n0.48%\n\n\nPondok Pesantren\n1\n0.16%\n\n\nPondok Pesantren Salafiyah\n1\n0.16%\n\n\n\n\n\n\n\n\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Hunian)) %&gt;%\n  mutate(Hunian = factor(Hunian, levels = c(\"1\", \"2\", \"3\", \"4\"), labels = c(\"Parent's House\", \"Boarding House\", \"Dormitory\", \"Other\"))) %&gt;%\n  ggplot(aes(x = reorder(Hunian, Hunian, function(x) -length(x)), fill = Hunian)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = NULL, y = \"Count\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Tipe Hunian",
+    "text": "Housing Type\n\n\nShow code\nknitr::kable(print_demo_table(df$Hunian, c(\"1\" = \"Parent's House\", \"2\" = \"Boarding House\", \"3\" = \"Dormitory\", \"4\" = \"Other\")))\n\n\n\n\nTable 5: Housing Type Distribution\n\n\n\n\n\n\nCategory\nFrequency\nPercentage\n\n\n\n\nParent’s House\n317\n47.6%\n\n\nBoarding House\n309\n46.4%\n\n\nDormitory\n29\n4.35%\n\n\nOther\n5\n0.75%\n\n\nMess tempat kerja\n1\n0.15%\n\n\nPondok pesantren\n3\n0.45%\n\n\nPondok Pesantren\n1\n0.15%\n\n\nPondok Pesantren Salafiyah\n1\n0.15%\n\n\n\n\n\n\n\n\n\n\nShow code\ndf %&gt;% \n  filter(!is.na(Hunian)) %&gt;%\n  mutate(Hunian = factor(Hunian, levels = c(\"1\", \"2\", \"3\", \"4\"), labels = c(\"Parent's House\", \"Boarding House\", \"Dormitory\", \"Other\"))) %&gt;%\n  ggplot(aes(x = reorder(Hunian, Hunian, function(x) -length(x)), fill = Hunian)) +\n  geom_bar(color = \"black\", alpha = 0.8) +\n  labs(x = NULL, y = \"Count\") +\n  theme_minimal() +\n  theme(legend.position = \"none\")\n\n\n\n\n\nVisualisasi Tipe Hunian",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Descriptive Statistics (Demographics)</span>"
     ]
@@ -84,7 +84,7 @@
     "href": "02_eid.html",
     "title": "Environmental Identity (EID)",
     "section": "",
-    "text": "Model Fit EID\nPure unidimensional measurement model for EID (14 items).\nShow code\nprint_fit_table(fit_eid, \"EID\")\n\n\n\n\nTable 2.1: Model Fit EID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n399.95\n77\n0\n0.887\n0.867\n0.097\n0.056",
+    "text": "Model Fit EID\nPure unidimensional measurement model for EID (14 items).\nShow code\nprint_fit_table(fit_eid, \"EID\")\n\n\n\n\nTable 2.1: Model Fit EID\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n416.4\n77\n0\n0.889\n0.868\n0.097\n0.055",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental Identity (EID)</span>"
     ]
@@ -104,7 +104,7 @@
     "href": "02_eid.html#reliability-eid",
     "title": "Environmental Identity (EID)",
     "section": "Reliability EID",
-    "text": "Reliability EID\n\n\nShow code\nprint_rel_table(fit_eid)\n\n\n\n\nTable 2.2: Scale Reliability EID\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.912\n0.91\n0.431",
+    "text": "Reliability EID\n\n\nShow code\nprint_rel_table(fit_eid)\n\n\n\n\nTable 2.2: Scale Reliability EID\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.912\n0.909\n0.43",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Environmental Identity (EID)</span>"
     ]
@@ -114,7 +114,7 @@
     "href": "03_esi.html",
     "title": "Environmental Self-Identity (ESI)",
     "section": "",
-    "text": "Model Fit ESI\nUnidimensional measurement model for ESI (6 items). Purely theoretical.\nShow code\nprint_fit_table(fit_esi, \"ESI\")\n\n\n\n\nTable 3.1: Model Fit ESI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nESI\n50.42\n9\n0\n0.958\n0.93\n0.12\n0.037",
+    "text": "Model Fit ESI\nUnidimensional measurement model for ESI (6 items). Purely theoretical.\nShow code\nprint_fit_table(fit_esi, \"ESI\")\n\n\n\n\nTable 3.1: Model Fit ESI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nESI\n61.91\n9\n0\n0.95\n0.917\n0.13\n0.039",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Environmental Self-Identity (ESI)</span>"
     ]
@@ -134,7 +134,7 @@
     "href": "03_esi.html#reliability-esi",
     "title": "Environmental Self-Identity (ESI)",
     "section": "Reliability ESI",
-    "text": "Reliability ESI\n\n\nShow code\nprint_rel_table(fit_esi)\n\n\n\n\nTable 3.2: Scale Reliability ESI\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nESI\n0.889\n0.888\n0.577",
+    "text": "Reliability ESI\n\n\nShow code\nprint_rel_table(fit_esi)\n\n\n\n\nTable 3.2: Scale Reliability ESI\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nESI\n0.887\n0.884\n0.57",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Environmental Self-Identity (ESI)</span>"
     ]
@@ -144,7 +144,7 @@
     "href": "04_psmls.html",
     "title": "Perceived Social Media Literacy (PSML)",
     "section": "",
-    "text": "Model Fit PSML\nCorrelated 4-factor multidimensional model (First-Order). Purely theoretical.\nShow code\nprint_fit_table(fit_psmls, \"PSML\")\n\n\n\n\nTable 4.1: Model Fit PSML\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPSML\n198.94\n71\n0\n0.959\n0.948\n0.066\n0.034",
+    "text": "Model Fit PSML\nCorrelated 4-factor multidimensional model (First-Order). Purely theoretical.\nShow code\nprint_fit_table(fit_psmls, \"PSML\")\n\n\n\n\nTable 4.1: Model Fit PSML\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPSML\n202.21\n71\n0\n0.96\n0.948\n0.065\n0.034",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Perceived Social Media Literacy (PSML)</span>"
     ]
@@ -164,7 +164,7 @@
     "href": "04_psmls.html#reliability-psml",
     "title": "Perceived Social Media Literacy (PSML)",
     "section": "Reliability PSML",
-    "text": "Reliability PSML\n\n\nShow code\nprint_rel_table(fit_psmls)\n\n\n\n\nTable 4.2: Scale Reliability PSMLS (Dimensi)\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nTechComp\n0.902\n0.902\n0.651\n\n\nSocialRel\n0.746\n0.742\n0.496\n\n\nPrivacy\n0.680\n0.675\n0.412\n\n\nInfoAware\n0.867\n0.869\n0.690",
+    "text": "Reliability PSML\n\n\nShow code\nprint_rel_table(fit_psmls)\n\n\n\n\nTable 4.2: Scale Reliability PSMLS (Dimensi)\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nTechComp\n0.900\n0.900\n0.645\n\n\nSocialRel\n0.741\n0.738\n0.488\n\n\nPrivacy\n0.673\n0.672\n0.407\n\n\nInfoAware\n0.869\n0.871\n0.693",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Perceived Social Media Literacy (PSML)</span>"
     ]
@@ -174,7 +174,7 @@
     "href": "05_peb.html",
     "title": "Pro-Environmental Behavior (PEB)",
     "section": "",
-    "text": "Model Fit PEB\n4-factor multidimensional model (First-Order). Optimized with 3 MIs.\nShow code\nprint_fit_table(fit_peb, \"PEB\")\n\n\n\n\nTable 5.1: Model Fit PEB\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPEB\n394.02\n110\n0\n0.919\n0.9\n0.072\n0.056",
+    "text": "Model Fit PEB\n4-factor multidimensional model (First-Order). Optimized with 3 MIs.\nShow code\nprint_fit_table(fit_peb, \"PEB\")\n\n\n\n\nTable 5.1: Model Fit PEB\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPEB\n387.6\n110\n0\n0.925\n0.907\n0.069\n0.054",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pro-Environmental Behavior (PEB)</span>"
     ]
@@ -194,7 +194,7 @@
     "href": "05_peb.html#reliability-peb",
     "title": "Pro-Environmental Behavior (PEB)",
     "section": "Reliability PEB",
-    "text": "Reliability PEB\n\n\nShow code\nprint_rel_table(fit_peb)\n\n\n\n\nTable 5.2: Scale Reliability PEB (Dimensi)\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nConsLife\n0.688\n0.652\n0.314\n\n\nSocEnv\n0.827\n0.752\n0.447\n\n\nEnvCit\n0.781\n0.786\n0.425\n\n\nLandStew\n0.777\n0.778\n0.637",
+    "text": "Reliability PEB\n\n\nShow code\nprint_rel_table(fit_peb)\n\n\n\n\nTable 5.2: Scale Reliability PEB (Dimensi)\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nConsLife\n0.683\n0.643\n0.308\n\n\nSocEnv\n0.825\n0.746\n0.441\n\n\nEnvCit\n0.779\n0.783\n0.421\n\n\nLandStew\n0.775\n0.776\n0.634",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Pro-Environmental Behavior (PEB)</span>"
     ]
@@ -204,7 +204,7 @@
     "href": "06_pwb.html",
     "title": "Psychological Well-Being (PWB)",
     "section": "",
-    "text": "Model Fit PWB\n6-factor multidimensional model (First-Order). Optimized with 3 MIs.\nShow code\nprint_fit_table(fit_pwb, \"PWB\")\n\n\n\n\nTable 6.1: Model Fit PWB\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPWB\n3946.83\n801\n0\n0.61\n0.581\n0.088\n0.106",
+    "text": "Model Fit PWB\n6-factor multidimensional model (First-Order). Optimized with 3 MIs.\nShow code\nprint_fit_table(fit_pwb, \"PWB\")\n\n\n\n\nTable 6.1: Model Fit PWB\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nPWB\n4119.03\n801\n0\n0.615\n0.586\n0.087\n0.102",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Psychological Well-Being (PWB)</span>"
     ]
@@ -224,7 +224,7 @@
     "href": "06_pwb.html#reliability-pwb",
     "title": "Psychological Well-Being (PWB)",
     "section": "Reliability PWB",
-    "text": "Reliability PWB\n\n\nShow code\nprint_rel_table(fit_pwb)\n\n\n\n\nTable 6.2: Scale Reliability PWB (Dimensi)\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nAutonomy\n0.646\n0.668\n0.245\n\n\nMastery\n-0.245\n0.065\n0.229\n\n\nGrowth\n-0.713\n0.041\n0.213\n\n\nRelations\n-0.127\n0.146\n0.217\n\n\nPurpose\n-0.688\n0.175\n0.346\n\n\nAcceptance\n0.365\n0.538\n0.186",
+    "text": "Reliability PWB\n\n\nShow code\nprint_rel_table(fit_pwb)\n\n\n\n\nTable 6.2: Scale Reliability PWB (Dimensi)\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nAutonomy\n0.657\n0.675\n0.248\n\n\nMastery\n-0.245\n0.070\n0.232\n\n\nGrowth\n-0.759\n0.035\n0.211\n\n\nRelations\n-0.097\n0.148\n0.217\n\n\nPurpose\n-0.707\n0.179\n0.350\n\n\nAcceptance\n0.360\n0.536\n0.189",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Psychological Well-Being (PWB)</span>"
     ]
@@ -234,7 +234,7 @@
     "href": "07_summary.html",
     "title": "Summary & Conclusions",
     "section": "",
-    "text": "Model Fit Summary (CFA)\nBelow is a summary of all analysis results, including CFA Model Fit and Reliability (Alpha, Omega, and AVE) for all measurement variables.\nShow code\ndf_cfa &lt;- rbind(\n  if(!is.null(fit_eid)) get_cfa_fit_df(fit_eid, \"EID\") else NULL,\n  if(!is.null(fit_esi)) get_cfa_fit_df(fit_esi, \"ESI\") else NULL,\n  if(!is.null(fit_psmls)) get_cfa_fit_df(fit_psmls, \"PSMLS\") else NULL,\n  if(!is.null(fit_peb)) get_cfa_fit_df(fit_peb, \"PEB\") else NULL,\n  if(!is.null(fit_pwb)) get_cfa_fit_df(fit_pwb, \"PWB\") else NULL\n)\n\nif (!is.null(df_cfa) && nrow(df_cfa) &gt; 0) {\n  knitr::kable(df_cfa)\n} else {\n  cat(\"No CFA model data available to summarize.\\n\")\n}\n\n\n\n\nTable 7.1: Overall CFA Model Fit Summary Table\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n399.95\n77\n0\n0.887\n0.867\n0.097\n0.056\n\n\nESI\n50.42\n9\n0\n0.958\n0.930\n0.120\n0.037\n\n\nPSMLS\n198.94\n71\n0\n0.959\n0.948\n0.066\n0.034\n\n\nPEB\n394.02\n110\n0\n0.919\n0.900\n0.072\n0.056\n\n\nPWB\n3946.83\n801\n0\n0.610\n0.581\n0.088\n0.106",
+    "text": "Model Fit Summary (CFA)\nBelow is a summary of all analysis results, including CFA Model Fit and Reliability (Alpha, Omega, and AVE) for all measurement variables.\nShow code\ndf_cfa &lt;- rbind(\n  if(!is.null(fit_eid)) get_cfa_fit_df(fit_eid, \"EID\") else NULL,\n  if(!is.null(fit_esi)) get_cfa_fit_df(fit_esi, \"ESI\") else NULL,\n  if(!is.null(fit_psmls)) get_cfa_fit_df(fit_psmls, \"PSMLS\") else NULL,\n  if(!is.null(fit_peb)) get_cfa_fit_df(fit_peb, \"PEB\") else NULL,\n  if(!is.null(fit_pwb)) get_cfa_fit_df(fit_pwb, \"PWB\") else NULL\n)\n\nif (!is.null(df_cfa) && nrow(df_cfa) &gt; 0) {\n  knitr::kable(df_cfa)\n} else {\n  cat(\"No CFA model data available to summarize.\\n\")\n}\n\n\n\n\nTable 7.1: Overall CFA Model Fit Summary Table\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nModel\nchisq.scaled\ndf\npvalue\ncfi.robust\ntli.robust\nrmsea.robust\nsrmr\n\n\n\n\nEID\n416.40\n77\n0\n0.889\n0.868\n0.097\n0.055\n\n\nESI\n61.91\n9\n0\n0.950\n0.917\n0.130\n0.039\n\n\nPSMLS\n202.21\n71\n0\n0.960\n0.948\n0.065\n0.034\n\n\nPEB\n387.60\n110\n0\n0.925\n0.907\n0.069\n0.054\n\n\nPWB\n4119.03\n801\n0\n0.615\n0.586\n0.087\n0.102",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Summary & Conclusions</span>"
     ]
@@ -244,7 +244,7 @@
     "href": "07_summary.html#reliability-summary",
     "title": "Summary & Conclusions",
     "section": "Reliability Summary",
-    "text": "Reliability Summary\n\n\nShow code\ndf_summary &lt;- rbind(\n  if(!is.null(fit_eid)) get_rel_df(fit_eid) else NULL,\n  if(!is.null(fit_esi)) get_rel_df(fit_esi) else NULL,\n  if(!is.null(fit_psmls)) get_rel_df(fit_psmls) else NULL,\n  if(!is.null(fit_peb)) get_rel_df(fit_peb) else NULL,\n  if(!is.null(fit_pwb)) get_rel_df(fit_pwb) else NULL\n)\n\nif (!is.null(df_summary) && nrow(df_summary) &gt; 0) {\n  knitr::kable(df_summary)\n} else {\n  cat(\"No reliability data available to summarize.\\n\")\n}\n\n\n\n\nTable 7.2: Overall Reliability Summary Table\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.912\n0.910\n0.431\n\n\nESI\n0.889\n0.888\n0.577\n\n\nTechComp\n0.902\n0.902\n0.651\n\n\nSocialRel\n0.746\n0.742\n0.496\n\n\nPrivacy\n0.680\n0.675\n0.412\n\n\nInfoAware\n0.867\n0.869\n0.690\n\n\nConsLife\n0.688\n0.652\n0.314\n\n\nSocEnv\n0.827\n0.752\n0.447\n\n\nEnvCit\n0.781\n0.786\n0.425\n\n\nLandStew\n0.777\n0.778\n0.637\n\n\nAutonomy\n0.646\n0.668\n0.245\n\n\nMastery\n-0.245\n0.065\n0.229\n\n\nGrowth\n-0.713\n0.041\n0.213\n\n\nRelations\n-0.127\n0.146\n0.217\n\n\nPurpose\n-0.688\n0.175\n0.346\n\n\nAcceptance\n0.365\n0.538\n0.186",
+    "text": "Reliability Summary\n\n\nShow code\ndf_summary &lt;- rbind(\n  if(!is.null(fit_eid)) get_rel_df(fit_eid) else NULL,\n  if(!is.null(fit_esi)) get_rel_df(fit_esi) else NULL,\n  if(!is.null(fit_psmls)) get_rel_df(fit_psmls) else NULL,\n  if(!is.null(fit_peb)) get_rel_df(fit_peb) else NULL,\n  if(!is.null(fit_pwb)) get_rel_df(fit_pwb) else NULL\n)\n\nif (!is.null(df_summary) && nrow(df_summary) &gt; 0) {\n  knitr::kable(df_summary)\n} else {\n  cat(\"No reliability data available to summarize.\\n\")\n}\n\n\n\n\nTable 7.2: Overall Reliability Summary Table\n\n\n\n\n\n\nFactor\nAlpha\nOmega\nAVE\n\n\n\n\nEID\n0.912\n0.909\n0.430\n\n\nESI\n0.887\n0.884\n0.570\n\n\nTechComp\n0.900\n0.900\n0.645\n\n\nSocialRel\n0.741\n0.738\n0.488\n\n\nPrivacy\n0.673\n0.672\n0.407\n\n\nInfoAware\n0.869\n0.871\n0.693\n\n\nConsLife\n0.683\n0.643\n0.308\n\n\nSocEnv\n0.825\n0.746\n0.441\n\n\nEnvCit\n0.779\n0.783\n0.421\n\n\nLandStew\n0.775\n0.776\n0.634\n\n\nAutonomy\n0.657\n0.675\n0.248\n\n\nMastery\n-0.245\n0.070\n0.232\n\n\nGrowth\n-0.759\n0.035\n0.211\n\n\nRelations\n-0.097\n0.148\n0.217\n\n\nPurpose\n-0.707\n0.179\n0.350\n\n\nAcceptance\n0.360\n0.536\n0.189",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Summary & Conclusions</span>"
     ]

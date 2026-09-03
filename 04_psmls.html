@@ -405,67 +405,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_psmls, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>lavaan 0.7-2 ended normally after 43 iterations
+<pre><code>lavaan 0.7-2 ended normally after 42 iterations
 
   Estimator                                         ML
   Optimization method                           NLMINB
   Number of model parameters                        34
 
-  Number of observations                           555
+  Number of observations                           557
 
 Model Test User Model:
                                               Standard      Scaled
-  Test Statistic                               300.283     198.891
+  Test Statistic                               299.545     198.081
   Degrees of freedom                                71          71
   P-value (Chi-square)                           0.000       0.000
-  Scaling correction factor                                  1.510
+  Scaling correction factor                                  1.512
     Yuan-Bentler correction (Mplus variant)                       
 
 Model Test Baseline Model:
 
-  Test statistic                              4343.946    2338.647
+  Test statistic                              4362.857    2344.443
   Degrees of freedom                                91          91
   P-value                                        0.000       0.000
-  Scaling correction factor                                  1.857
+  Scaling correction factor                                  1.861
 
 User Model versus Baseline Model:
 
-  Comparative Fit Index (CFI)                    0.946       0.943
-  Tucker-Lewis Index (TLI)                       0.931       0.927
+  Comparative Fit Index (CFI)                    0.946       0.944
+  Tucker-Lewis Index (TLI)                       0.931       0.928
                                                                   
   Robust Comparative Fit Index (CFI)                         0.954
   Robust Tucker-Lewis Index (TLI)                            0.941
 
 Loglikelihood and Information Criteria:
 
-  Loglikelihood user model (H0)              -6464.485   -6464.485
-  Scaling correction factor                                  2.322
+  Loglikelihood user model (H0)              -6479.343   -6479.343
+  Scaling correction factor                                  2.326
       for the MLR correction                                      
-  Loglikelihood unrestricted model (H1)      -6314.344   -6314.344
-  Scaling correction factor                                  1.773
+  Loglikelihood unrestricted model (H1)      -6329.570   -6329.570
+  Scaling correction factor                                  1.776
       for the MLR correction                                      
                                                                   
-  Akaike (AIC)                               12996.970   12996.970
-  Bayesian (BIC)                             13143.815   13143.815
-  Sample-size adjusted Bayesian (SABIC)      13035.884   13035.884
+  Akaike (AIC)                               13026.685   13026.685
+  Bayesian (BIC)                             13173.653   13173.653
+  Sample-size adjusted Bayesian (SABIC)      13065.721   13065.721
 
 Root Mean Square Error of Approximation:
 
   RMSEA                                          0.076       0.057
   90 Percent confidence interval - lower         0.067       0.049
-  90 Percent confidence interval - upper         0.085       0.065
-  P-value H_0: RMSEA &lt;= 0.050                    0.000       0.064
-  P-value H_0: RMSEA &gt;= 0.080                    0.255       0.000
+  90 Percent confidence interval - upper         0.085       0.064
+  P-value H_0: RMSEA &lt;= 0.050                    0.000       0.072
+  P-value H_0: RMSEA &gt;= 0.080                    0.239       0.000
                                                                   
   Robust RMSEA                                               0.070
-  90 Percent confidence interval - lower                     0.059
-  90 Percent confidence interval - upper                     0.082
-  P-value H_0: Robust RMSEA &lt;= 0.050                         0.002
-  P-value H_0: Robust RMSEA &gt;= 0.080                         0.079
+  90 Percent confidence interval - lower                     0.058
+  90 Percent confidence interval - upper                     0.081
+  P-value H_0: Robust RMSEA &lt;= 0.050                         0.003
+  P-value H_0: Robust RMSEA &gt;= 0.080                         0.073
 
 Standardized Root Mean Square Residual:
 
-  SRMR                                           0.037       0.037
+  SRMR                                           0.036       0.036
 
 Goodness of Fit Index:
 
@@ -486,52 +486,52 @@ Parameter Estimates:
 Latent Variables:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
   TechComp =~                                                           
-    PSMLS_1           0.507    0.021   24.243    0.000    0.507    0.826
-    PSMLS_2           0.563    0.026   21.667    0.000    0.563    0.778
-    PSMLS_3           0.608    0.026   23.562    0.000    0.608    0.800
-    PSMLS_4           0.523    0.021   24.780    0.000    0.523    0.866
-    PSMLS_5           0.506    0.025   20.349    0.000    0.506    0.759
+    PSMLS_1           0.506    0.021   24.318    0.000    0.506    0.826
+    PSMLS_2           0.563    0.026   21.725    0.000    0.563    0.779
+    PSMLS_3           0.608    0.026   23.617    0.000    0.608    0.801
+    PSMLS_4           0.523    0.021   24.846    0.000    0.523    0.866
+    PSMLS_5           0.506    0.025   20.411    0.000    0.506    0.760
   SocialRel =~                                                          
-    PSMLS_6           0.601    0.033   18.029    0.000    0.601    0.762
-    PSMLS_7           0.503    0.037   13.458    0.000    0.503    0.599
-    PSMLS_8           0.523    0.029   18.055    0.000    0.523    0.749
+    PSMLS_6           0.598    0.033   18.005    0.000    0.598    0.760
+    PSMLS_7           0.503    0.037   13.501    0.000    0.503    0.599
+    PSMLS_8           0.524    0.029   18.174    0.000    0.524    0.751
   Privacy =~                                                            
-    PSMLS_9           0.517    0.023   22.328    0.000    0.517    0.764
-    PSMLS_10          0.499    0.035   14.056    0.000    0.499    0.621
-    PSMLS_11          0.508    0.036   14.011    0.000    0.508    0.598
+    PSMLS_9           0.515    0.023   22.276    0.000    0.515    0.763
+    PSMLS_10          0.499    0.035   14.117    0.000    0.499    0.622
+    PSMLS_11          0.507    0.036   14.005    0.000    0.507    0.597
   InfoAware =~                                                          
-    PSMLS_12          0.628    0.026   23.773    0.000    0.628    0.842
-    PSMLS_13          0.609    0.023   26.378    0.000    0.609    0.874
-    PSMLS_14          0.524    0.025   20.822    0.000    0.524    0.765
+    PSMLS_12          0.628    0.026   23.849    0.000    0.628    0.842
+    PSMLS_13          0.609    0.023   26.452    0.000    0.609    0.875
+    PSMLS_14          0.524    0.025   20.897    0.000    0.524    0.766
 
 Covariances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
   TechComp ~~                                                           
-    SocialRel         0.666    0.035   19.033    0.000    0.666    0.666
-    Privacy           0.776    0.036   21.802    0.000    0.776    0.776
-    InfoAware         0.600    0.035   17.291    0.000    0.600    0.600
+    SocialRel         0.667    0.035   19.078    0.000    0.667    0.667
+    Privacy           0.776    0.036   21.826    0.000    0.776    0.776
+    InfoAware         0.601    0.035   17.359    0.000    0.601    0.601
   SocialRel ~~                                                          
-    Privacy           0.754    0.053   14.133    0.000    0.754    0.754
-    InfoAware         0.689    0.041   16.730    0.000    0.689    0.689
+    Privacy           0.755    0.053   14.251    0.000    0.755    0.755
+    InfoAware         0.690    0.041   16.792    0.000    0.690    0.690
   Privacy ~~                                                            
-    InfoAware         0.800    0.039   20.550    0.000    0.800    0.800
+    InfoAware         0.799    0.039   20.587    0.000    0.799    0.799
 
 Variances:
                    Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
-   .PSMLS_1           0.120    0.022    5.358    0.000    0.120    0.318
-   .PSMLS_2           0.206    0.046    4.525    0.000    0.206    0.394
-   .PSMLS_3           0.208    0.037    5.653    0.000    0.208    0.359
-   .PSMLS_4           0.091    0.016    5.878    0.000    0.091    0.250
-   .PSMLS_5           0.188    0.039    4.800    0.000    0.188    0.424
-   .PSMLS_6           0.260    0.033    7.803    0.000    0.260    0.419
-   .PSMLS_7           0.453    0.040   11.313    0.000    0.453    0.641
-   .PSMLS_8           0.214    0.027    7.891    0.000    0.214    0.439
-   .PSMLS_9           0.190    0.028    6.899    0.000    0.190    0.416
-   .PSMLS_10          0.397    0.050    7.865    0.000    0.397    0.614
-   .PSMLS_11          0.464    0.044   10.625    0.000    0.464    0.643
-   .PSMLS_12          0.162    0.035    4.698    0.000    0.162    0.292
-   .PSMLS_13          0.114    0.017    6.931    0.000    0.114    0.236
-   .PSMLS_14          0.194    0.021    9.454    0.000    0.194    0.415
+   .PSMLS_1           0.119    0.022    5.358    0.000    0.119    0.317
+   .PSMLS_2           0.206    0.045    4.524    0.000    0.206    0.393
+   .PSMLS_3           0.207    0.037    5.651    0.000    0.207    0.359
+   .PSMLS_4           0.091    0.015    5.877    0.000    0.091    0.250
+   .PSMLS_5           0.188    0.039    4.800    0.000    0.188    0.423
+   .PSMLS_6           0.262    0.033    7.926    0.000    0.262    0.423
+   .PSMLS_7           0.453    0.040   11.325    0.000    0.453    0.642
+   .PSMLS_8           0.213    0.027    7.908    0.000    0.213    0.437
+   .PSMLS_9           0.191    0.027    6.960    0.000    0.191    0.418
+   .PSMLS_10          0.395    0.050    7.868    0.000    0.395    0.613
+   .PSMLS_11          0.463    0.043   10.645    0.000    0.463    0.643
+   .PSMLS_12          0.162    0.034    4.697    0.000    0.162    0.291
+   .PSMLS_13          0.114    0.016    6.926    0.000    0.114    0.235
+   .PSMLS_14          0.194    0.021    9.450    0.000    0.194    0.414
     TechComp          1.000                               1.000    1.000
     SocialRel         1.000                               1.000    1.000
     Privacy           1.000                               1.000    1.000
@@ -582,13 +582,13 @@ Table&nbsp;4.1: Model Fit PSML
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">PSML</td>
-<td style="text-align: right;">198.89</td>
+<td style="text-align: right;">198.08</td>
 <td style="text-align: right;">71</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: right;">0.954</td>
 <td style="text-align: right;">0.941</td>
 <td style="text-align: right;">0.07</td>
-<td style="text-align: right;">0.037</td>
+<td style="text-align: right;">0.036</td>
 </tr>
 </tbody>
 </table>
@@ -635,25 +635,25 @@ Table&nbsp;4.2: Scale Reliability PSMLS (Dimensi)
 <td style="text-align: left;">TechComp</td>
 <td style="text-align: right;">0.899</td>
 <td style="text-align: right;">0.900</td>
-<td style="text-align: right;">0.644</td>
+<td style="text-align: right;">0.645</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SocialRel</td>
 <td style="text-align: right;">0.741</td>
-<td style="text-align: right;">0.738</td>
-<td style="text-align: right;">0.489</td>
+<td style="text-align: right;">0.737</td>
+<td style="text-align: right;">0.488</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Privacy</td>
-<td style="text-align: right;">0.691</td>
+<td style="text-align: right;">0.690</td>
 <td style="text-align: right;">0.686</td>
 <td style="text-align: right;">0.424</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">InfoAware</td>
-<td style="text-align: right;">0.865</td>
+<td style="text-align: right;">0.866</td>
 <td style="text-align: right;">0.868</td>
-<td style="text-align: right;">0.688</td>
+<td style="text-align: right;">0.689</td>
 </tr>
 </tbody>
 </table>

@@ -1,0 +1,12 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Hasil Analisis ANECO"
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    css: styles.css

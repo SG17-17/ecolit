@@ -1,0 +1,37 @@
+---
+title: "Hasil Analisis ANECO (Final)"
+format: html
+---
+
+Selamat datang di publikasi hasil analisis ANECO. Halaman ini dibuat secara otomatis dari luaran skrip R.
+
+## 1. Unduh Laporan
+- [Laporan Analisis untuk Tim (DOCX)](hasil_analisis/Laporan_Hasil_Analisis_untuk_Tim.docx)
+- [Laporan Lengkap (TXT)](hasil_analisis/laporan_lengkap.txt)
+
+## 2. Visualisasi Model CFA
+
+::: {layout-ncol=2}
+### ESI
+![ESI Final](hasil_analisis/cfa/esi/plot_model.png)
+
+### PSMLS
+![PSMLS Final](hasil_analisis/cfa/psmls/plot_model.png)
+
+### PEB
+![PEB Final](hasil_analisis/cfa/peb/plot_model.png)
+
+### PWB
+![PWB Final](hasil_analisis/cfa/pwb/plot_model.png)
+:::
+
+## 3. Hasil Uji Hipotesis (Model 7)
+
+### Model 7
+![Gambar Model 7](hasil_analisis/model_7/gambar_model_7.png)
+
+### Grafik Interaksi
+![Grafik Interaksi](hasil_analisis/model_7/grafik_interaksi.png)
+
+### Grafik Johnson-Neyman
+![Grafik Johnson-Neyman](hasil_analisis/model_7/grafik_johnson_neyman.png)

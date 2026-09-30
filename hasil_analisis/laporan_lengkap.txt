@@ -1,0 +1,295 @@
+==============================================================================================================
+MASTER ANALYSIS ARCHIVE - FINAL TSFS
+==============================================================================================================
+
+Run time      : 2026-09-27 21:49:57 WIB
+Data file     : /Users/sebelumgendang/Desktop/ANECO/data/data_bersih.rds
+Data MD5      : 48750b60f8c45237797d665dc731c82b
+N             : 704
+CFA estimator : MLR
+CFA scaling   : std.lv = TRUE
+Structural    : Two-Step Factor Scores (TSFS)
+
+==============================================================================================================
+FINAL CFA MODEL FIT
+==============================================================================================================
+
+ Model   N Observed_Items Converged    Chisq  df      p    CFI    TLI  RMSEA RMSEA_L RMSEA_U   SRMR       AIC       BIC Heywood
+   ESI 704              6      TRUE  11.3906   8 0.1805 0.9970 0.9944 0.0336  0.0000  0.0742 0.0164  9823.524  9882.762   FALSE
+ PSMLS 704             14      TRUE 214.3113  73 0.0000 0.9593 0.9492 0.0653  0.0553  0.0756 0.0355 16528.655 16674.472   FALSE
+   PEB 704             16      TRUE 361.9779 100 0.0000 0.9294 0.9153 0.0689  0.0614  0.0767 0.0516 29143.322 29307.366   FALSE
+   PWB 704             21      TRUE 364.4859 183 0.0000 0.9499 0.9425 0.0425  0.0361  0.0488 0.0407 36892.357 37111.083   FALSE
+
+
+==============================================================================================================
+FIRST-ORDER RELIABILITY / ITEM-LEVEL AVE SUMMARY
+==============================================================================================================
+
+ Construct     Factor Items  Alpha  Omega AVE_item_std Loading_min Loading_max
+       ESI        ESI     6 0.8866 0.8654       0.5541      0.7082      0.7902
+     PSMLS   TechComp     5 0.9028 0.9030       0.6557      0.7846      0.8485
+     PSMLS  SocialRel     3 0.7440 0.7354       0.4961      0.6185      0.7488
+     PSMLS    Privacy     3 0.6806 0.6766       0.4400      0.5483      0.7881
+     PSMLS  InfoAware     3 0.8735 0.8748       0.6999      0.7853      0.8752
+       PEB   ConsLife     4 0.6878 0.6959       0.3655      0.5735      0.6464
+       PEB     SocEnv     3 0.7972 0.8244       0.5915      0.6105      0.8846
+       PEB     EnvCit     5 0.7858 0.7862       0.4301      0.4888      0.7073
+       PEB   LandStew     4 0.8188 0.8320       0.5578      0.5469      0.8190
+       PWB   Autonomy     4 0.7353 0.7496       0.4355      0.4751      0.7844
+       PWB    Mastery     3 0.5999 0.6034       0.3513      0.5126      0.6537
+       PWB     Growth     3 0.5755 0.5879       0.3193      0.4869      0.6075
+       PWB  Relations     4 0.7085 0.7194       0.4004      0.5211      0.7381
+       PWB    Purpose     3 0.7947 0.8097       0.5797      0.6325      0.8526
+       PWB Acceptance     4 0.7270 0.7296       0.4202      0.5160      0.7918
+
+
+==============================================================================================================
+SECOND-ORDER RELIABILITY
+==============================================================================================================
+
+ Construct Omega_second_order Dimensions Mean_squared_second_order_loading Loading_min Loading_max
+     PSMLS             0.8407          4                            0.7334      0.7982      0.9370
+       PEB             0.8529          4                            0.7517      0.7625      0.9886
+       PWB             0.8330          6                            0.7001      0.6884      0.9224
+
+Note: Mean_squared_second_order_loading is not item-level AVE.
+
+
+==============================================================================================================
+TSFS SCORING DESIGN
+==============================================================================================================
+
+Mediator equation:
+  Outcome    = PEB Bartlett score
+  Predictors = ESI + PSMLS regression scores from joint CFA
+
+Outcome equation:
+  Outcome    = PWB Bartlett score
+  Predictors = PEB + ESI regression scores from joint CFA
+
+PEB Bartlett method used: collapsed-loading Bartlett fallback
+PWB Bartlett method used: collapsed-loading Bartlett fallback
+
+ Factor   N       SD       Min      Max Model_score_reliability Covariance_reconstruction_error Weight_normalization_error GLS_vs_residual_weights_error Regression_identity_error
+    PEB 704 1.064740 -2.140301 3.434783               0.8833450                    2.220446e-16               0.000000e+00                  1.942890e-16              1.360023e-14
+    PWB 704 1.075174 -5.113637 2.529346               0.8662835                    2.220446e-16               2.220446e-16                  2.081668e-16              5.018208e-14
+                      Scoring_Method
+ collapsed-loading Bartlett fallback
+ collapsed-loading Bartlett fallback
+
+
+==============================================================================================================
+PRIMARY TSFS SCORE DESCRIPTIVES
+==============================================================================================================
+
+ Variable   N Mean     SD     Min    Max
+      ESI 704    0 0.9365 -4.7601 1.6231
+    PSMLS 704    0 0.9280 -2.4201 1.5402
+      PEB 704    0 1.0647 -2.1403 3.4348
+      PWB 704    0 1.0752 -5.1136 2.5293
+
+
+CORRELATION MATRIX
+
+         ESI  PSMLS    PEB    PWB
+ESI   1.0000 0.5118 0.2691 0.4626
+PSMLS 0.5118 1.0000 0.1381 0.3279
+PEB   0.2691 0.1381 1.0000 0.3065
+PWB   0.4626 0.3279 0.3065 1.0000
+
+
+==============================================================================================================
+MODEL 7 - DIAGNOSTIK ASUMSI REGRESI
+==============================================================================================================
+
+              Equation   N        BP BP_df         BP_p RESET_HC3_F RESET_HC3_p  Max_VIF Max_Cooks_D Cook_N_above_4_over_N Inference_SE
+ PEB mediator equation 704 44.629608     3 1.109120e-09    1.459593   0.2330389 1.357059   0.0999189                    37          HC3
+  PWB outcome equation 704  2.368088     2 3.060386e-01    1.664495   0.1900355 1.138638   0.1637278                    44          OLS
+
+
+==============================================================================================================
+MODEL 7 - MEDIATOR EQUATION
+==============================================================================================================
+
+          Term            b         SE           t            p        CI_L        CI_U SE_Type
+   (Intercept) -0.096747907 0.03918146 -2.46922655 1.377815e-02 -0.17367517 -0.01982064     HC3
+         ESI_c  0.315812980 0.05014031  6.29858467 5.306095e-10  0.21736957  0.41425639     HC3
+       PSMLS_c  0.004033289 0.04759995  0.08473305 9.324978e-01 -0.08942249  0.09748907     HC3
+ ESI_c:PSMLS_c  0.217810075 0.05281124  4.12431297 4.165169e-05  0.11412267  0.32149748     HC3
+
+
+==============================================================================================================
+MODEL 7 - OUTCOME EQUATION
+==============================================================================================================
+
+        Term             b         SE             t            p        CI_L       CI_U SE_Type
+ (Intercept) -2.173967e-16 0.03527045 -6.163708e-15 1.000000e+00 -0.06924837 0.06924837     OLS
+     PEB_R_Y  2.097296e-01 0.04002499  5.239966e+00 2.127111e-07  0.13114637 0.28831280     OLS
+     ESI_R_Y  4.592293e-01 0.04025662  1.140755e+01 9.080479e-28  0.38019133 0.53826732     OLS
+
+
+MODEL R-SQUARED
+
+              Equation        R2 Adjusted_R2
+ PEB mediator equation 0.1102106   0.1063972
+  PWB outcome equation 0.2445601   0.2424048
+
+
+==============================================================================================================
+SIMPLE SLOPES
+==============================================================================================================
+
+   PSMLS_Level   PSMLS_c Slope_ESI_to_PEB         SE        t            p        CI_L      CI_U SE_Type
+ Low_minus_1SD -0.927976        0.1136905 0.06767110 1.680044 9.339484e-02 -0.01917219 0.2465531     HC3
+          Mean  0.000000        0.3158130 0.05014031 6.298585 5.306095e-10  0.21736957 0.4142564     HC3
+ High_plus_1SD  0.927976        0.5179355 0.07247210 7.146688 2.238704e-12  0.37564677 0.6602242     HC3
+
+
+JOHNSON-NEYMAN
+
+JOHNSON-NEYMAN INTERVAL
+
+When PSMLS_c is OUTSIDE the interval [-2.85, -0.86], the slope of ESI_c is p < .05.
+
+Note: The range of observed values of PSMLS_c is [-2.42, 1.54]
+
+SIMPLE SLOPES ANALYSIS
+
+Slope of ESI_c when PSMLS_c = -9.279760e-01 (- 1 SD): 
+
+  Est.   S.E.   t val.      p
+------ ------ -------- ------
+  0.11   0.07     1.68   0.09
+
+Slope of ESI_c when PSMLS_c = -3.958324e-17 (Mean): 
+
+  Est.   S.E.   t val.      p
+------ ------ -------- ------
+  0.32   0.05     6.30   0.00
+
+Slope of ESI_c when PSMLS_c =  9.279760e-01 (+ 1 SD): 
+
+  Est.   S.E.   t val.      p
+------ ------ -------- ------
+  0.52   0.07     7.15   0.00
+ 
+
+
+==============================================================================================================
+CONDITIONAL INDIRECT EFFECTS / INDEX OF MODERATED MEDIATION
+==============================================================================================================
+
+                       Effect   Estimate    Boot_SE    Boot_LLCI  Boot_ULCI
+  Indirect Effect - Low PSMLS 0.02384425 0.01520513 -0.003317936 0.05740380
+ Indirect Effect - Mean PSMLS 0.06623533 0.01745111  0.035475474 0.10455536
+ Indirect Effect - High PSMLS 0.10862640 0.02756430  0.060448798 0.16574304
+ Index of Moderated Mediation 0.04568122 0.01489106  0.019955338 0.07786754
+
+Bootstrap resamples: 5000
+Seed: 17012000
+CFA re-estimated inside bootstrap: NO
+
+
+==============================================================================================================
+PENGUJIAN MODEL CFA BERTAHAP - MODEL FIT
+==============================================================================================================
+
+                       Model   N Observed_Items Converged     Chisq  df      p    CFI    TLI  RMSEA RMSEA_L RMSEA_U   SRMR       AIC       BIC Heywood
+               ESI_Baseline6 704              6      TRUE   63.1535   9 0.0000 0.9525 0.9208 0.1267  0.0983  0.1570 0.0384  9918.665  9973.346   FALSE
+     ESI_Final6_Correlated23 704              6      TRUE   11.3906   8 0.1805 0.9970 0.9944 0.0336  0.0000  0.0742 0.0164  9823.524  9882.762   FALSE
+       PSMLS_Awal4Correlated 704             14      TRUE  208.4914  71 0.0000 0.9605 0.9494 0.0652  0.0550  0.0756 0.0334 16522.214 16677.145   FALSE
+   PSMLS_Final14_SecondOrder 704             14      TRUE  214.3113  73 0.0000 0.9593 0.9492 0.0653  0.0553  0.0756 0.0355 16528.655 16674.472   FALSE
+              PEB_Baseline19 704             19      TRUE  800.1129 146 0.0000 0.8599 0.8359 0.0895  0.0835  0.0956 0.0663 34496.931 34697.429   FALSE
+                   PEB_Old14 704             14      TRUE  256.2807  74 0.0000 0.9383 0.9241 0.0660  0.0573  0.0750 0.0485 25751.811 25893.071   FALSE
+       PEB_15_FourCorrelated 704             15      TRUE  265.8441  84 0.0000 0.9441 0.9301 0.0623  0.0540  0.0708 0.0463 27484.864 27648.908   FALSE
+      PEB_15_FourSecondOrder 704             15      TRUE  277.9039  86 0.0000 0.9411 0.9281 0.0632  0.0550  0.0716 0.0481 27495.522 27650.452   FALSE
+           PEB_ThreeFactor15 704             15      TRUE  292.4134  87 0.0000 0.9365 0.9233 0.0652  0.0571  0.0736 0.0474 27514.434 27664.808   FALSE
+       PEB_16_FourCorrelated 704             16      TRUE  343.3320  98 0.0000 0.9337 0.9188 0.0675  0.0598  0.0753 0.0493 29124.647 29297.804   FALSE
+ PEB_Final16_FourSecondOrder 704             16      TRUE  361.9779 100 0.0000 0.9294 0.9153 0.0689  0.0614  0.0767 0.0516 29143.322 29307.366   FALSE
+     PEB_16_ThreeSecondOrder 704             16      TRUE  402.5483 101 0.0000 0.9180 0.9026 0.0739  0.0664  0.0816 0.0525 29197.731 29357.218   FALSE
+              PWB_Baseline42 704             42      TRUE 4281.7103 804 0.0000 0.6196 0.5926 0.0865  0.0840  0.0891 0.1100 84221.232 84672.353   FALSE
+         PWB_ReverseMethod42 704             42      TRUE 2151.8786 783 0.0000 0.8500 0.8350 0.0551  0.0523  0.0578 0.0869 81672.833 82219.646   FALSE
+                   PWB_Old22 704             22      TRUE  493.2487 203 0.0000 0.9235 0.9130 0.0505  0.0448  0.0562 0.0546 39587.006 39814.845   FALSE
+      PWB_Final21_Correlated 704             21      TRUE  349.6186 174 0.0000 0.9517 0.9417 0.0428  0.0363  0.0493 0.0395 36890.120 37149.856   FALSE
+     PWB_Final21_SecondOrder 704             21      TRUE  364.4859 183 0.0000 0.9499 0.9425 0.0425  0.0361  0.0488 0.0407 36892.357 37111.083   FALSE
+           PWB_M7_Add_PWB21R 704             22      TRUE  449.0312 203 0.0000 0.9349 0.9259 0.0467  0.0408  0.0525 0.0452 39255.853 39483.692   FALSE
+      PWB_Final21_Drop_PWB22 704             20      TRUE  328.5991 164 0.0000 0.9514 0.9437 0.0426  0.0359  0.0493 0.0394 35239.819 35449.431   FALSE
+      PWB_Final21_Drop_PWB26 704             20      TRUE  322.2358 164 0.0000 0.9530 0.9455 0.0417  0.0350  0.0484 0.0391 35356.669 35566.281   FALSE
+
+Key decision diagnostics:
+
+                       Model     Item Intended_Factor Std_Loading MI_Count_GE10 Max_Residual_MI Residual_Partner Max_CrossLoading_MI CrossLoading_Factor
+ PEB_Final16_FourSecondOrder   PEB_15          EnvCit      0.7046             2         13.8450           PEB_19              0.4185              SocEnv
+ PEB_Final16_FourSecondOrder   PEB_18        LandStew      0.8011             5         54.5511           PEB_17             11.6269            ConsLife
+           PWB_M7_Add_PWB21R PWB_21_R          Growth      0.3300             5         26.7389           PWB_20             27.5302           Relations
+
+Catatan pengujian model bertahap:
+- ESI baseline has six items without correlated residuals; final adds ESI_2 ~~ ESI_3.
+- PEB baseline began with 19 items / 4 factors.
+- PEB final has 16 items / 4 first-order factors + PEB; the 15-item models are historical comparisons.
+- Historical 15-item correlated four-factor EnvCit-LandStew correlation = 0.898.
+- Final 16-item correlated four-factor EnvCit-LandStew correlation = 0.888.
+- Four-versus-three-factor robust difference test on the same 15 items: delta chi-square(3) = 24.304, p = 2.158e-05.
+- Historical 15-item four- versus three-factor second-order test: delta chi-square(1) = 10.245, p = 0.001371.
+- Final 16-item four- versus three-factor second-order test: delta chi-square(1) = 23.216, p = 1.448e-06.
+- The significant difference establishes distinguishability, not whether a broader aggregate is substantively useful.
+- On the same 16 items, correlated versus second-order robust difference test: delta chi-square(2) = 20.343, p = 3.824e-05.
+- PEB final retains PEB_15 and PEB_18; only PEB_2, PEB_9, and PEB_10 are excluded.
+- Uji PEB_9/10, PEB_18, dan PEB_17 ~~ PEB_18 ada di cfa/peb/laporan_cfa.txt.
+- PWB reverse-wording factor is diagnostic only and is not retained in the final model.
+- PWB final has 21 favorable items / 6 first-order factors + second-order PWB.
+- AIC/BIC must not be interpreted across models with different observed-item sets.
+- Uji PWB enam faktor berkorelasi versus second-order ada di cfa/pwb/laporan_cfa.txt.
+
+
+==============================================================================================================
+REPRODUCIBILITY
+==============================================================================================================
+
+R version       : R version 4.5.2 (2025-10-31)
+lavaan         : 0.6.21
+semTools       : 0.5.7
+knitr          : 1.51
+sandwich       : 3.1.1
+lmtest         : 0.9.40
+interactions   : 1.2.0
+ggplot2        : 4.0.1
+scales         : 1.4.0
+semPlot        : 1.1.7
+
+R version 4.5.2 (2025-10-31)
+Platform: aarch64-apple-darwin20
+Running under: macOS Tahoe 26.5.1
+
+Matrix products: default
+BLAS:   /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1
+
+locale:
+[1] C.UTF-8/C.UTF-8/C.UTF-8/C/C.UTF-8/C.UTF-8
+
+time zone: Asia/Jakarta
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] semPlot_1.1.7  semTools_0.5-7 lavaan_0.6-21  knitr_1.51    
+
+loaded via a namespace (and not attached):
+  [1] Rdpack_2.6.4        mnormt_2.1.2        pbapply_1.7-4       gridExtra_2.3       fdrtool_1.2.18      sandwich_3.1-1      rlang_1.3.0         magrittr_2.0.5     
+  [9] multcomp_1.4-28     furrr_0.3.1         otel_0.2.0          rockchalk_1.8.157   compiler_4.5.2      systemfonts_1.3.1   png_0.1-9           vctrs_0.7.3        
+ [17] reshape2_1.4.5      OpenMx_2.22.9       quadprog_1.5-8      stringr_1.6.0       pkgconfig_2.0.3     fastmap_1.2.0       arm_1.14-4          backports_1.5.1    
+ [25] labeling_0.4.3      pbivnorm_0.6.0      pander_0.6.6        rmarkdown_2.31      nloptr_2.2.1        ragg_1.5.0          purrr_1.2.2         xfun_0.60          
+ [33] kutils_1.73         jpeg_0.1-11         psych_2.6.5         broom_1.0.10        parallel_4.5.2      cluster_2.1.8.1     R6_2.6.1            stringi_1.8.7      
+ [41] RColorBrewer_1.1-3  parallelly_1.46.1   boot_1.3-32         rpart_4.1.24        lmtest_0.9-40       estimability_1.5.1  Rcpp_1.1.2          zoo_1.8-15         
+ [49] base64enc_0.1-6     Matrix_1.7-4        splines_4.5.2       nnet_7.3-20         igraph_2.2.3        tidyselect_1.2.1    rstudioapi_0.17.1   abind_1.4-8        
+ [57] codetools_0.2-20    qgraph_1.9.8        listenv_0.10.1      lattice_0.22-7      tibble_3.3.1        plyr_1.8.9          withr_3.0.3         S7_0.2.1           
+ [65] coda_0.19-4.1       evaluate_1.0.5      foreign_0.8-90      future_1.70.0       survival_3.8-3      RcppParallel_5.1.10 zip_2.3.3           jtools_2.3.0       
+ [73] pillar_1.11.1       carData_3.0-5       checkmate_2.3.3     stats4_4.5.2        reformulas_0.4.1    generics_0.1.4      ggplot2_4.0.1       scales_1.4.0       
+ [81] minqa_1.2.8         gtools_3.9.5        globals_0.19.1      xtable_1.8-8        glue_1.8.1          mi_1.1              emmeans_2.0.1       Hmisc_5.2-4        
+ [89] tools_4.5.2         data.table_1.18.2.1 lme4_1.1-37         openxlsx_4.2.8.1    forcats_1.0.1       mvtnorm_1.3-3       XML_3.99-0.23       grid_4.5.2         
+ [97] sem_3.1-16          tidyr_1.3.2         rbibutils_2.4       colorspace_2.1-2    nlme_3.1-168        htmlTable_2.4.3     Formula_1.2-5       cli_3.6.6          
+[105] textshaping_1.0.4   interactions_1.2.0  dplyr_1.2.1         corpcor_1.6.10      glasso_1.11         gtable_0.3.6        broom.mixed_0.2.9.6 digest_0.6.39      
+[113] TH.data_1.1-4       htmlwidgets_1.6.4   farver_2.1.2        htmltools_0.5.9     lifecycle_1.0.5     lisrelToR_0.3       MASS_7.3-65        

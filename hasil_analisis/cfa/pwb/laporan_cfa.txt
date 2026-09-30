@@ -1,0 +1,447 @@
+CFA PWB | N = 704 | estimator = MLR
+
+RIWAYAT MODEL (urutan pengujian)
+                 Model Observed_Items    Chisq  df     p   CFI   TLI RMSEA RMSEA_L RMSEA_U  SRMR Converged Heywood
+          Awal_42_item             42 4281.710 804 <.001 0.620 0.593 0.087   0.084   0.089 0.110      TRUE   FALSE
+ Method_factor_42_item             42 2151.879 783 <.001 0.850 0.835 0.055   0.052   0.058 0.087      TRUE   FALSE
+ Kandidat_lama_22_item             22  493.249 203 <.001 0.924 0.913 0.050   0.045   0.056 0.055      TRUE   FALSE
+   Enam_faktor_21_item             21  349.619 174 <.001 0.952 0.942 0.043   0.036   0.049 0.039      TRUE   FALSE
+  Second_order_21_item             21  364.486 183 <.001 0.950 0.943 0.042   0.036   0.049 0.041      TRUE   FALSE
+     Uji_tambah_PWB21R             22  449.031 203 <.001 0.935 0.926 0.047   0.041   0.052 0.045      TRUE   FALSE
+       Uji_hapus_PWB22             20  328.599 164 <.001 0.951 0.944 0.043   0.036   0.049 0.039      TRUE   FALSE
+       Uji_hapus_PWB26             20  322.236 164 <.001 0.953 0.946 0.042   0.035   0.048 0.039      TRUE   FALSE
+Perbandingan fit pada jumlah item berbeda bersifat deskriptif.
+
+PERBANDINGAN MODEL DENGAN ITEM YANG SAMA
+
+Berkorelasi_vs_second_order_21_item
+
+Scaled Chi-Squared Difference Test (method = “satorra.bentler.2001”)
+
+lavaan->lavTestLRT():  
+   lavaan NOTE: The “Chisq” column contains standard test statistics, not the robust test that should be reported per model. A robust difference test is a function of two 
+   standard (not robust) statistics.
+
+                      Df   AIC   BIC  Chisq Chisq diff    RMSEA Df diff Pr(>Chisq)  
+fit_pwb_correlated21 174 36890 37150 446.39                                         
+fit_pwb_final21      183 36892 37111 466.63     15.026 0.035791       9    0.09022 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+DIAGNOSTIK TAHAP
+
+Loading_model_awal
+      Construct     Factor Indicator Estimate    SE      z     p  CI_L  CI_U Std_Loading
+ PWB_Baseline42   Autonomy     PWB_1    0.691 0.050 13.742 0.000 0.592 0.789       0.683
+ PWB_Baseline42   Autonomy     PWB_2    0.591 0.056 10.537 0.000 0.481 0.701       0.586
+ PWB_Baseline42   Autonomy   PWB_3_R    0.532 0.108  4.925 0.000 0.321 0.744       0.388
+ PWB_Baseline42   Autonomy   PWB_4_R    0.533 0.090  5.942 0.000 0.357 0.708       0.436
+ PWB_Baseline42   Autonomy     PWB_5    0.692 0.051 13.548 0.000 0.592 0.792       0.744
+ PWB_Baseline42   Autonomy   PWB_6_R    0.478 0.091  5.232 0.000 0.299 0.657       0.384
+ PWB_Baseline42   Autonomy     PWB_7    0.421 0.053  7.961 0.000 0.317 0.525       0.413
+ PWB_Baseline42    Mastery     PWB_8    0.285 0.066  4.294 0.000 0.155 0.416       0.316
+ PWB_Baseline42    Mastery   PWB_9_R    0.632 0.063 10.019 0.000 0.508 0.755       0.528
+ PWB_Baseline42    Mastery  PWB_10_R    0.783 0.062 12.618 0.000 0.661 0.905       0.625
+ PWB_Baseline42    Mastery    PWB_11    0.253 0.060  4.217 0.000 0.135 0.370       0.318
+ PWB_Baseline42    Mastery  PWB_12_R    0.760 0.065 11.635 0.000 0.632 0.888       0.629
+ PWB_Baseline42    Mastery  PWB_13_R    0.804 0.063 12.771 0.000 0.681 0.928       0.655
+ PWB_Baseline42    Mastery    PWB_14    0.348 0.066  5.306 0.000 0.219 0.476       0.329
+ PWB_Baseline42     Growth  PWB_15_R    0.644 0.062 10.314 0.000 0.522 0.767       0.513
+ PWB_Baseline42     Growth    PWB_16    0.392 0.045  8.798 0.000 0.305 0.479       0.448
+ PWB_Baseline42     Growth  PWB_17_R    0.858 0.061 14.152 0.000 0.739 0.977       0.626
+ PWB_Baseline42     Growth    PWB_18    0.504 0.062  8.140 0.000 0.383 0.625       0.484
+ PWB_Baseline42     Growth  PWB_19_R    0.704 0.057 12.308 0.000 0.592 0.816       0.552
+ PWB_Baseline42     Growth    PWB_20    0.322 0.038  8.468 0.000 0.247 0.396       0.414
+ PWB_Baseline42     Growth  PWB_21_R    0.834 0.062 13.370 0.000 0.712 0.956       0.619
+ PWB_Baseline42  Relations    PWB_22    0.223 0.069  3.210 0.001 0.087 0.359       0.231
+ PWB_Baseline42  Relations  PWB_23_R    0.974 0.063 15.577 0.000 0.852 1.097       0.714
+ PWB_Baseline42  Relations  PWB_24_R    1.033 0.061 16.864 0.000 0.913 1.154       0.698
+ PWB_Baseline42  Relations    PWB_25    0.373 0.069  5.402 0.000 0.238 0.509       0.337
+ PWB_Baseline42  Relations    PWB_26    0.256 0.066  3.895 0.000 0.127 0.385       0.282
+ PWB_Baseline42  Relations  PWB_27_R    0.879 0.052 16.813 0.000 0.776 0.981       0.663
+ PWB_Baseline42  Relations    PWB_28    0.340 0.054  6.264 0.000 0.234 0.446       0.382
+ PWB_Baseline42    Purpose  PWB_29_R    0.430 0.062  6.958 0.000 0.309 0.551       0.329
+ PWB_Baseline42    Purpose    PWB_30    0.679 0.057 11.827 0.000 0.567 0.792       0.609
+ PWB_Baseline42    Purpose  PWB_31_R    1.012 0.048 21.256 0.000 0.919 1.106       0.740
+ PWB_Baseline42    Purpose  PWB_32_R    1.011 0.046 22.176 0.000 0.922 1.100       0.731
+ PWB_Baseline42    Purpose    PWB_33    0.528 0.049 10.819 0.000 0.432 0.623       0.527
+ PWB_Baseline42    Purpose    PWB_34    0.673 0.055 12.152 0.000 0.565 0.782       0.639
+ PWB_Baseline42    Purpose  PWB_35_R    0.994 0.053 18.736 0.000 0.890 1.098       0.720
+ PWB_Baseline42 Acceptance    PWB_36    0.512 0.056  9.145 0.000 0.402 0.621       0.470
+ PWB_Baseline42 Acceptance    PWB_37    0.636 0.049 13.022 0.000 0.540 0.732       0.643
+ PWB_Baseline42 Acceptance  PWB_38_R    0.675 0.052 12.999 0.000 0.573 0.777       0.580
+ PWB_Baseline42 Acceptance    PWB_39    0.454 0.048  9.484 0.000 0.360 0.548       0.484
+ PWB_Baseline42 Acceptance  PWB_40_R    0.835 0.057 14.663 0.000 0.723 0.947       0.642
+ PWB_Baseline42 Acceptance  PWB_41_R    0.981 0.056 17.391 0.000 0.871 1.092       0.718
+ PWB_Baseline42 Acceptance    PWB_42    0.500 0.054  9.258 0.000 0.394 0.606       0.439
+
+Loading_method_factor
+           Construct        Factor Indicator Estimate    SE      z p  CI_L  CI_U Std_Loading
+ PWB_ReverseMethod42 ReverseMethod   PWB_3_R    0.646 0.056 11.527 0 0.536 0.756       0.460
+ PWB_ReverseMethod42 ReverseMethod   PWB_4_R    0.592 0.056 10.606 0 0.483 0.701       0.473
+ PWB_ReverseMethod42 ReverseMethod   PWB_6_R    0.574 0.051 11.242 0 0.474 0.674       0.452
+ PWB_ReverseMethod42 ReverseMethod   PWB_9_R    0.647 0.044 14.716 0 0.561 0.733       0.525
+ PWB_ReverseMethod42 ReverseMethod  PWB_10_R    0.761 0.056 13.618 0 0.651 0.870       0.583
+ PWB_ReverseMethod42 ReverseMethod  PWB_12_R    0.705 0.049 14.363 0 0.608 0.801       0.559
+ PWB_ReverseMethod42 ReverseMethod  PWB_13_R    0.764 0.048 15.962 0 0.671 0.858       0.593
+ PWB_ReverseMethod42 ReverseMethod  PWB_15_R    0.512 0.076  6.701 0 0.362 0.662       0.398
+ PWB_ReverseMethod42 ReverseMethod  PWB_17_R    0.734 0.054 13.593 0 0.628 0.840       0.516
+ PWB_ReverseMethod42 ReverseMethod  PWB_19_R    0.628 0.055 11.341 0 0.520 0.737       0.479
+ PWB_ReverseMethod42 ReverseMethod  PWB_21_R    0.729 0.068 10.688 0 0.595 0.862       0.521
+ PWB_ReverseMethod42 ReverseMethod  PWB_23_R    0.878 0.056 15.539 0 0.767 0.989       0.606
+ PWB_ReverseMethod42 ReverseMethod  PWB_24_R    0.872 0.063 13.863 0 0.749 0.995       0.556
+ PWB_ReverseMethod42 ReverseMethod  PWB_27_R    0.764 0.058 13.092 0 0.650 0.878       0.546
+ PWB_ReverseMethod42 ReverseMethod  PWB_29_R    0.419 0.076  5.538 0 0.271 0.568       0.317
+ PWB_ReverseMethod42 ReverseMethod  PWB_31_R    0.698 0.064 10.933 0 0.573 0.823       0.486
+ PWB_ReverseMethod42 ReverseMethod  PWB_32_R    0.601 0.067  8.948 0 0.469 0.733       0.416
+ PWB_ReverseMethod42 ReverseMethod  PWB_35_R    0.763 0.059 12.962 0 0.647 0.878       0.527
+ PWB_ReverseMethod42 ReverseMethod  PWB_38_R    0.569 0.053 10.800 0 0.466 0.672       0.472
+ PWB_ReverseMethod42 ReverseMethod  PWB_40_R    0.701 0.058 12.019 0 0.587 0.815       0.515
+ PWB_ReverseMethod42 ReverseMethod  PWB_41_R    0.759 0.058 13.028 0 0.645 0.873       0.527
+
+MI_model_awal
+              Parameter        lhs op      rhs      mi    epc sepc.all
+       PWB_22 ~~ PWB_26     PWB_22 ~~   PWB_26 204.467  0.449    0.548
+       PWB_30 ~~ PWB_34     PWB_30 ~~   PWB_34 196.936  0.417    0.583
+     PWB_3_R ~~ PWB_4_R    PWB_3_R ~~  PWB_4_R 158.793  0.699    0.502
+     PWB_3_R ~~ PWB_6_R    PWB_3_R ~~  PWB_6_R  89.589  0.544    0.374
+     PWB_4_R ~~ PWB_6_R    PWB_4_R ~~  PWB_6_R  81.288  0.454    0.359
+       PWB_36 ~~ PWB_37     PWB_36 ~~   PWB_37  81.284  0.269    0.369
+  Relations =~ PWB_10_R  Relations =~ PWB_10_R  78.194  0.928    0.740
+       PWB_26 ~~ PWB_28     PWB_26 ~~   PWB_28  77.671  0.246    0.343
+      Autonomy =~ PWB_8   Autonomy =~    PWB_8  76.202  0.414    0.459
+        PWB_8 ~~ PWB_11      PWB_8 ~~   PWB_11  75.729  0.217    0.336
+   PWB_12_R ~~ PWB_13_R   PWB_12_R ~~ PWB_13_R  74.923  0.360    0.413
+   PWB_15_R ~~ PWB_29_R   PWB_15_R ~~ PWB_29_R  74.486  0.449    0.338
+       PWB_11 ~~ PWB_34     PWB_11 ~~   PWB_34  70.813  0.204    0.333
+   PWB_17_R ~~ PWB_35_R   PWB_17_R ~~ PWB_35_R  70.557  0.369    0.361
+    Acceptance =~ PWB_8 Acceptance =~    PWB_8  69.797  0.573    0.635
+   Acceptance =~ PWB_11 Acceptance =~   PWB_11  67.298  0.496    0.623
+       PWB_14 ~~ PWB_34     PWB_14 ~~   PWB_34  65.223  0.259    0.320
+       PWB_11 ~~ PWB_22     PWB_11 ~~   PWB_22  64.071  0.217    0.306
+       PWB_11 ~~ PWB_14     PWB_11 ~~   PWB_14  63.872  0.233    0.309
+       PWB_16 ~~ PWB_20     PWB_16 ~~   PWB_20  63.183  0.174    0.315
+       PWB_37 ~~ PWB_39     PWB_37 ~~   PWB_39  62.691  0.202    0.325
+       PWB_22 ~~ PWB_25     PWB_22 ~~   PWB_25  60.592  0.293    0.300
+       PWB_33 ~~ PWB_34     PWB_33 ~~   PWB_34  59.390  0.216    0.314
+      Purpose =~ PWB_11    Purpose =~   PWB_11  59.361  0.389    0.490
+       PWB_26 ~~ PWB_37     PWB_26 ~~   PWB_37  59.129  0.202    0.306
+       PWB_25 ~~ PWB_26     PWB_25 ~~   PWB_26  58.988  0.270    0.297
+     Mastery =~ PWB_3_R    Mastery =~  PWB_3_R  58.207  0.533    0.388
+     Autonomy =~ PWB_11   Autonomy =~   PWB_11  57.829  0.318    0.400
+        PWB_8 ~~ PWB_37      PWB_8 ~~   PWB_37  57.782  0.197    0.303
+       PWB_11 ~~ PWB_30     PWB_11 ~~   PWB_30  57.690  0.199    0.299
+        PWB_8 ~~ PWB_16      PWB_8 ~~   PWB_16  57.000  0.197    0.294
+     PWB_30 ~~ PWB_35_R     PWB_30 ~~ PWB_35_R  56.965 -0.275   -0.325
+ Acceptance =~ PWB_29_R Acceptance =~ PWB_29_R  55.495 -1.123   -0.859
+       PWB_22 ~~ PWB_28     PWB_22 ~~   PWB_28  55.172  0.222    0.288
+       Purpose =~ PWB_8    Purpose =~    PWB_8  54.731  0.425    0.470
+       PWB_33 ~~ PWB_37     PWB_33 ~~   PWB_37  54.640  0.193    0.299
+        Growth =~ PWB_8     Growth =~    PWB_8  52.065  0.492    0.545
+     PWB_29_R ~~ PWB_36   PWB_29_R ~~   PWB_36  51.701 -0.329   -0.278
+       PWB_30 ~~ PWB_33     PWB_30 ~~   PWB_33  51.632  0.218    0.290
+       PWB_34 ~~ PWB_37     PWB_34 ~~   PWB_37  50.259  0.180    0.293
+     PWB_17_R ~~ PWB_18   PWB_17_R ~~   PWB_18  50.152  0.293    0.301
+     PWB_17_R ~~ PWB_20   PWB_17_R ~~   PWB_20  49.229 -0.221   -0.293
+ Acceptance =~ PWB_15_R Acceptance =~ PWB_15_R  49.002 -0.700   -0.558
+     PWB_37 ~~ PWB_41_R     PWB_37 ~~ PWB_41_R  48.868 -0.229   -0.317
+       PWB_14 ~~ PWB_36     PWB_14 ~~   PWB_36  48.305  0.259    0.270
+        PWB_8 ~~ PWB_20      PWB_8 ~~   PWB_20  47.741  0.162    0.268
+       PWB_18 ~~ PWB_36     PWB_18 ~~   PWB_36  47.413  0.237    0.271
+       PWB_11 ~~ PWB_18     PWB_11 ~~   PWB_18  47.392  0.185    0.269
+       PWB_16 ~~ PWB_26     PWB_16 ~~   PWB_26  47.211  0.182    0.267
+     Mastery =~ PWB_4_R    Mastery =~  PWB_4_R  46.880  0.420    0.344
+   Acceptance =~ PWB_18 Acceptance =~   PWB_18  46.816  0.570    0.547
+       PWB_30 ~~ PWB_37     PWB_30 ~~   PWB_37  46.656  0.188    0.281
+       PWB_18 ~~ PWB_34     PWB_18 ~~   PWB_34  46.617  0.204    0.276
+       PWB_22 ~~ PWB_30     PWB_22 ~~   PWB_30  46.549  0.222    0.267
+       PWB_22 ~~ PWB_34     PWB_22 ~~   PWB_34  46.209  0.204    0.268
+   PWB_21_R ~~ PWB_29_R   PWB_21_R ~~ PWB_29_R  45.850  0.355    0.271
+     PWB_3_R ~~ PWB_9_R    PWB_3_R ~~  PWB_9_R  45.590  0.345    0.268
+     PWB_21_R ~~ PWB_26   PWB_21_R ~~   PWB_26  45.335 -0.250   -0.270
+   PWB_35_R ~~ PWB_41_R   PWB_35_R ~~ PWB_41_R  44.371  0.266    0.292
+       PWB_14 ~~ PWB_18     PWB_14 ~~   PWB_18  43.848  0.236    0.259
+       PWB_11 ~~ PWB_39     PWB_11 ~~   PWB_39  43.752  0.159    0.257
+   PWB_15_R ~~ PWB_21_R   PWB_15_R ~~ PWB_21_R  43.367  0.321    0.281
+   PWB_40_R ~~ PWB_41_R   PWB_40_R ~~ PWB_41_R  42.857  0.282    0.297
+       PWB_26 ~~ PWB_34     PWB_26 ~~   PWB_34  42.448  0.182    0.258
+       PWB_22 ~~ PWB_39     PWB_22 ~~   PWB_39  41.907  0.193    0.250
+    Purpose =~ PWB_15_R    Purpose =~ PWB_15_R  41.901 -0.853   -0.679
+       PWB_25 ~~ PWB_28     PWB_25 ~~   PWB_28  41.611  0.216    0.252
+       PWB_16 ~~ PWB_33     PWB_16 ~~   PWB_33  41.469  0.169    0.254
+      PWB_3_R ~~ PWB_26    PWB_3_R ~~   PWB_26  41.032 -0.274   -0.248
+       PWB_14 ~~ PWB_26     PWB_14 ~~   PWB_26  41.015  0.214    0.246
+     Growth =~ PWB_29_R     Growth =~ PWB_29_R  40.969  0.902    0.691
+     PWB_18 ~~ PWB_21_R     PWB_18 ~~ PWB_21_R  40.867 -0.261   -0.270
+    PWB_4_R ~~ PWB_12_R    PWB_4_R ~~ PWB_12_R  40.660  0.270    0.262
+     PWB_18 ~~ PWB_29_R     PWB_18 ~~ PWB_29_R  40.475 -0.279   -0.248
+     PWB_34 ~~ PWB_35_R     PWB_34 ~~ PWB_35_R  40.471 -0.215   -0.277
+         PWB_7 ~~ PWB_8      PWB_7 ~~    PWB_8  39.683  0.195    0.245
+     PWB_16 ~~ PWB_17_R     PWB_16 ~~ PWB_17_R  39.376 -0.221   -0.264
+     Growth =~ PWB_35_R     Growth =~ PWB_35_R  39.340  0.786    0.570
+      Purpose =~ PWB_18    Purpose =~   PWB_18  38.250  0.678    0.650
+     PWB_18 ~~ PWB_19_R     PWB_18 ~~ PWB_19_R  38.018 -0.246   -0.254
+       Growth =~ PWB_11     Growth =~   PWB_11  37.902  0.370    0.465
+       Growth =~ PWB_30     Growth =~   PWB_30  37.513 -0.660   -0.592
+       PWB_36 ~~ PWB_39     PWB_36 ~~   PWB_39  37.498  0.191    0.242
+       PWB_8 ~~ PWB_9_R      PWB_8 ~~  PWB_9_R  37.477 -0.213   -0.245
+       PWB_14 ~~ PWB_22     PWB_14 ~~   PWB_22  37.385  0.220    0.234
+       PWB_11 ~~ PWB_28     PWB_11 ~~   PWB_28  37.024  0.146    0.236
+       PWB_34 ~~ PWB_36     PWB_34 ~~   PWB_36  36.863  0.189    0.243
+       PWB_11 ~~ PWB_26     PWB_11 ~~   PWB_26  36.433  0.152    0.232
+       PWB_11 ~~ PWB_37     PWB_11 ~~   PWB_37  36.262  0.137    0.240
+   PWB_38_R ~~ PWB_41_R   PWB_38_R ~~ PWB_41_R  36.261  0.238    0.265
+       PWB_22 ~~ PWB_37     PWB_22 ~~   PWB_37  36.153  0.170    0.238
+     PWB_39 ~~ PWB_40_R     PWB_39 ~~ PWB_40_R  35.959 -0.201   -0.246
+       PWB_3_R ~~ PWB_5    PWB_3_R ~~    PWB_5  35.387 -0.223   -0.284
+      PWB_4_R ~~ PWB_26    PWB_4_R ~~   PWB_26  35.345 -0.222   -0.231
+       PWB_2 ~~ PWB_6_R      PWB_2 ~~  PWB_6_R  34.355 -0.230   -0.245
+     PWB_13_R ~~ PWB_22   PWB_13_R ~~   PWB_22  34.217 -0.208   -0.238
+       PWB_11 ~~ PWB_16     PWB_11 ~~   PWB_16  33.966  0.134    0.227
+   PWB_38_R ~~ PWB_40_R   PWB_38_R ~~ PWB_40_R  33.886  0.231    0.245
+       PWB_1 ~~ PWB_4_R      PWB_1 ~~  PWB_4_R  33.826 -0.213   -0.263
+    PWB_6_R ~~ PWB_41_R    PWB_6_R ~~ PWB_41_R  33.720  0.262    0.239
+
+RINCIAN MODEL AKHIR
+
+====================================================================================================================== 
+CFA PWB - model akhir 
+====================================================================================================================== 
+
+MODEL INFO
+
+Model              : CFA PWB - model akhir
+Estimator          : MLR
+N Total            : 704
+N Used             : 704
+Observed Variables : 21
+Latent Factors     : 7
+Factor Names       : Autonomy, Mastery, Growth, Relations, Purpose, Acceptance, PWB
+Parameters         : 48
+Degrees of Freedom : 183
+Standardization    : std.lv = TRUE
+Converged          : TRUE
+Items Removed      : 21 | PWB_3_R, PWB_4_R, PWB_6_R, PWB_9_R, PWB_10_R, PWB_12_R, PWB_13_R, PWB_15_R, PWB_17_R, PWB_19_R, PWB_21_R, PWB_23_R, PWB_24_R, PWB_27_R, PWB_29_R, PWB_31_R, PWB_32_R, PWB_35_R, PWB_38_R, PWB_40_R, PWB_41_R
+
+FACTOR STRUCTURE
+
+Autonomy        : 4 items
+                  PWB_1, PWB_2, PWB_5, PWB_7
+
+Mastery         : 3 items
+                  PWB_8, PWB_11, PWB_14
+
+Growth          : 3 items
+                  PWB_16, PWB_18, PWB_20
+
+Relations       : 4 items
+                  PWB_22, PWB_25, PWB_26, PWB_28
+
+Purpose         : 3 items
+                  PWB_30, PWB_33, PWB_34
+
+Acceptance      : 4 items
+                  PWB_36, PWB_37, PWB_39, PWB_42
+
+PWB             : 6 items
+                  Autonomy, Mastery, Growth, Relations, Purpose, Acceptance
+
+MODEL FIT
+
+Index                                 Value
+-------------------------------------------- 
+chisq.scaled                        364.486
+df.scaled                           183.000
+pvalue.scaled                         <.001
+cfi.robust                            0.950
+tli.robust                            0.943
+rmsea.robust                          0.042
+rmsea.ci.lower.robust                 0.036
+rmsea.ci.upper.robust                 0.049
+srmr                                  0.041
+aic                               36892.357
+bic                               37111.083
+
+FACTOR LOADINGS
+
+Factor      Item       Bunyi Item                                                           Est.       SE         p     Std.
+--------------------------------------------------------------------------------------------------------------------------- 
+Autonomy    PWB_1      Saya tidak takut menyampaikan pendapat saya, meskipun berbeda       0.490    0.036     <.001    0.705
+                       dengan pendapat kebanyakan orang.                               
+--------------------------------------------------------------------------------------------------------------------------- 
+Autonomy    PWB_2      Keputusan yang saya buat biasanya tidak dipengaruhi oleh apa        0.441    0.036     <.001    0.635
+                       yang dilakukan oleh orang lain.                                 
+--------------------------------------------------------------------------------------------------------------------------- 
+Autonomy    PWB_5      Saya merasa percaya diri atas pendapat saya, meskipun berbeda       0.501    0.034     <.001    0.784
+                       dari pandangan kebanyakan orang.                                
+--------------------------------------------------------------------------------------------------------------------------- 
+Autonomy    PWB_7      Saya menilai diri saya berdasarkan apa yang menurut saya            0.333    0.030     <.001    0.475
+                       penting, bukan berdasarkan apa yang orang lain anggap           
+                       penting.                                                        
+--------------------------------------------------------------------------------------------------------------------------- 
+Mastery     PWB_8      Secara umum, saya merasa memiliki kendali atas situasi dalam        0.210    0.049     <.001    0.603
+                       kehidupan saya.                                                 
+--------------------------------------------------------------------------------------------------------------------------- 
+Mastery     PWB_11     Saya cukup baik dalam mengelola berbagai tanggung jawab dalam       0.201    0.050     <.001    0.654
+                       kehidupan sehari-hari.                                          
+--------------------------------------------------------------------------------------------------------------------------- 
+Mastery     PWB_14     Saya berhasil menata tempat tinggal dan gaya hidup yang             0.209    0.050     <.001    0.513
+                       sangat sesuai dengan keinginan saya.                            
+--------------------------------------------------------------------------------------------------------------------------- 
+Growth      PWB_16     Penting bagi saya untuk memiliki pengalaman baru yang               0.222    0.055     <.001    0.593
+                       menantang cara saya dalam memandang diri sendiri dan dunia di   
+                       sekitar saya.                                                   
+--------------------------------------------------------------------------------------------------------------------------- 
+Growth      PWB_18     Saya merasa telah banyak berkembang sebagai pribadi seiring         0.270    0.054     <.001    0.608
+                       berjalannya waktu.                                              
+--------------------------------------------------------------------------------------------------------------------------- 
+Growth      PWB_20     Bagi saya, hidup merupakan proses belajar, perubahan, dan           0.161    0.042     <.001    0.487
+                       perkembangan yang terus berlangsung.                            
+--------------------------------------------------------------------------------------------------------------------------- 
+Relations   PWB_22     Kebanyakan orang menganggap saya sebagai pribadi yang               0.490    0.038     <.001    0.700
+                       penyayang dan penuh perhatian.                                  
+--------------------------------------------------------------------------------------------------------------------------- 
+Relations   PWB_25     Saya menikmati percakapan pribadi yang saling terbuka dengan        0.418    0.032     <.001    0.521
+                       anggota keluarga atau teman.                                    
+--------------------------------------------------------------------------------------------------------------------------- 
+Relations   PWB_26     Orang lain akan menggambarkan saya sebagai pribadi yang murah       0.487    0.036     <.001    0.738
+                       hati dan bersedia meluangkan waktu untuk orang lain.            
+--------------------------------------------------------------------------------------------------------------------------- 
+Relations   PWB_28     Saya bisa mempercayai teman-teman saya, dan mereka pun              0.351    0.030     <.001    0.544
+                       mempercayai saya.                                               
+--------------------------------------------------------------------------------------------------------------------------- 
+Purpose     PWB_30     Saya memiliki arah dan tujuan hidup yang jelas.                     0.471    0.042     <.001    0.782
+--------------------------------------------------------------------------------------------------------------------------- 
+Purpose     PWB_33     Saya senang membuat rencana untuk masa depan dan berusaha           0.342    0.030     <.001    0.633
+                       mewujudkannya.                                                  
+--------------------------------------------------------------------------------------------------------------------------- 
+Purpose     PWB_34     Berbeda dengan sebagian orang, saya menjalani hidup dengan          0.484    0.043     <.001    0.853
+                       arah dan tujuan yang jelas.                                     
+--------------------------------------------------------------------------------------------------------------------------- 
+Acceptance  PWB_36     Ketika merefleksikan perjalanan hidup saya sampai hari ini,         0.278    0.045     <.001    0.606
+                       saya merasa puas dengan semua yang saya alami.                  
+--------------------------------------------------------------------------------------------------------------------------- 
+Acceptance  PWB_37     Secara umum, saya merasa yakin dan positif terhadap diri            0.330    0.047     <.001    0.792
+                       sendiri.                                                        
+--------------------------------------------------------------------------------------------------------------------------- 
+Acceptance  PWB_39     Saya menyukai sebagian besar aspek dari kepribadian saya.           0.256    0.037     <.001    0.648
+--------------------------------------------------------------------------------------------------------------------------- 
+Acceptance  PWB_42     Ketika membandingkan diri saya dengan teman-teman dekat, saya       0.248    0.038     <.001    0.516
+                       merasa senang dengan diri saya yang sesungguhnya.               
+--------------------------------------------------------------------------------------------------------------------------- 
+PWB         Autonomy   -                                                                   1.055    0.103     <.001    0.726
+--------------------------------------------------------------------------------------------------------------------------- 
+PWB         Mastery    -                                                                   2.388    0.580     <.001    0.922
+--------------------------------------------------------------------------------------------------------------------------- 
+PWB         Growth     -                                                                   2.117    0.531     <.001    0.904
+--------------------------------------------------------------------------------------------------------------------------- 
+PWB         Relations  -                                                                   0.949    0.100     <.001    0.688
+--------------------------------------------------------------------------------------------------------------------------- 
+PWB         Purpose    -                                                                   1.560    0.173     <.001    0.842
+--------------------------------------------------------------------------------------------------------------------------- 
+PWB         Acceptance -                                                                   2.154    0.337     <.001    0.907
+--------------------------------------------------------------------------------------------------------------------------- 
+
+MODIFICATION INDICES
+
+Ditampilkan 15 parameter dengan MI >= 10.
+MI digunakan sebagai diagnostik; modifikasi tetap harus didukung teori.
+
+Rank   Bunyi Item                                                               Parameter                        MI        EPC
+------------------------------------------------------------------------------------------------------------------------------ 
+1      PWB_16: Penting bagi saya untuk memiliki pengalaman baru yang            PWB_16 ~~ PWB_20             37.106      0.138
+       menantang cara saya dalam memandang diri sendiri dan dunia di                                                          
+       sekitar saya.                                                                                                          
+       PWB_20: Bagi saya, hidup merupakan proses belajar, perubahan, dan                                                      
+       perkembangan yang terus berlangsung.                                                                                   
+------------------------------------------------------------------------------------------------------------------------------ 
+2      PWB: [Factor: PWB]                                                       PWB =~ PWB_18                37.105      2.202
+       PWB_18: Saya merasa telah banyak berkembang sebagai pribadi seiring                                                    
+       berjalannya waktu.                                                                                                     
+------------------------------------------------------------------------------------------------------------------------------ 
+3      PWB_22: Kebanyakan orang menganggap saya sebagai pribadi yang            PWB_22 ~~ PWB_26             23.612      0.158
+       penyayang dan penuh perhatian.                                                                                         
+       PWB_26: Orang lain akan menggambarkan saya sebagai pribadi yang                                                        
+       murah hati dan bersedia meluangkan waktu untuk orang lain.                                                             
+------------------------------------------------------------------------------------------------------------------------------ 
+4      Growth: [Factor: Growth]                                                 Growth =~ PWB_33             23.249      0.165
+       PWB_33: Saya senang membuat rencana untuk masa depan dan berusaha                                                      
+       mewujudkannya.                                                                                                         
+------------------------------------------------------------------------------------------------------------------------------ 
+5      PWB_1: Saya tidak takut menyampaikan pendapat saya, meskipun             PWB_1 ~~ PWB_7               20.452     -0.135
+       berbeda dengan pendapat kebanyakan orang.                                                                              
+       PWB_7: Saya menilai diri saya berdasarkan apa yang menurut saya                                                        
+       penting, bukan berdasarkan apa yang orang lain anggap penting.                                                         
+------------------------------------------------------------------------------------------------------------------------------ 
+6      PWB_14: Saya berhasil menata tempat tinggal dan gaya hidup yang          PWB_14 ~~ PWB_36             19.247      0.142
+       sangat sesuai dengan keinginan saya.                                                                                   
+       PWB_36: Ketika merefleksikan perjalanan hidup saya sampai hari ini,                                                    
+       saya merasa puas dengan semua yang saya alami.                                                                         
+------------------------------------------------------------------------------------------------------------------------------ 
+7      PWB_7: Saya menilai diri saya berdasarkan apa yang menurut saya          PWB_7 ~~ PWB_8               17.157      0.110
+       penting, bukan berdasarkan apa yang orang lain anggap penting.                                                         
+       PWB_8: Secara umum, saya merasa memiliki kendali atas situasi dalam                                                    
+       kehidupan saya.                                                                                                        
+------------------------------------------------------------------------------------------------------------------------------ 
+8      Acceptance: [Factor: Acceptance]                                         Acceptance =~ PWB_20         16.902     -0.171
+       PWB_20: Bagi saya, hidup merupakan proses belajar, perubahan, dan                                                      
+       perkembangan yang terus berlangsung.                                                                                   
+------------------------------------------------------------------------------------------------------------------------------ 
+9      PWB_16: Penting bagi saya untuk memiliki pengalaman baru yang            PWB_16 ~~ PWB_33             15.851      0.092
+       menantang cara saya dalam memandang diri sendiri dan dunia di                                                          
+       sekitar saya.                                                                                                          
+       PWB_33: Saya senang membuat rencana untuk masa depan dan berusaha                                                      
+       mewujudkannya.                                                                                                         
+------------------------------------------------------------------------------------------------------------------------------ 
+10     PWB_20: Bagi saya, hidup merupakan proses belajar, perubahan, dan        PWB_20 ~~ PWB_36             15.552     -0.095
+       perkembangan yang terus berlangsung.                                                                                   
+       PWB_36: Ketika merefleksikan perjalanan hidup saya sampai hari ini,                                                    
+       saya merasa puas dengan semua yang saya alami.                                                                         
+------------------------------------------------------------------------------------------------------------------------------ 
+11     Growth: [Factor: Growth]                                                 Growth =~ PWB_30             14.493     -0.157
+       PWB_30: Saya memiliki arah dan tujuan hidup yang jelas.                                                                
+------------------------------------------------------------------------------------------------------------------------------ 
+12     PWB_18: Saya merasa telah banyak berkembang sebagai pribadi seiring      PWB_18 ~~ PWB_36             14.356      0.116
+       berjalannya waktu.                                                                                                     
+       PWB_36: Ketika merefleksikan perjalanan hidup saya sampai hari ini,                                                    
+       saya merasa puas dengan semua yang saya alami.                                                                         
+------------------------------------------------------------------------------------------------------------------------------ 
+13     PWB_1: Saya tidak takut menyampaikan pendapat saya, meskipun             PWB_1 ~~ PWB_16              14.016      0.084
+       berbeda dengan pendapat kebanyakan orang.                                                                              
+       PWB_16: Penting bagi saya untuk memiliki pengalaman baru yang                                                          
+       menantang cara saya dalam memandang diri sendiri dan dunia di                                                          
+       sekitar saya.                                                                                                          
+------------------------------------------------------------------------------------------------------------------------------ 
+14     Acceptance: [Factor: Acceptance]                                         Acceptance =~ PWB_18         13.975      0.222
+       PWB_18: Saya merasa telah banyak berkembang sebagai pribadi seiring                                                    
+       berjalannya waktu.                                                                                                     
+------------------------------------------------------------------------------------------------------------------------------ 
+15     PWB_20: Bagi saya, hidup merupakan proses belajar, perubahan, dan        PWB_20 ~~ PWB_33             13.389      0.079
+       perkembangan yang terus berlangsung.                                                                                   
+       PWB_33: Saya senang membuat rencana untuk masa depan dan berusaha                                                      
+       mewujudkannya.                                                                                                         
+------------------------------------------------------------------------------------------------------------------------------ 
+
+RELIABILITY
+
+     Factor Alpha Omega   AVE
+   Autonomy 0.735 0.750 0.435
+    Mastery 0.600 0.603 0.351
+     Growth 0.576 0.588 0.319
+  Relations 0.708 0.719 0.400
+    Purpose 0.795 0.810 0.580
+ Acceptance 0.727 0.730 0.420
+        PWB    NA    NA 0.700
+
+RELIABILITY DAN AVE PER DIMENSI
+ Construct     Factor Items Alpha Omega AVE_item_std Loading_min Loading_max
+       PWB   Autonomy     4 0.735 0.750        0.435       0.475       0.784
+       PWB    Mastery     3 0.600 0.603        0.351       0.513       0.654
+       PWB     Growth     3 0.576 0.588        0.319       0.487       0.608
+       PWB  Relations     4 0.708 0.719        0.400       0.521       0.738
+       PWB    Purpose     3 0.795 0.810        0.580       0.633       0.853
+       PWB Acceptance     4 0.727 0.730        0.420       0.516       0.792
+
+RELIABILITY FAKTOR SECOND-ORDER
+ Construct Omega_second_order Dimensions Mean_squared_second_order_loading Loading_min Loading_max
+       PWB              0.833          6                               0.7       0.688       0.922

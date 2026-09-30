@@ -1,0 +1,26 @@
+JOHNSON-NEYMAN INTERVAL
+
+When PSMLS_c is OUTSIDE the interval [-2.85, -0.86], the slope of ESI_c is p < .05.
+
+Note: The range of observed values of PSMLS_c is [-2.42, 1.54]
+
+SIMPLE SLOPES ANALYSIS
+
+Slope of ESI_c when PSMLS_c = -9.279760e-01 (- 1 SD): 
+
+  Est.   S.E.   t val.      p
+------ ------ -------- ------
+  0.11   0.07     1.68   0.09
+
+Slope of ESI_c when PSMLS_c = -3.958324e-17 (Mean): 
+
+  Est.   S.E.   t val.      p
+------ ------ -------- ------
+  0.32   0.05     6.30   0.00
+
+Slope of ESI_c when PSMLS_c =  9.279760e-01 (+ 1 SD): 
+
+  Est.   S.E.   t val.      p
+------ ------ -------- ------
+  0.52   0.07     7.15   0.00
+

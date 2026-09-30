@@ -1,63 +1,63 @@
-# 📊 Laporan Analisis CFA Realtime
+# Analisis ANECO
 
-[![Render and Publish Quarto](https://github.com/SG17-17/ecolit/actions/workflows/quarto-publish.yml/badge.svg)](https://github.com/SG17-17/ecolit/actions/workflows/quarto-publish.yml)
+Jalankan script dari folder proyek. Input utama adalah `data/data_bersih.rds`
+(N = 704). Setiap run **memperbarui file pada lokasi yang sama** di
+`hasil_analisis/`; tidak dibuat folder bertanggal.
 
-Repositori ini berisi sistem otomatisasi untuk pelaporan **Confirmatory Factor Analysis (CFA)** secara *real-time*. Sistem ini dirancang untuk membaca data dari Google Sheets, melakukan uji validitas dan reliabilitas konstruk menggunakan R (`lavaan`), dan secara otomatis mempublikasikan hasilnya ke dalam format Buku Interaktif.
+## CFA per variabel
 
-👉 **[Buka Halaman Laporan Live Disini](https://SG17-17.github.io/ecolit/)**
+```r
+source("R/cfa_esi.R")
+source("R/cfa_psmls.R")
+source("R/cfa_peb.R")
+source("R/cfa_pwb.R")
+```
 
-## 📂 Struktur File
+Jalankan hanya script variabel yang diperlukan. Setiap script memuat model awal,
+model pembanding, model akhir, reliability, dan plot. `R/helpers.R` dan
+`R/cfa_helpers.R` menyediakan pemetaan item dan format laporan.
 
-Sistem ini memecah kode menjadi beberapa modul agar rapi:
+| Variabel | Laporan yang selalu diperbarui |
+| --- | --- |
+| ESI | `hasil_analisis/cfa/esi/laporan_cfa.txt` |
+| PSMLS | `hasil_analisis/cfa/psmls/laporan_cfa.txt` |
+| PEB | `hasil_analisis/cfa/peb/laporan_cfa.txt` |
+| PWB | `hasil_analisis/cfa/pwb/laporan_cfa.txt` |
 
-- `R/setup_data.R` — Skrip yang bertanggung jawab **mengunduh data** dari Google Sheets dan menyimpannya sebagai `data/cleaned_data.rds`. Skrip ini otomatis berjalan *sebelum* buku di-*render*.
-- `R/helpers.R` — Kumpulan fungsi bantuan (pembuat tabel demografi & penghitung reliabilitas) agar kode di dalam bab tidak berantakan.
-- `index.qmd` — Halaman sampul dan analisis Demografi.
-- `02_eid.qmd` sd `06_pwb.qmd` — Bab-bab spesifik yang menghitung CFA untuk masing-masing variabel ukur.
-- `07_summary.qmd` — Halaman rekapitulasi *Model Fit* dan Reliabilitas dari semua bab CFA.
-- `_quarto.yml` — Konfigurasi tema, *layout*, menu, dan susunan bab buku.
-- `custom.scss` — Kustomisasi warna tema dan desain latar belakang web.
+Tiap folder model juga berisi `plot_model_awal.png` dan `plot_model.png`.
+PWB memiliki `plot_method_factor.png`. Riwayat model, factor loading,
+reliability, modification indices, dan perbandingan yang relevan berada
+dalam satu TXT per variabel. Script CFA tidak membuat CSV.
 
----
+## Analisis lengkap
 
-## 🔄 Cara Mengubah/Update Data Google Sheets
+```r
+source("analisis_final.R")
+```
 
-Jika di masa depan Anda memiliki data baru atau ingin mengganti *link* kuesioner Google Sheets:
+Script utama menjalankan keempat CFA, factor scores TSFS, deskriptif, uji
+hipotesis, bootstrap, dan tiga gambar Model 7. Hasil utamanya diperbarui di
+`hasil_analisis/laporan_lengkap.txt`. Factor scores responden disimpan dengan
+nama tetap di `data/skor_faktor_tsfs.csv` dan `.rds`; output deskriptif dan
+Model 7 ada di folder masing-masing dalam `hasil_analisis/`.
 
-1. Buka file `R/setup_data.R`.
-2. Cari kode berikut (di baris ke-12):
-   ```r
-   sheet_url <- "https://docs.google.com/spreadsheets/d/1u7L4GSSsuVDv9j7ccgWvccwr7A5Ks0szkiY-RTHVsA8/edit?usp=sharing"
-   ```
-3. Ganti URL di dalam tanda kutip tersebut dengan *link* Google Sheets Anda yang baru. 
-4. Jika nama tab (*Sheet*) di dalamnya bukan "DATA FINAL", pastikan Anda juga mengubah bagian `sheet = "DATA FINAL"`.
-5. *Commit* dan *Push* ke GitHub. Sistem akan otomatis mengunduh data baru Anda.
+Untuk menjalankan hanya sampai CFA atau factor scores, ubah `TAHAP_TERAKHIR`
+di bagian atas `analisis_final.R` menjadi `"cfa"` atau `"skor"`. Nilai default
+`"hipotesis"` menjalankan seluruh analisis dengan 5.000 bootstrap resamples.
 
----
+Model CFA final: ESI 6 item dengan `ESI_2 ~~ ESI_3`, PSMLS 14 item,
+PEB 16 item dengan empat dimensi, dan PWB 21 favorable items. PSMLS, PEB,
+dan PWB memakai faktor second-order. CFA diestimasi dengan MLR dan
+`std.lv = TRUE`.
 
-## 🛠️ Cara Memodifikasi Model CFA (Lavaan)
+Gambar model untuk naskah berada di
+`hasil_analisis/model_7/gambar_model_7.png`. Untuk membuat ulang ketiga
+gambar Model 7 dari hasil tetap:
 
-Jika Anda ingin mengubah teori model (misalnya menghapus item karena *loading factor* jelek, atau mengubah model *First-Order* menjadi *Second-Order*):
+```sh
+Rscript R/buat_ulang_plot.R
+```
 
-1. Buka *file* bab yang bersangkutan, misalnya `02_eid.qmd`.
-2. Cari bagian kode string *Lavaan* (biasanya bernama `model_...`), contoh:
-   ```r
-   model_eid <- "
-     Identity =~ EID_1 + EID_2 + EID_3
-   "
-   ```
-3. Ubah sintaksnya sesuai aturan paket `lavaan`. 
-   - `=~` berarti "diukur oleh" (faktor laten).
-   - `~~` berarti korelasi antar eror (*error covariance*).
-4. **Catatan:** Selalu perhatikan *file* `07_summary.qmd`. Halaman ringkasan ini mengambil hasil dari *file* `.rds` yang disimpan oleh tiap-tiap bab (contoh: `data/fit_eid.rds`). Selama bab Anda berhasil melakukan proses *saveRDS()*, halaman Summary akan ikut menyesuaikan secara otomatis.
-
----
-
-## 🤖 Cara Kerja Automasi (GitHub Actions)
-
-Setiap tengah malam (atau setiap ada klik "Commit & Push" pada repositori ini), GitHub Actions akan:
-1. Menyiapkan sistem operasi Ubuntu kosong.
-2. Menginstal R, Quarto, dan paket-paket statistik (`lavaan`, `semTools`, `googlesheets4`).
-3. Menjalankan `R/setup_data.R` untuk menarik Google Sheets terbaru.
-4. Me-*render* semua bab `.qmd` menjadi HTML.
-5. Mempublikasikan (*Deploy*) halaman HTML tersebut ke cabang `gh-pages`.
+Run lama dan factor scores bertanggal disimpan di `arsip_analisis_lama.zip`.
+`R/siapkan_data.R` menyiapkan data bersih dari sumber daring; simpan snapshot
+sumber yang sesuai sebelum membangun arsip publikasi.

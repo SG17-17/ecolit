@@ -1,0 +1,237 @@
+CFA PSMLS | N = 704 | estimator = MLR
+
+RIWAYAT MODEL (urutan pengujian)
+                         Model Observed_Items   Chisq df     p   CFI   TLI RMSEA RMSEA_L RMSEA_U  SRMR Converged Heywood
+ Awal_empat_faktor_berkorelasi             14 208.491 71 <.001 0.961 0.949 0.065   0.055   0.076 0.033      TRUE   FALSE
+            Akhir_second_order             14 214.311 73 <.001 0.959 0.949 0.065   0.055   0.076 0.036      TRUE   FALSE
+
+PERBANDINGAN MODEL DENGAN ITEM YANG SAMA
+
+Awal_vs_akhir
+
+Scaled Chi-Squared Difference Test (method = “satorra.bentler.2001”)
+
+lavaan->lavTestLRT():  
+   lavaan NOTE: The “Chisq” column contains standard test statistics, not the robust test that should be reported per model. A robust difference test is a function of two 
+   standard (not robust) statistics.
+
+               Df   AIC   BIC  Chisq Chisq diff    RMSEA Df diff Pr(>Chisq)  
+fit_psmls_awal 71 16522 16677 322.24                                         
+fit_psmls      73 16529 16674 332.68      5.827 0.069787       2    0.05429 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+DIAGNOSTIK TAHAP
+
+Loading_awal
+  Construct    Factor Indicator Estimate    SE      z p  CI_L  CI_U Std_Loading
+ PSMLS_awal  TechComp   PSMLS_1    0.533 0.022 24.483 0 0.490 0.576       0.831
+ PSMLS_awal  TechComp   PSMLS_2    0.563 0.024 23.627 0 0.517 0.610       0.786
+ PSMLS_awal  TechComp   PSMLS_3    0.590 0.023 25.560 0 0.545 0.635       0.795
+ PSMLS_awal  TechComp   PSMLS_4    0.530 0.020 26.565 0 0.491 0.569       0.849
+ PSMLS_awal  TechComp   PSMLS_5    0.522 0.023 23.081 0 0.478 0.567       0.786
+ PSMLS_awal SocialRel   PSMLS_6    0.591 0.029 20.038 0 0.533 0.649       0.750
+ PSMLS_awal SocialRel   PSMLS_7    0.525 0.031 16.775 0 0.463 0.586       0.626
+ PSMLS_awal SocialRel   PSMLS_8    0.530 0.026 20.350 0 0.479 0.581       0.735
+ PSMLS_awal   Privacy   PSMLS_9    0.526 0.021 25.627 0 0.486 0.566       0.779
+ PSMLS_awal   Privacy  PSMLS_10    0.508 0.030 16.932 0 0.449 0.567       0.634
+ PSMLS_awal   Privacy  PSMLS_11    0.481 0.034 14.182 0 0.414 0.547       0.556
+ PSMLS_awal InfoAware  PSMLS_12    0.638 0.022 28.391 0 0.594 0.682       0.848
+ PSMLS_awal InfoAware  PSMLS_13    0.611 0.020 30.301 0 0.571 0.650       0.873
+ PSMLS_awal InfoAware  PSMLS_14    0.549 0.021 25.775 0 0.507 0.590       0.786
+
+RINCIAN MODEL AKHIR
+
+====================================================================================================================== 
+CFA PSMLS - model akhir 
+====================================================================================================================== 
+
+MODEL INFO
+
+Model              : CFA PSMLS - model akhir
+Estimator          : MLR
+N Total            : 704
+N Used             : 704
+Observed Variables : 14
+Latent Factors     : 5
+Factor Names       : TechComp, SocialRel, Privacy, InfoAware, PSMLS
+Parameters         : 32
+Degrees of Freedom : 73
+Standardization    : std.lv = TRUE
+Converged          : TRUE
+Items Removed      : 0
+
+FACTOR STRUCTURE
+
+TechComp        : 5 items
+                  PSMLS_1, PSMLS_2, PSMLS_3, PSMLS_4, PSMLS_5
+
+SocialRel       : 3 items
+                  PSMLS_6, PSMLS_7, PSMLS_8
+
+Privacy         : 3 items
+                  PSMLS_9, PSMLS_10, PSMLS_11
+
+InfoAware       : 3 items
+                  PSMLS_12, PSMLS_13, PSMLS_14
+
+PSMLS           : 4 items
+                  TechComp, SocialRel, Privacy, InfoAware
+
+MODEL FIT
+
+Index                                 Value
+-------------------------------------------- 
+chisq.scaled                        214.311
+df.scaled                            73.000
+pvalue.scaled                         <.001
+cfi.robust                            0.959
+tli.robust                            0.949
+rmsea.robust                          0.065
+rmsea.ci.lower.robust                 0.055
+rmsea.ci.upper.robust                 0.076
+srmr                                  0.036
+aic                               16528.655
+bic                               16674.472
+
+FACTOR LOADINGS
+
+Factor      Item       Bunyi Item                                                           Est.       SE         p     Std.
+--------------------------------------------------------------------------------------------------------------------------- 
+TechComp    PSMLS_1    Saya tahu cara membuat akun di media sosial.                        0.321    0.021     <.001    0.831
+--------------------------------------------------------------------------------------------------------------------------- 
+TechComp    PSMLS_2    Saya tahu cara menghapus akun saya di media sosial.                 0.340    0.022     <.001    0.786
+--------------------------------------------------------------------------------------------------------------------------- 
+TechComp    PSMLS_3    Saya tahu cara menonaktifkan akun saya di media sosial.             0.356    0.023     <.001    0.796
+--------------------------------------------------------------------------------------------------------------------------- 
+TechComp    PSMLS_4    Saya tahu cara mengunggah konten, seperti foto, di akun media       0.319    0.021     <.001    0.848
+                       sosial saya.                                                    
+--------------------------------------------------------------------------------------------------------------------------- 
+TechComp    PSMLS_5    Saya tahu cara menghapus konten yang tidak diinginkan di akun       0.314    0.020     <.001    0.785
+                       media sosial saya.                                              
+--------------------------------------------------------------------------------------------------------------------------- 
+SocialRel   PSMLS_6    Saya memahami hukum hak cipta yang berlaku di platform media        0.296    0.032     <.001    0.738
+                       sosial.                                                         
+--------------------------------------------------------------------------------------------------------------------------- 
+SocialRel   PSMLS_7    Saya tahu cara menangani konflik di media sosial dengan             0.264    0.029     <.001    0.618
+                       tepat.                                                          
+--------------------------------------------------------------------------------------------------------------------------- 
+SocialRel   PSMLS_8    Saya mengetahui tata krama atau kebijakan penggunaan media          0.275    0.027     <.001    0.749
+                       sosial di kampus atau organisasi saya.                          
+--------------------------------------------------------------------------------------------------------------------------- 
+Privacy     PSMLS_9    Saya tahu bahwa platform media sosial mengontrol apa yang           0.186    0.045     <.001    0.788
+                       saya lihat di beranda media sosial saya.                        
+--------------------------------------------------------------------------------------------------------------------------- 
+Privacy     PSMLS_10   Saya tahu bahwa informasi yang pernah saya unggah di media          0.177    0.044     <.001    0.631
+                       sosial dapat tersimpan secara permanen.                         
+--------------------------------------------------------------------------------------------------------------------------- 
+Privacy     PSMLS_11   Saya tahu bahwa iklan yang saya lihat di media sosial sudah         0.166    0.039     <.001    0.548
+                       disesuaikan dengan apa yang sering saya cari atau sukai.        
+--------------------------------------------------------------------------------------------------------------------------- 
+InfoAware   PSMLS_12   Saya tahu cara memverifikasi apakah informasi yang dibagikan        0.361    0.028     <.001    0.847
+                       di media sosial itu benar.                                      
+--------------------------------------------------------------------------------------------------------------------------- 
+InfoAware   PSMLS_13   Saya tahu cara menggunakan berbagai sumber informasi untuk          0.347    0.026     <.001    0.875
+                       memverifikasi informasi yang saya lihat di media sosial.        
+--------------------------------------------------------------------------------------------------------------------------- 
+InfoAware   PSMLS_14   Saya dapat menilai apakah suatu informasi di media sosial           0.311    0.024     <.001    0.785
+                       dapat dipercaya atau tidak.                                     
+--------------------------------------------------------------------------------------------------------------------------- 
+PSMLS       TechComp   -                                                                   1.325    0.110     <.001    0.798
+--------------------------------------------------------------------------------------------------------------------------- 
+PSMLS       SocialRel  -                                                                   1.689    0.196     <.001    0.861
+--------------------------------------------------------------------------------------------------------------------------- 
+PSMLS       Privacy    -                                                                   2.683    0.712     <.001    0.937
+--------------------------------------------------------------------------------------------------------------------------- 
+PSMLS       InfoAware  -                                                                   1.450    0.142     <.001    0.823
+--------------------------------------------------------------------------------------------------------------------------- 
+
+MODIFICATION INDICES
+
+Ditampilkan 15 parameter dengan MI >= 10.
+MI digunakan sebagai diagnostik; modifikasi tetap harus didukung teori.
+
+Rank   Bunyi Item                                                               Parameter                        MI        EPC
+------------------------------------------------------------------------------------------------------------------------------ 
+1      PSMLS_2: Saya tahu cara menghapus akun saya di media sosial.             PSMLS_2 ~~ PSMLS_3          101.039      0.095
+       PSMLS_3: Saya tahu cara menonaktifkan akun saya di media sosial.                                                       
+------------------------------------------------------------------------------------------------------------------------------ 
+2      PSMLS_8: Saya mengetahui tata krama atau kebijakan penggunaan media      PSMLS_8 ~~ PSMLS_9           39.445      0.066
+       sosial di kampus atau organisasi saya.                                                                                 
+       PSMLS_9: Saya tahu bahwa platform media sosial mengontrol apa yang                                                     
+       saya lihat di beranda media sosial saya.                                                                               
+------------------------------------------------------------------------------------------------------------------------------ 
+3      Privacy: [Factor: Privacy]                                               Privacy =~ PSMLS_8           38.194      0.180
+       PSMLS_8: Saya mengetahui tata krama atau kebijakan penggunaan media                                                    
+       sosial di kampus atau organisasi saya.                                                                                 
+------------------------------------------------------------------------------------------------------------------------------ 
+4      PSMLS_2: Saya tahu cara menghapus akun saya di media sosial.             PSMLS_2 ~~ PSMLS_4           32.255     -0.043
+       PSMLS_4: Saya tahu cara mengunggah konten, seperti foto, di akun                                                       
+       media sosial saya.                                                                                                     
+------------------------------------------------------------------------------------------------------------------------------ 
+5      PSMLS_4: Saya tahu cara mengunggah konten, seperti foto, di akun         PSMLS_4 ~~ PSMLS_5           30.011      0.038
+       media sosial saya.                                                                                                     
+       PSMLS_5: Saya tahu cara menghapus konten yang tidak diinginkan di                                                      
+       akun media sosial saya.                                                                                                
+------------------------------------------------------------------------------------------------------------------------------ 
+6      Privacy: [Factor: Privacy]                                               Privacy =~ PSMLS_6           25.532     -0.159
+       PSMLS_6: Saya memahami hukum hak cipta yang berlaku di platform                                                        
+       media sosial.                                                                                                          
+------------------------------------------------------------------------------------------------------------------------------ 
+7      PSMLS_2: Saya tahu cara menghapus akun saya di media sosial.             PSMLS_2 ~~ PSMLS_5           23.647     -0.042
+       PSMLS_5: Saya tahu cara menghapus konten yang tidak diinginkan di                                                      
+       akun media sosial saya.                                                                                                
+------------------------------------------------------------------------------------------------------------------------------ 
+8      PSMLS: [Factor: PSMLS]                                                   PSMLS =~ PSMLS_8             20.348      0.502
+       PSMLS_8: Saya mengetahui tata krama atau kebijakan penggunaan media                                                    
+       sosial di kampus atau organisasi saya.                                                                                 
+------------------------------------------------------------------------------------------------------------------------------ 
+9      PSMLS_6: Saya memahami hukum hak cipta yang berlaku di platform          PSMLS_6 ~~ PSMLS_7           20.348      0.085
+       media sosial.                                                                                                          
+       PSMLS_7: Saya tahu cara menangani konflik di media sosial dengan                                                       
+       tepat.                                                                                                                 
+------------------------------------------------------------------------------------------------------------------------------ 
+10     InfoAware: [Factor: InfoAware]                                           InfoAware =~ PSMLS_11        15.507      0.144
+       PSMLS_11: Saya tahu bahwa iklan yang saya lihat di media sosial                                                        
+       sudah disesuaikan dengan apa yang sering saya cari atau sukai.                                                         
+------------------------------------------------------------------------------------------------------------------------------ 
+11     PSMLS_1: Saya tahu cara membuat akun di media sosial.                    PSMLS_1 ~~ PSMLS_7           15.311     -0.041
+       PSMLS_7: Saya tahu cara menangani konflik di media sosial dengan                                                       
+       tepat.                                                                                                                 
+------------------------------------------------------------------------------------------------------------------------------ 
+12     SocialRel: [Factor: SocialRel]                                           SocialRel =~ PSMLS_10        13.865     -0.150
+       PSMLS_10: Saya tahu bahwa informasi yang pernah saya unggah di                                                         
+       media sosial dapat tersimpan secara permanen.                                                                          
+------------------------------------------------------------------------------------------------------------------------------ 
+13     PSMLS_1: Saya tahu cara membuat akun di media sosial.                    PSMLS_1 ~~ PSMLS_4           11.625      0.023
+       PSMLS_4: Saya tahu cara mengunggah konten, seperti foto, di akun                                                       
+       media sosial saya.                                                                                                     
+------------------------------------------------------------------------------------------------------------------------------ 
+14     PSMLS_1: Saya tahu cara membuat akun di media sosial.                    PSMLS_1 ~~ PSMLS_3           11.352     -0.027
+       PSMLS_3: Saya tahu cara menonaktifkan akun saya di media sosial.                                                       
+------------------------------------------------------------------------------------------------------------------------------ 
+15     PSMLS_5: Saya tahu cara menghapus konten yang tidak diinginkan di        PSMLS_5 ~~ PSMLS_9           11.173      0.027
+       akun media sosial saya.                                                                                                
+       PSMLS_9: Saya tahu bahwa platform media sosial mengontrol apa yang                                                     
+       saya lihat di beranda media sosial saya.                                                                               
+------------------------------------------------------------------------------------------------------------------------------ 
+
+RELIABILITY
+
+    Factor Alpha Omega   AVE
+  TechComp 0.903 0.903 0.656
+ SocialRel 0.744 0.735 0.496
+   Privacy 0.681 0.677 0.440
+ InfoAware 0.873 0.875 0.700
+     PSMLS    NA    NA 0.733
+
+RELIABILITY DAN AVE PER DIMENSI
+ Construct    Factor Items Alpha Omega AVE_item_std Loading_min Loading_max
+     PSMLS  TechComp     5 0.903 0.903        0.656       0.785       0.848
+     PSMLS SocialRel     3 0.744 0.735        0.496       0.618       0.749
+     PSMLS   Privacy     3 0.681 0.677        0.440       0.548       0.788
+     PSMLS InfoAware     3 0.873 0.875        0.700       0.785       0.875
+
+RELIABILITY FAKTOR SECOND-ORDER
+ Construct Omega_second_order Dimensions Mean_squared_second_order_loading Loading_min Loading_max
+     PSMLS              0.841          4                             0.733       0.798       0.937

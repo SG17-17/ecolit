@@ -1,0 +1,132 @@
+CFA ESI | N = 704 | estimator = MLR
+
+RIWAYAT MODEL (urutan pengujian)
+              Model Observed_Items  Chisq df     p   CFI   TLI RMSEA RMSEA_L RMSEA_U  SRMR Converged Heywood
+        Awal_6_item              6 63.154  9 <.001 0.952 0.921 0.127   0.098   0.157 0.038      TRUE   FALSE
+ Akhir_residual_2_3              6 11.391  8 0.181 0.997 0.994 0.034   0.000   0.074 0.016      TRUE   FALSE
+
+PERBANDINGAN MODEL DENGAN ITEM YANG SAMA
+
+Awal_vs_akhir
+
+Scaled Chi-Squared Difference Test (method = “satorra.bentler.2001”)
+
+lavaan->lavTestLRT():  
+   lavaan NOTE: The “Chisq” column contains standard test statistics, not the robust test that should be reported per model. A robust difference test is a function of two 
+   standard (not robust) statistics.
+
+                 Df    AIC    BIC   Chisq Chisq diff   RMSEA Df diff Pr(>Chisq)    
+fit_esi           8 9823.5 9882.8  21.391                                          
+fit_esi_baseline  9 9918.7 9973.3 118.532     51.986 0.36787       1  5.591e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+DIAGNOSTIK TAHAP
+
+Loading_awal
+ Construct Factor Indicator Estimate    SE      z p  CI_L  CI_U Std_Loading
+  ESI_awal    ESI     ESI_1    0.679 0.041 16.665 0 0.599 0.759       0.715
+  ESI_awal    ESI     ESI_2    0.843 0.032 26.201 0 0.780 0.906       0.852
+  ESI_awal    ESI     ESI_3    0.828 0.035 23.481 0 0.759 0.897       0.796
+  ESI_awal    ESI     ESI_4    0.715 0.038 18.646 0 0.640 0.791       0.709
+  ESI_awal    ESI     ESI_5    0.677 0.035 19.265 0 0.608 0.746       0.680
+  ESI_awal    ESI     ESI_6    0.747 0.034 21.867 0 0.680 0.813       0.755
+
+MI_awal
+      Parameter   lhs op   rhs      mi    epc sepc.all
+ ESI_2 ~~ ESI_3 ESI_2 ~~ ESI_3 111.520  0.214    0.656
+ ESI_4 ~~ ESI_6 ESI_4 ~~ ESI_6  19.570  0.093    0.202
+ ESI_2 ~~ ESI_4 ESI_2 ~~ ESI_4  19.407 -0.087   -0.237
+ ESI_2 ~~ ESI_6 ESI_2 ~~ ESI_6  17.942 -0.081   -0.243
+ ESI_2 ~~ ESI_5 ESI_2 ~~ ESI_5  17.592 -0.083   -0.219
+ ESI_5 ~~ ESI_6 ESI_5 ~~ ESI_6  16.492  0.086    0.182
+ ESI_4 ~~ ESI_5 ESI_4 ~~ ESI_5  15.272  0.088    0.170
+ ESI_3 ~~ ESI_4 ESI_3 ~~ ESI_4  13.938 -0.080   -0.179
+ ESI_1 ~~ ESI_3 ESI_1 ~~ ESI_3  13.258 -0.073   -0.176
+ ESI_3 ~~ ESI_6 ESI_3 ~~ ESI_6  11.532 -0.070   -0.171
+
+RINCIAN MODEL AKHIR
+
+====================================================================================================================== 
+CFA ESI - model akhir 
+====================================================================================================================== 
+
+MODEL INFO
+
+Model              : CFA ESI - model akhir
+Estimator          : MLR
+N Total            : 704
+N Used             : 704
+Observed Variables : 6
+Latent Factors     : 1
+Factor Names       : ESI
+Parameters         : 13
+Degrees of Freedom : 8
+Standardization    : std.lv = TRUE
+Converged          : TRUE
+Items Removed      : 0
+Residual Pairs     : 1
+                     ESI_2 ~~ ESI_3
+
+FACTOR STRUCTURE
+
+ESI             : 6 items
+                  ESI_1, ESI_2, ESI_3, ESI_4, ESI_5, ESI_6
+
+MODEL FIT
+
+Index                                 Value
+-------------------------------------------- 
+chisq.scaled                         11.391
+df.scaled                             8.000
+pvalue.scaled                         0.181
+cfi.robust                            0.997
+tli.robust                            0.994
+rmsea.robust                          0.034
+rmsea.ci.lower.robust                 0.000
+rmsea.ci.upper.robust                 0.074
+srmr                                  0.016
+aic                                9823.524
+bic                                9882.762
+
+FACTOR LOADINGS
+
+Factor      Item       Bunyi Item                                                           Est.       SE         p     Std.
+--------------------------------------------------------------------------------------------------------------------------- 
+ESI         ESI_1      Bertindak ramah lingkungan adalah bagian penting dari diri          0.690    0.042     <.001    0.726
+                       saya.                                                           
+--------------------------------------------------------------------------------------------------------------------------- 
+ESI         ESI_2      Saya adalah tipe orang yang bertindak ramah lingkungan.             0.773    0.035     <.001    0.781
+--------------------------------------------------------------------------------------------------------------------------- 
+ESI         ESI_3      Saya melihat diri saya sebagai orang yang ramah lingkungan.         0.741    0.038     <.001    0.712
+--------------------------------------------------------------------------------------------------------------------------- 
+ESI         ESI_4      Saya tetap berusaha berperilaku ramah lingkungan meskipun           0.751    0.037     <.001    0.744
+                       membutuhkan usaha lebih.                                        
+--------------------------------------------------------------------------------------------------------------------------- 
+ESI         ESI_5      Isu lingkungan yang saya pahami memengaruhi cara saya               0.705    0.034     <.001    0.708
+                       memandang diri sebagai pribadi yang ramah lingkungan.           
+--------------------------------------------------------------------------------------------------------------------------- 
+ESI         ESI_6      Saya tetap konsisten berperilaku ramah lingkungan sekalipun         0.781    0.033     <.001    0.790
+                       orang-orang di sekitar saya tidak melakukannya.                 
+--------------------------------------------------------------------------------------------------------------------------- 
+
+MODIFICATION INDICES
+
+Ditampilkan 1 parameter dengan MI >= 10.
+MI digunakan sebagai diagnostik; modifikasi tetap harus didukung teori.
+
+Rank   Bunyi Item                                                               Parameter                        MI        EPC
+------------------------------------------------------------------------------------------------------------------------------ 
+1      ESI_1: Bertindak ramah lingkungan adalah bagian penting dari diri        ESI_1 ~~ ESI_2               17.691      0.071
+       saya.                                                                                                                  
+       ESI_2: Saya adalah tipe orang yang bertindak ramah lingkungan.                                                         
+------------------------------------------------------------------------------------------------------------------------------ 
+
+RELIABILITY
+
+ Factor Alpha Omega   AVE
+    ESI 0.887 0.865 0.554
+
+RELIABILITY DAN AVE PER DIMENSI
+ Construct Factor Items Alpha Omega AVE_item_std Loading_min Loading_max
+       ESI    ESI     6 0.887 0.865        0.554       0.708        0.79

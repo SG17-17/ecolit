@@ -1,0 +1,3 @@
+"Factor","N","SD","Min","Max","Model_score_reliability","Covariance_reconstruction_error","Weight_normalization_error","GLS_vs_residual_weights_error","Regression_identity_error","Scoring_Method"
+"PEB",704,1.06474022840798,-2.14030098211764,3.43478255809415,0.883344983454489,2.22044604925031e-16,0,1.94289029309402e-16,1.36002320516582e-14,"collapsed-loading Bartlett fallback"
+"PWB",704,1.07517382691458,-5.11363689978611,2.52934573261024,0.86628347109286,2.22044604925031e-16,2.22044604925031e-16,2.08166817117217e-16,5.01820807130571e-14,"collapsed-loading Bartlett fallback"

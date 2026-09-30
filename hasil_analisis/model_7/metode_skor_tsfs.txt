@@ -1,0 +1,22 @@
+TWO-STEP FACTOR SCORES (TSFS)
+
+Mediator equation:
+  Outcome    = PEB Bartlett factor score
+  Predictors = ESI + PSMLS regression factor scores from a joint CFA
+
+Outcome equation:
+  Outcome    = PWB Bartlett factor score
+  Predictors = PEB + ESI regression factor scores from a joint CFA
+
+PEB Bartlett scoring actually used: collapsed-loading Bartlett fallback
+PWB Bartlett scoring actually used: collapsed-loading Bartlett fallback
+
+Regression factor scores use:
+  lavaan::lavPredict(method = 'regression', transform = FALSE)
+
+For Bartlett outcomes, the script first attempts:
+  lavaan::lavPredict(method = 'Bartlett', transform = FALSE)
+and only uses the collapsed-loading fallback if the higher-order score
+is absent, non-finite, or essentially constant.
+
+CFA models are not re-estimated inside the indirect-effect bootstrap.

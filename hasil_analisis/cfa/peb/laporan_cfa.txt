@@ -1,0 +1,385 @@
+CFA PEB | N = 704 | estimator = MLR
+
+RIWAYAT MODEL (urutan pengujian)
+                Model Observed_Items   Chisq  df     p   CFI   TLI RMSEA RMSEA_L RMSEA_U  SRMR Converged Heywood
+         Awal_19_item             19 800.113 146 <.001 0.860 0.836 0.090   0.083   0.096 0.066      TRUE   FALSE
+     Kandidat_14_item             14 256.281  74 <.001 0.938 0.924 0.066   0.057   0.075 0.048      TRUE   FALSE
+ Empat_faktor_15_item             15 265.844  84 <.001 0.944 0.930 0.062   0.054   0.071 0.046      TRUE   FALSE
+ Second_order_15_item             15 277.904  86 <.001 0.941 0.928 0.063   0.055   0.072 0.048      TRUE   FALSE
+  Tiga_faktor_15_item             15 292.413  87 <.001 0.936 0.923 0.065   0.057   0.074 0.047      TRUE   FALSE
+ Empat_faktor_16_item             16 343.332  98 <.001 0.934 0.919 0.067   0.060   0.075 0.049      TRUE   FALSE
+ Second_order_16_item             16 361.978 100 <.001 0.929 0.915 0.069   0.061   0.077 0.052      TRUE   FALSE
+  Tiga_faktor_16_item             16 402.548 101 <.001 0.918 0.903 0.074   0.066   0.082 0.052      TRUE   FALSE
+Perbandingan fit pada jumlah item berbeda bersifat deskriptif.
+
+PERBANDINGAN MODEL DENGAN ITEM YANG SAMA
+
+Empat_vs_tiga_dimensi_16_item
+
+Scaled Chi-Squared Difference Test (method = “satorra.bentler.2001”)
+
+lavaan->lavTestLRT():  
+   lavaan NOTE: The “Chisq” column contains standard test statistics, not the robust test that should be reported per model. A robust difference test is a function of two 
+   standard (not robust) statistics.
+
+                               Df   AIC   BIC  Chisq Chisq diff  RMSEA Df diff Pr(>Chisq)    
+fit_peb_16_four_second_order  100 29143 29307 462.31                                         
+fit_peb_16_three_second_order 101 29198 29357 518.71     23.216 0.2769       1  1.448e-06 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Berkorelasi_vs_second_order_16_item
+
+Scaled Chi-Squared Difference Test (method = “satorra.bentler.2001”)
+
+lavaan->lavTestLRT():  
+   lavaan NOTE: The “Chisq” column contains standard test statistics, not the robust test that should be reported per model. A robust difference test is a function of two 
+   standard (not robust) statistics.
+
+                              Df   AIC   BIC  Chisq Chisq diff  RMSEA Df diff Pr(>Chisq)    
+fit_peb_16_four_correlated    98 29125 29298 439.63                                         
+fit_peb_16_four_second_order 100 29143 29307 462.31     20.343 0.1205       2  3.824e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+DIAGNOSTIK TAHAP
+
+Keputusan_item
+                       Model            Decision   Item Intended_Factor Std_Loading MI_Count_GE10 Max_Residual_MI Residual_Partner Max_CrossLoading_MI
+              PEB_Baseline19              REMOVE  PEB_2        ConsLife       0.338             8          42.970            PEB_3              40.285
+              PEB_Baseline19              REMOVE  PEB_9          SocEnv       0.659             4         123.848           PEB_10               8.748
+              PEB_Baseline19              REMOVE PEB_10          SocEnv       0.705             5         123.848            PEB_9               3.026
+              PEB_Baseline19 RETAIN_AFTER_REVIEW PEB_15          EnvCit       0.715             3          22.146           PEB_10               4.402
+              PEB_Baseline19 RETAIN_AFTER_REVIEW PEB_18        LandStew       0.808             3          44.250           PEB_17               8.230
+ PEB_Final16_FourSecondOrder        RETAIN_FINAL PEB_15          EnvCit       0.705             2          13.845           PEB_19               0.419
+ PEB_Final16_FourSecondOrder        RETAIN_FINAL PEB_18        LandStew       0.801             5          54.551           PEB_17              11.627
+ CrossLoading_Factor
+              EnvCit
+            ConsLife
+            LandStew
+              SocEnv
+            ConsLife
+              SocEnv
+            ConsLife
+
+Loading_model_awal
+      Construct   Factor Indicator Estimate    SE      z p  CI_L  CI_U Std_Loading
+ PEB_Baseline19 ConsLife     PEB_1    0.538 0.042 12.821 0 0.456 0.620       0.560
+ PEB_Baseline19 ConsLife     PEB_2    0.300 0.041  7.279 0 0.219 0.381       0.338
+ PEB_Baseline19 ConsLife     PEB_3    0.582 0.036 16.254 0 0.511 0.652       0.692
+ PEB_Baseline19 ConsLife     PEB_4    0.534 0.037 14.236 0 0.460 0.607       0.610
+ PEB_Baseline19 ConsLife     PEB_5    0.670 0.048 13.873 0 0.576 0.765       0.587
+ PEB_Baseline19   SocEnv     PEB_6    0.655 0.034 19.092 0 0.588 0.722       0.682
+ PEB_Baseline19   SocEnv     PEB_7    0.787 0.048 16.471 0 0.694 0.881       0.679
+ PEB_Baseline19   SocEnv     PEB_8    0.858 0.039 22.022 0 0.781 0.934       0.768
+ PEB_Baseline19   SocEnv     PEB_9    0.721 0.043 16.906 0 0.637 0.805       0.659
+ PEB_Baseline19   SocEnv    PEB_10    0.726 0.043 17.021 0 0.643 0.810       0.705
+ PEB_Baseline19   EnvCit    PEB_11    0.562 0.041 13.777 0 0.482 0.642       0.523
+ PEB_Baseline19   EnvCit    PEB_12    0.820 0.036 22.505 0 0.749 0.892       0.700
+ PEB_Baseline19   EnvCit    PEB_13    0.783 0.041 19.123 0 0.703 0.863       0.658
+ PEB_Baseline19   EnvCit    PEB_14    0.671 0.034 19.566 0 0.604 0.739       0.671
+ PEB_Baseline19   EnvCit    PEB_15    0.796 0.035 22.775 0 0.728 0.865       0.715
+ PEB_Baseline19 LandStew    PEB_16    0.869 0.035 25.109 0 0.801 0.937       0.779
+ PEB_Baseline19 LandStew    PEB_17    0.938 0.035 27.021 0 0.870 1.006       0.824
+ PEB_Baseline19 LandStew    PEB_18    0.923 0.037 24.794 0 0.850 0.996       0.808
+ PEB_Baseline19 LandStew    PEB_19    0.665 0.043 15.644 0 0.582 0.748       0.542
+
+MI_model_awal
+          Parameter      lhs op    rhs      mi    epc sepc.all
+     PEB_7 ~~ PEB_8    PEB_7 ~~  PEB_8 177.451  0.382    0.628
+    PEB_9 ~~ PEB_10    PEB_9 ~~ PEB_10 123.848  0.294    0.489
+   PEB_10 ~~ PEB_11   PEB_10 ~~ PEB_11 120.458  0.302    0.452
+    PEB_8 ~~ PEB_10    PEB_8 ~~ PEB_10  72.490 -0.214   -0.410
+    PEB_7 ~~ PEB_10    PEB_7 ~~ PEB_10  60.126 -0.214   -0.345
+   PEB_17 ~~ PEB_18   PEB_17 ~~ PEB_18  44.250  0.191    0.439
+     PEB_2 ~~ PEB_3    PEB_2 ~~  PEB_3  42.970  0.152    0.299
+   SocEnv =~ PEB_11   SocEnv =~ PEB_11  42.767  0.938    0.873
+    EnvCit =~ PEB_2   EnvCit =~  PEB_2  40.285 -0.366   -0.412
+  LandStew =~ PEB_2 LandStew =~  PEB_2  39.242 -0.299   -0.337
+ LandStew =~ PEB_11 LandStew =~ PEB_11  38.136 -0.660   -0.614
+ ConsLife =~ PEB_19 ConsLife =~ PEB_19  37.070  0.386    0.314
+     PEB_8 ~~ PEB_9    PEB_8 ~~  PEB_9  35.385 -0.163   -0.277
+   EnvCit =~ PEB_16   EnvCit =~ PEB_16  33.229  0.564    0.505
+   PEB_16 ~~ PEB_18   PEB_16 ~~ PEB_18  32.709 -0.156   -0.332
+   SocEnv =~ PEB_16   SocEnv =~ PEB_16  31.672  0.338    0.303
+   PEB_12 ~~ PEB_18   PEB_12 ~~ PEB_18  29.111  0.140    0.248
+  LandStew =~ PEB_5 LandStew =~  PEB_5  28.373  0.318    0.278
+    PEB_8 ~~ PEB_11    PEB_8 ~~ PEB_11  27.255 -0.146   -0.222
+    SocEnv =~ PEB_2   SocEnv =~  PEB_2  26.970 -0.336   -0.378
+    EnvCit =~ PEB_6   EnvCit =~  PEB_6  26.716 -0.614   -0.640
+    PEB_7 ~~ PEB_11    PEB_7 ~~ PEB_11  26.354 -0.163   -0.209
+   EnvCit =~ PEB_17   EnvCit =~ PEB_17  24.419 -0.499   -0.439
+  LandStew =~ PEB_6 LandStew =~  PEB_6  24.163 -0.269   -0.280
+   PEB_10 ~~ PEB_15   PEB_10 ~~ PEB_15  22.146  0.115    0.203
+   SocEnv =~ PEB_17   SocEnv =~ PEB_17  21.869 -0.287   -0.252
+   SocEnv =~ PEB_12   SocEnv =~ PEB_12  21.492 -0.669   -0.570
+    PEB_2 ~~ PEB_11    PEB_2 ~~ PEB_11  20.840  0.136    0.178
+     PEB_7 ~~ PEB_9    PEB_7 ~~  PEB_9  20.748 -0.138   -0.197
+    PEB_7 ~~ PEB_16    PEB_7 ~~ PEB_16  18.858  0.114    0.191
+ LandStew =~ PEB_12 LandStew =~ PEB_12  17.779  0.453    0.387
+    EnvCit =~ PEB_5   EnvCit =~  PEB_5  17.773  0.312    0.274
+  LandStew =~ PEB_8 LandStew =~  PEB_8  15.088  0.238    0.213
+   PEB_15 ~~ PEB_19   PEB_15 ~~ PEB_19  15.027 -0.127   -0.158
+    PEB_9 ~~ PEB_11    PEB_9 ~~ PEB_11  14.603  0.117    0.155
+     PEB_2 ~~ PEB_7    PEB_2 ~~  PEB_7  14.492 -0.109   -0.154
+ ConsLife =~ PEB_12 ConsLife =~ PEB_12  14.206 -0.261   -0.223
+    PEB_8 ~~ PEB_16    PEB_8 ~~ PEB_16  13.751  0.085    0.170
+ ConsLife =~ PEB_17 ConsLife =~ PEB_17  13.557 -0.182   -0.160
+ ConsLife =~ PEB_11 ConsLife =~ PEB_11  12.927  0.248    0.231
+   PEB_14 ~~ PEB_19   PEB_14 ~~ PEB_19  12.889  0.111    0.145
+    PEB_2 ~~ PEB_19    PEB_2 ~~ PEB_19  12.369  0.119    0.138
+   PEB_17 ~~ PEB_19   PEB_17 ~~ PEB_19  12.252 -0.111   -0.166
+   PEB_11 ~~ PEB_17   PEB_11 ~~ PEB_17  11.879 -0.091   -0.154
+    PEB_4 ~~ PEB_19    PEB_4 ~~ PEB_19  11.423  0.100    0.140
+ ConsLife =~ PEB_16 ConsLife =~ PEB_16  11.262  0.166    0.148
+    PEB_7 ~~ PEB_15    PEB_7 ~~ PEB_15  11.237 -0.095   -0.143
+     PEB_3 ~~ PEB_5    PEB_3 ~~  PEB_5  11.145 -0.100   -0.178
+    PEB_2 ~~ PEB_12    PEB_2 ~~ PEB_12  11.112 -0.093   -0.134
+   SocEnv =~ PEB_19   SocEnv =~ PEB_19  11.107  0.248    0.202
+    EnvCit =~ PEB_1   EnvCit =~  PEB_1  10.807  0.204    0.212
+   PEB_13 ~~ PEB_19   PEB_13 ~~ PEB_19  10.674 -0.122   -0.131
+   PEB_11 ~~ PEB_13   PEB_11 ~~ PEB_13  10.516 -0.108   -0.131
+
+Uji_sensitivitas_item
+              Model   N Item_Count Admissible Chisq_Scaled  df CFI_Robust TLI_Robust RMSEA_Robust  SRMR      AIC      BIC Loading_PEB9 Loading_PEB10
+           Final_16 704         16       TRUE      361.978 100      0.929      0.915        0.069 0.052 29143.32 29307.37           NA            NA
+        Tanpa_PEB18 704         15       TRUE      277.904  86      0.941      0.928        0.063 0.048 27495.52 27650.45           NA            NA
+        Tambah_PEB9 704         17       TRUE      456.665 115      0.913      0.898        0.074 0.054 31052.52 31225.67        0.567            NA
+     PEB9_di_EnvCit 704         17       TRUE      421.768 115      0.922      0.908        0.070 0.053 31008.37 31181.52           NA            NA
+    PEB9_dua_faktor 704         17       TRUE      421.284 114      0.922      0.907        0.070 0.052 31009.49 31187.21        0.070            NA
+       Tambah_PEB10 704         17      FALSE           NA  NA         NA         NA           NA    NA       NA       NA           NA            NA
+     Tambah_PEB9_10 704         18      FALSE           NA  NA         NA         NA           NA    NA       NA       NA           NA            NA
+ Tambah_PEB9_10_Kov 704         18      FALSE           NA  NA         NA         NA           NA    NA       NA       NA           NA            NA
+       PEB17_18_Kov 704         16       TRUE      323.709  99      0.940      0.927        0.064 0.048 29094.62 29263.22           NA            NA
+   Tambah_Semua_Kov 704         18       TRUE      578.976 129      0.900      0.881        0.080 0.057 32569.73 32761.11        0.584         0.619
+ Loading_PEB9_EnvCit Loading_PEB18 MI_PEB9_PEB15 MI_PEB10_PEB11 MI_PEB10_PEB15 MI_PEB17_PEB18 MI_PEB12_PEB18 Delta_Chisq_Robust p_Delta_Robust
+                  NA         0.801            NA             NA             NA         54.551         34.191                 NA             NA
+                  NA            NA            NA             NA             NA             NA             NA                 NA             NA
+                  NA         0.801        22.733             NA             NA         54.729         35.017                 NA             NA
+               0.598         0.800        10.427             NA             NA         56.670         37.115                 NA             NA
+               0.537         0.800        11.987             NA             NA         56.456         36.706                 NA             NA
+                  NA            NA            NA             NA             NA             NA             NA                 NA             NA
+                  NA            NA            NA             NA             NA             NA             NA                 NA             NA
+                  NA            NA            NA             NA             NA             NA             NA                 NA             NA
+                  NA         0.737            NA             NA             NA             NA         39.735               27.6              0
+                  NA         0.737         3.204        102.096         18.665             NA         40.289                 NA             NA
+
+RINCIAN MODEL AKHIR
+
+====================================================================================================================== 
+CFA PEB - model akhir 
+====================================================================================================================== 
+
+MODEL INFO
+
+Model              : CFA PEB - model akhir
+Estimator          : MLR
+N Total            : 704
+N Used             : 704
+Observed Variables : 16
+Latent Factors     : 5
+Factor Names       : ConsLife, SocEnv, EnvCit, LandStew, PEB
+Parameters         : 36
+Degrees of Freedom : 100
+Standardization    : std.lv = TRUE
+Converged          : TRUE
+Items Removed      : 3 | PEB_2, PEB_9, PEB_10
+
+FACTOR STRUCTURE
+
+ConsLife        : 4 items
+                  PEB_1, PEB_3, PEB_4, PEB_5
+
+SocEnv          : 3 items
+                  PEB_6, PEB_7, PEB_8
+
+EnvCit          : 5 items
+                  PEB_11, PEB_12, PEB_13, PEB_14, PEB_15
+
+LandStew        : 4 items
+                  PEB_16, PEB_17, PEB_18, PEB_19
+
+PEB             : 4 items
+                  ConsLife, SocEnv, EnvCit, LandStew
+
+MODEL FIT
+
+Index                                 Value
+-------------------------------------------- 
+chisq.scaled                        361.978
+df.scaled                           100.000
+pvalue.scaled                         <.001
+cfi.robust                            0.929
+tli.robust                            0.915
+rmsea.robust                          0.069
+rmsea.ci.lower.robust                 0.061
+rmsea.ci.upper.robust                 0.077
+srmr                                  0.052
+aic                               29143.322
+bic                               29307.366
+
+FACTOR LOADINGS
+
+Factor      Item       Bunyi Item                                                           Est.       SE         p     Std.
+--------------------------------------------------------------------------------------------------------------------------- 
+ConsLife    PEB_1      Saya memilah sampah kertas, plastik, dan logam untuk didaur         0.356    0.030     <.001    0.573
+                       ulang.                                                          
+--------------------------------------------------------------------------------------------------------------------------- 
+ConsLife    PEB_3      Saya membeli produk yang ramah lingkungan atau hemat energi         0.351    0.032     <.001    0.646
+                       saat berbelanja.                                                
+--------------------------------------------------------------------------------------------------------------------------- 
+ConsLife    PEB_4      Saya mengurangi penggunaan plastik sekali pakai (sedotan,           0.325    0.035     <.001    0.574
+                       kantong plastik, botol air sekali pakai) dalam kehidupan        
+                       sehari-hari.                                                    
+--------------------------------------------------------------------------------------------------------------------------- 
+ConsLife    PEB_5      Saya menangani sampah elektronik (e-waste) dengan benar,            0.459    0.036     <.001    0.621
+                       misalnya membuang baterai atau ponsel bekas ke tempat           
+                       pengumpulan khusus.                                             
+--------------------------------------------------------------------------------------------------------------------------- 
+SocEnv      PEB_6      Saya membicarakan isu lingkungan kepada orang-orang di              0.335    0.026     <.001    0.610
+                       sekitar atau komunitas saya.                                    
+--------------------------------------------------------------------------------------------------------------------------- 
+SocEnv      PEB_7      Saya aktif berpartisipasi sebagai anggota dalam komunitas           0.522    0.041     <.001    0.787
+                       atau organisasi lingkungan.                                     
+--------------------------------------------------------------------------------------------------------------------------- 
+SocEnv      PEB_8      Saya berkolaborasi dengan orang lain (teman, komunitas, atau        0.565    0.041     <.001    0.885
+                       kolega) untuk mengatasi masalah lingkungan di sekitar saya.     
+--------------------------------------------------------------------------------------------------------------------------- 
+EnvCit      PEB_11     Saya memberikan suara atau dukungan pada kebijakan/pemimpin         0.079    0.067     0.235    0.489
+                       yang berpihak pada kelestarian lingkungan lokal.                
+--------------------------------------------------------------------------------------------------------------------------- 
+EnvCit      PEB_12     Saya menyampaikan aspirasi terkait isu lingkungan kepada            0.125    0.104     0.231    0.707
+                       pejabat atau instansi pemerintah, baik secara langsung maupun   
+                       melalui email atau akun media sosial mereka.                    
+--------------------------------------------------------------------------------------------------------------------------- 
+EnvCit      PEB_13     Saya pernah menandatangani petisi (baik cetak maupun online)        0.120    0.100     0.230    0.668
+                       terkait isu perlindungan lingkungan.                            
+--------------------------------------------------------------------------------------------------------------------------- 
+EnvCit      PEB_14     Saya menyumbangkan uang atau dana untuk mendukung kegiatan          0.103    0.086     0.229    0.684
+                       perlindungan lingkungan di sekitar saya.                        
+--------------------------------------------------------------------------------------------------------------------------- 
+EnvCit      PEB_15     Saya berpartisipasi dalam kampanye lingkungan (seperti              0.118    0.098     0.229    0.705
+                       tantangan tagar) di media sosial.                               
+--------------------------------------------------------------------------------------------------------------------------- 
+LandStew    PEB_16     Saya menjadi sukarelawan dalam kegiatan pemulihan                   0.416    0.034     <.001    0.787
+                       (konservasi) lingkungan, seperti penanaman pohon, pembersihan   
+                       sungai/pantai, atau perawatan ruang hijau.                      
+--------------------------------------------------------------------------------------------------------------------------- 
+LandStew    PEB_17     Saya berpartisipasi menyumbangkan data atau memantau kondisi        0.442    0.043     <.001    0.819
+                       satwa liar di sekitar lingkungan saya.                          
+--------------------------------------------------------------------------------------------------------------------------- 
+LandStew    PEB_18     Saya melaporkan informasi tentang ancaman terhadap                  0.433    0.043     <.001    0.801
+                       keanekaragaman hayati, seperti perdagangan satwa liar ilegal,   
+                       kepada lembaga konservasi atau pihak terkait.                   
+--------------------------------------------------------------------------------------------------------------------------- 
+LandStew    PEB_19     Saya menata halaman rumah saya agar dapat menarik satwa liar        0.318    0.030     <.001    0.547
+                       yang tidak mengganggu (seperti burung liar atau serangga).      
+--------------------------------------------------------------------------------------------------------------------------- 
+PEB         ConsLife   -                                                                   1.179    0.123     <.001    0.763
+--------------------------------------------------------------------------------------------------------------------------- 
+PEB         SocEnv     -                                                                   1.433    0.136     <.001    0.820
+--------------------------------------------------------------------------------------------------------------------------- 
+PEB         EnvCit     -                                                                   6.559    5.555     0.238    0.989
+--------------------------------------------------------------------------------------------------------------------------- 
+PEB         LandStew   -                                                                   1.859    0.209     <.001    0.881
+--------------------------------------------------------------------------------------------------------------------------- 
+
+MODIFICATION INDICES
+
+Ditampilkan 15 parameter dengan MI >= 10.
+MI digunakan sebagai diagnostik; modifikasi tetap harus didukung teori.
+
+Rank   Bunyi Item                                                               Parameter                        MI        EPC
+------------------------------------------------------------------------------------------------------------------------------ 
+1      PEB_17: Saya berpartisipasi menyumbangkan data atau memantau             PEB_17 ~~ PEB_18             54.551      0.207
+       kondisi satwa liar di sekitar lingkungan saya.                                                                         
+       PEB_18: Saya melaporkan informasi tentang ancaman terhadap                                                             
+       keanekaragaman hayati, seperti perdagangan satwa liar ilegal,                                                          
+       kepada lembaga konservasi atau pihak terkait.                                                                          
+------------------------------------------------------------------------------------------------------------------------------ 
+2      ConsLife: [Factor: ConsLife]                                             ConsLife =~ PEB_6            40.479      0.217
+       PEB_6: Saya membicarakan isu lingkungan kepada orang-orang di                                                          
+       sekitar atau komunitas saya.                                                                                           
+------------------------------------------------------------------------------------------------------------------------------ 
+3      PEB_6: Saya membicarakan isu lingkungan kepada orang-orang di            PEB_6 ~~ PEB_11              34.288      0.167
+       sekitar atau komunitas saya.                                                                                           
+       PEB_11: Saya memberikan suara atau dukungan pada kebijakan/pemimpin                                                    
+       yang berpihak pada kelestarian lingkungan lokal.                                                                       
+------------------------------------------------------------------------------------------------------------------------------ 
+4      PEB_12: Saya menyampaikan aspirasi terkait isu lingkungan kepada         PEB_12 ~~ PEB_18             34.191      0.152
+       pejabat atau instansi pemerintah, baik secara langsung maupun                                                          
+       melalui email atau akun media sosial mereka.                                                                           
+       PEB_18: Saya melaporkan informasi tentang ancaman terhadap                                                             
+       keanekaragaman hayati, seperti perdagangan satwa liar ilegal,                                                          
+       kepada lembaga konservasi atau pihak terkait.                                                                          
+------------------------------------------------------------------------------------------------------------------------------ 
+5      PEB_16: Saya menjadi sukarelawan dalam kegiatan pemulihan                PEB_16 ~~ PEB_18             33.099     -0.155
+       (konservasi) lingkungan, seperti penanaman pohon, pembersihan                                                          
+       sungai/pantai, atau perawatan ruang hijau.                                                                             
+       PEB_18: Saya melaporkan informasi tentang ancaman terhadap                                                             
+       keanekaragaman hayati, seperti perdagangan satwa liar ilegal,                                                          
+       kepada lembaga konservasi atau pihak terkait.                                                                          
+------------------------------------------------------------------------------------------------------------------------------ 
+6      PEB: [Factor: PEB]                                                       PEB =~ PEB_16                32.349      0.652
+       PEB_16: Saya menjadi sukarelawan dalam kegiatan pemulihan                                                              
+       (konservasi) lingkungan, seperti penanaman pohon, pembersihan                                                          
+       sungai/pantai, atau perawatan ruang hijau.                                                                             
+------------------------------------------------------------------------------------------------------------------------------ 
+7      EnvCit: [Factor: EnvCit]                                                 EnvCit =~ PEB_16             30.126      0.090
+       PEB_16: Saya menjadi sukarelawan dalam kegiatan pemulihan                                                              
+       (konservasi) lingkungan, seperti penanaman pohon, pembersihan                                                          
+       sungai/pantai, atau perawatan ruang hijau.                                                                             
+------------------------------------------------------------------------------------------------------------------------------ 
+8      PEB_3: Saya membeli produk yang ramah lingkungan atau hemat energi       PEB_3 ~~ PEB_4               29.882      0.127
+       saat berbelanja.                                                                                                       
+       PEB_4: Saya mengurangi penggunaan plastik sekali pakai (sedotan,                                                       
+       kantong plastik, botol air sekali pakai) dalam kehidupan                                                               
+       sehari-hari.                                                                                                           
+------------------------------------------------------------------------------------------------------------------------------ 
+9      SocEnv: [Factor: SocEnv]                                                 SocEnv =~ PEB_16             29.519      0.178
+       PEB_16: Saya menjadi sukarelawan dalam kegiatan pemulihan                                                              
+       (konservasi) lingkungan, seperti penanaman pohon, pembersihan                                                          
+       sungai/pantai, atau perawatan ruang hijau.                                                                             
+------------------------------------------------------------------------------------------------------------------------------ 
+10     ConsLife: [Factor: ConsLife]                                             ConsLife =~ PEB_19           28.116      0.258
+       PEB_19: Saya menata halaman rumah saya agar dapat menarik satwa                                                        
+       liar yang tidak mengganggu (seperti burung liar atau serangga).                                                        
+------------------------------------------------------------------------------------------------------------------------------ 
+11     PEB: [Factor: PEB]                                                       PEB =~ PEB_17                26.229     -0.612
+       PEB_17: Saya berpartisipasi menyumbangkan data atau memantau                                                           
+       kondisi satwa liar di sekitar lingkungan saya.                                                                         
+------------------------------------------------------------------------------------------------------------------------------ 
+12     EnvCit: [Factor: EnvCit]                                                 EnvCit =~ PEB_17             23.434     -0.082
+       PEB_17: Saya berpartisipasi menyumbangkan data atau memantau                                                           
+       kondisi satwa liar di sekitar lingkungan saya.                                                                         
+------------------------------------------------------------------------------------------------------------------------------ 
+13     ConsLife: [Factor: ConsLife]                                             ConsLife ~~ SocEnv           22.766      0.391
+       SocEnv: [Factor: SocEnv]                                                                                               
+------------------------------------------------------------------------------------------------------------------------------ 
+14     EnvCit: [Factor: EnvCit]                                                 EnvCit ~~ LandStew           22.766      2.822
+       LandStew: [Factor: LandStew]                                                                                           
+------------------------------------------------------------------------------------------------------------------------------ 
+15     EnvCit: [Factor: EnvCit]                                                 EnvCit =~ PEB_6              20.656      0.051
+       PEB_6: Saya membicarakan isu lingkungan kepada orang-orang di                                                          
+       sekitar atau komunitas saya.                                                                                           
+------------------------------------------------------------------------------------------------------------------------------ 
+
+RELIABILITY
+
+   Factor Alpha Omega   AVE
+ ConsLife 0.688 0.696 0.366
+   SocEnv 0.797 0.824 0.591
+   EnvCit 0.786 0.786 0.430
+ LandStew 0.819 0.832 0.558
+      PEB    NA    NA 0.752
+
+RELIABILITY DAN AVE PER DIMENSI
+ Construct   Factor Items Alpha Omega AVE_item_std Loading_min Loading_max
+       PEB ConsLife     4 0.688 0.696        0.366       0.573       0.646
+       PEB   SocEnv     3 0.797 0.824        0.591       0.610       0.885
+       PEB   EnvCit     5 0.786 0.786        0.430       0.489       0.707
+       PEB LandStew     4 0.819 0.832        0.558       0.547       0.819
+
+RELIABILITY FAKTOR SECOND-ORDER
+ Construct Omega_second_order Dimensions Mean_squared_second_order_loading Loading_min Loading_max
+       PEB              0.853          4                             0.752       0.763       0.989

@@ -1,0 +1,187 @@
+========================================================================================
+PEMETAAN KOLOM, VARIABEL, DAN BUNYI ITEM (FORM RESPONSES 1)
+========================================================================================
+
+Format:
+[Kolom] Alias (Indeks Javascript: n) -> Bunyi item
+
+Catatan:
+- Alias mengikuti nama variabel yang digunakan dalam analisis CFA.
+- Item PWB reverse diberi suffix _R.
+- Attention check diberi label AC_1 sampai AC_6.
+- Frasa '(Indeks Javascript: n) ->' dipertahankan agar kompatibel dengan parser R.
+
+========================================================================================
+A. IDENTITAS & DEMOGRAFI
+========================================================================================
+[A] Timestamp (Indeks Javascript: 0) -> Timestamp
+[B] Consent (Indeks Javascript: 1) -> Apakah anda bersedia untuk berpartisipasi?
+[C] Screening (Indeks Javascript: 2) -> Apakah status Anda saat ini adalah mahasiswa aktif di sebuah perguruan tinggi di Jawa Barat?
+[D] Nama_Inisial (Indeks Javascript: 3) -> Nama (Inisial)
+[E] Jenis_Kelamin (Indeks Javascript: 4) -> Jenis Kelamin
+[F] Usia (Indeks Javascript: 5) -> Usia Anda saat ini (dalam angka):
+[G] Perguruan_Tinggi (Indeks Javascript: 6) -> Asal Perguruan Tinggi
+[H] Fakultas_Prodi (Indeks Javascript: 7) -> Fakultas/Program Studi
+[I] Semester (Indeks Javascript: 8) -> Semester yang anda jalani saat ini
+[J] Daerah_Tinggal (Indeks Javascript: 9) -> Daerah tempat tinggal saat ini
+[K] Area_Tinggal (Indeks Javascript: 10) -> Mana yang paling menggambarkan area tempat tinggal Anda saat ini?
+[L] Jenis_Hunian (Indeks Javascript: 11) -> Selama berkuliah, jenis tempat tinggal utama Anda adalah:
+
+========================================================================================
+B. ENVIRONMENTAL IDENTITY (EID)
+========================================================================================
+[M] EID_1 (Indeks Javascript: 12) -> Saya senang menghabiskan waktu di luar ruangan, terutama di lingkungan alami (seperti hutan, pegunungan, sungai, lapangan, taman kota, danau atau pantai, maupun halaman atau kebun yang rindang).
+[N] EID_2 (Indeks Javascript: 13) -> Saya menganggap diri saya sebagai bagian dari alam, bukan sesuatu yang terpisah darinya.
+[O] EID_3 (Indeks Javascript: 14) -> Jika saya memiliki sumber daya seperti waktu atau uang yang cukup, saya akan menggunakan sebagian darinya untuk melindungi lingkungan alam.
+[P] EID_4 (Indeks Javascript: 15) -> Ketika saya merasa kesal atau stres, menghabiskan waktu di alam terbuka mampu membuat saya merasa lebih baik.
+[Q] EID_5 (Indeks Javascript: 16) -> Saya merasa memiliki banyak kesamaan dengan hewan-hewan yang hidup di alam liar.
+[R] EID_6 (Indeks Javascript: 17) -> Berperilaku secara bertanggung jawab terhadap alam—misalnya menjalani gaya hidup berkelanjutan—merupakan bagian penting dari diri saya.
+[S] EID_7 (Indeks Javascript: 18) -> Mempelajari alam seharusnya menjadi bagian dari pendidikan setiap orang sejak dini.
+[T] EID_8 (Indeks Javascript: 19) -> Jika bisa memilih, saya lebih suka tinggal di tempat yang memiliki pemandangan alam, seperti pepohonan atau ruang hijau terbuka.
+[U] EID_9 (Indeks Javascript: 20) -> Ada bagian penting dalam hidup saya yang terasa hilang jika saya tidak sesekali bisa keluar dan menikmati alam.
+[V] EID_10 (Indeks Javascript: 21) -> Saya merasa ada bagian-bagian dari alam yang lebih indah dari karya seni apa pun.
+[W] AC_1_Biru (Indeks Javascript: 22) -> Ini adalah pertanyaan untuk memastikan Anda membaca dengan teliti. Mohon pilih jawaban "Biru".
+[X] EID_11 (Indeks Javascript: 23) -> Saya merasa segar kembali setelah menghabiskan waktu di alam.
+[Y] EID_12 (Indeks Javascript: 24) -> Saya memandang diri saya memiliki peran untuk menjaga kelestarian sumber daya alam.
+[Z] EID_13 (Indeks Javascript: 25) -> Saya merasa nyaman berada di alam (seperti di hutan, di gunung, atau di pantai).
+[AA] EID_14 (Indeks Javascript: 26) -> Saya menikmati unsur alam yang saya lihat seperti pepohonan atau rumput bahkan ketika saya berada di tengah kota.
+[AB] EID_15 (Indeks Javascript: 27) -> Pengalaman saya berinteraksi dengan alam ikut membentuk cara saya memahami diri saya sendiri.
+[AC] EID_16 (Indeks Javascript: 28) -> Hubungan saya dengan alam merupakan bagian dari cerita hidup saya.
+[AD] EID_17 (Indeks Javascript: 29) -> Cara saya memandang hidup dipengaruhi oleh keyakinan bahwa manusia adalah bagian dari alam.
+[AE] EID_18 (Indeks Javascript: 30) -> Ketika mengambil keputusan penting, saya mempertimbangkan hubungan saya dengan alam.
+
+========================================================================================
+C. ENVIRONMENTAL SELF-IDENTITY (ESI)
+========================================================================================
+[AF] ESI_1 (Indeks Javascript: 31) -> Bertindak ramah lingkungan adalah bagian penting dari diri saya.
+[AG] ESI_2 (Indeks Javascript: 32) -> Saya adalah tipe orang yang bertindak ramah lingkungan.
+[AH] ESI_3 (Indeks Javascript: 33) -> Saya melihat diri saya sebagai orang yang ramah lingkungan.
+[AI] ESI_4 (Indeks Javascript: 34) -> Saya tetap berusaha berperilaku ramah lingkungan meskipun membutuhkan usaha lebih.
+[AJ] ESI_5 (Indeks Javascript: 35) -> Isu lingkungan yang saya pahami memengaruhi cara saya memandang diri sebagai pribadi yang ramah lingkungan.
+[AK] ESI_6 (Indeks Javascript: 36) -> Saya tetap konsisten berperilaku ramah lingkungan sekalipun orang-orang di sekitar saya tidak melakukannya.
+
+========================================================================================
+D. PSYCHOLOGICAL WELL-BEING (PWB)
+========================================================================================
+
+--- Dimensi: Autonomy ---
+[AL] PWB_1 (Indeks Javascript: 37) -> Saya tidak takut menyampaikan pendapat saya, meskipun berbeda dengan pendapat kebanyakan orang.
+[AM] PWB_2 (Indeks Javascript: 38) -> Keputusan yang saya buat biasanya tidak dipengaruhi oleh apa yang dilakukan oleh orang lain.
+[AN] PWB_3_R (Indeks Javascript: 39) -> Saya cenderung khawatir dengan apa yang dipikirkan orang lain tentang diri saya.
+[AO] PWB_4_R (Indeks Javascript: 40) -> Saya cenderung mudah dipengaruhi oleh orang yang pendapatnya lebih kuat.
+[AP] PWB_5 (Indeks Javascript: 41) -> Saya merasa percaya diri atas pendapat saya, meskipun berbeda dari pandangan kebanyakan orang.
+[AQ] PWB_6_R (Indeks Javascript: 42) -> Sulit bagi saya untuk menyampaikan pendapat pribadi saya mengenai isu-isu yang kontroversial.
+[AR] PWB_7 (Indeks Javascript: 43) -> Saya menilai diri saya berdasarkan apa yang menurut saya penting, bukan berdasarkan apa yang orang lain anggap penting.
+
+--- Dimensi: Mastery ---
+[AS] PWB_8 (Indeks Javascript: 44) -> Secara umum, saya merasa memiliki kendali atas situasi dalam kehidupan saya.
+[AT] PWB_9_R (Indeks Javascript: 45) -> Tuntutan hidup sehari-hari sering membuat hidup saya terasa lebih berat.
+[AU] PWB_10_R (Indeks Javascript: 46) -> Saya merasa tidak cocok dengan orang-orang dan komunitas di sekitar saya.
+[AV] AC_2_Hijau_Tua (Indeks Javascript: 47) -> Ini adalah pertanyaan untuk memastikan Anda membaca dengan teliti. Mohon pilih jawaban "Hijau Tua".
+[AW] PWB_11 (Indeks Javascript: 48) -> Saya cukup baik dalam mengelola berbagai tanggung jawab dalam kehidupan sehari-hari.
+[AX] PWB_12_R (Indeks Javascript: 49) -> Saya sering merasa kewalahan dengan tanggung jawab yang saya miliki.
+[AY] PWB_13_R (Indeks Javascript: 50) -> Saya sulit mengatur hidup saya dengan cara yang memuaskan saya.
+[AZ] PWB_14 (Indeks Javascript: 51) -> Saya berhasil menata tempat tinggal dan gaya hidup yang sangat sesuai dengan keinginan saya.
+
+--- Dimensi: Growth ---
+[BA] PWB_15_R (Indeks Javascript: 52) -> Saya tidak tertarik pada aktivitas yang dapat memperluas wawasan saya.
+[BB] PWB_16 (Indeks Javascript: 53) -> Penting bagi saya untuk memiliki pengalaman baru yang menantang cara saya dalam memandang diri sendiri dan dunia di sekitar saya.
+[BC] PWB_17_R (Indeks Javascript: 54) -> Jika saya renungkan, saya merasa kurang berkembang sebagai pribadi dari tahun ke tahun.
+[BD] PWB_18 (Indeks Javascript: 55) -> Saya merasa telah banyak berkembang sebagai pribadi seiring berjalannya waktu.
+[BE] PWB_19_R (Indeks Javascript: 56) -> Saya tidak menyukai situasi baru yang menuntut saya untuk mengubah kebiasaan lama saya.
+[BF] AC_3_Kuning (Indeks Javascript: 57) -> Ini adalah pertanyaan untuk memastikan Anda membaca dengan teliti. Mohon pilih jawaban "Kuning".
+[BG] PWB_20 (Indeks Javascript: 58) -> Bagi saya, hidup merupakan proses belajar, perubahan, dan perkembangan yang terus berlangsung.
+[BH] PWB_21_R (Indeks Javascript: 59) -> Saya sudah lama menyerah untuk melakukan perbaikan atau perubahan besar dalam hidup saya.
+
+--- Dimensi: Relations ---
+[BI] PWB_22 (Indeks Javascript: 60) -> Kebanyakan orang menganggap saya sebagai pribadi yang penyayang dan penuh perhatian.
+[BJ] PWB_23_R (Indeks Javascript: 61) -> Mempertahankan hubungan dekat dengan orang lain terasa sulit dan membuat saya merasa frustasi.
+[BK] PWB_24_R (Indeks Javascript: 62) -> Saya merasa kesulitan memiliki teman dekat untuk berbagi kekhawatiran dan masalah pribadi saya.
+[BL] PWB_25 (Indeks Javascript: 63) -> Saya menikmati percakapan pribadi yang saling terbuka dengan anggota keluarga atau teman.
+[BM] PWB_26 (Indeks Javascript: 64) -> Orang lain akan menggambarkan saya sebagai pribadi yang murah hati dan bersedia meluangkan waktu untuk orang lain.
+[BN] PWB_27_R (Indeks Javascript: 65) -> Saya tidak sering merasakan hubungan yang hangat dan saling percaya dengan orang lain.
+[BO] PWB_28 (Indeks Javascript: 66) -> Saya bisa mempercayai teman-teman saya, dan mereka pun mempercayai saya.
+
+--- Dimensi: Purpose ---
+[BP] PWB_29_R (Indeks Javascript: 67) -> Saya menjalani hidup hari demi hari tanpa terlalu memikirkan masa depan.
+[BQ] PWB_30 (Indeks Javascript: 68) -> Saya memiliki arah dan tujuan hidup yang jelas.
+[BR] PWB_31_R (Indeks Javascript: 69) -> Kegiatan sehari-hari saya sering terasa sepele dan tidak bermakna.
+[BS] PWB_32_R (Indeks Javascript: 70) -> Saya tidak memiliki gambaran yang jelas tentang apa yang ingin saya capai dalam hidup.
+[BT] PWB_33 (Indeks Javascript: 71) -> Saya senang membuat rencana untuk masa depan dan berusaha mewujudkannya.
+[BU] AC_4_Ungu (Indeks Javascript: 72) -> Ini adalah pertanyaan untuk memastikan Anda membaca dengan teliti. Mohon pilih jawaban "Ungu".
+[BV] PWB_34 (Indeks Javascript: 73) -> Berbeda dengan sebagian orang, saya menjalani hidup dengan arah dan tujuan yang jelas.
+[BW] PWB_35_R (Indeks Javascript: 74) -> Saya merasa tidak banyak berkembang sebagai pribadi belakangan ini.
+
+--- Dimensi: Acceptance ---
+[BX] PWB_36 (Indeks Javascript: 75) -> Ketika merefleksikan perjalanan hidup saya sampai hari ini, saya merasa puas dengan semua yang saya alami.
+[BY] PWB_37 (Indeks Javascript: 76) -> Secara umum, saya merasa yakin dan positif terhadap diri sendiri.
+[BZ] PWB_38_R (Indeks Javascript: 77) -> Saya merasa orang-orang yang saya kenal hidupnya lebih berhasil dibandingkan saya.
+[CA] PWB_39 (Indeks Javascript: 78) -> Saya menyukai sebagian besar aspek dari kepribadian saya.
+[CB] PWB_40_R (Indeks Javascript: 79) -> Dalam banyak hal, saya merasa kecewa dengan pencapaian hidup saya.
+[CC] PWB_41_R (Indeks Javascript: 80) -> Saya kurang percaya diri dibandingkan kebanyakan orang lain.
+[CD] PWB_42 (Indeks Javascript: 81) -> Ketika membandingkan diri saya dengan teman-teman dekat, saya merasa senang dengan diri saya yang sesungguhnya.
+
+========================================================================================
+E. PERCEIVED SOCIAL MEDIA LITERACY (PSML)
+========================================================================================
+
+--- Dimensi: TechComp ---
+[CE] PSMLS_1 (Indeks Javascript: 82) -> Saya tahu cara membuat akun di media sosial.
+[CF] PSMLS_2 (Indeks Javascript: 83) -> Saya tahu cara menghapus akun saya di media sosial.
+[CG] PSMLS_3 (Indeks Javascript: 84) -> Saya tahu cara menonaktifkan akun saya di media sosial.
+[CH] PSMLS_4 (Indeks Javascript: 85) -> Saya tahu cara mengunggah konten, seperti foto, di akun media sosial saya.
+[CI] PSMLS_5 (Indeks Javascript: 86) -> Saya tahu cara menghapus konten yang tidak diinginkan di akun media sosial saya.
+
+--- Dimensi: SocialRel ---
+[CJ] PSMLS_6 (Indeks Javascript: 87) -> Saya memahami hukum hak cipta yang berlaku di platform media sosial.
+[CK] PSMLS_7 (Indeks Javascript: 88) -> Saya tahu cara menangani konflik di media sosial dengan tepat.
+[CL] PSMLS_8 (Indeks Javascript: 89) -> Saya mengetahui tata krama atau kebijakan penggunaan media sosial di kampus atau organisasi saya.
+
+--- Dimensi: Privacy ---
+[CM] PSMLS_9 (Indeks Javascript: 90) -> Saya tahu bahwa platform media sosial mengontrol apa yang saya lihat di beranda media sosial saya.
+[CN] PSMLS_10 (Indeks Javascript: 91) -> Saya tahu bahwa informasi yang pernah saya unggah di media sosial dapat tersimpan secara permanen.
+[CO] AC_5_Hijau (Indeks Javascript: 92) -> Ini adalah pertanyaan untuk memastikan Anda membaca dengan teliti. Mohon pilih jawaban "Hijau".
+[CP] PSMLS_11 (Indeks Javascript: 93) -> Saya tahu bahwa iklan yang saya lihat di media sosial sudah disesuaikan dengan apa yang sering saya cari atau sukai.
+
+--- Dimensi: InfoAware ---
+[CQ] PSMLS_12 (Indeks Javascript: 94) -> Saya tahu cara memverifikasi apakah informasi yang dibagikan di media sosial itu benar.
+[CR] PSMLS_13 (Indeks Javascript: 95) -> Saya tahu cara menggunakan berbagai sumber informasi untuk memverifikasi informasi yang saya lihat di media sosial.
+[CS] PSMLS_14 (Indeks Javascript: 96) -> Saya dapat menilai apakah suatu informasi di media sosial dapat dipercaya atau tidak.
+
+========================================================================================
+F. PRO-ENVIRONMENTAL BEHAVIOR (PEB)
+========================================================================================
+
+--- Dimensi: ConsLife ---
+[CT] PEB_1 (Indeks Javascript: 97) -> Saya memilah sampah kertas, plastik, dan logam untuk didaur ulang.
+[CU] PEB_2 (Indeks Javascript: 98) -> Saya menghemat penggunaan air atau energi (seperti mematikan lampu/kipas) di tempat tinggal saya.
+[CV] PEB_3 (Indeks Javascript: 99) -> Saya membeli produk yang ramah lingkungan atau hemat energi saat berbelanja.
+[CW] PEB_4 (Indeks Javascript: 100) -> Saya mengurangi penggunaan plastik sekali pakai (sedotan, kantong plastik, botol air sekali pakai) dalam kehidupan sehari-hari.
+[CX] PEB_5 (Indeks Javascript: 101) -> Saya menangani sampah elektronik (e-waste) dengan benar, misalnya membuang baterai atau ponsel bekas ke tempat pengumpulan khusus.
+
+--- Dimensi: SocEnv ---
+[CY] PEB_6 (Indeks Javascript: 102) -> Saya membicarakan isu lingkungan kepada orang-orang di sekitar atau komunitas saya.
+[CZ] PEB_7 (Indeks Javascript: 103) -> Saya aktif berpartisipasi sebagai anggota dalam komunitas atau organisasi lingkungan.
+[DA] PEB_8 (Indeks Javascript: 104) -> Saya berkolaborasi dengan orang lain (teman, komunitas, atau kolega) untuk mengatasi masalah lingkungan di sekitar saya.
+[DB] PEB_9 (Indeks Javascript: 105) -> Saya membagikan konten atau informasi tentang isu lingkungan di media sosial (Instagram, TikTok, Twitter/X, YouTube, dll.).
+[DC] PEB_10 (Indeks Javascript: 106) -> Saya aktif mengikuti dan menyebarkan pesan dari kreator konten yang mempromosikan isu lingkungan.
+
+--- Dimensi: EnvCit ---
+[DD] PEB_11 (Indeks Javascript: 107) -> Saya memberikan suara atau dukungan pada kebijakan/pemimpin yang berpihak pada kelestarian lingkungan lokal.
+[DE] PEB_12 (Indeks Javascript: 108) -> Saya menyampaikan aspirasi terkait isu lingkungan kepada pejabat atau instansi pemerintah, baik secara langsung maupun melalui email atau akun media sosial mereka.
+[DF] PEB_13 (Indeks Javascript: 109) -> Saya pernah menandatangani petisi (baik cetak maupun online) terkait isu perlindungan lingkungan.
+[DG] PEB_14 (Indeks Javascript: 110) -> Saya menyumbangkan uang atau dana untuk mendukung kegiatan perlindungan lingkungan di sekitar saya.
+[DH] AC_6_Orange (Indeks Javascript: 111) -> Ini adalah pertanyaan untuk memastikan Anda membaca dengan teliti. Mohon pilih jawaban "Orange".
+[DI] PEB_15 (Indeks Javascript: 112) -> Saya berpartisipasi dalam kampanye lingkungan (seperti tantangan tagar) di media sosial.
+
+--- Dimensi: LandStew ---
+[DJ] PEB_16 (Indeks Javascript: 113) -> Saya menjadi sukarelawan dalam kegiatan pemulihan (konservasi) lingkungan, seperti penanaman pohon, pembersihan sungai/pantai, atau perawatan ruang hijau.
+[DK] PEB_17 (Indeks Javascript: 114) -> Saya berpartisipasi menyumbangkan data atau memantau kondisi satwa liar di sekitar lingkungan saya.
+[DL] PEB_18 (Indeks Javascript: 115) -> Saya melaporkan informasi tentang ancaman terhadap keanekaragaman hayati, seperti perdagangan satwa liar ilegal, kepada lembaga konservasi atau pihak terkait.
+[DM] PEB_19 (Indeks Javascript: 116) -> Saya menata halaman rumah saya agar dapat menarik satwa liar yang tidak mengganggu (seperti burung liar atau serangga).
+
+========================================================================================
+G. KONTAK RESPONDEN
+========================================================================================
+[DN] Email_Ewallet (Indeks Javascript: 117) -> Email/e-wallet
+[DO] Email_Address (Indeks Javascript: 118) -> Email Address

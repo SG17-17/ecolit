@@ -30,19 +30,19 @@ db_info <- list(
 )
 
 dir.create("data", showWarnings = FALSE)
-saveRDS(db_info, "data/db_info.rds")
-cat("Info database berhasil disimpan ke data/db_info.rds\n")
+saveRDS(db_info, "data/ringkasan_data.rds")
+cat("Info database berhasil disimpan ke data/ringkasan_data.rds\n")
 
 # --- PEMBUATAN DATA BERSIH (DATA FINAL) ---
 df <- df_raw[df_raw[["Status Validitas"]] == "VALID", ]
 
 # Transformasi variabel demografi
 df$Gender   <- df[["Jenis Kelamin"]]
-df$Usia     <- df[["Usia Anda saat ini (dalam angka):"]]
-df$Semester <- as.character(df[["Semester yang anda jalani saat ini"]])
-df$Provinsi <- df[["Daerah tempat tinggal saat ini"]]
-df$Area     <- df[["Mana yang paling menggambarkan area tempat tinggal Anda saat ini?"]]
-df$Hunian   <- df[["Selama berkuliah, jenis tempat tinggal utama Anda adalah:"]]
+df$Usia     <- as.numeric(df[["Usia"]])
+df$Semester <- as.character(df[["Semester"]])
+df$Provinsi <- df[["Daerah Tinggal"]]
+df$Area     <- df[["Area Tinggal"]]
+df$Hunian   <- df[["Jenis Hunian"]]
 
-saveRDS(df, "data/cleaned_data.rds")
-cat("Data bersih berhasil disimpan ke data/cleaned_data.rds\n")
+saveRDS(df, "data/data_bersih.rds")
+cat("Data bersih berhasil disimpan ke data/data_bersih.rds\n")
